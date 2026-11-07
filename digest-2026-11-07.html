@@ -1,0 +1,623 @@
+<title>Reading Digest</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    /* cool blue-grey paper, slate ink, single signal-amber accent */
+    --bg: #E9ECF1;
+    --surface: #FBFCFE;
+    --ink: #191C23;
+    --ink-soft: #474E5B;
+    --ink-faint: #79818F;
+    --line: #D2D7E0;
+    --line-strong: #191C23;
+    --accent: #C98A00;
+    --accent-ink: #8A5A00;
+    --accent-wash: #FBF2DC;
+    --accent-wash-edge: #E9B84A;
+    --good: #2E7D57;
+    --shadow: 0 1px 2px rgba(24,28,35,.05), 0 12px 32px -18px rgba(24,28,35,.28);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --bg: #101319;
+      --surface: #191D25;
+      --ink: #E9EBF0;
+      --ink-soft: #A9B1BE;
+      --ink-faint: #6E7684;
+      --line: #2A2F39;
+      --line-strong: #E9EBF0;
+      --accent: #F0B429;
+      --accent-ink: #F5C556;
+      --accent-wash: rgba(240,180,41,.08);
+      --accent-wash-edge: rgba(240,180,41,.55);
+      --good: #58C08C;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 18px 44px -20px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101319;
+    --surface: #191D25;
+    --ink: #E9EBF0;
+    --ink-soft: #A9B1BE;
+    --ink-faint: #6E7684;
+    --line: #2A2F39;
+    --line-strong: #E9EBF0;
+    --accent: #F0B429;
+    --accent-ink: #F5C556;
+    --accent-wash: rgba(240,180,41,.08);
+    --accent-wash-edge: rgba(240,180,41,.55);
+    --good: #58C08C;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 18px 44px -20px rgba(0,0,0,.7);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Serif SC", "Libre Franklin", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 88px; }
+
+  /* ---------- nameplate ---------- */
+  .plate { padding-top: 34px; }
+  .plate-top {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .signal { display: inline-flex; align-items: center; gap: 7px; }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+    animation: pulse 3.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+    70%,100% { box-shadow: 0 0 0 7px transparent; }
+  }
+
+  .toggle {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-soft); background: transparent;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 5px 12px; cursor: pointer; transition: border-color .18s, color .18s;
+  }
+  .toggle:hover { color: var(--ink); border-color: var(--line-strong); }
+  .toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .masthead {
+    border-top: 3px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
+    margin-top: 12px; padding: 18px 0 16px;
+  }
+  h1.title {
+    font-family: "Newsreader", Georgia, serif; font-weight: 600;
+    font-size: clamp(2.9rem, 11vw, 4.4rem); line-height: .96;
+    letter-spacing: -.02em; margin: 0; text-wrap: balance;
+  }
+  .title em { font-style: italic; font-weight: 500; color: var(--accent-ink); }
+  .tagline {
+    font-family: "Noto Serif SC", "Newsreader", serif; font-size: 1.06rem;
+    color: var(--ink-soft); margin: 12px 0 0; letter-spacing: .01em;
+  }
+
+  .dateline {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--ink-faint); padding: 11px 0 0;
+  }
+  .dateline b { color: var(--ink-soft); font-weight: 600; }
+  .dateline .num { font-variant-numeric: tabular-nums; color: var(--accent-ink); font-weight: 600; }
+
+  /* ---------- today's signal (thesis lead) ---------- */
+  .lead {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 3px; box-shadow: var(--shadow);
+    padding: 24px 24px 22px; margin: 28px 0 8px;
+  }
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent-ink); display: flex; align-items: center; gap: 9px; margin: 0 0 12px;
+  }
+  .kicker::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--accent-wash-edge), transparent); }
+  .lead h2 {
+    font-family: "Noto Serif SC", "Newsreader", serif; font-weight: 500;
+    font-size: 1.42rem; line-height: 1.5; letter-spacing: 0; margin: 0; text-wrap: pretty;
+  }
+  .lead h2 .mark {
+    background: linear-gradient(180deg, transparent 62%, color-mix(in srgb, var(--accent) 42%, transparent) 62%);
+    padding: 0 1px;
+  }
+
+  /* ---------- section rule ---------- */
+  .sec-head { display: flex; align-items: center; gap: 12px; margin: 46px 0 6px; }
+  .sec-head .lbl {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ink); white-space: nowrap;
+  }
+  .sec-head .lbl .zh-lbl { font-family: "Noto Serif SC", serif; letter-spacing: .08em; margin-right: 6px; }
+  .sec-head .rule { flex: 1; height: 2px; background: var(--line-strong); }
+  .sec-head .count { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+  /* ---------- entry ---------- */
+  .entry { padding: 26px 0 4px; border-bottom: 1px solid var(--line); }
+  .entry:last-of-type { border-bottom: 0; }
+
+  .byline { margin-bottom: 12px; }
+  .tag {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 4px;
+  }
+  .tag .ch { color: var(--accent-ink); }
+  .name {
+    font-family: "Newsreader", Georgia, serif; font-weight: 600;
+    font-size: 1.34rem; line-height: 1.15; letter-spacing: -.01em; margin: 0; text-wrap: balance;
+  }
+  .name span { color: var(--ink-soft); font-weight: 400; font-style: italic; font-size: .96rem; }
+
+  /* zh body is PRIMARY */
+  .zh { margin: 0; }
+  .zh + .zh { margin-top: 12px; }
+
+  /* english-original channel — key quotes only */
+  .en-quote {
+    margin: 15px 0 4px; padding: 12px 16px;
+    background: var(--accent-wash); border-left: 2px solid var(--accent-wash-edge);
+    border-radius: 0 3px 3px 0;
+    font-family: "Newsreader", Georgia, serif; font-style: italic;
+    color: var(--ink-soft); font-size: 1.02rem; line-height: 1.6;
+  }
+  .en-quote p { margin: 0; }
+  .en-quote p + p { margin-top: 8px; }
+  .en-quote .q-lbl {
+    display: block; font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-style: normal; font-size: 9.5px; font-weight: 600; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--accent-ink); margin-bottom: 6px;
+  }
+
+  .receipts { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 2px; }
+  .receipts a {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: .02em; color: var(--accent-ink);
+    text-decoration: none; padding: 3px 9px;
+    border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+    transition: border-color .16s, background .16s, transform .16s;
+  }
+  .receipts a::before { content: "↗"; opacity: .7; }
+  .receipts a:hover { border-color: var(--accent-wash-edge); background: var(--accent-wash); transform: translateY(-1px); }
+  .receipts a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* podcast-specific */
+  .takeaway { display: flex; gap: 10px; margin: 4px 0 16px; font-size: 1.02rem; }
+  .takeaway .k {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--accent-ink); white-space: nowrap; padding-top: 6px;
+  }
+  .takeaway .v { margin: 0; font-weight: 600; }
+
+  blockquote {
+    margin: 18px 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--accent);
+    font-family: "Newsreader", Georgia, serif; font-style: italic;
+    font-size: 1.24rem; line-height: 1.42; color: var(--ink); text-wrap: pretty;
+  }
+  blockquote .src {
+    display: block; margin-top: 8px; font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-style: normal; font-size: 11px; letter-spacing: .04em; color: var(--ink-faint);
+  }
+
+  footer {
+    margin-top: 54px; padding-top: 20px; border-top: 3px solid var(--line-strong);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .05em; color: var(--ink-faint); line-height: 1.9;
+  }
+  footer a { color: var(--accent-ink); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .88em; background: var(--accent-wash); padding: 1px 5px; border-radius: 3px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(10px); animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+  }
+</style>
+<!-- FB_RAIL_CSS -->
+
+<style>
+  /* left sidebar rail (index only) */
+  .rail {
+    position: fixed;
+    top: 34px;
+    left: max(20px, calc((100vw - 720px) / 2 - 232px));
+    width: 200px;
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+    z-index: 10;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  .rail-inner {
+    border-left: 2px solid var(--line-strong);
+    padding: 6px 0 6px 14px;
+  }
+  .rail-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 8px; margin-bottom: 10px;
+  }
+  .rail-lbl {
+    font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .rail-lbl .rail-zh {
+    font-family: "Noto Serif SC", serif; letter-spacing: .08em; margin-right: 6px;
+  }
+  .rail-count {
+    font-size: 10.5px; color: var(--ink-faint); font-variant-numeric: tabular-nums;
+    letter-spacing: .06em;
+  }
+  .rail .a-list { list-style: none; padding: 0; margin: 0; }
+  .rail .a-list li { margin: 0; }
+  .rail .a-list a {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 8px 0; text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: color .16s, border-color .16s, padding-left .16s;
+  }
+  .rail .a-list a:hover {
+    color: var(--accent-ink); border-color: var(--accent-wash-edge);
+    padding-left: 4px;
+  }
+  .rail .a-list .a-date {
+    font-size: 11.5px; letter-spacing: .06em; color: var(--ink);
+    font-variant-numeric: tabular-nums; font-weight: 600;
+  }
+  .rail .a-list .a-zh {
+    font-family: "Noto Serif SC", serif; font-size: 12px; color: var(--ink-faint);
+    letter-spacing: 0;
+  }
+  .rail .a-list .a-current > a {
+    color: var(--accent-ink); border-color: var(--accent-wash-edge);
+    padding-left: 4px;
+  }
+  .rail .a-list .a-current .a-date { color: var(--accent-ink); }
+  .rail .a-list a:hover .a-date,
+  .rail .a-list a:hover .a-zh { color: var(--accent-ink); }
+
+  /* rail scrollbar: subtle */
+  .rail::-webkit-scrollbar { width: 6px; }
+  .rail::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .rail::-webkit-scrollbar-thumb:hover { background: var(--line-strong); }
+
+  /* narrow viewport: rail becomes a top strip that scrolls horizontally */
+  @media (max-width: 1179px) {
+    .rail {
+      position: sticky; top: 0; left: 0; width: 100%; max-height: none;
+      background: var(--bg);
+      padding: 10px 20px 8px;
+      border-bottom: 1px solid var(--line);
+      overflow-x: auto; overflow-y: hidden;
+    }
+    .rail-inner {
+      border-left: 0; padding: 0;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .rail-head {
+      margin: 0; flex-shrink: 0; flex-direction: column;
+      align-items: flex-start; gap: 1px;
+    }
+    .rail .a-list {
+      display: flex; gap: 4px; flex-wrap: nowrap;
+    }
+    .rail .a-list li { flex-shrink: 0; }
+    .rail .a-list a {
+      flex-direction: row; align-items: baseline; gap: 6px;
+      padding: 6px 10px; border-bottom: 0;
+      border: 1px solid var(--line); border-radius: 999px;
+      background: var(--surface); white-space: nowrap;
+    }
+    .rail .a-list a:hover { padding-left: 10px; }
+    .rail .a-list .a-current > a {
+      padding-left: 10px; background: var(--accent-wash);
+      border-color: var(--accent-wash-edge);
+    }
+    .rail .a-list .a-zh { font-size: 11px; }
+  }
+</style>
+
+<!-- FB_EXTRA --><style>
+  .masthead { margin-top: 8px; }
+  .dateline { font-size: 15px; letter-spacing: .02em; text-transform: none; gap: 8px 22px; }
+  .dateline b { font-size: 17px; color: var(--ink); }
+  .dateline .num { font-size: 17px; }
+  .lead .kicker { font-size: 13px; letter-spacing: .14em; }
+  .lead .lead-p { font-size: 17px; line-height: 1.75; margin: 0; color: var(--ink); text-wrap: pretty; }
+  .lead .lead-p .mark { background: linear-gradient(transparent 62%, var(--accent-wash) 62%); color: var(--accent-ink); font-weight: 600; }
+  .sec-head .lbl .zh-lbl { font-size: 1.7rem; font-weight: 700; letter-spacing: .04em; color: var(--ink); text-transform: none; margin: 0; }
+  .sec-sum { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 3px; padding: 14px 18px; margin: 14px 0 6px; font-size: 17px; }
+  .sec-sum p { margin: 0 0 6px; }
+  .sec-sum ol { margin: 4px 0 0; padding-left: 22px; }
+  .sec-sum .k { font-family: "Noto Serif SC", serif; font-size: 17px; font-weight: 700; color: var(--accent-ink); margin-right: 4px; }
+  .name .src { font-family: "IBM Plex Mono", "Noto Serif SC", monospace; font-style: normal; font-weight: 500; font-size: 12px; letter-spacing: .04em; color: var(--ink-faint); margin-left: 8px; white-space: nowrap; }
+  .time { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--ink-faint); margin: 4px 0 0; }
+  .receipts { justify-content: flex-end; }
+  .lst { list-style: none; padding: 0; margin: 6px 0 0; }
+  .lst li { padding: 9px 0; border-top: 1px dashed var(--line); }
+  .lst li:first-child { border-top: 0; }
+  .lst .t { color: var(--ink); text-decoration: none; font-weight: 500; }
+  .lst .t:hover { color: var(--accent-ink); }
+  .lst .m { display: block; font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--ink-faint); }
+  .grp { font-family: "Noto Serif SC", serif; font-size: 1.2rem; font-weight: 600; color: var(--accent-ink); letter-spacing: .04em; margin: 30px 0 0; padding-bottom: 4px; border-bottom: 1px solid var(--accent-wash-edge); }
+  .note { font-family: "IBM Plex Mono", "Noto Serif SC", monospace; font-size: 12px; color: var(--ink-faint); margin: 14px 0 0; line-height: 1.7; }
+  .sec-head, .grp, .entry { scroll-margin-top: 24px; }
+  .toc { position: fixed; top: 34px; right: max(20px, calc((100vw - 720px) / 2 - 252px)); width: 220px; max-height: calc(100vh - 68px); overflow-y: auto; z-index: 10; font-family: "Noto Serif SC", serif; }
+  .toc-inner { border-left: 2px solid var(--line-strong); padding: 6px 0 6px 14px; }
+  .toc-head { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: .2em; color: var(--ink); margin-bottom: 10px; }
+  .toc-head .rail-zh { font-family: "Noto Serif SC", serif; letter-spacing: .08em; margin-right: 6px; }
+  .toc ul { list-style: none; padding: 0; margin: 0; }
+  .toc a { text-decoration: none; color: var(--ink-faint); display: block; }
+  .toc a:hover, .toc a.on { color: var(--accent-ink); }
+  .toc .t-sec { margin: 0 0 10px; }
+  .toc .t-sec > a { font-size: 14px; font-weight: 600; color: var(--ink); padding: 4px 0; border-bottom: 1px solid var(--line); }
+  .toc .t-sec > a .n { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; color: var(--ink-faint); font-weight: 400; margin-left: 6px; }
+  .toc .t-grp > a { font-size: 12.5px; font-weight: 600; color: var(--accent-ink); padding: 6px 0 2px; }
+  .toc .t-it > a { font-size: 12px; line-height: 1.45; padding: 3px 0 3px 8px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .toc::-webkit-scrollbar { width: 6px; } .toc::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .toc-m { display: none; }
+  @media (max-width: 1179px) {
+    .toc { display: none; }
+    .toc-m { display: block; margin: 18px 0 0; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); padding: 10px 14px; font-family: "Noto Serif SC", serif; }
+    .toc-m summary { cursor: pointer; font-weight: 600; font-size: 15px; color: var(--ink); }
+    .toc-m ul { list-style: none; padding: 0; margin: 8px 0 0; }
+    .toc-m a { text-decoration: none; color: var(--ink-faint); display: block; padding: 3px 0; }
+    .toc-m .t-sec > a { color: var(--ink); font-weight: 600; } .toc-m .t-grp > a { color: var(--accent-ink); padding-left: 8px; }
+    .toc-m .t-it { display: none; }
+    .sec-head, .grp, .entry { scroll-margin-top: 72px; }
+  }
+</style><!-- /FB_EXTRA -->
+<!-- YOHAKU --><style>
+:root{--bg:#f4f1ea;--surface:#f4f1ea;--ink:#23211d;--ink-soft:#23211d;--ink-faint:#8a8478;--line:transparent;--line-strong:transparent;--accent:#23211d;--accent-ink:#23211d;--accent-wash:transparent;--accent-wash-edge:transparent;--shadow:none}
+@media (prefers-color-scheme:dark){:root{--bg:#f4f1ea;--surface:#f4f1ea;--ink:#23211d;--ink-faint:#8a8478}}
+html,body{background:#f4f1ea!important}
+body,body *{font-family:"Noto Serif SC","Noto Serif CJK SC","Songti SC",serif!important;border-color:transparent!important;box-shadow:none!important}
+body{color:#23211d!important;font-size:16px!important;line-height:1.85!important;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:640px!important}
+/* title: one quiet line */
+.masthead{border:0!important;padding:0!important;margin:56px 0 0!important}
+h1.title{font-family:"Noto Serif SC","Noto Serif CJK SC",serif!important;font-size:30px!important;font-weight:600!important;letter-spacing:.01em!important;line-height:1.2!important}
+h1.title br{display:none}
+h1.title em{font-style:normal!important;color:#23211d!important;font-weight:600!important;margin-left:.25em;font-family:inherit!important}
+.dateline{font-size:13px!important;text-transform:none!important;letter-spacing:.02em!important;color:#8a8478!important;gap:4px 18px!important;padding-top:14px!important}
+.dateline b,.dateline .num{color:#8a8478!important;font-weight:400!important;font-size:13px!important}
+/* summary */
+.lead{background:none!important;border:0!important;padding:0!important;margin:72px 0 0!important}
+.kicker{display:none!important}
+.lead .lead-p,.lead p,.lead h2{font-size:19px!important;line-height:1.95!important;color:#23211d!important;font-weight:400!important}
+.lead .mark{background:none!important;color:#b03a2e!important;font-weight:500!important}
+.lead *{color:#23211d!important;opacity:1!important}.lead .mark{color:#b03a2e!important}
+/* sections */
+.sec-head{margin:120px 0 0!important;display:block!important}
+.sec-head .rule,.sec-head .count{display:none!important}
+.sec-head .lbl .zh-lbl,.sec-head .lbl{font-family:"Noto Serif SC","Noto Serif CJK SC",serif!important;font-size:34px!important;font-weight:600!important;letter-spacing:.12em!important;color:#23211d!important}
+.sec-sum{background:none!important;border:0!important;padding:0!important;margin:24px 0 64px!important;font-size:17px!important;color:#23211d!important}
+.sec-sum .k{display:none!important}
+.sec-sum ol{padding-left:1.2em!important}
+/* entries */
+.entry{padding:0 0 56px!important;border:0!important}
+.name{font-size:17px!important;font-weight:600!important;line-height:1.6!important}
+.name .src{font-size:13px!important;font-weight:400!important;color:#8a8478!important;margin-left:10px!important;letter-spacing:0!important}
+.time{font-size:12px!important;color:#a8a194!important;margin:2px 0 12px!important;font-variant-numeric:tabular-nums}
+.entry p{color:#33302a!important}
+.receipts{gap:14px!important;margin-top:8px!important}
+.receipts a{background:none!important;border:0!important;padding:0!important;color:#23211d!important;font-size:12px!important;text-decoration:none!important}
+.receipts a::before{content:""!important}
+/* rails: lighter, Chinese only */
+.rail-lbl,.toc-head{font-size:0!important}
+.rail-lbl .rail-zh,.toc-head .rail-zh{font-size:12px!important;color:#23211d!important;letter-spacing:.1em!important;font-weight:500!important}
+.rail-count{display:none!important}
+.rail,.toc{font-size:12px!important}
+.a-zh{display:none!important}
+.a-date{color:#8a8478!important;font-size:12px!important;font-weight:400!important;letter-spacing:.02em!important}
+.a-current .a-date{color:#23211d!important}
+.toc-inner{border:0!important;padding:0!important}
+.toc .t-sec>a{font-size:13px!important;font-weight:500!important;border:0!important;color:#23211d!important}
+.toc .t-sec>a .n{display:none!important}
+.toc .t-it>a{color:#8a8478!important;padding-left:0!important}
+.toc a.on{color:#23211d!important}
+a.kw,.zh a.kw{color:inherit!important;text-decoration:none!important;border:0!important;background-image:linear-gradient(rgba(35,33,29,.35),rgba(35,33,29,.35))!important;background-size:100% 1px!important;background-repeat:no-repeat!important;background-position:0 95%!important}a.kw:hover{color:#23211d!important}
+.receipts a:not(:first-child){display:none!important}
+.receipts a:first-child{font-size:0!important}.receipts a:first-child::after{content:"原文";font-size:12px}
+.lead .mark,a.kw:hover{font-weight:600!important}.a-current .a-date{font-weight:600!important}
+.name{font-size:20px!important;font-weight:700!important;color:#1a1814!important;letter-spacing:.02em!important;line-height:1.5!important}
+.name .src{font-size:13px!important;font-weight:400!important}
+.entry p:not(.name):not(.time){font-size:15.5px!important;color:#4a463e!important;font-weight:400!important;line-height:2!important}
+.time{margin:4px 0 16px!important}
+.sec-sum,.sec-sum *{color:#33302a!important}
+.sec-head .lbl .zh-lbl,.sec-head .lbl{font-size:38px!important;font-weight:700!important;color:#1a1814!important}
+h1.title{font-weight:700!important;color:#1a1814!important}
+.mark,.lead .mark{color:#b03a2e!important;background:none!important}
+</style><!-- /YOHAKU -->
+<!-- READING_CSS --><style>
+/* ===== Reading Digest 专用样式 — Ada 的样式放这里 =====
+   render.py 会把本文件原样内联到每页 <head>（<!-- READING_CSS --> 块，位于 YOHAKU 块之后）。
+   通用版式（YOHAKU / FB_EXTRA / .site-switch）在 base_head.html，不在这里改。
+   设计（Ada）：原文是视觉主角（23px 深墨 500 字重、左缩进）；出处与小标题小号灰字；官方解读与讲解为 15.5px 正文；
+   链接 12px 灰放右下；序号 13px 灰；朱红 #b03a2e 只用于讲解里的 .mark；无线、框、阴影，条与条靠留白分开。
+   选择器统一加 .wrap .entry.r-entry 前缀，才压得过 YOHAKU 里 .entry p:not(.name):not(.time) 的 !important。
+   class：.r-entry 每条 | .r-no 序号(01 / 10) .r-of | .r-quote-block 原文块 .r-quote | .r-source 出处
+          .r-label 小标题 | .r-official 官方解读文字 .r-links 链接(右下) .r-none 「未查询到」 | .r-explain 讲解 | .r-sample 示例提示 | .disclaimer 免责声明 */
+/* 免责声明：一行小号墨灰衬线，无框无色 */
+p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!important;letter-spacing:.04em!important;font-weight:400!important;color:#6f695e!important;background:none!important;border:0!important;padding:0!important}
+/* 每条：靠留白分隔 */
+.wrap .entry.r-entry{padding:0 0 104px!important;scroll-margin-top:24px}
+.wrap article.entry.r-entry:last-of-type{padding-bottom:40px!important}
+/* 序号：小号，数字深墨、「/ 10」灰，不用朱红 */
+.wrap .entry.r-entry p.r-no{font-size:13px!important;font-weight:400!important;font-style:normal!important;color:#23211d!important;letter-spacing:.08em!important;line-height:1!important;margin:0 0 22px!important;font-variant-numeric:tabular-nums}
+.wrap .entry.r-entry p.r-no .r-of{font-size:13px!important;font-weight:400!important;color:#8a8478!important}
+/* 原文：最大、深墨、缩进成块 */
+.wrap .entry.r-entry .r-quote-block{margin:0 0 0 28px!important;padding:0!important}
+.wrap .entry.r-entry .r-quote-block p.r-quote{font-size:23px!important;line-height:1.95!important;font-weight:500!important;font-style:normal!important;color:#1a1814!important;letter-spacing:.03em!important;margin:0 0 .7em!important}
+.wrap .entry.r-entry .r-quote-block p.r-quote:last-child{margin-bottom:0!important}
+/* 出处：小号灰，前面补一个灰色「出处」 */
+.wrap .entry.r-entry p.r-source{font-size:13px!important;line-height:1.8!important;color:#6f695e!important;letter-spacing:.03em!important;margin:22px 0 0 28px!important}
+.wrap .entry.r-entry p.r-source::before{content:"出处";margin-right:1em;color:#8a8478}
+/* 小标题：官方解读 / 讲解 */
+.wrap .entry.r-entry p.r-label{font-size:13px!important;line-height:1.6!important;color:#8a8478!important;letter-spacing:.14em!important;font-weight:400!important;margin:44px 0 6px!important}
+/* 官方解读文字 / 讲解：正文 */
+.wrap .entry.r-entry p.r-official,.wrap .entry.r-entry p.r-explain{font-size:15.5px!important;line-height:2!important;color:#4a463e!important;font-weight:400!important;margin:0 0 .6em!important}
+.wrap .entry.r-entry p.r-official.r-none{font-size:13px!important;line-height:1.8!important;color:#6f695e!important;margin:0!important}
+.wrap .entry.r-entry p.r-explain.r-none{font-size:13px!important;color:#6f695e!important}
+/* 链接：小号灰放右下，无下划线，后缀箭头 */
+.wrap .entry.r-entry p.r-links{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin:8px 0 0!important;font-size:12px!important;line-height:1.7!important}
+.wrap .entry.r-entry p.r-links a{color:#6f695e!important;text-decoration:none!important;font-size:12px!important;letter-spacing:.02em;background:none!important;word-break:break-all}
+.wrap .entry.r-entry p.r-links a:hover{color:#23211d!important}
+.wrap .entry.r-entry p.r-links a::after{content:" →"}
+/* 朱红：只在讲解的关键词句 */
+.wrap .entry.r-entry .mark{color:#b03a2e!important;background:none!important;font-weight:600!important}
+.wrap p.r-sample{font-size:13px;line-height:1.8;color:#6f695e;margin:28px 0 0}
+/* 目录：手机折叠里列出全部条目；条数小字隐藏 */
+.toc-m .t-sec>a .n{display:none!important}
+.toc-m .t-it{display:block!important}
+.toc-m .t-it>a{padding-left:8px!important}
+@media (max-width:640px){
+  .wrap .entry.r-entry{padding-bottom:80px!important}
+  .wrap .entry.r-entry .r-quote-block{margin-left:14px!important}
+  .wrap .entry.r-entry .r-quote-block p.r-quote{font-size:20px!important;line-height:1.9!important}
+  .wrap .entry.r-entry p.r-source{margin-left:14px!important}
+  .wrap .entry.r-entry p.r-label{margin-top:36px!important}
+}
+</style><!-- /READING_CSS -->
+<!-- /FB_RAIL_CSS -->
+
+
+
+
+<aside class="rail" aria-label="往期归档">
+  <div class="rail-inner">
+    <div class="rail-head">
+      <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
+      <span class="rail-count">5 期</span>
+    </div>
+    <ul class="a-list">
+      <li class="a-current"><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+    </ul>
+  </div>
+</aside>
+<script src="archive.js"></script>
+<nav class="toc" aria-label="本期目录"><div class="toc-inner"><div class="toc-head"><span class="rail-zh">本期目录</span>Contents</div><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 我们现在不但正在进行关于社会制度…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 新的社会制度还刚刚建立，还需要有…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 在我国，巩固社会主义制度的斗争，…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 对于我们的国家抱着敌对情绪的知识…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 严重的问题是教育农民。农民的经济…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 我们必须相信：（1）广大农民是愿…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 合作社的领导机关必须建立现有贫农…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 中农是必须团结的，不团结中农是错…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 富裕农民中的资本主义倾向是严重的…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 农业合作化运动，从一开始，就是一…</a></li></ul></li></ul></div></nav>
+<div class="wrap">
+  <p class="disclaimer">以下内容均为 Grok AI 生成，不代表个人政治立场。</p>
+  <header class="plate">
+    <style>.site-switch{display:flex;gap:28px;justify-content:flex-end;margin:0 0 28px}.site-switch a{font:500 13px/1 -apple-system,Helvetica,Arial,sans-serif!important;letter-spacing:.06em!important;text-decoration:none!important;padding:6px 0!important;color:#9a9a9a!important;border-bottom:1.5px solid transparent!important}.site-switch a.on{color:#111!important;border-bottom-color:#111!important}.site-switch a:hover{color:#111!important}</style><nav class="site-switch"><a href="../ai-builders-digest/">AI Digest</a><a href="../social-digest/">Social Digest</a><a href="https://summerxia.com/reading-digest/" class="on">Reading Digest</a><a href="../pm-digest/">PM Digest</a></nav>
+    <div class="masthead">
+      <h1 class="title">Reading<br><em>Digest</em></h1>
+    </div>
+    <div class="dateline">
+      <span><b>周六 · 2026年11月7日</b></span>
+      <span><span class="num">10</span> 条</span>
+    </div>
+  </header>
+
+<details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 我们现在不但正在进行关于社会制度…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 新的社会制度还刚刚建立，还需要有…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 在我国，巩固社会主义制度的斗争，…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 对于我们的国家抱着敌对情绪的知识…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 严重的问题是教育农民。农民的经济…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 我们必须相信：（1）广大农民是愿…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 合作社的领导机关必须建立现有贫农…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 中农是必须团结的，不团结中农是错…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 富裕农民中的资本主义倾向是严重的…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 农业合作化运动，从一开始，就是一…</a></li></ul></li></ul></details>
+<div style="height:72px"></div>
+<article class="entry r-entry" id="e-1">
+  <p class="r-no">01<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">我们现在不但正在进行关于社会制度方面的由私有制到公有制的革命，而且正在进行技术方面的由手工业生产到大规模现代化机器生产的革命，而这两种革命是结合在一起的。在农业方面，在我国的条件下（资本主义国家内是使农业资本主义化），则必须先有合作化，然后才能使用大机器。由此可见，我们对于工业和农业、社会主义的工业化和社会主义的农业改造这样两件事，决不可以分割起来和互相孤立起来去看，决不可以只强调一方面，减弱另一方面。</p></div>
+  <p class="r-source">《关于农业合作化问题》（1955年7月31日），《毛主席语录》第三章</p>
+  <p class="r-label">官方解读</p><p class="r-official">人民网党史频道戚义明《略论毛泽东的农业现代化思想及实践》指出，新中国成立初期工业基础薄弱、农业机械化水平低，而工业化又要求农业相应发展，因此毛泽东提出先搞合作化、再搞机械化，并强调社会主义工业化不能离开农业合作化孤立进行。文章同时指出，合作化过程中，特别是1955年下半年以后，出现了过急过快的毛病。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n/2014/0504/c384616-24971647-2.html">略论毛泽东的农业现代化思想及实践（人民网党史频道）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这篇报告作于1955年农业合作化发展速度争论之中。这里把变革分成两层：一层改变生产资料的所有制和经营组织，另一层改变生产技术和劳动方式。在当时工业基础薄弱的条件下，毛泽东主张先通过合作化扩大经营规模，再为机器的使用创造条件。</p><p class="r-explain">关键在于<span class="mark">制度变革与技术进步的联系</span>，而不是把两者看成可以互相替代。工业提供机器、肥料和能源，农业提供粮食、原料与市场，二者必须相互支撑。“先有合作化”是当时具体道路的判断，不能脱离时代条件理解成适用于一切农业发展的固定次序。</p>
+</article>
+<article class="entry r-entry" id="e-2">
+  <p class="r-no">02<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">新的社会制度还刚刚建立，还需要有一个巩固的时间。不能认为新制度一旦建立起来就完全巩固了，那是不可能的。需要逐步地巩固。要使它最后巩固起来，必须实现国家的社会主义工业化，坚持经济战线上的社会主义革命，还必须在政治战线和思想战线上，进行经常的、艰苦的社会主义革命斗争和社会主义教育。除了这些以外，还要有各种国际条件的配合。</p></div>
+  <p class="r-source">《在中国共产党全国宣传工作会议上的讲话》（1957年3月12日），《毛主席语录》第三章</p>
+  <p class="r-label">官方解读</p><p class="r-official">《人民日报海外版》“望海楼”文章在讨论国家制度建设时，援引毛泽东1957年关于社会主义制度刚刚建立、尚未完全巩固的判断，说明制度优势需要通过具体制度体制来实现，制度的成熟稳定需要长期艰苦的探索。</p><p class="r-links"><a href="http://opinion.people.com.cn/n1/2019/1029/c1003-31425052.html">为国家长治久安 为民族万世太平（人民日报海外版）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">讲话发表于1956年社会主义改造基本完成之后。毛泽东把“建立”与“巩固”分开，认为所有制发生变化，并不意味着物质基础、政治生活和思想观念都已经相应成熟，国际环境也会影响新制度的稳定。</p><p class="r-explain">这一条的中心是<span class="mark">建立不等于巩固</span>。阅读时既要看到它强调长期建设的一面，也要注意其中“社会主义革命斗争”的时代用语；不能把制度完善中的一切问题，都简单归入阶级斗争。</p>
+</article>
+<article class="entry r-entry" id="e-3">
+  <p class="r-no">03<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">在我国，巩固社会主义制度的斗争，社会主义和资本主义谁战胜谁的斗争，还要经过一个很长的历史时期。但是，我们大家都应该看到，这个社会主义的新制度是一定会巩固起来的。我们一定会建设一个具有现代工业、现代农业和现代科学文化的社会主义国家。</p></div>
+  <p class="r-source">《在中国共产党全国宣传工作会议上的讲话》（1957年3月12日），《毛主席语录》第三章</p>
+  <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院网站所载《中国共产党历史》相关章节指出，毛泽东1957年在《关于正确处理人民内部矛盾的问题》和全国宣传工作会议讲话中，两次提及建设具有现代工业、现代农业和现代科学文化的社会主义国家。这把“现代科学文化”纳入了中国现代化的整体构想，后来逐步形成完整的“四个现代化”目标。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n/2012/1218/c244520-19931043.html">实现“四个现代化”历史任务的提出（中央党史和文献研究院）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这一条紧接上一条，把长期过程与建设目标放在一起：巩固新制度需要较长时间，但讲话并没有只停留在斗争的描述上，而是落到了工业、农业和科学文化的现代化。</p><p class="r-explain">这里的<span class="mark">现代化建设目标</span>值得特别注意。它说明，制度的巩固在这一论述中不仅是政治判断，也要有生产能力、农业发展和科学文化进步作为支撑。“一定会建设”表达的是历史信心，并不意味着建设过程可以省去具体条件和艰苦探索。</p>
+</article>
+<article class="entry r-entry" id="e-4">
+  <p class="r-no">04<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">对于我们的国家抱着敌对情绪的知识分子，是极少数。这种人不喜欢我们这个无产阶级专政的国家，他们留恋旧社会。一遇机会，他们就会兴风作浪，想要推翻共产党，恢复旧中国。这是在无产阶级和资产阶级两条路线、社会主义和资本主义两条路线中间，顽固地要走后一条路线的人。这后一条路线，在实际上是不能实现的，所以他们实际上是准备投降帝国主义、封建主义和官僚资本主义的人。这种人在政治界、工商界、文化教育界、科学技术界、宗教界里都有，这是一些极端反动的人。</p></div>
+  <p class="r-source">《在中国共产党全国宣传工作会议上的讲话》（1957年3月12日），《毛主席语录》第三章</p>
+  <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院网站所载《中国共产党历史》相关章节，在介绍1957年全国宣传工作会议讲话时指出，这篇讲话是《关于正确处理人民内部矛盾的问题》精神在宣传和思想方面的进一步展开；毛泽东主张用说服而不是压服解决思想问题，采取“放”的方针，让人们敢于讲话、批评和争论。该文解读的是讲话的整体方针，并非对本条每句话的逐句注释。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n/2012/1120/c244520-19634773.html">《关于正确处理人民内部矛盾的问题》的发表（中央党史和文献研究院）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话属于1957年讲话对知识分子政治态度的分类，谈的是被认定为对国家抱敌意的极少数人，不是对知识分子整体的评价。讲话的相邻段落明确指出，绝大多数知识分子是爱国的，并强调没有知识分子，许多事情就不能做好，应当团结他们。</p><p class="r-explain">因此，这一条必须连同全文关于<span class="mark">区分不同性质的思想和政治问题</span>的论述一起读。怀疑、学术分歧和一般批评，不能仅凭这一段就被等同为敌对行为；把极少数的判断扩大到整个群体，会丢掉讲话本来的分类前提。</p>
+</article>
+<article class="entry r-entry" id="e-5">
+  <p class="r-no">05<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">严重的问题是教育农民。农民的经济是分散的，根据苏联的经验，需要很长的时间和细心的工作，才能做到农业社会化。没有农业社会化，就没有全部的巩固的社会主义。</p></div>
+  <p class="r-source">《论人民民主专政》（1949年6月30日），《毛主席语录》第三章</p>
+  <p class="r-label">官方解读</p><p class="r-official">广东省政府公报收录的1953年11月9日《人民日报》社论直接引述“严重的问题是教育农民”等句，强调向农民说明工业化与农业社会主义改造的关系，依照自愿原则逐步组织互助合作；同时批评宣传中的形式主义、强迫命令以及脱离农民切身利益和实际经验的空泛说教。这是当时对该段论述的宣传阐释。</p><p class="r-links"><a href="https://www.gd.gov.cn/zwgk/gongbao/1953/26/content/post_3353287.html">必须大张旗鼓地向农民宣传过渡时期的总路线（广东省人民政府公报）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">《论人民民主专政》写于新中国成立前夕，在论述国家政权的同时，也思考由农业国向工业国过渡的条件。这段话面对的是分散的农民经济：经济组织方式的转变，不可能只凭一个政令就完成，还涉及长期形成的生产习惯和生活经验。</p><p class="r-explain">句中的<span class="mark">很长的时间和细心的工作</span>不能略去。它表明农业社会化被理解为长期过程，而不是立即完成的任务。原文随后还谈到农业社会化与工业发展的配合，说明教育、组织与物质条件之间存在联系。</p>
+</article>
+<article class="entry r-entry" id="e-6">
+  <p class="r-no">06<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">我们必须相信：（1）广大农民是愿意在党的领导下逐步地走上社会主义道路的；（2）党是能够领导农民走上社会主义道路的。这两点是事物的本质和主流。</p></div>
+  <p class="r-source">《关于农业合作化问题》（1955年7月31日），《毛主席语录》第三章</p>
+  <p class="r-label">官方解读</p><p class="r-official">中国科学院自然科学史研究所农业史研究网站刊载武力《略论合作化期间党对“三农”问题的几点认识》，分析毛泽东《关于农业合作化问题》关于农民积极性的判断：土地不足、生产资料缺乏、生活困难和抵御灾害的需要，使贫农和非富裕农民产生互助合作的愿望。文章同时指出，合作化应以农民自愿互利和生产需要为原则，不能急于求成。</p><p class="r-links"><a href="http://agri-history.ihns.ac.cn/scholars/wuli/wuli3.htm">略论合作化期间党对“三农”问题的几点认识（中国科学院自然科学史研究所农业史研究网站）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">1955年的报告针对合作社能否发展、能否巩固的疑虑，提出这两点判断。它一方面把农民摆脱贫困、通过互助合作改善生产的愿望作为依据，另一方面把党在长期革命中形成的组织经验视为推进改造的条件。</p><p class="r-explain">这里的<span class="mark">本质和主流</span>，不是说运动中没有问题，而是在辨别总体方向与局部困难。报告同时要求整顿已有合作社、注重质量、坚持自愿互利。若只取相信的一面，而忽略这些条件，就会把有根据的信心变成不顾实际的急进。</p>
+</article>
+<article class="entry r-entry" id="e-7">
+  <p class="r-no">07<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">合作社的领导机关必须建立现有贫农和新下中农在领导机关中的优势，而以老下中农和新老两部分上中农作为辅助力量，才能按照党的政策实现贫农和中农的团结，巩固合作社，发展生产，正确地完成整个农村的社会主义改造。没有这个条件，中农和贫农就不能团结，合作社就不能巩固，生产就不能发展，整个农村的社会主义改造就不能实现。</p></div>
+  <p class="r-source">《长沙县高山乡武塘农业生产合作社是怎样从中农占优势转变为贫农占优势的》一文的按语（1955年），《毛主席语录》第三章</p>
+  <p class="r-label">官方解读</p><p class="r-official">人民网党史频道相关史料记述，1955年6月毛泽东在长沙听取湖南农业合作化情况汇报时，周小舟等以武塘农业合作社经过整顿、树立贫农优势为例，说明当地合作化的进展。毛泽东要求迅速整理材料寄给他研究。该文提供了这篇按语所据案例进入毛泽东视野的历史背景。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n/2013/1230/c85037-23974885-8.html">第三章 提出过渡时期总路线后十四次离京（人民网党史频道）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这篇按语讨论的是合作社内部由哪些农民担任骨干的问题。“新下中农”主要指土地改革后由贫农上升而来的、经济尚不富裕的中农；“老下中农”则指原来即属中农而经济水平较低的一部分人。这些称谓要放在当时农村阶层变化中理解。</p><p class="r-explain">毛泽东把<span class="mark">骨干构成、贫中农关系与生产发展</span>联系起来，希望由积极支持合作化的贫农和新下中农掌握主要地位，同时吸收其他中农参与。全文又强调互利、不损害任何人的利益，并反对为了取得耕牛农具而强迫入社，不能把这一条简化成只看出身、不看政策和实际能力。</p>
+</article>
+<article class="entry r-entry" id="e-8">
+  <p class="r-no">08<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">中农是必须团结的，不团结中农是错误的。但是工人阶级和共产党，在农村中，依靠什么人去团结中农，实现整个农村的社会主义改造呢？当然只有贫农。在过去向地主作斗争、实行土地改革的时候是这样，在现在向富农和其他资本主义因素作斗争实行农业的社会主义改造的时候，也是这样。在两个革命时期，中农在开始阶段都是动摇的。等到看清了大势，革命将要胜利的时候，中农才会参加到革命方面来。贫农必须向中农做工作，把中农团结到自己方面来，使革命一天一天地扩大，直到取得最后的胜利。</p></div>
+  <p class="r-source">《福安县发生“中农社”和“贫农社”的教训》一文的按语（1955年），《毛主席语录》第三章</p>
+  <p class="r-label">官方解读</p><p class="r-official">中国科学院自然科学史研究所农业史研究网站刊载的《中国农村的社会主义高潮》按语选，其注释说明：原文《“中农社”和“贫农社”的教训》由福建省福安县楼下乡工作组撰写，发表于1955年8月16日《福建日报》，介绍以贫农和以中农为骨干的两个合作社的发展变化；编入书中时，毛泽东改为现题。这一编注交代了按语的具体案例背景。</p><p class="r-links"><a href="http://agri-history.ihns.ac.cn/history/selecdoc/mao2.htm">《中国农村的社会主义高潮》按语选及注释（中国科学院自然科学史研究所农业史研究网站）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这篇按语以福建福安两个合作社的经验为依据，集中讨论“依靠谁”与“团结谁”的关系。开头已经明确：中农必须团结。后面的阶层分析，是当时解释不同农民对合作化态度差异的框架，而不是取消团结中农这一前提。</p><p class="r-explain">把握这条，需要同时看到<span class="mark">依靠力量与团结范围</span>。它设想通过贫农的积极参与带动中农，并不是把所有中农排除在外。对于其中关于中农态度的概括，也应作为特定运动中的历史判断来理解，不能拿来替代对具体个人和具体地区的调查。</p>
+</article>
+<article class="entry r-entry" id="e-9">
+  <p class="r-no">09<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">富裕农民中的资本主义倾向是严重的。只要我们在合作化运动中，乃至以后一个很长的时期内，稍微放松了对于农民的政治工作，资本主义倾向就会泛滥起来。</p></div>
+  <p class="r-source">《必须对资本主义倾向作坚决的斗争》一文按语（1955年），《毛主席语录》第三章</p>
+  <p class="r-label">官方解读</p><p class="r-official">中国科学院自然科学史研究所农业史研究网站刊载的武力文章直接引述本条，并把它放在合作化时期党对农村“两种倾向”的认识变化中分析：当时越来越多地把个体经济积极性解释为资本主义自发倾向，把互助合作积极性视为社会主义方向。文章也指出，不能过分夸大农村分化，合作化应尊重自愿互利和生产需要。</p><p class="r-links"><a href="http://agri-history.ihns.ac.cn/scholars/wuli/wuli3.htm">略论合作化期间党对“三农”问题的几点认识（中国科学院自然科学史研究所农业史研究网站）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这段按语反映了1955年合作化高潮中对农村发展方向的担忧：土地改革结束后，农户经济条件和利益诉求仍有差异，毛泽东认为这些差异会使一部分较富裕农民倾向个体经营和资本积累，因此强调持续开展政治教育。</p><p class="r-explain">阅读时要辨明<span class="mark">当时的政策语境</span>。“资本主义倾向”在这里属于合作化时期的政治经济分类，不能不加区分地套用于今天一切增收、经营和改善生活的活动。理解历史概念，既要说明它当时所指，也要避免把它无限扩大。</p>
+</article>
+<article class="entry r-entry" id="e-10">
+  <p class="r-no">10<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">农业合作化运动，从一开始，就是一种严重的思想的和政治的斗争。每一个合作社，不经过这样的一场斗争，就不能创立。一个崭新的社会制度要从旧制度的基地上建立起来，它就必须清除这个基地。反映旧制度的旧思想的残余，总是长期地留在人们的头脑里，不愿意轻易地退走的。合作社建立以后，还必须经过许多的斗争，才能使自己巩固起来。巩固了以后，只要一松劲，又可能垮台。</p></div>
+  <p class="r-source">《严重的教训》一文的按语（1955年），《毛主席语录》第三章</p>
+  <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院孙迪的文章，在梳理思想政治工作的历史逻辑时，明确指出毛泽东1955年12月在《严重的教训》按语中提出“政治工作是一切经济工作的生命线”，并将其置于新中国成立后通过思想政治工作凝聚共同建设新中国意志的历史进程中。文章讨论的是该按语的思想政治工作主题。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2026/0511/c427152-40717576.html">深刻把握新时代思想政治工作的历史逻辑、政治逻辑与实践逻辑（中央党史和文献研究院）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">《严重的教训》所据材料讲述山西解虞县三娄寺合作社的曲折。按语认为，合作社不只是土地和农具的合并，还要求成员逐步形成共同劳动、处理集体利益与个人利益关系的认识；因此，建立以后仍有巩固的问题。</p><p class="r-explain">这一条强调<span class="mark">组织建立之后仍需持续巩固</span>。全文还特别限定，思想政治工作必须根据农民的生活经验，具体细致地做，不能采取粗暴态度和简单方法，并且要同经济工作结合。把这些限定放回去，才能避免把“斗争”读成脱离生产与利益关系的空泛口号。</p>
+</article>
+
+  <footer>
+    <div>READING DIGEST · 2026-11-07</div>
+    <div>本栏目只展示原文、出处、官方解读与讲解</div>
+  </footer>
+</div>
+<script>(function(){var ls=[].slice.call(document.querySelectorAll('.toc a[href^="#"]'));var ts=ls.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
+if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
+addEventListener('scroll',f,{passive:true});f();})();</script>
+</body>
+</html>
