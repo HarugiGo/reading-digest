@@ -1,0 +1,627 @@
+<title>Reading Digest</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    /* cool blue-grey paper, slate ink, single signal-amber accent */
+    --bg: #E9ECF1;
+    --surface: #FBFCFE;
+    --ink: #191C23;
+    --ink-soft: #474E5B;
+    --ink-faint: #79818F;
+    --line: #D2D7E0;
+    --line-strong: #191C23;
+    --accent: #C98A00;
+    --accent-ink: #8A5A00;
+    --accent-wash: #FBF2DC;
+    --accent-wash-edge: #E9B84A;
+    --good: #2E7D57;
+    --shadow: 0 1px 2px rgba(24,28,35,.05), 0 12px 32px -18px rgba(24,28,35,.28);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --bg: #101319;
+      --surface: #191D25;
+      --ink: #E9EBF0;
+      --ink-soft: #A9B1BE;
+      --ink-faint: #6E7684;
+      --line: #2A2F39;
+      --line-strong: #E9EBF0;
+      --accent: #F0B429;
+      --accent-ink: #F5C556;
+      --accent-wash: rgba(240,180,41,.08);
+      --accent-wash-edge: rgba(240,180,41,.55);
+      --good: #58C08C;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 18px 44px -20px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101319;
+    --surface: #191D25;
+    --ink: #E9EBF0;
+    --ink-soft: #A9B1BE;
+    --ink-faint: #6E7684;
+    --line: #2A2F39;
+    --line-strong: #E9EBF0;
+    --accent: #F0B429;
+    --accent-ink: #F5C556;
+    --accent-wash: rgba(240,180,41,.08);
+    --accent-wash-edge: rgba(240,180,41,.55);
+    --good: #58C08C;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 18px 44px -20px rgba(0,0,0,.7);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Serif SC", "Libre Franklin", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 88px; }
+
+  /* ---------- nameplate ---------- */
+  .plate { padding-top: 34px; }
+  .plate-top {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .signal { display: inline-flex; align-items: center; gap: 7px; }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+    animation: pulse 3.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+    70%,100% { box-shadow: 0 0 0 7px transparent; }
+  }
+
+  .toggle {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-soft); background: transparent;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 5px 12px; cursor: pointer; transition: border-color .18s, color .18s;
+  }
+  .toggle:hover { color: var(--ink); border-color: var(--line-strong); }
+  .toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .masthead {
+    border-top: 3px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
+    margin-top: 12px; padding: 18px 0 16px;
+  }
+  h1.title {
+    font-family: "Newsreader", Georgia, serif; font-weight: 600;
+    font-size: clamp(2.9rem, 11vw, 4.4rem); line-height: .96;
+    letter-spacing: -.02em; margin: 0; text-wrap: balance;
+  }
+  .title em { font-style: italic; font-weight: 500; color: var(--accent-ink); }
+  .tagline {
+    font-family: "Noto Serif SC", "Newsreader", serif; font-size: 1.06rem;
+    color: var(--ink-soft); margin: 12px 0 0; letter-spacing: .01em;
+  }
+
+  .dateline {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--ink-faint); padding: 11px 0 0;
+  }
+  .dateline b { color: var(--ink-soft); font-weight: 600; }
+  .dateline .num { font-variant-numeric: tabular-nums; color: var(--accent-ink); font-weight: 600; }
+
+  /* ---------- today's signal (thesis lead) ---------- */
+  .lead {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 3px; box-shadow: var(--shadow);
+    padding: 24px 24px 22px; margin: 28px 0 8px;
+  }
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent-ink); display: flex; align-items: center; gap: 9px; margin: 0 0 12px;
+  }
+  .kicker::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--accent-wash-edge), transparent); }
+  .lead h2 {
+    font-family: "Noto Serif SC", "Newsreader", serif; font-weight: 500;
+    font-size: 1.42rem; line-height: 1.5; letter-spacing: 0; margin: 0; text-wrap: pretty;
+  }
+  .lead h2 .mark {
+    background: linear-gradient(180deg, transparent 62%, color-mix(in srgb, var(--accent) 42%, transparent) 62%);
+    padding: 0 1px;
+  }
+
+  /* ---------- section rule ---------- */
+  .sec-head { display: flex; align-items: center; gap: 12px; margin: 46px 0 6px; }
+  .sec-head .lbl {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ink); white-space: nowrap;
+  }
+  .sec-head .lbl .zh-lbl { font-family: "Noto Serif SC", serif; letter-spacing: .08em; margin-right: 6px; }
+  .sec-head .rule { flex: 1; height: 2px; background: var(--line-strong); }
+  .sec-head .count { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+  /* ---------- entry ---------- */
+  .entry { padding: 26px 0 4px; border-bottom: 1px solid var(--line); }
+  .entry:last-of-type { border-bottom: 0; }
+
+  .byline { margin-bottom: 12px; }
+  .tag {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 4px;
+  }
+  .tag .ch { color: var(--accent-ink); }
+  .name {
+    font-family: "Newsreader", Georgia, serif; font-weight: 600;
+    font-size: 1.34rem; line-height: 1.15; letter-spacing: -.01em; margin: 0; text-wrap: balance;
+  }
+  .name span { color: var(--ink-soft); font-weight: 400; font-style: italic; font-size: .96rem; }
+
+  /* zh body is PRIMARY */
+  .zh { margin: 0; }
+  .zh + .zh { margin-top: 12px; }
+
+  /* english-original channel — key quotes only */
+  .en-quote {
+    margin: 15px 0 4px; padding: 12px 16px;
+    background: var(--accent-wash); border-left: 2px solid var(--accent-wash-edge);
+    border-radius: 0 3px 3px 0;
+    font-family: "Newsreader", Georgia, serif; font-style: italic;
+    color: var(--ink-soft); font-size: 1.02rem; line-height: 1.6;
+  }
+  .en-quote p { margin: 0; }
+  .en-quote p + p { margin-top: 8px; }
+  .en-quote .q-lbl {
+    display: block; font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-style: normal; font-size: 9.5px; font-weight: 600; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--accent-ink); margin-bottom: 6px;
+  }
+
+  .receipts { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 2px; }
+  .receipts a {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: .02em; color: var(--accent-ink);
+    text-decoration: none; padding: 3px 9px;
+    border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+    transition: border-color .16s, background .16s, transform .16s;
+  }
+  .receipts a::before { content: "↗"; opacity: .7; }
+  .receipts a:hover { border-color: var(--accent-wash-edge); background: var(--accent-wash); transform: translateY(-1px); }
+  .receipts a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* podcast-specific */
+  .takeaway { display: flex; gap: 10px; margin: 4px 0 16px; font-size: 1.02rem; }
+  .takeaway .k {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--accent-ink); white-space: nowrap; padding-top: 6px;
+  }
+  .takeaway .v { margin: 0; font-weight: 600; }
+
+  blockquote {
+    margin: 18px 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--accent);
+    font-family: "Newsreader", Georgia, serif; font-style: italic;
+    font-size: 1.24rem; line-height: 1.42; color: var(--ink); text-wrap: pretty;
+  }
+  blockquote .src {
+    display: block; margin-top: 8px; font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-style: normal; font-size: 11px; letter-spacing: .04em; color: var(--ink-faint);
+  }
+
+  footer {
+    margin-top: 54px; padding-top: 20px; border-top: 3px solid var(--line-strong);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .05em; color: var(--ink-faint); line-height: 1.9;
+  }
+  footer a { color: var(--accent-ink); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .88em; background: var(--accent-wash); padding: 1px 5px; border-radius: 3px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(10px); animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+  }
+</style>
+<!-- FB_RAIL_CSS -->
+
+<style>
+  /* left sidebar rail (index only) */
+  .rail {
+    position: fixed;
+    top: 34px;
+    left: max(20px, calc((100vw - 720px) / 2 - 232px));
+    width: 200px;
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+    z-index: 10;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  .rail-inner {
+    border-left: 2px solid var(--line-strong);
+    padding: 6px 0 6px 14px;
+  }
+  .rail-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 8px; margin-bottom: 10px;
+  }
+  .rail-lbl {
+    font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .rail-lbl .rail-zh {
+    font-family: "Noto Serif SC", serif; letter-spacing: .08em; margin-right: 6px;
+  }
+  .rail-count {
+    font-size: 10.5px; color: var(--ink-faint); font-variant-numeric: tabular-nums;
+    letter-spacing: .06em;
+  }
+  .rail .a-list { list-style: none; padding: 0; margin: 0; }
+  .rail .a-list li { margin: 0; }
+  .rail .a-list a {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 8px 0; text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: color .16s, border-color .16s, padding-left .16s;
+  }
+  .rail .a-list a:hover {
+    color: var(--accent-ink); border-color: var(--accent-wash-edge);
+    padding-left: 4px;
+  }
+  .rail .a-list .a-date {
+    font-size: 11.5px; letter-spacing: .06em; color: var(--ink);
+    font-variant-numeric: tabular-nums; font-weight: 600;
+  }
+  .rail .a-list .a-zh {
+    font-family: "Noto Serif SC", serif; font-size: 12px; color: var(--ink-faint);
+    letter-spacing: 0;
+  }
+  .rail .a-list .a-current > a {
+    color: var(--accent-ink); border-color: var(--accent-wash-edge);
+    padding-left: 4px;
+  }
+  .rail .a-list .a-current .a-date { color: var(--accent-ink); }
+  .rail .a-list a:hover .a-date,
+  .rail .a-list a:hover .a-zh { color: var(--accent-ink); }
+
+  /* rail scrollbar: subtle */
+  .rail::-webkit-scrollbar { width: 6px; }
+  .rail::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .rail::-webkit-scrollbar-thumb:hover { background: var(--line-strong); }
+
+  /* narrow viewport: rail becomes a top strip that scrolls horizontally */
+  @media (max-width: 1179px) {
+    .rail {
+      position: sticky; top: 0; left: 0; width: 100%; max-height: none;
+      background: var(--bg);
+      padding: 10px 20px 8px;
+      border-bottom: 1px solid var(--line);
+      overflow-x: auto; overflow-y: hidden;
+    }
+    .rail-inner {
+      border-left: 0; padding: 0;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .rail-head {
+      margin: 0; flex-shrink: 0; flex-direction: column;
+      align-items: flex-start; gap: 1px;
+    }
+    .rail .a-list {
+      display: flex; gap: 4px; flex-wrap: nowrap;
+    }
+    .rail .a-list li { flex-shrink: 0; }
+    .rail .a-list a {
+      flex-direction: row; align-items: baseline; gap: 6px;
+      padding: 6px 10px; border-bottom: 0;
+      border: 1px solid var(--line); border-radius: 999px;
+      background: var(--surface); white-space: nowrap;
+    }
+    .rail .a-list a:hover { padding-left: 10px; }
+    .rail .a-list .a-current > a {
+      padding-left: 10px; background: var(--accent-wash);
+      border-color: var(--accent-wash-edge);
+    }
+    .rail .a-list .a-zh { font-size: 11px; }
+  }
+</style>
+
+<!-- FB_EXTRA --><style>
+  .masthead { margin-top: 8px; }
+  .dateline { font-size: 15px; letter-spacing: .02em; text-transform: none; gap: 8px 22px; }
+  .dateline b { font-size: 17px; color: var(--ink); }
+  .dateline .num { font-size: 17px; }
+  .lead .kicker { font-size: 13px; letter-spacing: .14em; }
+  .lead .lead-p { font-size: 17px; line-height: 1.75; margin: 0; color: var(--ink); text-wrap: pretty; }
+  .lead .lead-p .mark { background: linear-gradient(transparent 62%, var(--accent-wash) 62%); color: var(--accent-ink); font-weight: 600; }
+  .sec-head .lbl .zh-lbl { font-size: 1.7rem; font-weight: 700; letter-spacing: .04em; color: var(--ink); text-transform: none; margin: 0; }
+  .sec-sum { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 3px; padding: 14px 18px; margin: 14px 0 6px; font-size: 17px; }
+  .sec-sum p { margin: 0 0 6px; }
+  .sec-sum ol { margin: 4px 0 0; padding-left: 22px; }
+  .sec-sum .k { font-family: "Noto Serif SC", serif; font-size: 17px; font-weight: 700; color: var(--accent-ink); margin-right: 4px; }
+  .name .src { font-family: "IBM Plex Mono", "Noto Serif SC", monospace; font-style: normal; font-weight: 500; font-size: 12px; letter-spacing: .04em; color: var(--ink-faint); margin-left: 8px; white-space: nowrap; }
+  .time { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--ink-faint); margin: 4px 0 0; }
+  .receipts { justify-content: flex-end; }
+  .lst { list-style: none; padding: 0; margin: 6px 0 0; }
+  .lst li { padding: 9px 0; border-top: 1px dashed var(--line); }
+  .lst li:first-child { border-top: 0; }
+  .lst .t { color: var(--ink); text-decoration: none; font-weight: 500; }
+  .lst .t:hover { color: var(--accent-ink); }
+  .lst .m { display: block; font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--ink-faint); }
+  .grp { font-family: "Noto Serif SC", serif; font-size: 1.2rem; font-weight: 600; color: var(--accent-ink); letter-spacing: .04em; margin: 30px 0 0; padding-bottom: 4px; border-bottom: 1px solid var(--accent-wash-edge); }
+  .note { font-family: "IBM Plex Mono", "Noto Serif SC", monospace; font-size: 12px; color: var(--ink-faint); margin: 14px 0 0; line-height: 1.7; }
+  .sec-head, .grp, .entry { scroll-margin-top: 24px; }
+  .toc { position: fixed; top: 34px; right: max(20px, calc((100vw - 720px) / 2 - 252px)); width: 220px; max-height: calc(100vh - 68px); overflow-y: auto; z-index: 10; font-family: "Noto Serif SC", serif; }
+  .toc-inner { border-left: 2px solid var(--line-strong); padding: 6px 0 6px 14px; }
+  .toc-head { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: .2em; color: var(--ink); margin-bottom: 10px; }
+  .toc-head .rail-zh { font-family: "Noto Serif SC", serif; letter-spacing: .08em; margin-right: 6px; }
+  .toc ul { list-style: none; padding: 0; margin: 0; }
+  .toc a { text-decoration: none; color: var(--ink-faint); display: block; }
+  .toc a:hover, .toc a.on { color: var(--accent-ink); }
+  .toc .t-sec { margin: 0 0 10px; }
+  .toc .t-sec > a { font-size: 14px; font-weight: 600; color: var(--ink); padding: 4px 0; border-bottom: 1px solid var(--line); }
+  .toc .t-sec > a .n { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; color: var(--ink-faint); font-weight: 400; margin-left: 6px; }
+  .toc .t-grp > a { font-size: 12.5px; font-weight: 600; color: var(--accent-ink); padding: 6px 0 2px; }
+  .toc .t-it > a { font-size: 12px; line-height: 1.45; padding: 3px 0 3px 8px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .toc::-webkit-scrollbar { width: 6px; } .toc::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .toc-m { display: none; }
+  @media (max-width: 1179px) {
+    .toc { display: none; }
+    .toc-m { display: block; margin: 18px 0 0; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); padding: 10px 14px; font-family: "Noto Serif SC", serif; }
+    .toc-m summary { cursor: pointer; font-weight: 600; font-size: 15px; color: var(--ink); }
+    .toc-m ul { list-style: none; padding: 0; margin: 8px 0 0; }
+    .toc-m a { text-decoration: none; color: var(--ink-faint); display: block; padding: 3px 0; }
+    .toc-m .t-sec > a { color: var(--ink); font-weight: 600; } .toc-m .t-grp > a { color: var(--accent-ink); padding-left: 8px; }
+    .toc-m .t-it { display: none; }
+    .sec-head, .grp, .entry { scroll-margin-top: 72px; }
+  }
+</style><!-- /FB_EXTRA -->
+<!-- YOHAKU --><style>
+:root{--bg:#f4f1ea;--surface:#f4f1ea;--ink:#23211d;--ink-soft:#23211d;--ink-faint:#8a8478;--line:transparent;--line-strong:transparent;--accent:#23211d;--accent-ink:#23211d;--accent-wash:transparent;--accent-wash-edge:transparent;--shadow:none}
+@media (prefers-color-scheme:dark){:root{--bg:#f4f1ea;--surface:#f4f1ea;--ink:#23211d;--ink-faint:#8a8478}}
+html,body{background:#f4f1ea!important}
+body,body *{font-family:"Noto Serif SC","Noto Serif CJK SC","Songti SC",serif!important;border-color:transparent!important;box-shadow:none!important}
+body{color:#23211d!important;font-size:16px!important;line-height:1.85!important;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:640px!important}
+/* title: one quiet line */
+.masthead{border:0!important;padding:0!important;margin:56px 0 0!important}
+h1.title{font-family:"Noto Serif SC","Noto Serif CJK SC",serif!important;font-size:30px!important;font-weight:600!important;letter-spacing:.01em!important;line-height:1.2!important}
+h1.title br{display:none}
+h1.title em{font-style:normal!important;color:#23211d!important;font-weight:600!important;margin-left:.25em;font-family:inherit!important}
+.dateline{font-size:13px!important;text-transform:none!important;letter-spacing:.02em!important;color:#8a8478!important;gap:4px 18px!important;padding-top:14px!important}
+.dateline b,.dateline .num{color:#8a8478!important;font-weight:400!important;font-size:13px!important}
+/* summary */
+.lead{background:none!important;border:0!important;padding:0!important;margin:72px 0 0!important}
+.kicker{display:none!important}
+.lead .lead-p,.lead p,.lead h2{font-size:19px!important;line-height:1.95!important;color:#23211d!important;font-weight:400!important}
+.lead .mark{background:none!important;color:#b03a2e!important;font-weight:500!important}
+.lead *{color:#23211d!important;opacity:1!important}.lead .mark{color:#b03a2e!important}
+/* sections */
+.sec-head{margin:120px 0 0!important;display:block!important}
+.sec-head .rule,.sec-head .count{display:none!important}
+.sec-head .lbl .zh-lbl,.sec-head .lbl{font-family:"Noto Serif SC","Noto Serif CJK SC",serif!important;font-size:34px!important;font-weight:600!important;letter-spacing:.12em!important;color:#23211d!important}
+.sec-sum{background:none!important;border:0!important;padding:0!important;margin:24px 0 64px!important;font-size:17px!important;color:#23211d!important}
+.sec-sum .k{display:none!important}
+.sec-sum ol{padding-left:1.2em!important}
+/* entries */
+.entry{padding:0 0 56px!important;border:0!important}
+.name{font-size:17px!important;font-weight:600!important;line-height:1.6!important}
+.name .src{font-size:13px!important;font-weight:400!important;color:#8a8478!important;margin-left:10px!important;letter-spacing:0!important}
+.time{font-size:12px!important;color:#a8a194!important;margin:2px 0 12px!important;font-variant-numeric:tabular-nums}
+.entry p{color:#33302a!important}
+.receipts{gap:14px!important;margin-top:8px!important}
+.receipts a{background:none!important;border:0!important;padding:0!important;color:#23211d!important;font-size:12px!important;text-decoration:none!important}
+.receipts a::before{content:""!important}
+/* rails: lighter, Chinese only */
+.rail-lbl,.toc-head{font-size:0!important}
+.rail-lbl .rail-zh,.toc-head .rail-zh{font-size:12px!important;color:#23211d!important;letter-spacing:.1em!important;font-weight:500!important}
+.rail-count{display:none!important}
+.rail,.toc{font-size:12px!important}
+.a-zh{display:none!important}
+.a-date{color:#8a8478!important;font-size:12px!important;font-weight:400!important;letter-spacing:.02em!important}
+.a-current .a-date{color:#23211d!important}
+.toc-inner{border:0!important;padding:0!important}
+.toc .t-sec>a{font-size:13px!important;font-weight:500!important;border:0!important;color:#23211d!important}
+.toc .t-sec>a .n{display:none!important}
+.toc .t-it>a{color:#8a8478!important;padding-left:0!important}
+.toc a.on{color:#23211d!important}
+a.kw,.zh a.kw{color:inherit!important;text-decoration:none!important;border:0!important;background-image:linear-gradient(rgba(35,33,29,.35),rgba(35,33,29,.35))!important;background-size:100% 1px!important;background-repeat:no-repeat!important;background-position:0 95%!important}a.kw:hover{color:#23211d!important}
+.receipts a:not(:first-child){display:none!important}
+.receipts a:first-child{font-size:0!important}.receipts a:first-child::after{content:"原文";font-size:12px}
+.lead .mark,a.kw:hover{font-weight:600!important}.a-current .a-date{font-weight:600!important}
+.name{font-size:20px!important;font-weight:700!important;color:#1a1814!important;letter-spacing:.02em!important;line-height:1.5!important}
+.name .src{font-size:13px!important;font-weight:400!important}
+.entry p:not(.name):not(.time){font-size:15.5px!important;color:#4a463e!important;font-weight:400!important;line-height:2!important}
+.time{margin:4px 0 16px!important}
+.sec-sum,.sec-sum *{color:#33302a!important}
+.sec-head .lbl .zh-lbl,.sec-head .lbl{font-size:38px!important;font-weight:700!important;color:#1a1814!important}
+h1.title{font-weight:700!important;color:#1a1814!important}
+.mark,.lead .mark{color:#b03a2e!important;background:none!important}
+</style><!-- /YOHAKU -->
+<!-- READING_CSS --><style>
+/* ===== Reading Digest 专用样式 — Ada 的样式放这里 =====
+   render.py 会把本文件原样内联到每页 <head>（<!-- READING_CSS --> 块，位于 YOHAKU 块之后）。
+   通用版式（YOHAKU / FB_EXTRA / .site-switch）在 base_head.html，不在这里改。
+   设计（Ada）：原文是视觉主角（23px 深墨 500 字重、左缩进）；出处与小标题小号灰字；官方解读与讲解为 15.5px 正文；
+   链接 12px 灰放右下；序号 13px 灰；朱红 #b03a2e 只用于讲解里的 .mark；无线、框、阴影，条与条靠留白分开。
+   选择器统一加 .wrap .entry.r-entry 前缀，才压得过 YOHAKU 里 .entry p:not(.name):not(.time) 的 !important。
+   class：.r-entry 每条 | .r-no 序号(01 / 10) .r-of | .r-quote-block 原文块 .r-quote | .r-source 出处
+          .r-label 小标题 | .r-official 官方解读文字 .r-links 链接(右下) .r-none 「未查询到」 | .r-explain 讲解 | .r-sample 示例提示 | .disclaimer 免责声明 */
+/* 免责声明：一行小号墨灰衬线，无框无色 */
+p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!important;letter-spacing:.04em!important;font-weight:400!important;color:#6f695e!important;background:none!important;border:0!important;padding:0!important}
+/* 每条：靠留白分隔 */
+.wrap .entry.r-entry{padding:0 0 104px!important;scroll-margin-top:24px}
+.wrap article.entry.r-entry:last-of-type{padding-bottom:40px!important}
+/* 序号：小号，数字深墨、「/ 10」灰，不用朱红 */
+.wrap .entry.r-entry p.r-no{font-size:13px!important;font-weight:400!important;font-style:normal!important;color:#23211d!important;letter-spacing:.08em!important;line-height:1!important;margin:0 0 22px!important;font-variant-numeric:tabular-nums}
+.wrap .entry.r-entry p.r-no .r-of{font-size:13px!important;font-weight:400!important;color:#8a8478!important}
+/* 原文：最大、深墨、缩进成块 */
+.wrap .entry.r-entry .r-quote-block{margin:0 0 0 28px!important;padding:0!important}
+.wrap .entry.r-entry .r-quote-block p.r-quote{font-size:23px!important;line-height:1.95!important;font-weight:500!important;font-style:normal!important;color:#1a1814!important;letter-spacing:.03em!important;margin:0 0 .7em!important}
+.wrap .entry.r-entry .r-quote-block p.r-quote:last-child{margin-bottom:0!important}
+/* 出处：小号灰，前面补一个灰色「出处」 */
+.wrap .entry.r-entry p.r-source{font-size:13px!important;line-height:1.8!important;color:#6f695e!important;letter-spacing:.03em!important;margin:22px 0 0 28px!important}
+.wrap .entry.r-entry p.r-source::before{content:"出处";margin-right:1em;color:#8a8478}
+/* 小标题：官方解读 / 讲解 */
+.wrap .entry.r-entry p.r-label{font-size:13px!important;line-height:1.6!important;color:#8a8478!important;letter-spacing:.14em!important;font-weight:400!important;margin:44px 0 6px!important}
+/* 官方解读文字 / 讲解：正文 */
+.wrap .entry.r-entry p.r-official,.wrap .entry.r-entry p.r-explain{font-size:15.5px!important;line-height:2!important;color:#4a463e!important;font-weight:400!important;margin:0 0 .6em!important}
+.wrap .entry.r-entry p.r-official.r-none{font-size:13px!important;line-height:1.8!important;color:#6f695e!important;margin:0!important}
+.wrap .entry.r-entry p.r-explain.r-none{font-size:13px!important;color:#6f695e!important}
+/* 链接：小号灰放右下，无下划线，后缀箭头 */
+.wrap .entry.r-entry p.r-links{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin:8px 0 0!important;font-size:12px!important;line-height:1.7!important}
+.wrap .entry.r-entry p.r-links a{color:#6f695e!important;text-decoration:none!important;font-size:12px!important;letter-spacing:.02em;background:none!important;word-break:break-all}
+.wrap .entry.r-entry p.r-links a:hover{color:#23211d!important}
+.wrap .entry.r-entry p.r-links a::after{content:" →"}
+/* 朱红：只在讲解的关键词句 */
+.wrap .entry.r-entry .mark{color:#b03a2e!important;background:none!important;font-weight:600!important}
+.wrap p.r-sample{font-size:13px;line-height:1.8;color:#6f695e;margin:28px 0 0}
+/* 目录：手机折叠里列出全部条目；条数小字隐藏 */
+.toc-m .t-sec>a .n{display:none!important}
+.toc-m .t-it{display:block!important}
+.toc-m .t-it>a{padding-left:8px!important}
+@media (max-width:640px){
+  .wrap .entry.r-entry{padding-bottom:80px!important}
+  .wrap .entry.r-entry .r-quote-block{margin-left:14px!important}
+  .wrap .entry.r-entry .r-quote-block p.r-quote{font-size:20px!important;line-height:1.9!important}
+  .wrap .entry.r-entry p.r-source{margin-left:14px!important}
+  .wrap .entry.r-entry p.r-label{margin-top:36px!important}
+}
+</style><!-- /READING_CSS -->
+<!-- /FB_RAIL_CSS -->
+
+
+
+
+<aside class="rail" aria-label="往期归档">
+  <div class="rail-inner">
+    <div class="rail-head">
+      <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
+      <span class="rail-count">9 期</span>
+    </div>
+    <ul class="a-list">
+      <li class="a-current"><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
+      <li><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
+      <li><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
+      <li><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
+      <li><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+    </ul>
+  </div>
+</aside>
+<script src="archive.js"></script>
+<nav class="toc" aria-label="本期目录"><div class="toc-inner"><div class="toc-head"><span class="rail-zh">本期目录</span>Contents</div><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · “战争是政治的继续”，在这点上说…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 历史上的战争分为两类，一类是正义…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 在阶级社会中，革命和革命战争是不…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 革命战争是一种抗毒素，它不但将排…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 每个共产党员都应懂得这个真理：“…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 革命的中心任务和最高形式是武装夺…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 在中国，离开了武装斗争，就没有无…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 从马克思主义关于国家学说的观点看…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 我们是战争消灭论者，我们是不要战…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 战争——这个人类互相残杀的怪物，…</a></li></ul></li></ul></div></nav>
+<div class="wrap">
+  <p class="disclaimer">以下内容均为 Grok AI 生成，不代表个人政治立场。</p>
+  <header class="plate">
+    <style>.site-switch{display:flex;gap:28px;justify-content:flex-end;margin:0 0 28px}.site-switch a{font:500 13px/1 -apple-system,Helvetica,Arial,sans-serif!important;letter-spacing:.06em!important;text-decoration:none!important;padding:6px 0!important;color:#9a9a9a!important;border-bottom:1.5px solid transparent!important}.site-switch a.on{color:#111!important;border-bottom-color:#111!important}.site-switch a:hover{color:#111!important}</style><nav class="site-switch"><a href="../ai-builders-digest/">AI Digest</a><a href="../social-digest/">Social Digest</a><a href="https://summerxia.com/reading-digest/" class="on">Reading Digest</a><a href="../pm-digest/">PM Digest</a></nav>
+    <div class="masthead">
+      <h1 class="title">Reading<br><em>Digest</em></h1>
+    </div>
+    <div class="dateline">
+      <span><b>周三 · 2026年11月11日</b></span>
+      <span><span class="num">10</span> 条</span>
+    </div>
+  </header>
+
+<details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · “战争是政治的继续”，在这点上说…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 历史上的战争分为两类，一类是正义…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 在阶级社会中，革命和革命战争是不…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 革命战争是一种抗毒素，它不但将排…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 每个共产党员都应懂得这个真理：“…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 革命的中心任务和最高形式是武装夺…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 在中国，离开了武装斗争，就没有无…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 从马克思主义关于国家学说的观点看…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 我们是战争消灭论者，我们是不要战…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 战争——这个人类互相残杀的怪物，…</a></li></ul></li></ul></details>
+<div style="height:72px"></div>
+<article class="entry r-entry" id="e-1">
+  <p class="r-no">01<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">“战争是政治的继续”，在这点上说，战争就是政治、战争本身就是政治性质的行动，从古以来没有不带政治性的战争。……但是战争有其特殊性，在这点上说，战争不即等于一般的政治。“战争是政治的特殊手段的继续”。政治发展到一定的阶段，再也不能照旧前进，于是爆发了战争，用以扫除政治道路上的障碍。……障碍既除，政治的目的达到，战争结束。障碍没有扫除得干净，战争仍须继续进行，以求贯彻。……因此可以说，政治是不流血的战争，战争是流血的政治。</p></div>
+  <p class="r-source">《论持久战》（1938年5月），《毛泽东选集》第二卷第468—469页，《毛主席语录》第五章</p>
+  <p class="r-label">官方解读</p><p class="r-official">南华大学国防教育教材从这段论述得出几条结论：“由此得出结论一，战争从来就不是一种单纯的军事现象，战争一刻也离不开政治。”“结论四，既然战争是政治的继续，那么，从战争的性质来分析就有正义与非正义之分。”李慎明文章指出，这段话既告诉我们战争与政治之间的一致性，战争要为政治的具体目的服务；又告诉我们两者之间的区别，必须学习研究战争这一政治的特殊形态，并掌握其独特的规律。</p><p class="r-links"><a href="https://xgb.usc.edu.cn/info/1028/1121.htm">第二章 军事思想（3）（南华大学学生工作部·国防教育办公室）</a><a href="https://www.1921.org.cn/llyj/2023/07/03/detailed_2023070335531.html">毛泽东的战争与和平思想及其对我国和平发展道路的探索（中华魂网 / 原载《当代中国史研究》，作者李慎明）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这一段出自《论持久战》中“战争和政治”一节，讲战争与政治的关系，分两层。第一层讲一致：引用列宁转述的“战争是政治的继续”，说战争本身就是政治性质的行动，从古以来没有不带政治性的战争。原文在第一个省略号处还具体说明，抗日战争的胜利离不开政治目的、统一战线、人民动员等，一句话，“战争一刻也离不了政治”。</p><p class="r-explain">第二层讲区别：战争又有特殊性，是<span class="mark">政治的特殊手段的继续</span>。政治发展到一定阶段不能照旧前进时，就用战争来扫除道路上的障碍；障碍扫除了，战争结束；扫除不干净，战争还得继续。最后一句是全段的概括：<span class="mark">政治是不流血的战争，战争是流血的政治</span>。读这一段，关键是两层一起看：只看一致，会忽视战争自身的规律；只看区别，会把战争孤立成单纯的军事问题。</p>
+</article>
+<article class="entry r-entry" id="e-2">
+  <p class="r-no">02<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">历史上的战争分为两类，一类是正义的，一类是非正义的。一切进步的战争都是正义的，一切阻碍进步的战争都是非正义的。我们共产党人反对一切阻碍进步的非正义的战争，但是不反对进步的正义的战争。对于后一类战争，我们共产党人不但不反对，而且积极地参加。前一类战争，例如第一次世界大战，双方都是为着帝国主义利益而战，所以全世界的共产党人坚决地反对那一次战争。反对的方法，在战争未爆发前，极力阻止其爆发；既爆发后，只要有可能，就用战争反对战争，用正义战争反对非正义战争。</p></div>
+  <p class="r-source">《论持久战》（1938年5月），《毛泽东选集》第二卷第465—466页，《毛主席语录》第五章</p>
+  <p class="r-label">官方解读</p><p class="r-official">湘潭大学毛泽东思想研究中心刊载的李爱华文章，在引述这段话后写道：“毛泽东的论述既科学说明了区分正义战争和非正义战争的标准，又坚定表明了共产党人对待正义战争和非正义战争的不同态度。”李慎明文章也指出，这些论述告诉我们，共产党人应反对一切阻碍进步的非正义的战争，非但不反对而且积极参加进步的正义的战争。</p><p class="r-links"><a href="https://myzx.xtu.edu.cn/info/1011/1481.htm">论抗战时期毛泽东的和平思想及其意义（湘潭大学毛泽东思想研究中心，作者李爱华）</a><a href="https://www.1921.org.cn/llyj/2023/07/03/detailed_2023070335531.html">毛泽东的战争与和平思想及其对我国和平发展道路的探索（中华魂网 / 原载《当代中国史研究》，作者李慎明）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这一段紧接上一条，同样出自《论持久战》“战争和政治”前后的论述。它给出了判断战争性质的标准：<span class="mark">进步还是阻碍进步</span>。一切进步的战争都是正义的，一切阻碍进步的战争都是非正义的。由此推出共产党人的态度：反对非正义战争，不反对、而且积极参加正义战争。</p><p class="r-explain">作者以第一次世界大战为例：交战双方都是为帝国主义利益而战，所以全世界的共产党人都坚决反对。反对的方法分两步：战争爆发前，极力阻止其爆发；爆发以后，只要有可能，就“用战争反对战争，用正义战争反对非正义战争”。这里的思路是：反对战争不等于对一切战争一律回避，而是先分清性质，再决定态度。</p>
+</article>
+<article class="entry r-entry" id="e-3">
+  <p class="r-no">03<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">在阶级社会中，革命和革命战争是不可避免的，舍此不能完成社会发展的飞跃，不能推翻反动的统治阶级，而使人民获得政权。</p></div>
+  <p class="r-source">《矛盾论》（1937年8月），《毛泽东选集》第一卷第322页，《毛主席语录》第五章</p>
+  <p class="r-label">官方解读</p><p class="r-official">湘潭大学毛泽东思想研究中心刊载的王向清、杨雪文章指出：“对抗是矛盾双方的斗争发展到一定阶段时采取的外部冲突形式。”文章引述这句话后写道：“因而,毛泽东提出“对抗”在矛盾斗争中的地位,就是为了论证了中国新民主主义革命的合理性、必然性。”</p><p class="r-links"><a href="https://myzx.xtu.edu.cn/info/1011/3101.htm">毛泽东对我国传统矛盾学说的三维重塑（湘潭大学毛泽东思想研究中心 / 原载《湖南师范大学社会科学学报》，作者王向清、杨雪）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这一条出自《矛盾论》中“对抗在矛盾中的地位”一节。前文说，对抗是矛盾斗争的一种形式，而不是一切形式；剥削阶级和被剥削阶级之间的矛盾长期存在，发展到一定阶段，就会采取外部对抗的形式，发展为革命。这句话紧接着点出这一认识的意义：它使我们懂得，在阶级社会中，<span class="mark">革命和革命战争是不可避免的</span>。</p><p class="r-explain">“舍此不能”三个分句说明了原因：不通过革命，就不能完成社会发展的飞跃，不能推翻反动的统治阶级，也不能使人民获得政权。这里的“飞跃”是哲学用语，指事物从一种质态到另一种质态的根本变化。需要注意上下文：《矛盾论》同时强调，并非一切矛盾都会发展为对抗，这一条讲的是阶级社会中阶级矛盾的情形。</p>
+</article>
+<article class="entry r-entry" id="e-4">
+  <p class="r-no">04<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">革命战争是一种抗毒素，它不但将排除敌人的毒焰，也将清洗自己的污浊。凡属正义的革命的战争，其力量是很大的，它能改造很多事物，或为改造事物开辟道路。中日战争将改造中日两国；只要中国坚持抗战和坚持统一战线，就一定能把旧日本化为新日本，把旧中国化为新中国，中日两国的人和物都将在这次战争中和战争后获得改造。</p></div>
+  <p class="r-source">《论持久战》（1938年5月），《毛泽东选集》第二卷第447页，《毛主席语录》第五章</p>
+  <p class="r-label">官方解读</p><p class="r-official">《光明日报》2020年8月15日刊发的军事科学院研究员潘宏文章，在引述这段话后写道：“毛泽东的深刻见解以事实验证和说明了中国抗日战争，不仅是争取独立与解放的民族战争，而且是中国人民追求民主与进步的深刻社会变革。”</p><p class="r-links"><a href="https://news.gmw.cn/2020-08/15/content_34089327.htm">抗日战争的胜利与科学理论的光辉（光明网 / 《光明日报》，作者潘宏）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话出自《论持久战》第二十五节。上文说，国民党方面的腐败现象严重存在，使进步变得缓慢，很多爱国人士因此忧虑烦闷。毛泽东的回答是：我们是在革命战争中，<span class="mark">革命战争是一种抗毒素</span>，它不但排除敌人的毒焰，也将清洗自己的污浊。</p><p class="r-explain">“抗毒素”这个比喻有两个方向：对外，抵抗侵略；对内，冲刷自身的腐败和落后。正义的革命战争力量很大，能改造很多事物，或为改造事物开辟道路。原文紧接着说，“我们把抗战和建国联系起来看，是正当的”，并说明所谓日本也会获得改造，是指日本统治者的侵略战争将走向失败，有引起日本人民革命的可能。这一条的落脚点是：战争的过程本身也是<span class="mark">社会改造</span>的过程。</p>
+</article>
+<article class="entry r-entry" id="e-5">
+  <p class="r-no">05<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">每个共产党员都应懂得这个真理：“枪杆子里面出政权”。</p></div>
+  <p class="r-source">《战争和战略问题》（1938年11月6日），《毛泽东选集》第二卷第535页，《毛主席语录》第五章</p>
+  <p class="r-label">官方解读</p><p class="r-official">人民网党史频道2017年6月13日刊载的邵建斌文章，在引述毛泽东六届六中全会的这段结论后写道：“同样是拿枪杆子，共产党与国民党的根本区别在于与人民的关系，共产党是为人民拿枪杆子，也就是毛泽东说的“要争人民的兵权”。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2017/0613/c85037-29335727.html">毛泽东“枪杆子里面出政权”的来历与演变（人民网党史频道，作者邵建斌）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这句话出自1938年11月毛泽东在党的六届六中全会上所作结论的《战争和战略问题》部分。“枪杆子里面出政权”的思想最早在1927年八七会议上提出，当时的说法是“须知政权是由枪杆子中取得的”。1938年重申它，针对的是抗战初期党内一些人主张“一切经过统一战线”、实际上放弃独立掌握武装的右倾倾向。</p><p class="r-explain">读这一句要连着原文前后文看。前文说，共产党员不争个人的兵权，但要争<span class="mark">党的兵权、人民的兵权</span>；紧接着的下一句是“我们的原则是党指挥枪，而决不容许枪指挥党”。所以这句话的完整含义有两面：一面是武装力量对夺取政权不可缺少，一面是武装力量必须由党领导、为人民所掌握。</p>
+</article>
+<article class="entry r-entry" id="e-6">
+  <p class="r-no">06<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">革命的中心任务和最高形式是武装夺取政权，战争解决问题。这个马克思列宁主义的革命原则是普遍地对的，不论在中国在外国，一概都是对的。</p></div>
+  <p class="r-source">《战争和战略问题》（1938年11月6日），《毛泽东选集》第二卷第529页，《毛主席语录》第五章</p>
+  <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院毛胜在《学习时报》发表、中国共产党新闻网2024年1月1日转载的文章，在引述这段话后写道：“他认为，中国革命战争在其历史进程的各个时期中有不同的内容，但都是武装的革命反对武装的反革命。”</p><p class="r-links"><a href="https://cpc.people.com.cn/n1/2024/0101/c443712-40150428.html">毛泽东与武装斗争（中国共产党新闻网 / 《学习时报》，作者毛胜）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这一条同样出自《战争和战略问题》，是全篇第一节“中国的特点和革命战争”的开头。毛泽东先提出一个普遍原则：革命的中心任务和最高形式是<span class="mark">武装夺取政权，战争解决问题</span>，并说这个原则不论在中国在外国都是对的。</p><p class="r-explain">但原文紧接着强调，同一个原则，执行起来要看条件。资本主义国家有议会和合法斗争的空间，共产党要经过长期合法斗争，等时机成熟再举行起义，先占城市后取乡村；中国是半殖民地半封建国家，内部没有民主制度，外部没有民族独立，无议会可以利用，所以在中国<span class="mark">主要的斗争形式是战争，主要的组织形式是军队</span>，要走与之相反的道路。读这一条，重点在“原则普遍、执行因条件而不同”这一层关系。</p>
+</article>
+<article class="entry r-entry" id="e-7">
+  <p class="r-no">07<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">在中国，离开了武装斗争，就没有无产阶级的地位，就没有人民的地位，就没有共产党的地位，就没有革命的胜利。十八年来，我们党的发展、巩固和布尔塞维克化，是在革命战争中进行的，没有武装斗争，就不会有今天的共产党。这个拿血换来的经验，全党同志都不要忘记。</p></div>
+  <p class="r-source">《“共产党人”发刊词》（1939年10月4日），《毛泽东选集》第二卷第600—601页，《毛主席语录》第五章</p>
+  <p class="r-label">官方解读</p><p class="r-official">毛胜文章写道：1939年10月，毛泽东在《〈共产党人〉发刊词》中进一步分析中国国情和革命特点，强调“中国革命斗争的主要形式是武装斗争”，并提出统一战线、武装斗争、党的建设是中国共产党在中国革命中战胜敌人的三个法宝；“这些论述是对武装斗争的理论阐述，也是对中国革命发展客观规律的深刻揭示。”</p><p class="r-links"><a href="https://cpc.people.com.cn/n1/2024/0101/c443712-40150428.html">毛泽东与武装斗争（中国共产党新闻网 / 《学习时报》，作者毛胜）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">《〈共产党人〉发刊词》是1939年10月毛泽东为中共中央党内刊物《共产党人》写的发刊词。文章总结党成立十八年的经验，提出统一战线、武装斗争、党的建设是中国共产党在中国革命中战胜敌人的“三个法宝”。这一段是其中谈武装斗争的部分。</p><p class="r-explain">它说明两点：一是在中国，<span class="mark">离开了武装斗争</span>，无产阶级、人民、共产党都没有地位，革命也不能胜利；二是党自身的发展、巩固和布尔什维克化，也是在革命战争中进行的。“这个拿血换来的经验”一句，指的是1927年大革命失败的教训：党当时没有独立掌握武装，遭受了严重损失。原文前文还说明，这种武装斗争实质上是<span class="mark">无产阶级领导之下的农民战争</span>。</p>
+</article>
+<article class="entry r-entry" id="e-8">
+  <p class="r-no">08<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">从马克思主义关于国家学说的观点看来，军队是国家政权的主要成分。谁想夺取国家政权，并想保持它，谁就应有强大的军队。有人笑我们是“战争万能论”，对，我们是革命战争万能论者，这不是坏的，是好的，是马克思主义的。俄国共产党的枪杆子造了一个社会主义。我们要造一个民主共和国。帝国主义时代的阶级斗争的经验告诉我们：工人阶级和劳动群众，只有用枪杆子的力量才能战胜武装的资产阶级和地主；在这个意义上，我们可以说，整个世界只有用枪杆子才可能改造。</p></div>
+  <p class="r-source">《战争和战略问题》（1938年11月6日），《毛泽东选集》第二卷第535页，《毛主席语录》第五章</p>
+  <p class="r-label">官方解读</p><p class="r-official">光明网2023年12月28日转载的《中国青年报》文章（习近平强军思想研究中心）写道：“军队作为国家“物质的附属物”，是国家机器的重要支柱。”并指出毛泽东“创造性提出“枪杆子里面出政权”，深刻阐明军队在夺取和巩固政权中的极端重要性”。</p><p class="r-links"><a href="http://theory.gmw.cn/2023-12/28/content_37057280.htm">毛泽东军事思想的当代价值（光明网 / 《中国青年报》，习近平强军思想研究中心）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这一段在原文中紧接“枪杆子里面出政权”和“党指挥枪”之后，进一步从理论上说明军队的地位。依据是马克思主义的国家学说：国家是阶级统治的工具，<span class="mark">军队是国家政权的主要成分</span>，所以想夺取政权、保持政权，都要有强大的军队。</p><p class="r-explain">对于有人讥笑的“战争万能论”，毛泽东的回答是：我们是<span class="mark">革命战争</span>万能论者。这里的限定词很重要，他肯定的是革命战争的作用，而不是一般地推崇战争。随后举出俄国十月革命“枪杆子造了一个社会主义”，说明中国要“造一个民主共和国”；最后的结论是在“这个意义上”说的：面对武装的资产阶级和地主，工人阶级和劳动群众只有用武装力量才能战胜他们。</p>
+</article>
+<article class="entry r-entry" id="e-9">
+  <p class="r-no">09<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">我们是战争消灭论者，我们是不要战争的；但是只能经过战争去消灭战争，不要枪杆子必须拿起枪杆子。</p></div>
+  <p class="r-source">《战争和战略问题》（1938年11月6日），《毛泽东选集》第二卷第535页，《毛主席语录》第五章</p>
+  <p class="r-label">官方解读</p><p class="r-official">人民网党史频道2017年6月20日刊载的李珍文章《毛泽东对待战争的基本态度：一是反对，二是不怕》写道：“自古知兵非好战。热爱和平、保卫和平，是中华民族的天性。但是，为了持久和平，就必须通过战争来消灭战争，用革命战争反对反革命战争。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2017/0620/c85037-29350064.html">毛泽东对待战争的基本态度：一是反对，二是不怕（人民网党史频道，作者李珍）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这一句是《战争和战略问题》中这段论述的收尾，紧接在“整个世界只有用枪杆子才可能改造”之后，用来说明上面这些话的出发点。它先表明根本立场：我们是<span class="mark">战争消灭论者</span>，是不要战争的。</p><p class="r-explain">接着说明实现这一目标的途径：在战争的根源还存在时，只能<span class="mark">经过战争去消灭战争</span>；不想要枪杆子，却必须先拿起枪杆子。这句话看起来自相矛盾，实际上讲的是目的与手段的关系：目的是消灭战争，手段在一定条件下却只能是战争。它与第五章后面关于“永久和平”的论述是一脉相承的。</p>
+</article>
+<article class="entry r-entry" id="e-10">
+  <p class="r-no">10<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">战争——这个人类互相残杀的怪物，人类社会的发展终久要把它消灭的，而且就在不远的将来会要把它消灭的。但是消灭它的方法只有一个，就是用战争反对战争，用革命战争反对反革命战争，用民族革命战争反对民族反革命战争，用阶级革命战争反对阶级反革命战争。……人类社会进步到消灭了阶级，消灭了国家，到了那时，什么战争也没有了，反革命战争没有了，革命战争也没有了，非正义战争没有了，正义战争也没有了，这就是人类的永久和平的时代。我们研究革命战争的规律，出发于我们要求消灭一切战争的志愿，这是区别我们共产党人和一切剥削阶级的界线。</p></div>
+  <p class="r-source">《中国革命战争的战略问题》（1936年12月），《毛泽东选集》第一卷第167—168页，《毛主席语录》第五章</p>
+  <p class="r-label">官方解读</p><p class="r-official">李爱华文章写道：“当然，共产党人研究战争的规律，不是单纯为了进行战争，而是“出发于我们要求消灭一切战争的志愿，这是区别我们共产党人和一切剥削阶级的界线”。”李慎明文章在引述“人类社会进步到消灭了阶级，消灭了国家”一句后指出：“毛泽东的这一论述清楚地告诉我们，只有消灭私有制、阶级和国家，才能从根本上消除战争”。</p><p class="r-links"><a href="https://myzx.xtu.edu.cn/info/1011/1481.htm">论抗战时期毛泽东的和平思想及其意义（湘潭大学毛泽东思想研究中心，作者李爱华）</a><a href="https://www.1921.org.cn/llyj/2023/07/03/detailed_2023070335531.html">毛泽东的战争与和平思想及其对我国和平发展道路的探索（中华魂网 / 原载《当代中国史研究》，作者李慎明）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话出自《中国革命战争的战略问题》第一章“如何研究战争”中“战争的目的在于消灭战争”一节，比上一条早两年写成，意思更完整。它把战争称为“人类互相残杀的怪物”，判断人类社会的发展终究要把它消灭；但消灭的方法只有一个，就是<span class="mark">用战争反对战争</span>，并列举了革命战争对反革命战争、民族革命战争对民族反革命战争、阶级革命战争对阶级反革命战争三组。</p><p class="r-explain">后半段描绘了终点：阶级和国家都消灭了，正义的和非正义的战争都没有了，就是人类<span class="mark">永久和平的时代</span>。最后一句说明了研究战争的动机：研究革命战争的规律，是出于消灭一切战争的志愿，这被视为共产党人同一切剥削阶级的界线。这一条与第五章第一条“战争的定义”首尾呼应：战争既然随私有财产和阶级产生，也将随它们的消灭而消灭。</p>
+</article>
+
+  <footer>
+    <div>READING DIGEST · 2026-11-11</div>
+    <div>本栏目只展示原文、出处、官方解读与讲解</div>
+  </footer>
+</div>
+<script>(function(){var ls=[].slice.call(document.querySelectorAll('.toc a[href^="#"]'));var ts=ls.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
+if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
+addEventListener('scroll',f,{passive:true});f();})();</script>
+</body>
+</html>
