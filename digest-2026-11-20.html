@@ -1,0 +1,636 @@
+<title>Reading Digest</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    /* cool blue-grey paper, slate ink, single signal-amber accent */
+    --bg: #E9ECF1;
+    --surface: #FBFCFE;
+    --ink: #191C23;
+    --ink-soft: #474E5B;
+    --ink-faint: #79818F;
+    --line: #D2D7E0;
+    --line-strong: #191C23;
+    --accent: #C98A00;
+    --accent-ink: #8A5A00;
+    --accent-wash: #FBF2DC;
+    --accent-wash-edge: #E9B84A;
+    --good: #2E7D57;
+    --shadow: 0 1px 2px rgba(24,28,35,.05), 0 12px 32px -18px rgba(24,28,35,.28);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --bg: #101319;
+      --surface: #191D25;
+      --ink: #E9EBF0;
+      --ink-soft: #A9B1BE;
+      --ink-faint: #6E7684;
+      --line: #2A2F39;
+      --line-strong: #E9EBF0;
+      --accent: #F0B429;
+      --accent-ink: #F5C556;
+      --accent-wash: rgba(240,180,41,.08);
+      --accent-wash-edge: rgba(240,180,41,.55);
+      --good: #58C08C;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 18px 44px -20px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101319;
+    --surface: #191D25;
+    --ink: #E9EBF0;
+    --ink-soft: #A9B1BE;
+    --ink-faint: #6E7684;
+    --line: #2A2F39;
+    --line-strong: #E9EBF0;
+    --accent: #F0B429;
+    --accent-ink: #F5C556;
+    --accent-wash: rgba(240,180,41,.08);
+    --accent-wash-edge: rgba(240,180,41,.55);
+    --good: #58C08C;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 18px 44px -20px rgba(0,0,0,.7);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Serif SC", "Libre Franklin", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 88px; }
+
+  /* ---------- nameplate ---------- */
+  .plate { padding-top: 34px; }
+  .plate-top {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .signal { display: inline-flex; align-items: center; gap: 7px; }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+    animation: pulse 3.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+    70%,100% { box-shadow: 0 0 0 7px transparent; }
+  }
+
+  .toggle {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-soft); background: transparent;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 5px 12px; cursor: pointer; transition: border-color .18s, color .18s;
+  }
+  .toggle:hover { color: var(--ink); border-color: var(--line-strong); }
+  .toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .masthead {
+    border-top: 3px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
+    margin-top: 12px; padding: 18px 0 16px;
+  }
+  h1.title {
+    font-family: "Newsreader", Georgia, serif; font-weight: 600;
+    font-size: clamp(2.9rem, 11vw, 4.4rem); line-height: .96;
+    letter-spacing: -.02em; margin: 0; text-wrap: balance;
+  }
+  .title em { font-style: italic; font-weight: 500; color: var(--accent-ink); }
+  .tagline {
+    font-family: "Noto Serif SC", "Newsreader", serif; font-size: 1.06rem;
+    color: var(--ink-soft); margin: 12px 0 0; letter-spacing: .01em;
+  }
+
+  .dateline {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--ink-faint); padding: 11px 0 0;
+  }
+  .dateline b { color: var(--ink-soft); font-weight: 600; }
+  .dateline .num { font-variant-numeric: tabular-nums; color: var(--accent-ink); font-weight: 600; }
+
+  /* ---------- today's signal (thesis lead) ---------- */
+  .lead {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 3px; box-shadow: var(--shadow);
+    padding: 24px 24px 22px; margin: 28px 0 8px;
+  }
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent-ink); display: flex; align-items: center; gap: 9px; margin: 0 0 12px;
+  }
+  .kicker::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--accent-wash-edge), transparent); }
+  .lead h2 {
+    font-family: "Noto Serif SC", "Newsreader", serif; font-weight: 500;
+    font-size: 1.42rem; line-height: 1.5; letter-spacing: 0; margin: 0; text-wrap: pretty;
+  }
+  .lead h2 .mark {
+    background: linear-gradient(180deg, transparent 62%, color-mix(in srgb, var(--accent) 42%, transparent) 62%);
+    padding: 0 1px;
+  }
+
+  /* ---------- section rule ---------- */
+  .sec-head { display: flex; align-items: center; gap: 12px; margin: 46px 0 6px; }
+  .sec-head .lbl {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ink); white-space: nowrap;
+  }
+  .sec-head .lbl .zh-lbl { font-family: "Noto Serif SC", serif; letter-spacing: .08em; margin-right: 6px; }
+  .sec-head .rule { flex: 1; height: 2px; background: var(--line-strong); }
+  .sec-head .count { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+  /* ---------- entry ---------- */
+  .entry { padding: 26px 0 4px; border-bottom: 1px solid var(--line); }
+  .entry:last-of-type { border-bottom: 0; }
+
+  .byline { margin-bottom: 12px; }
+  .tag {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 4px;
+  }
+  .tag .ch { color: var(--accent-ink); }
+  .name {
+    font-family: "Newsreader", Georgia, serif; font-weight: 600;
+    font-size: 1.34rem; line-height: 1.15; letter-spacing: -.01em; margin: 0; text-wrap: balance;
+  }
+  .name span { color: var(--ink-soft); font-weight: 400; font-style: italic; font-size: .96rem; }
+
+  /* zh body is PRIMARY */
+  .zh { margin: 0; }
+  .zh + .zh { margin-top: 12px; }
+
+  /* english-original channel — key quotes only */
+  .en-quote {
+    margin: 15px 0 4px; padding: 12px 16px;
+    background: var(--accent-wash); border-left: 2px solid var(--accent-wash-edge);
+    border-radius: 0 3px 3px 0;
+    font-family: "Newsreader", Georgia, serif; font-style: italic;
+    color: var(--ink-soft); font-size: 1.02rem; line-height: 1.6;
+  }
+  .en-quote p { margin: 0; }
+  .en-quote p + p { margin-top: 8px; }
+  .en-quote .q-lbl {
+    display: block; font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-style: normal; font-size: 9.5px; font-weight: 600; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--accent-ink); margin-bottom: 6px;
+  }
+
+  .receipts { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 2px; }
+  .receipts a {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: .02em; color: var(--accent-ink);
+    text-decoration: none; padding: 3px 9px;
+    border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+    transition: border-color .16s, background .16s, transform .16s;
+  }
+  .receipts a::before { content: "↗"; opacity: .7; }
+  .receipts a:hover { border-color: var(--accent-wash-edge); background: var(--accent-wash); transform: translateY(-1px); }
+  .receipts a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* podcast-specific */
+  .takeaway { display: flex; gap: 10px; margin: 4px 0 16px; font-size: 1.02rem; }
+  .takeaway .k {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--accent-ink); white-space: nowrap; padding-top: 6px;
+  }
+  .takeaway .v { margin: 0; font-weight: 600; }
+
+  blockquote {
+    margin: 18px 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--accent);
+    font-family: "Newsreader", Georgia, serif; font-style: italic;
+    font-size: 1.24rem; line-height: 1.42; color: var(--ink); text-wrap: pretty;
+  }
+  blockquote .src {
+    display: block; margin-top: 8px; font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-style: normal; font-size: 11px; letter-spacing: .04em; color: var(--ink-faint);
+  }
+
+  footer {
+    margin-top: 54px; padding-top: 20px; border-top: 3px solid var(--line-strong);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .05em; color: var(--ink-faint); line-height: 1.9;
+  }
+  footer a { color: var(--accent-ink); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .88em; background: var(--accent-wash); padding: 1px 5px; border-radius: 3px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(10px); animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+  }
+</style>
+<!-- FB_RAIL_CSS -->
+
+<style>
+  /* left sidebar rail (index only) */
+  .rail {
+    position: fixed;
+    top: 34px;
+    left: max(20px, calc((100vw - 720px) / 2 - 232px));
+    width: 200px;
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+    z-index: 10;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  .rail-inner {
+    border-left: 2px solid var(--line-strong);
+    padding: 6px 0 6px 14px;
+  }
+  .rail-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 8px; margin-bottom: 10px;
+  }
+  .rail-lbl {
+    font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .rail-lbl .rail-zh {
+    font-family: "Noto Serif SC", serif; letter-spacing: .08em; margin-right: 6px;
+  }
+  .rail-count {
+    font-size: 10.5px; color: var(--ink-faint); font-variant-numeric: tabular-nums;
+    letter-spacing: .06em;
+  }
+  .rail .a-list { list-style: none; padding: 0; margin: 0; }
+  .rail .a-list li { margin: 0; }
+  .rail .a-list a {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 8px 0; text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: color .16s, border-color .16s, padding-left .16s;
+  }
+  .rail .a-list a:hover {
+    color: var(--accent-ink); border-color: var(--accent-wash-edge);
+    padding-left: 4px;
+  }
+  .rail .a-list .a-date {
+    font-size: 11.5px; letter-spacing: .06em; color: var(--ink);
+    font-variant-numeric: tabular-nums; font-weight: 600;
+  }
+  .rail .a-list .a-zh {
+    font-family: "Noto Serif SC", serif; font-size: 12px; color: var(--ink-faint);
+    letter-spacing: 0;
+  }
+  .rail .a-list .a-current > a {
+    color: var(--accent-ink); border-color: var(--accent-wash-edge);
+    padding-left: 4px;
+  }
+  .rail .a-list .a-current .a-date { color: var(--accent-ink); }
+  .rail .a-list a:hover .a-date,
+  .rail .a-list a:hover .a-zh { color: var(--accent-ink); }
+
+  /* rail scrollbar: subtle */
+  .rail::-webkit-scrollbar { width: 6px; }
+  .rail::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .rail::-webkit-scrollbar-thumb:hover { background: var(--line-strong); }
+
+  /* narrow viewport: rail becomes a top strip that scrolls horizontally */
+  @media (max-width: 1179px) {
+    .rail {
+      position: sticky; top: 0; left: 0; width: 100%; max-height: none;
+      background: var(--bg);
+      padding: 10px 20px 8px;
+      border-bottom: 1px solid var(--line);
+      overflow-x: auto; overflow-y: hidden;
+    }
+    .rail-inner {
+      border-left: 0; padding: 0;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .rail-head {
+      margin: 0; flex-shrink: 0; flex-direction: column;
+      align-items: flex-start; gap: 1px;
+    }
+    .rail .a-list {
+      display: flex; gap: 4px; flex-wrap: nowrap;
+    }
+    .rail .a-list li { flex-shrink: 0; }
+    .rail .a-list a {
+      flex-direction: row; align-items: baseline; gap: 6px;
+      padding: 6px 10px; border-bottom: 0;
+      border: 1px solid var(--line); border-radius: 999px;
+      background: var(--surface); white-space: nowrap;
+    }
+    .rail .a-list a:hover { padding-left: 10px; }
+    .rail .a-list .a-current > a {
+      padding-left: 10px; background: var(--accent-wash);
+      border-color: var(--accent-wash-edge);
+    }
+    .rail .a-list .a-zh { font-size: 11px; }
+  }
+</style>
+
+<!-- FB_EXTRA --><style>
+  .masthead { margin-top: 8px; }
+  .dateline { font-size: 15px; letter-spacing: .02em; text-transform: none; gap: 8px 22px; }
+  .dateline b { font-size: 17px; color: var(--ink); }
+  .dateline .num { font-size: 17px; }
+  .lead .kicker { font-size: 13px; letter-spacing: .14em; }
+  .lead .lead-p { font-size: 17px; line-height: 1.75; margin: 0; color: var(--ink); text-wrap: pretty; }
+  .lead .lead-p .mark { background: linear-gradient(transparent 62%, var(--accent-wash) 62%); color: var(--accent-ink); font-weight: 600; }
+  .sec-head .lbl .zh-lbl { font-size: 1.7rem; font-weight: 700; letter-spacing: .04em; color: var(--ink); text-transform: none; margin: 0; }
+  .sec-sum { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 3px; padding: 14px 18px; margin: 14px 0 6px; font-size: 17px; }
+  .sec-sum p { margin: 0 0 6px; }
+  .sec-sum ol { margin: 4px 0 0; padding-left: 22px; }
+  .sec-sum .k { font-family: "Noto Serif SC", serif; font-size: 17px; font-weight: 700; color: var(--accent-ink); margin-right: 4px; }
+  .name .src { font-family: "IBM Plex Mono", "Noto Serif SC", monospace; font-style: normal; font-weight: 500; font-size: 12px; letter-spacing: .04em; color: var(--ink-faint); margin-left: 8px; white-space: nowrap; }
+  .time { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--ink-faint); margin: 4px 0 0; }
+  .receipts { justify-content: flex-end; }
+  .lst { list-style: none; padding: 0; margin: 6px 0 0; }
+  .lst li { padding: 9px 0; border-top: 1px dashed var(--line); }
+  .lst li:first-child { border-top: 0; }
+  .lst .t { color: var(--ink); text-decoration: none; font-weight: 500; }
+  .lst .t:hover { color: var(--accent-ink); }
+  .lst .m { display: block; font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--ink-faint); }
+  .grp { font-family: "Noto Serif SC", serif; font-size: 1.2rem; font-weight: 600; color: var(--accent-ink); letter-spacing: .04em; margin: 30px 0 0; padding-bottom: 4px; border-bottom: 1px solid var(--accent-wash-edge); }
+  .note { font-family: "IBM Plex Mono", "Noto Serif SC", monospace; font-size: 12px; color: var(--ink-faint); margin: 14px 0 0; line-height: 1.7; }
+  .sec-head, .grp, .entry { scroll-margin-top: 24px; }
+  .toc { position: fixed; top: 34px; right: max(20px, calc((100vw - 720px) / 2 - 252px)); width: 220px; max-height: calc(100vh - 68px); overflow-y: auto; z-index: 10; font-family: "Noto Serif SC", serif; }
+  .toc-inner { border-left: 2px solid var(--line-strong); padding: 6px 0 6px 14px; }
+  .toc-head { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: .2em; color: var(--ink); margin-bottom: 10px; }
+  .toc-head .rail-zh { font-family: "Noto Serif SC", serif; letter-spacing: .08em; margin-right: 6px; }
+  .toc ul { list-style: none; padding: 0; margin: 0; }
+  .toc a { text-decoration: none; color: var(--ink-faint); display: block; }
+  .toc a:hover, .toc a.on { color: var(--accent-ink); }
+  .toc .t-sec { margin: 0 0 10px; }
+  .toc .t-sec > a { font-size: 14px; font-weight: 600; color: var(--ink); padding: 4px 0; border-bottom: 1px solid var(--line); }
+  .toc .t-sec > a .n { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; color: var(--ink-faint); font-weight: 400; margin-left: 6px; }
+  .toc .t-grp > a { font-size: 12.5px; font-weight: 600; color: var(--accent-ink); padding: 6px 0 2px; }
+  .toc .t-it > a { font-size: 12px; line-height: 1.45; padding: 3px 0 3px 8px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .toc::-webkit-scrollbar { width: 6px; } .toc::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .toc-m { display: none; }
+  @media (max-width: 1179px) {
+    .toc { display: none; }
+    .toc-m { display: block; margin: 18px 0 0; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); padding: 10px 14px; font-family: "Noto Serif SC", serif; }
+    .toc-m summary { cursor: pointer; font-weight: 600; font-size: 15px; color: var(--ink); }
+    .toc-m ul { list-style: none; padding: 0; margin: 8px 0 0; }
+    .toc-m a { text-decoration: none; color: var(--ink-faint); display: block; padding: 3px 0; }
+    .toc-m .t-sec > a { color: var(--ink); font-weight: 600; } .toc-m .t-grp > a { color: var(--accent-ink); padding-left: 8px; }
+    .toc-m .t-it { display: none; }
+    .sec-head, .grp, .entry { scroll-margin-top: 72px; }
+  }
+</style><!-- /FB_EXTRA -->
+<!-- YOHAKU --><style>
+:root{--bg:#f4f1ea;--surface:#f4f1ea;--ink:#23211d;--ink-soft:#23211d;--ink-faint:#8a8478;--line:transparent;--line-strong:transparent;--accent:#23211d;--accent-ink:#23211d;--accent-wash:transparent;--accent-wash-edge:transparent;--shadow:none}
+@media (prefers-color-scheme:dark){:root{--bg:#f4f1ea;--surface:#f4f1ea;--ink:#23211d;--ink-faint:#8a8478}}
+html,body{background:#f4f1ea!important}
+body,body *{font-family:"Noto Serif SC","Noto Serif CJK SC","Songti SC",serif!important;border-color:transparent!important;box-shadow:none!important}
+body{color:#23211d!important;font-size:16px!important;line-height:1.85!important;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:640px!important}
+/* title: one quiet line */
+.masthead{border:0!important;padding:0!important;margin:56px 0 0!important}
+h1.title{font-family:"Noto Serif SC","Noto Serif CJK SC",serif!important;font-size:30px!important;font-weight:600!important;letter-spacing:.01em!important;line-height:1.2!important}
+h1.title br{display:none}
+h1.title em{font-style:normal!important;color:#23211d!important;font-weight:600!important;margin-left:.25em;font-family:inherit!important}
+.dateline{font-size:13px!important;text-transform:none!important;letter-spacing:.02em!important;color:#8a8478!important;gap:4px 18px!important;padding-top:14px!important}
+.dateline b,.dateline .num{color:#8a8478!important;font-weight:400!important;font-size:13px!important}
+/* summary */
+.lead{background:none!important;border:0!important;padding:0!important;margin:72px 0 0!important}
+.kicker{display:none!important}
+.lead .lead-p,.lead p,.lead h2{font-size:19px!important;line-height:1.95!important;color:#23211d!important;font-weight:400!important}
+.lead .mark{background:none!important;color:#b03a2e!important;font-weight:500!important}
+.lead *{color:#23211d!important;opacity:1!important}.lead .mark{color:#b03a2e!important}
+/* sections */
+.sec-head{margin:120px 0 0!important;display:block!important}
+.sec-head .rule,.sec-head .count{display:none!important}
+.sec-head .lbl .zh-lbl,.sec-head .lbl{font-family:"Noto Serif SC","Noto Serif CJK SC",serif!important;font-size:34px!important;font-weight:600!important;letter-spacing:.12em!important;color:#23211d!important}
+.sec-sum{background:none!important;border:0!important;padding:0!important;margin:24px 0 64px!important;font-size:17px!important;color:#23211d!important}
+.sec-sum .k{display:none!important}
+.sec-sum ol{padding-left:1.2em!important}
+/* entries */
+.entry{padding:0 0 56px!important;border:0!important}
+.name{font-size:17px!important;font-weight:600!important;line-height:1.6!important}
+.name .src{font-size:13px!important;font-weight:400!important;color:#8a8478!important;margin-left:10px!important;letter-spacing:0!important}
+.time{font-size:12px!important;color:#a8a194!important;margin:2px 0 12px!important;font-variant-numeric:tabular-nums}
+.entry p{color:#33302a!important}
+.receipts{gap:14px!important;margin-top:8px!important}
+.receipts a{background:none!important;border:0!important;padding:0!important;color:#23211d!important;font-size:12px!important;text-decoration:none!important}
+.receipts a::before{content:""!important}
+/* rails: lighter, Chinese only */
+.rail-lbl,.toc-head{font-size:0!important}
+.rail-lbl .rail-zh,.toc-head .rail-zh{font-size:12px!important;color:#23211d!important;letter-spacing:.1em!important;font-weight:500!important}
+.rail-count{display:none!important}
+.rail,.toc{font-size:12px!important}
+.a-zh{display:none!important}
+.a-date{color:#8a8478!important;font-size:12px!important;font-weight:400!important;letter-spacing:.02em!important}
+.a-current .a-date{color:#23211d!important}
+.toc-inner{border:0!important;padding:0!important}
+.toc .t-sec>a{font-size:13px!important;font-weight:500!important;border:0!important;color:#23211d!important}
+.toc .t-sec>a .n{display:none!important}
+.toc .t-it>a{color:#8a8478!important;padding-left:0!important}
+.toc a.on{color:#23211d!important}
+a.kw,.zh a.kw{color:inherit!important;text-decoration:none!important;border:0!important;background-image:linear-gradient(rgba(35,33,29,.35),rgba(35,33,29,.35))!important;background-size:100% 1px!important;background-repeat:no-repeat!important;background-position:0 95%!important}a.kw:hover{color:#23211d!important}
+.receipts a:not(:first-child){display:none!important}
+.receipts a:first-child{font-size:0!important}.receipts a:first-child::after{content:"原文";font-size:12px}
+.lead .mark,a.kw:hover{font-weight:600!important}.a-current .a-date{font-weight:600!important}
+.name{font-size:20px!important;font-weight:700!important;color:#1a1814!important;letter-spacing:.02em!important;line-height:1.5!important}
+.name .src{font-size:13px!important;font-weight:400!important}
+.entry p:not(.name):not(.time){font-size:15.5px!important;color:#4a463e!important;font-weight:400!important;line-height:2!important}
+.time{margin:4px 0 16px!important}
+.sec-sum,.sec-sum *{color:#33302a!important}
+.sec-head .lbl .zh-lbl,.sec-head .lbl{font-size:38px!important;font-weight:700!important;color:#1a1814!important}
+h1.title{font-weight:700!important;color:#1a1814!important}
+.mark,.lead .mark{color:#b03a2e!important;background:none!important}
+</style><!-- /YOHAKU -->
+<!-- READING_CSS --><style>
+/* ===== Reading Digest 专用样式 — Ada 的样式放这里 =====
+   render.py 会把本文件原样内联到每页 <head>（<!-- READING_CSS --> 块，位于 YOHAKU 块之后）。
+   通用版式（YOHAKU / FB_EXTRA / .site-switch）在 base_head.html，不在这里改。
+   设计（Ada）：原文是视觉主角（23px 深墨 500 字重、左缩进）；出处与小标题小号灰字；官方解读与讲解为 15.5px 正文；
+   链接 12px 灰放右下；序号 13px 灰；朱红 #b03a2e 只用于讲解里的 .mark；无线、框、阴影，条与条靠留白分开。
+   选择器统一加 .wrap .entry.r-entry 前缀，才压得过 YOHAKU 里 .entry p:not(.name):not(.time) 的 !important。
+   class：.r-entry 每条 | .r-no 序号(01 / 10) .r-of | .r-quote-block 原文块 .r-quote | .r-source 出处
+          .r-label 小标题 | .r-official 官方解读文字 .r-links 链接(右下) .r-none 「未查询到」 | .r-explain 讲解 | .r-sample 示例提示 | .disclaimer 免责声明 */
+/* 免责声明：一行小号墨灰衬线，无框无色 */
+p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!important;letter-spacing:.04em!important;font-weight:400!important;color:#6f695e!important;background:none!important;border:0!important;padding:0!important}
+/* 每条：靠留白分隔 */
+.wrap .entry.r-entry{padding:0 0 104px!important;scroll-margin-top:24px}
+.wrap article.entry.r-entry:last-of-type{padding-bottom:40px!important}
+/* 序号：小号，数字深墨、「/ 10」灰，不用朱红 */
+.wrap .entry.r-entry p.r-no{font-size:13px!important;font-weight:400!important;font-style:normal!important;color:#23211d!important;letter-spacing:.08em!important;line-height:1!important;margin:0 0 22px!important;font-variant-numeric:tabular-nums}
+.wrap .entry.r-entry p.r-no .r-of{font-size:13px!important;font-weight:400!important;color:#8a8478!important}
+/* 原文：最大、深墨、缩进成块 */
+.wrap .entry.r-entry .r-quote-block{margin:0 0 0 28px!important;padding:0!important}
+.wrap .entry.r-entry .r-quote-block p.r-quote{font-size:23px!important;line-height:1.95!important;font-weight:500!important;font-style:normal!important;color:#1a1814!important;letter-spacing:.03em!important;margin:0 0 .7em!important}
+.wrap .entry.r-entry .r-quote-block p.r-quote:last-child{margin-bottom:0!important}
+/* 出处：小号灰，前面补一个灰色「出处」 */
+.wrap .entry.r-entry p.r-source{font-size:13px!important;line-height:1.8!important;color:#6f695e!important;letter-spacing:.03em!important;margin:22px 0 0 28px!important}
+.wrap .entry.r-entry p.r-source::before{content:"出处";margin-right:1em;color:#8a8478}
+/* 小标题：官方解读 / 讲解 */
+.wrap .entry.r-entry p.r-label{font-size:13px!important;line-height:1.6!important;color:#8a8478!important;letter-spacing:.14em!important;font-weight:400!important;margin:44px 0 6px!important}
+/* 官方解读文字 / 讲解：正文 */
+.wrap .entry.r-entry p.r-official,.wrap .entry.r-entry p.r-explain{font-size:15.5px!important;line-height:2!important;color:#4a463e!important;font-weight:400!important;margin:0 0 .6em!important}
+.wrap .entry.r-entry p.r-official.r-none{font-size:13px!important;line-height:1.8!important;color:#6f695e!important;margin:0!important}
+.wrap .entry.r-entry p.r-explain.r-none{font-size:13px!important;color:#6f695e!important}
+/* 链接：小号灰放右下，无下划线，后缀箭头 */
+.wrap .entry.r-entry p.r-links{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin:8px 0 0!important;font-size:12px!important;line-height:1.7!important}
+.wrap .entry.r-entry p.r-links a{color:#6f695e!important;text-decoration:none!important;font-size:12px!important;letter-spacing:.02em;background:none!important;word-break:break-all}
+.wrap .entry.r-entry p.r-links a:hover{color:#23211d!important}
+.wrap .entry.r-entry p.r-links a::after{content:" →"}
+/* 朱红：只在讲解的关键词句 */
+.wrap .entry.r-entry .mark{color:#b03a2e!important;background:none!important;font-weight:600!important}
+.wrap p.r-sample{font-size:13px;line-height:1.8;color:#6f695e;margin:28px 0 0}
+/* 目录：手机折叠里列出全部条目；条数小字隐藏 */
+.toc-m .t-sec>a .n{display:none!important}
+.toc-m .t-it{display:block!important}
+.toc-m .t-it>a{padding-left:8px!important}
+@media (max-width:640px){
+  .wrap .entry.r-entry{padding-bottom:80px!important}
+  .wrap .entry.r-entry .r-quote-block{margin-left:14px!important}
+  .wrap .entry.r-entry .r-quote-block p.r-quote{font-size:20px!important;line-height:1.9!important}
+  .wrap .entry.r-entry p.r-source{margin-left:14px!important}
+  .wrap .entry.r-entry p.r-label{margin-top:36px!important}
+}
+</style><!-- /READING_CSS -->
+<!-- /FB_RAIL_CSS -->
+
+
+
+
+<aside class="rail" aria-label="往期归档">
+  <div class="rail-inner">
+    <div class="rail-head">
+      <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
+      <span class="rail-count">18 期</span>
+    </div>
+    <ul class="a-list">
+      <li class="a-current"><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
+      <li><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
+      <li><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
+      <li><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
+      <li><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
+      <li><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
+      <li><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
+      <li><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
+      <li><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
+      <li><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
+      <li><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
+      <li><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
+      <li><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
+      <li><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+    </ul>
+  </div>
+</aside>
+<script src="archive.js"></script>
+<nav class="toc" aria-label="本期目录"><div class="toc-inner"><div class="toc-head"><span class="rail-zh">本期目录</span>Contents</div><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 善于把党的政策变为群众的行动，善…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 只有领导骨干的积极性，而无广大群…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 群众生产，群众利益，群众经验，群…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 我们应该深刻地注意群众生活的问题…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 那时（指一九二四——一九二七年第…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 在人民战争的基础上，在军队和人民…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 这个军队形成了为人民战争所必需的…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 政治工作是一切经济工作的生命线。…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 红军所以艰难奋战而不溃散，“支部…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 八路军的政治工作的基本原则有三个…</a></li></ul></li></ul></div></nav>
+<div class="wrap">
+  <p class="disclaimer">以下内容均为 Grok AI 生成，不代表个人政治立场。</p>
+  <header class="plate">
+    <style>.site-switch{display:flex;gap:28px;justify-content:flex-end;margin:0 0 28px}.site-switch a{font:500 13px/1 -apple-system,Helvetica,Arial,sans-serif!important;letter-spacing:.06em!important;text-decoration:none!important;padding:6px 0!important;color:#9a9a9a!important;border-bottom:1.5px solid transparent!important}.site-switch a.on{color:#111!important;border-bottom-color:#111!important}.site-switch a:hover{color:#111!important}</style><nav class="site-switch"><a href="../ai-builders-digest/">AI Digest</a><a href="../social-digest/">Social Digest</a><a href="https://summerxia.com/reading-digest/" class="on">Reading Digest</a><a href="../pm-digest/">PM Digest</a><a href="../fde-digest/">FDE Digest</a></nav>
+    <div class="masthead">
+      <h1 class="title">Reading<br><em>Digest</em></h1>
+    </div>
+    <div class="dateline">
+      <span><b>周五 · 2026年11月20日</b></span>
+      <span><span class="num">10</span> 条</span>
+    </div>
+  </header>
+
+<details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 善于把党的政策变为群众的行动，善…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 只有领导骨干的积极性，而无广大群…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 群众生产，群众利益，群众经验，群…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 我们应该深刻地注意群众生活的问题…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 那时（指一九二四——一九二七年第…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 在人民战争的基础上，在军队和人民…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 这个军队形成了为人民战争所必需的…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 政治工作是一切经济工作的生命线。…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 红军所以艰难奋战而不溃散，“支部…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 八路军的政治工作的基本原则有三个…</a></li></ul></li></ul></details>
+<div style="height:72px"></div>
+<article class="entry r-entry" id="e-1">
+  <p class="r-no">01<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">善于把党的政策变为群众的行动，善于使我们的每一个运动，每一个斗争，不但领导干部懂得，而且广大的群众都能懂得，都能掌握，这是一项马克思列宁主义的领导艺术。我们的工作犯不犯错误，其界限也在这里。</p></div>
+  <p class="r-source">《对晋绥日报编辑人员的谈话》（1948年4月2日），《毛泽东选集》第四卷第1318—1319页，《毛主席语录》第十一章</p>
+  <p class="r-label">官方解读</p><p class="r-official">学习时报储峰文章在专节“善于把党的政策变成群众的行动”中写道，通过报纸宣传，“善于把党的政策变成群众的行动”。文章并引述：“要‘善于使我们的每一个运动，每一个斗争，不但领导干部懂得，而且广大的群众都能懂得，都能掌握’。”毛泽东认为这也是党的工作犯不犯错误的根本界限。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2018/0808/c85037-30216689.html">重温毛泽东《对晋绥日报编辑人员的谈话》（人民网党史频道，2018年8月8日，来源《学习时报》，储峰）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话出自1948年4月2日《对晋绥日报编辑人员的谈话》。当时晋绥边区土改中出现过政策不为广大群众所知的问题，谈话围绕如何通过报纸加强和群众的联系展开。</p><p class="r-explain">要<span class="mark">善于把党的政策变为群众的行动</span>，善于使每一个运动、每一个斗争，不但少数人懂得，而且广大的群众都能懂得、都能掌握。这被说成一项领导艺术，也是工作犯不犯错误的<span class="mark">界限</span>：政策只停在少数人那里，群众并不懂得，就无法齐心去实行，也容易出差错。</p>
+</article>
+<article class="entry r-entry" id="e-2">
+  <p class="r-no">02<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">只有领导骨干的积极性，而无广大群众的积极性相结合，便将成为少数人的空忙。但如果只有广大群众的积极性，而无有力的领导骨干去恰当地组织群众的积极性，则群众积极性既不可能持久，也不可能走向正确的方向和提到高级的程度。</p></div>
+  <p class="r-source">《关于领导方法的若干问题》（1943年6月1日），《毛泽东选集》第三卷第900页（原书排作「第九零零零页」），《毛主席语录》第十一章</p>
+  <p class="r-label">官方解读</p><p class="r-official">张太原（时任中央党校党史部教授）在《光明日报》文章中完整引述了这段话，随后写道：“因此，无论什么工作，都必须采取领导骨干和广大群众相结合的方法。领导骨干带头，组织和发动群众，这是中国共产党取得成功的秘诀之一。”</p><p class="r-links"><a href="http://www.xinhuanet.com/politics/2016-03/23/c_128826353_2.htm">从《党委会的工作方法》看毛泽东的领导方法（新华网，2016年3月23日，来源《光明日报》，张太原）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话出自1943年6月1日《关于领导方法的若干问题》。原书页码排作「第九零零零页」，同篇相邻条目作第900、901、902页。它讲的是“领导和群众相结合”。</p><p class="r-explain">只有骨干的积极性，而无广大群众的积极性相结合，便将成为<span class="mark">少数人的空忙</span>。只有广大群众的积极性，而无有力的骨干去恰当地组织，则群众积极性既不可能持久，也不可能走向正确的方向和提到高级的程度。两头缺一不可：骨干要和群众的积极性<span class="mark">结合起来</span>，既不要少数人自己空转，也不要让已经起来的积极性没有人去组织。</p>
+</article>
+<article class="entry r-entry" id="e-3">
+  <p class="r-no">03<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">群众生产，群众利益，群众经验，群众情绪，这些都是领导干部们应时刻注意的。</p></div>
+  <p class="r-source">为中直军直生产展览会题词，1943年11月24日延安《解放日报》，《毛主席语录》第十一章</p>
+  <p class="r-label">官方解读</p><p class="r-official r-none">未查询到</p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话是1943年11月毛泽东为中直军直生产展览会所写的题词，刊于当年11月24日延安《解放日报》。当时陕甘宁边区正在开展大生产运动，中共中央直属机关和军委直属机关举办生产展览，题词把应当时刻注意的事情概括成四句。</p><p class="r-explain"><span class="mark">群众生产，群众利益，群众经验，群众情绪</span>，这些都是应时刻注意的。生产是人们正在做的事，利益是他们的实际需要，经验是他们在做的过程中已经积累的办法，情绪是他们现在的状态。四件事放在一起，是要求把人正在做什么、需要什么、已经会什么、现在心情如何，都放在经常注意的范围内，而不是只看任务本身。</p>
+</article>
+<article class="entry r-entry" id="e-4">
+  <p class="r-no">04<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">我们应该深刻地注意群众生活的问题，从土地、劳动问题，到柴米油盐问题。……一切这些群众生活上的问题，都应该把它提到自己的议事日程上。应该讨论，应该决定，应该实行，应该检查。要使广大群众认识我们是代表他们的利益的，是和他们呼吸相通的。要使他们从这些事情出发，了解我们提出来的更高的任务，革命战争的任务、拥护革命，把革命推到全国去，接受我们的政治号召，为革命的胜利斗争到底。</p></div>
+  <p class="r-source">《关心群众生活，注意工作方法》（1934年1月27日），《毛泽东选集》第一卷第133页，《毛主席语录》第十一章</p>
+  <p class="r-label">官方解读</p><p class="r-official">韩毓海在《光明日报》文章中完整引述了从“我们应该深刻地注意群众生活的问题，从土地、劳动问题，到柴米油盐问题”到“是和他们呼吸相通的”一段，并写道：“我们党之所以得到人民群众的拥护，就是因为党的工作是从解决群众具体的生活问题出发的，是真正代表群众的利益，是真心实意为人民谋利益的。”</p><p class="r-links"><a href="http://theory.people.com.cn/n1/2016/0705/c49157-28524573.html">从问题出发——读毛泽东《关心群众生活，注意工作方法》（人民网理论频道，2016年7月5日，来源《光明日报》，韩毓海）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话出自1934年1月27日《关心群众生活，注意工作方法》。当时中央苏区面临战争和封锁，第二次全国工农兵代表大会上，毛泽东把群众生活问题提到和工作方法并列的位置。原书中的省略号是摘录时的删节，这里照原书保留。</p><p class="r-explain">应该深刻地注意群众生活的问题，从土地、劳动问题，到<span class="mark">柴米油盐</span>问题。一切这些群众生活上的问题，都应该提到议事日程上：<span class="mark">应该讨论，应该决定，应该实行，应该检查</span>。先把和人们呼吸相通的具体事情办好，人们才会认识提出来的更高任务，并愿意为之奋斗。生活问题不是附加的小事，而是工作日程本身的一部分。</p>
+</article>
+<article class="entry r-entry" id="e-5">
+  <p class="r-no">05<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">那时（指一九二四——一九二七年第一次国内革命战争时期——编者）军队设立了党代表和政治部，这种制度是中国历史上没有的，靠了这种制度使军队一新其面目。一九二七年以后的红军以至今日的八路军，是继承了这种制度而加以发展的。</p></div>
+  <p class="r-source">《和英国记者贝特兰的谈话》（1937年10月25日），《毛泽东选集》第二卷第370页，《毛主席语录》第十二章</p>
+  <p class="r-label">官方解读</p><p class="r-official">解放军报文章引述1937年毛泽东和英国记者贝特兰的谈话：“那时军队设立了党代表和政治部，这种制度是中国历史上没有的，靠了这种制度使军队一新其面目。1927年以后的红军以至今日的八路军，是继承了这种制度而加以发展的”。文章随后写道：“这一语道破了我军立于不败之地的奥秘。”</p><p class="r-links"><a href="http://cpc.people.com.cn/n1/2016/0926/c64387-28740803.html">怎么看深化改革是要更好坚持党对军队绝对领导（人民网，2016年9月26日，来源《解放军报》）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">以下进入第十二章「政治工作」。这段话出自1937年10月25日《和英国记者贝特兰的谈话》。原书此处年份排作「一九五七年」，同章后文同一篇谈话作「一九三七年」；这篇谈话的日期是1937年10月25日，这里按同书后文写出。谈话回顾了第一次国内革命战争时期军队中的一项制度。</p><p class="r-explain">那时军队设立了<span class="mark">党代表和政治部</span>，这种制度是中国历史上没有的，靠了这种制度使军队<span class="mark">一新其面目</span>。1927年以后的红军以至当时的八路军，是继承了这种制度而加以发展的。它要说明的是：军队面貌一新，靠的不是多了一套机构的名称，而是把政治工作做成了军队制度的一部分，后来的红军和八路军是在这个基础上继续发展的。</p>
+</article>
+<article class="entry r-entry" id="e-6">
+  <p class="r-no">06<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">在人民战争的基础上，在军队和人民团结一致、指挥员和战斗员团结一致以及瓦解敌军等项原则的基础上，人民解放军建立了自己的强有力的革命的政治工作，这是我们战胜敌人的重大因素。</p></div>
+  <p class="r-source">《目前形势和我们的任务》（1947年12月25日），《毛泽东选集》第四卷第1248页，《毛主席语录》第十二章</p>
+  <p class="r-label">官方解读</p><p class="r-official r-none">未查询到</p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话出自1947年12月25日《目前形势和我们的任务》。当时解放战争已转入进攻，毛泽东在陕北杨家沟作了这篇报告，总结战争、土地改革和军事原则，并谈到人民解放军的政治工作。</p><p class="r-explain">在人民战争的基础上，在军队和人民团结一致、指挥员和战斗员团结一致以及瓦解敌军等项原则的基础上，人民解放军建立了自己<span class="mark">强有力的革命的政治工作</span>，这是战胜敌人的<span class="mark">重大因素</span>。政治工作在这里不是附加在军事行动之外的一层，而是和军民一致、官兵一致、瓦解敌军等原则连在一起，成为能够战胜敌人的一个重要条件。</p>
+</article>
+<article class="entry r-entry" id="e-7">
+  <p class="r-no">07<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">这个军队形成了为人民战争所必需的一系列的政治工作，其任务是为团结我军，团结友军，团结人民，瓦解敌军和保证战斗胜利而斗争。</p></div>
+  <p class="r-source">《论联合政府》（1945年4月24日），《毛泽东选集》第三卷第1040页，《毛主席语录》第十二章</p>
+  <p class="r-label">官方解读</p><p class="r-official r-none">未查询到</p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话出自1945年4月24日《论联合政府》。在谈到人民军队时，毛泽东把这支军队已经形成的政治工作，按其任务作了概括。</p><p class="r-explain">这个军队形成了为人民战争所必需的一系列政治工作，其任务是为<span class="mark">团结我军，团结友军，团结人民，瓦解敌军</span>和保证战斗胜利而斗争。政治工作在这里有明确的对象和目的：对内把自身团结住，对友军和人民也要团结，对敌军则要瓦解，最终是为了<span class="mark">保证战斗胜利</span>。它不是抽象的口号，而是服务于人民战争的一套具体任务。</p>
+</article>
+<article class="entry r-entry" id="e-8">
+  <p class="r-no">08<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">政治工作是一切经济工作的生命线。在社会经济制度发生根本变革的时期，尤其是这样。</p></div>
+  <p class="r-source">《严重的教训》一文的按语（1955年），《中国农村的社会主义高潮》上册第123页，《毛主席语录》第十二章</p>
+  <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院孙迪的文章写道：毛泽东同志在1955年12月为《中国农村的社会主义高潮》一书中《严重的教训》一文所写的按语中明确提出“政治工作是一切经济工作的生命线”；1957年3月在南京党员干部会议上强调“全党都要加强政治思想工作”。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2026/0511/c427152-40717576.html">深刻把握新时代思想政治工作的历史逻辑、政治逻辑与实践逻辑（中央党史和文献研究院，2026年5月11日，孙迪）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话是1955年毛泽东为《中国农村的社会主义高潮》一书中《严重的教训》一文所写按语的开头。按语针对农业合作化中只抓经济、放松思想工作，以致合作社一度垮台的教训，先把政治工作的位置说清楚。</p><p class="r-explain"><span class="mark">政治工作是一切经济工作的生命线</span>。在社会经济制度发生根本变革的时期，尤其是这样。它不是要拿政治工作去代替经济工作，而是强调：经济制度正在发生大变动的时候，如果只办经济上的手续，不把道理讲清、把思想理顺，经济工作本身也难以巩固。<span class="mark">生命线</span>在这里是说它关系经济工作能否站住，而不是说可以离开经济去空谈。</p>
+</article>
+<article class="entry r-entry" id="e-9">
+  <p class="r-no">09<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">红军所以艰难奋战而不溃散，“支部建在连上”是一个重要原因。</p></div>
+  <p class="r-source">《井冈山的斗争》（1928年11月25日），《毛泽东选集》第一卷第68页，《毛主席语录》第十二章</p>
+  <p class="r-label">官方解读</p><p class="r-official">学习时报王一彪文章在引述《井冈山的斗争》中“红军所以艰难奋战而不溃散，‘支部建在连上’是一个重要原因”之后写道：“‘支部建在连上’，实质就是要真正地确立党对军队的绝对领导，坚持党指挥枪而不是枪指挥党。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2019/0522/c85037-31097096.html">“光芒四射喷薄欲出的一轮朝日”——重读毛泽东同志在井冈山斗争和中央革命根据地时期的重要文献（人民网党史频道，2019年5月22日，来源《学习时报》，王一彪）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话出自1928年11月25日《井冈山的斗争》。1927年9月秋收起义部队在江西永新三湾村改编，实行在连队建立党支部；到井冈山斗争时期，毛泽东把这一做法写成经验。</p><p class="r-explain">红军所以艰难奋战而不溃散，<span class="mark">“支部建在连上”</span>是一个重要原因。连一级有了党支部，党的工作就做到了最基层的行动单位，而不是只停在上级机关。在极其困难的条件下，队伍能够<span class="mark">不溃散</span>，靠的是把组织落到连上，使每一个基层单位都有一个能够起作用的核心。</p>
+</article>
+<article class="entry r-entry" id="e-10">
+  <p class="r-no">10<span class="r-of"> / 10</span></p>
+  <div class="r-quote-block"><p class="r-quote">八路军的政治工作的基本原则有三个，即：第一、官兵一致的原则，这就是在军队中肃清封建主义，废除打骂制度，建立自觉纪律，实行同甘共苦的生活，因此全军是团结一致的。第二、军民一致的原则，这就是秋毫无犯的民众纪律，宣传、组织和武装民众，减轻民众的经济负担，打击危害军民的汉奸卖国贼，因此军民团结一致，到处得到人民的欢迎。第三、瓦解敌军和宽待俘虏的原则。我们的胜利不但是依靠我军的作战，而且依靠敌军的瓦解。</p></div>
+  <p class="r-source">《和英国记者贝特兰的谈话》（1937年10月25日），《毛泽东选集》第二卷第369页，《毛主席语录》第十二章</p>
+  <p class="r-label">官方解读</p><p class="r-official">祝志伟文章写道：1937年10月25日，毛泽东在接待来访的英国记者贝特兰时，回答了这位英国客人对八路军政治工作的好奇心。“毛泽东清楚地介绍了八路军政治工作的3个基本原则：官兵一致的原则、军民一致的原则、瓦解敌军和宽待俘虏的原则。他告诉贝特兰，这样的政治工作，就是共产党领导的军队的优势。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2017/0811/c85037-29464489.html">毛泽东：“政治工作是革命军队的生命线”（人民网党史频道，2017年8月11日，祝志伟）</a></p>
+  <p class="r-label">讲解</p><p class="r-explain">这段话与本章第1条同出1937年10月25日《和英国记者贝特兰的谈话》。在介绍了党代表和政治部制度之后，毛泽东把八路军政治工作的基本原则概括为三条。</p><p class="r-explain">这三条是：<span class="mark">官兵一致</span>，在军队中肃清封建主义，废除打骂制度，建立自觉纪律，实行同甘共苦的生活，因此全军是团结一致的；<span class="mark">军民一致</span>，秋毫无犯的民众纪律，宣传、组织和武装民众，减轻民众的经济负担，打击危害军民的汉奸卖国贼，因此军民团结一致，到处得到人民的欢迎；以及瓦解敌军和宽待俘虏的原则——胜利不但依靠我军的作战，而且依靠敌军的瓦解。三条说的都是把人团结住：对内、对民、对已经放下武器的俘虏，都要有一套明白的原则。</p>
+</article>
+
+  <footer>
+    <div>READING DIGEST · 2026-11-20</div>
+    <div>本栏目只展示原文、出处、官方解读与讲解</div>
+  </footer>
+</div>
+<script>(function(){var ls=[].slice.call(document.querySelectorAll('.toc a[href^="#"]'));var ts=ls.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
+if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
+addEventListener('scroll',f,{passive:true});f();})();</script>
+</body>
+</html>
