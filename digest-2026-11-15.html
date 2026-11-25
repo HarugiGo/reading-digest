@@ -501,43 +501,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
   .wrap .entry.r-entry p.r-source{margin-left:14px!important}
   .wrap .entry.r-entry p.r-label{margin-top:36px!important}
 }
+
+/* ===== 手动书签：低干扰，不改变米白衬线版式 ===== */
+.wrap .entry.r-entry .r-entry-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;margin:0 0 22px;flex-wrap:wrap}
+.wrap .entry.r-entry .r-entry-head p.r-no{margin:0!important}
+.wrap .entry.r-entry button.r-mark-here,
+.rail button.r-clear-mark{
+  appearance:none;-webkit-appearance:none;
+  background:none!important;border:0!important;box-shadow:none!important;
+  padding:6px 0;margin:0;cursor:pointer;
+  font:400 12px/1.6 inherit!important;
+  color:#8a8478!important;letter-spacing:.06em!important;
+  text-decoration:none!important;white-space:nowrap
+}
+.wrap .entry.r-entry button.r-mark-here:hover,
+.rail button.r-clear-mark:hover{color:#23211d!important}
+.wrap .entry.r-entry.r-bookmarked button.r-mark-here{color:#6f695e!important}
+.wrap .entry.r-entry button.r-mark-here:focus-visible,
+.rail a.r-last-read:focus-visible,
+.rail button.r-clear-mark:focus-visible{
+  outline:1px solid #23211d;outline-offset:3px
+}
+.wrap .entry.r-entry.r-bookmarked{scroll-margin-top:24px}
+
+/* 往期日期右侧「上次读到」，落在左侧空隙里 */
+.rail .a-list li{
+  display:flex;align-items:center;gap:8px
+}
+.rail .a-list li > a:first-of-type{flex:1 1 auto;min-width:0}
+.rail .r-bookmark-slot{display:inline-flex;align-items:baseline;gap:6px;flex:0 0 auto;margin-left:2px}
+.rail a.r-last-read{
+  display:inline!important;flex-direction:unset!important;
+  padding:0!important;border:0!important;background:none!important;
+  color:#6f695e!important;font-size:11px!important;font-weight:400!important;
+  letter-spacing:.04em!important;text-decoration:none!important;
+  white-space:nowrap;line-height:1.4
+}
+.rail a.r-last-read:hover{color:#23211d!important;padding-left:0!important}
+.rail button.r-clear-mark{padding:0;letter-spacing:.04em!important;font-size:11px!important}
+
+.r-bookmark-status{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+@media (max-width:1179px){
+  .wrap .entry.r-entry{scroll-margin-top:72px}
+  .rail .a-list li.r-has-bookmark{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .rail a.r-last-read{
+    padding:0!important;border:0!important;border-radius:0!important;
+    background:none!important;white-space:nowrap
+  }
+  .rail a.r-last-read:hover{padding-left:0!important}
+}
+@media (max-width:640px){
+  .wrap .entry.r-entry .r-entry-head{margin-bottom:18px}
+  .wrap .entry.r-entry button.r-mark-here{padding:8px 0;font-size:12px!important}
+}
 </style><!-- /READING_CSS -->
 <!-- /FB_RAIL_CSS -->
 
 
 
 
-<aside class="rail" aria-label="往期归档">
+<aside class="rail" aria-label="往期归档" data-digest-date="2026-11-15">
   <div class="rail-inner">
     <div class="rail-head">
       <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
       <span class="rail-count">23 期</span>
     </div>
     <ul class="a-list">
-      <li><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
-      <li><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
-      <li><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
-      <li><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
-      <li><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
-      <li><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
-      <li><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
-      <li><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
-      <li><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
-      <li><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
-      <li class="a-current"><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
-      <li><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
-      <li><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
-      <li><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
-      <li><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
-      <li><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
-      <li><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
-      <li><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
-      <li><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
-      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
-      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
-      <li><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
-      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+      <li data-date="2026-11-25"><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
+      <li data-date="2026-11-24"><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
+      <li data-date="2026-11-23"><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
+      <li data-date="2026-11-22"><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
+      <li data-date="2026-11-21"><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
+      <li data-date="2026-11-20"><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
+      <li data-date="2026-11-19"><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
+      <li data-date="2026-11-18"><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
+      <li data-date="2026-11-17"><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
+      <li data-date="2026-11-16"><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
+      <li class="a-current" data-date="2026-11-15"><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
+      <li data-date="2026-11-14"><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
+      <li data-date="2026-11-13"><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
+      <li data-date="2026-11-12"><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
+      <li data-date="2026-11-11"><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
+      <li data-date="2026-11-10"><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
+      <li data-date="2026-11-09"><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
+      <li data-date="2026-11-08"><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
+      <li data-date="2026-11-07"><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li data-date="2026-11-06"><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li data-date="2026-11-05"><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li data-date="2026-11-04"><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li data-date="2026-11-03"><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
     </ul>
+    <p class="r-bookmark-status" role="status" aria-live="polite"></p>
   </div>
 </aside>
 <script src="archive.js"></script>
@@ -557,71 +615,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 
 <details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 革命战争是群众的战争，只有动员群…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 真正的铜墙铁壁是什么？是群众，是…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 战争的伟力之最深厚的根源，存在于…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 帝国主义者如此欺负我们，这是需要…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 人民的游击战争，从整个革命战争的…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 战争胜负，主要地决定于作战双方的…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 战争的目的不是别的，就是“保存自…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 一切军事行动的指导原则，都根据于…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 我们的军事原则是：（1）先打分散…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 优势而无准备，不是真正的优势，也…</a></li></ul></li></ul></details>
 <div style="height:72px"></div>
-<article class="entry r-entry" id="e-1">
-  <p class="r-no">01<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-1" data-entry-id="e-1">
+  <div class="r-entry-head">
+    <p class="r-no">01<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-1" aria-pressed="false" aria-label="标记读到这里，第 1 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">革命战争是群众的战争，只有动员群众才能进行战争，只有依靠群众才能进行战争。</p></div>
   <p class="r-source">《关心群众生活，注意工作方法》（1934年1月27日），《毛泽东选集》第一卷第131页，《毛主席语录》第八章</p>
   <p class="r-label">官方解读</p><p class="r-official">求是网刊载的《学习时报》朱凤强文章写道：“毛泽东认为，群众的生活问题与革命战争的胜利息息相关。”又写道：“如果群众连自己的生活都得不到切实的保障，他们就不可能拿出全力去支援前线，也不可能毫无后顾之忧地去支持、参加革命。”</p><p class="r-links"><a href="https://www.qstheory.cn/llwx/2019-02/13/c_1124107211.htm">时时查民情 事事解民忧——重温毛泽东《关心群众生活，注意工作方法》（求是网，2019年2月13日，来源《学习时报》，朱凤强）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1934年1月27日毛泽东在江西瑞金召开的第二次全国工农兵代表大会上所作的结论。当时中央苏区正处在国民党第五次“围剿”之下，扩大红军、动员运输队是紧迫任务。毛泽东对比了两种情形：汀州市政府只讲扩大红军和动员运输队，不管群众没有柴烧、没有盐买、缺米少房，结果代表们不愿到会，扩大红军也极少成绩；江西长冈乡、福建才溪乡帮群众解决房屋失火、缺粮等实际困难，青壮年参加红军的比例反而很高。这是第八章「人民战争」的第一条。</p><p class="r-explain">这句话是全段的理由：革命战争是<span class="mark">群众的战争</span>，所以只有动员群众、依靠群众才能进行。由此推出，动员不能只靠号召，要先关心群众的切身利益，“从土地、劳动问题，到柴米油盐问题”，让群众认识到“我们是代表他们的利益的”，群众才会拿出全力支持战争。在这里，战争动员和群众生活是连在一起的一件事，而不是互相争夺精力的两件事。</p>
 </article>
-<article class="entry r-entry" id="e-2">
-  <p class="r-no">02<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-2" data-entry-id="e-2">
+  <div class="r-entry-head">
+    <p class="r-no">02<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-2" aria-pressed="false" aria-label="标记读到这里，第 2 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">真正的铜墙铁壁是什么？是群众，是千百万真心实意地拥护革命的群众。这是真正的铜墙铁壁，什么力量也打不破的，完全打不破的。反革命打不破我们，我们却要打破反革命。在革命政府的周围团结起千百万群众来，发展我们的革命战争，我们就能消灭一切反革命，我们就能夺取全中国。</p></div>
   <p class="r-source">《关心群众生活，注意工作方法》（1934年1月27日），《毛泽东选集》第一卷第134页，《毛主席语录》第八章</p>
   <p class="r-label">官方解读</p><p class="r-official">《光明日报》刊发的牟蕾、郑德荣文章以“群众是“真正的铜墙铁壁”，这是对毛泽东“群众观”形象深刻的揭示”为小标题，并写道：“历史证明，正是由于中央苏区的党员干部密切联系群众，真心实意为群众谋利益，才博得了人民群众的衷心爱戴和热诚拥护，组成了真正的“铜墙铁壁”，有力地打破了国民党的经济封锁，赢得了多次反“围剿”的胜利，建立和保卫了革命根据地及其红色政权。”</p><p class="r-links"><a href="https://epaper.gmw.cn/gmrb/html/2013-06/05/nw.D110000gmrb_20130605_1-11.htm?div=-1">中央苏区时期毛泽东的群众观与实践（光明日报，2013年6月5日第11版，牟蕾、郑德荣）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自同一篇讲话，紧接在批评国民党“堡垒政策”之后。当时国民党军队在第五次“围剿”中修筑大量碉堡，步步推进，毛泽东称之为“乌龟壳”，并反问：这果然是铜墙铁壁吗？他举例说，几千年来封建皇帝的城池宫殿、俄国沙皇的统治，在群众起来以后都倒掉了。</p><p class="r-explain">“铜墙铁壁”本来指坚固的工事，这里把它换成了人：<span class="mark">千百万真心实意地拥护革命的群众</span>。“真心实意”是关键的限定，指的不是被强迫的服从，而是因为利益被照顾到、问题被解决了而产生的拥护，这与前文长冈乡、才溪乡的例子相呼应。后半段从防守说到进攻：在革命政府周围团结起千百万群众，不但反革命打不破我们，我们还能打破反革命。</p>
 </article>
-<article class="entry r-entry" id="e-3">
-  <p class="r-no">03<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-3" data-entry-id="e-3">
+  <div class="r-entry-head">
+    <p class="r-no">03<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-3" aria-pressed="false" aria-label="标记读到这里，第 3 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">战争的伟力之最深厚的根源，存在于民众之中。日本敢于欺负我们，主要的原因在于中国民众的无组织状态。克服了这一缺点，就把日本侵略者置于我们数万万站起来了的人民之前，使它像一匹野牛冲入火阵，我们一声唤也要把它吓一大跳，这匹野牛就非烧死不可。</p></div>
   <p class="r-source">《论持久战》（1938年5月），《毛泽东选集》第二卷第501页，《毛主席语录》第八章</p>
   <p class="r-label">官方解读</p><p class="r-official">金一南文章写道：“毛泽东在《论持久战》中说“战争的伟力之最深厚的根源，存在于民众之中”，说得非常有力，被广泛引用。还有一句说得更好，却很少被引用：“日本敢于欺负我们，主要的原因在于中国民众的无组织状态。”这些分析触到了中国至弱的根源。”中央党史和文献研究院研究员曹前发文章写道：“力量对比不但是军力和经济力的对比，而且是人力和人心的对比。战争中真正的铜墙铁壁是群众，是被动员了的广大群众。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n/2015/0909/c85037-27561496-5.html">胜利了也不能忘记（人民网党史频道，2015年9月9日，来源《中国青年报》，金一南）</a><a href="http://dangshi.people.com.cn/n1/2021/0118/c85037-32002486.html">兵民是胜利之本（人民网党史频道，2021年1月18日，来源《北京日报》，曹前发）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1938年5月26日至6月3日毛泽东在延安抗日战争研究会的讲演《论持久战》，位于最后一个问题“兵民是胜利之本”中。全面抗战爆发不到一年，华北、华东大片国土沦陷，“亡国论”和“速胜论”都有市场。讲演论证了抗日战争是持久战，最后胜利属于中国。</p><p class="r-explain">这一条先下结论：战争伟力最深厚的根源在<span class="mark">民众之中</span>。然后从反面说明：日本敢于欺负中国，主要原因是中国民众处于“无组织状态”。问题不在人少，而在没有组织起来；克服了这一点，侵略者就像一匹野牛冲入火阵。讲演紧接着提出，补充兵员要靠广泛的政治动员，而不是“捉兵法”“买兵法”，并说军队须和民众打成一片，“这个军队便无敌于天下”。</p>
 </article>
-<article class="entry r-entry" id="e-4">
-  <p class="r-no">04<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-4" data-entry-id="e-4">
+  <div class="r-entry-head">
+    <p class="r-no">04<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-4" aria-pressed="false" aria-label="标记读到这里，第 4 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">帝国主义者如此欺负我们，这是需要认真对付的。我们不但要有强大的正规军，我们还要大办民兵师。这样，在帝国主义侵略我国的时候，就会使他们寸步难行。</p></div>
   <p class="r-source">对新华社记者的谈话（1958年9月29日），1958年10月1日《人民日报》，《毛主席语录》第八章</p>
   <p class="r-label">官方解读</p><p class="r-official">贺全胜文章写道：“1958年，美国在台湾海峡制造紧张局势，扬言美国海军登陆中国大陆。为应对局势变化，《中共中央关于民兵问题的决定》提出：“必须在全国范围内把能拿武器的男女公民武装起来，以民兵组织的形式，实行全民皆兵。””文章引述这次谈话后写道：“到1958年底，全国民兵达2.2亿人，5000多个民兵师、4000多个民兵团。”</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2019/0228/c423718-30939945.html">论毛泽东民兵思想的发展与内涵（中共中央党史和文献研究院网站，2016年10月15日，贺全胜）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1958年9月29日毛泽东巡视大江南北回到北京后对新华社记者的谈话，与第六章第6条出自同一次谈话。当时美国在台湾海峡集结兵力，局势紧张；同年8月，中共中央作出关于民兵问题的决定，提出把能拿武器的男女公民组织起来，实行全民皆兵。到1958年底，全国民兵达2.2亿人。</p><p class="r-explain">这一条讲国防力量的构成：既要有<span class="mark">强大的正规军</span>，又要有广泛组织起来的民兵。正规军是骨干，民兵分布在各地，不脱离生产，两者结合，侵略者即使进入国境，也会处处遇到抵抗，“寸步难行”。这是人民战争思想在新中国国防建设中的运用，与本章前几条所讲的依靠群众一脉相承。</p>
 </article>
-<article class="entry r-entry" id="e-5">
-  <p class="r-no">05<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-5" data-entry-id="e-5">
+  <div class="r-entry-head">
+    <p class="r-no">05<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-5" aria-pressed="false" aria-label="标记读到这里，第 5 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">人民的游击战争，从整个革命战争的观点看来，和主力红军是互为左右手，只有主力红军而无人民的游击战争，就像一个独臂将军。根据地的人民条件，具体地说来，特别是对于作战说来，就是有武装起来了的人民。敌人视为畏途，主要地也在这一点。</p></div>
   <p class="r-source">《中国革命战争的战略问题》（1936年12月），《毛泽东选集》第一卷第221页，《毛主席语录》第八章</p>
   <p class="r-label">官方解读</p><p class="r-official">贺全胜文章在论述土地革命战争时期“红军、地方军、民兵三结合”时引用了这段话，并写道：“在第一次反“围剿”斗争中，各革命根据地普遍建立了正规红军、地方军、工农暴动队、赤卫队、战斗预备队互相配合的战力格局”。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2019/0228/c423718-30939945.html">论毛泽东民兵思想的发展与内涵（中共中央党史和文献研究院网站，2016年10月15日，贺全胜）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自毛泽东1936年12月写的《中国革命战争的战略问题》，这部著作原是为红军大学讲课写的讲义，总结了第二次国内革命战争的经验。这一段在“集中兵力”一节中。前文说，主张集中兵力，并不包括放弃人民的游击战争在内；立三路线主张“一枝枪也集中到红军中去”，早已证明是不对的。</p><p class="r-explain">“互为左右手”和“独臂将军”是一组比喻：主力红军集中兵力打大仗，人民的游击战争保卫地方、袭扰牵制、配合作战，缺了一只手，再勇猛的将军也难以施展。后半句点明根据地的“人民条件”，落到作战上就是<span class="mark">武装起来了的人民</span>。敌人之所以把进入根据地视为畏途，主要也在这一点。</p>
 </article>
-<article class="entry r-entry" id="e-6">
-  <p class="r-no">06<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-6" data-entry-id="e-6">
+  <div class="r-entry-head">
+    <p class="r-no">06<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-6" aria-pressed="false" aria-label="标记读到这里，第 6 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">战争胜负，主要地决定于作战双方的军事、政治、经济、自然诸条件，这是没有问题的。然而不仅仅如此，还决定于作战双方主观指导的能力。军事家不能超过物质条件许可的范围外企图战争的胜利，然而军事家可以而且必须在物质条件许可的范围内争取战争的胜利。军事家活动的舞台建筑在客观物质条件的上面，然而军事家凭着这个舞台，却可以导演出许多有声有色威武雄壮的活剧来。</p></div>
   <p class="r-source">《中国革命战争的战略问题》（1936年12月），《毛泽东选集》第一卷第175页，《毛主席语录》第八章</p>
   <p class="r-label">官方解读</p><p class="r-official">王建国文章写道：“毛泽东在《战略问题》中首先对“持久战”进行了原则性论述”，并在引述这段话后写道：“根据这样的观点，毛泽东分析了中国革命战争为军事家提供的舞台”。</p><p class="r-links"><a href="http://cpc.people.com.cn/n/2015/0824/c69120-27507809.html">关于《中国革命战争的战略问题》的几个问题（人民网-中国共产党新闻网，2015年8月24日，来源《党的文献》2015年第4期，王建国）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自《中国革命战争的战略问题》第一章第四节“重要的问题在善于学习”。这一节讲研究和运用战争规律，紧接这段话，原文说，红军的指导者要在既定的客观物质基础之上发挥自己的作用。</p><p class="r-explain">这一条讲客观条件和主观指导的关系。前一半承认客观条件的决定作用：军事、政治、经济、自然诸条件主要地决定胜负，军事家不能超过物质条件许可的范围去企图胜利。后一半强调<span class="mark">主观指导的能力</span>：在条件许可的范围内，军事家“可以而且必须”争取胜利。“舞台”的比喻把两层意思合在一起：舞台多大是客观给定的，在上面演出什么样的戏，要看导演的本领。它既反对脱离条件的盲动，也反对把一切推给条件的消极。</p>
 </article>
-<article class="entry r-entry" id="e-7">
-  <p class="r-no">07<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-7" data-entry-id="e-7">
+  <div class="r-entry-head">
+    <p class="r-no">07<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-7" aria-pressed="false" aria-label="标记读到这里，第 7 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">战争的目的不是别的，就是“保存自己，消灭敌人”（消灭敌人，就是解除敌人的武装，也就是所谓“剥夺敌人的抵抗力”，不是要完全消灭其肉体）。古代战争，用矛用盾：矛是进攻的，为了消灭敌人；盾是防御的，为了保存自己。直到今天的武器，还是这二者的继续。轰炸机、机关枪、远射程炮、毒气，是矛的发展；防空掩蔽部、钢盔、水泥工事、防毒面具，是盾的发展。坦克，是矛盾二者结合为一的新式武器。进攻，是消灭敌人的主要手段，但防御也是不能废的。进攻，是直接为了消灭敌人的，同时也是为了保存自己，因为如不消灭敌人，则自己将被消灭。防御，是直接为了保存自己的，但同时也是辅助进攻或准备转入进攻的一种手段。退却，属于防御一类，是防御的继续；而追击，则是进攻的继续。应该指出：战争目的中，消灭敌人是主要的，保存自己是第二位的，因为只有大量地消灭敌人，才能有效地保存自己。因此，作为消灭敌人之主要手段的进攻是主要的，而作为消灭敌人之辅助手段和作为保存自己之一种手段的防御，是第二位的。战争实际中，虽有许多时候以防御为主，而在其余时候以进攻为主，然而通战争的全体来看，进攻仍然是主要的。</p></div>
   <p class="r-source">《论持久战》（1938年5月），《毛泽东选集》第二卷第471—472页，《毛主席语录》第八章</p>
   <p class="r-label">官方解读</p><p class="r-official">中共湖南省委党史研究院网站转载的陈甜文章在概述《论持久战》后半部分时写道：毛泽东“首先鲜明地揭示了抗日战争的政治目的，是“驱逐日本帝国主义，建立自由平等的新中国”，根本目的是“保存自己，消灭敌人”。”又写道：“阐明根本目的，才能指明战争的基本原则，即开展一切军事行动的本质、目的和根据。”</p><p class="r-links"><a href="http://www.hndsyjy.cn/content/646943/51/15289693.html">穿越时空的战略智慧与时代启示——重温毛泽东《论持久战》（中共湖南省委党史研究院网站，2025年9月17日，来源《机关党建研究》2025年第8期，陈甜）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自《论持久战》中“战争的目的”一节。这一节开头说明，这里讲的不是抗日战争的政治目的，而是两军相杀的战争本身的根本目的。</p><p class="r-explain">这一条有三层意思。第一是定义：战争的目的就是“<span class="mark">保存自己，消灭敌人</span>”，括号里特别说明，消灭敌人是解除其武装、剥夺其抵抗力，不是要完全消灭其肉体。第二是用矛和盾说明进攻与防御：从古代的矛盾到近代的轰炸机、钢盔，武器无非是这两者的发展，坦克则是二者结合。第三是分主次：消灭敌人是主要的，保存自己是第二位的，因为只有大量消灭敌人，才能有效地保存自己；所以通观战争全体，进攻仍然是主要的。防御、退却并不被否定，它们是辅助进攻或准备转入进攻的手段。</p>
 </article>
-<article class="entry r-entry" id="e-8">
-  <p class="r-no">08<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-8" data-entry-id="e-8">
+  <div class="r-entry-head">
+    <p class="r-no">08<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-8" aria-pressed="false" aria-label="标记读到这里，第 8 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">一切军事行动的指导原则，都根据于一个基本的原则，就是：尽可能地保存自己的力量，消灭敌人的力量。……何以解释战争中提倡勇敢牺牲呢？每一战争都须支付代价，有时是极大的代价，岂非和“保存自己”相矛盾？其实一点也不矛盾，正确点说，是相反相成的。因为这种牺牲，不但是为了消灭敌人的必要，也是为了保存自己的必要——部分的暂时的“不保存”（牺牲或支付），是为了全体的永久的保存所必需的。在这个基本的原则上，发生了指导整个军事行动的一系列的所谓原则，从射击原则（荫蔽身体，发扬火力，前者为了保存自己，后者为了消灭敌人）起，到战略原则止，都贯彻这个基本原则的精神。一切技术的、战术的、战役的、战略的原则，都是执行这个基本原则时的条件。保存自己消灭敌人的原则，是一切军事原则的根据。</p></div>
   <p class="r-source">《抗日游击战争的战略问题》（1938年5月），《毛泽东选集》第二卷第397—398页，《毛主席语录》第八章</p>
   <p class="r-label">官方解读</p><p class="r-official r-none">未查询到</p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1938年5月毛泽东写的《抗日游击战争的战略问题》第二章“战争的基本原则是保存自己消灭敌人”。原文中省略号处讲的是，这个军事原则直接联系着抗日战争的基本政治原则，即驱逐日本帝国主义，建立独立自由幸福的新中国。</p><p class="r-explain">这一条与上一条讲的是同一个原则，重点则在回答一个疑问：战争中提倡勇敢牺牲，是否与“保存自己”相矛盾？回答是“<span class="mark">相反相成</span>”：部分的、暂时的“不保存”，是为了全体的、永久的保存。接着说明这个原则的贯通性：从“荫蔽身体，发扬火力”的射击原则，到战术、战役、战略原则，都是执行这一基本原则的条件，所以它是“一切军事原则的根据”。</p>
 </article>
-<article class="entry r-entry" id="e-9">
-  <p class="r-no">09<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-9" data-entry-id="e-9">
+  <div class="r-entry-head">
+    <p class="r-no">09<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-9" aria-pressed="false" aria-label="标记读到这里，第 9 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我们的军事原则是：（1）先打分散和孤立之敌，后打集中和强大之敌。（2）先取小城市、中等城市和广大乡村，后取大城市。（3）以歼灭敌人有生力量为主要目标，不以保守或夺取城市和地方为主要目标。保守或夺取城市和地方，是歼灭敌人有生力量的结果，往往需要反复多次才能最后地保守或夺取之。（4）每战集中绝对优势兵力（两倍、三倍、四倍、有时甚至是五倍或六倍于敌之兵力），四面包围敌人，力求全歼，不使漏网。在特殊情况下则采用给敌以歼灭性打击的方法，即集中全力打敌正面及其一翼或两翼，求达歼灭其一部、击溃其另一部的目的，以便我军能够迅速转移兵力歼击他部敌军。力求避免打那种得不偿失的、或得失相当的消耗战。这样，在全体上，我们是劣势（就数量来说），但在每一个局部上，在每一个具体战役上，我们是绝对的优势，这就保证了战役的胜利。随着时间的推移，我们就将在全体上转变为优势，直到歼灭一切敌人。（5）不打无准备之仗，不打无把握之仗，每战都应力求有准备，力求在敌我条件对比下有胜利的把握。（6）发扬勇敢战斗、不怕牺牲、不怕疲劳和连续作战（即在短期内不休息地接连打几仗）的作风。（7）力求在运动中歼灭敌人。同时，注重阵地攻击战术，夺取敌人的据点和城市。（8）在攻城问题上，一切敌人守备薄弱的据点和城市，坚决夺取之。一切敌人有中等程度的守备、而环境又许可加以夺取的据点和城市，相机夺取之。一切敌人守备强固的据点和城市，则等候条件成熟时然后夺取之。（9）以俘获敌人的全部武器和大部人员，补充自己。我军人力物力的来源，主要在前线。（10）善于利用两个战役之间的间隙，休息和整训部队。休整的时间，一般地不要过长，尽可能不使敌人获得喘息的时间。以上这些，就是人民解放军打败蒋介石的主要的方法。这些方法，是人民解放军在和国内外敌人长期作战的锻炼中产生出来，并完全适合我们目前的情况的。……我们的战略战术是建立在人民战争这个基础上的，任何反人民的军队都不能利用我们的战略战术。</p></div>
   <p class="r-source">《目前形势和我们的任务》（1947年12月25日），《毛泽东选集》第四卷第1247—1248页，《毛主席语录》第八章</p>
   <p class="r-label">官方解读</p><p class="r-official">中共中央党史和文献研究院网站“权威说史”栏目写道：“十大军事原则，阐明了人民战争的战略战术思想的一系列重要问题。它的核心是打歼灭战，不断歼灭敌人的有生力量。它是建立在人民战争基础之上的，因而是任何反人民的军队不能利用也无法对付的。”</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n/2015/0225/c244520-26594052.html">十二月会议（中共中央党史和文献研究院网站“权威说史”栏目，2015年2月25日）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1947年12月25日毛泽东在陕北米脂县杨家沟召开的中共中央会议（即十二月会议）上的书面报告，与第七章第2条、第8条出自同一篇报告。当时人民解放军已转入战略进攻，报告总结了解放战争以来的作战经验，提出了著名的“十大军事原则”。</p><p class="r-explain">十条原则可以归成几组：先打分散孤立之敌、先取中小城市和乡村，讲的是作战顺序；以歼灭敌人有生力量为主要目标，不以保守或夺取城市为主要目标，讲的是作战目标；每战集中绝对优势兵力、不打无准备无把握之仗，讲的是作战方法；连续作战、以俘获补充自己、利用战役间隙休整，讲的是作风和补给。其中最关键的一点，是<span class="mark">在全体上劣势，在每一个局部上绝对优势</span>，随着时间推移转变为全体上的优势。报告最后说，这些战略战术建立在人民战争的基础上，任何反人民的军队都不能利用。</p>
 </article>
-<article class="entry r-entry" id="e-10">
-  <p class="r-no">10<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-10" data-entry-id="e-10">
+  <div class="r-entry-head">
+    <p class="r-no">10<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-10" aria-pressed="false" aria-label="标记读到这里，第 10 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">优势而无准备，不是真正的优势，也没有主动。懂得这一点，劣势而有准备之军，常可对敌举行不意的攻势，把优势者打败。</p></div>
   <p class="r-source">《论持久战》（1938年5月），《毛泽东选集》第二卷第481页，《毛主席语录》第八章</p>
   <p class="r-label">官方解读</p><p class="r-official">中国军网刊载的《学习时报》彭洲飞文章写道：“不打无准备无把握之仗是毛泽东一贯强调的战争指导思想，是人民军队长期战争经验的凝练和升华，直至今日仍有重要指导意义。”并指出：“抗日战争时期，毛泽东把作战准备与战争力量优劣的转化联系在一起”，随即引用了这段话。</p><p class="r-links"><a href="http://www.81.cn/js_208592/10165185.html">毛泽东为什么强调：不打无准备无把握之仗（中国军网，来源《学习时报》，彭洲飞）</a></p>
@@ -637,5 +725,258 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
 if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
 addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>
+/* Reading Digest manual bookmark.
+   Only click handlers write to localStorage. Scroll, load, hash, and history must never save or overwrite.
+   One bookmark per browser: { date: 'YYYY-MM-DD', id: 'e-N' }. No account, no cross-device, no auto-jump.
+*/
+(function (root) {
+  var KEY = 'readingDigest.bookmark';
+  var DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+  var ID_RE = /^e-\d+$/;
+  var bound = false;
+  var storageAvailable = true;
+  var lastError = '';
+
+  function announce(msg) {
+    var el = root.document && document.querySelector('.r-bookmark-status');
+    if (el) el.textContent = msg || '';
+  }
+
+  function getStore() {
+    try {
+      return root.localStorage;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'localStorage unavailable';
+      return null;
+    }
+  }
+
+  function normalize(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    var date = raw.date;
+    var id = raw.id;
+    if (typeof date !== 'string' || typeof id !== 'string') return null;
+    if (!DATE_RE.test(date) || !ID_RE.test(id)) return null;
+    return { date: date, id: id };
+  }
+
+  function read() {
+    lastError = '';
+    var store = getStore();
+    if (!store) return null;
+    var txt;
+    try {
+      txt = store.getItem(KEY);
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'read failed';
+      return null;
+    }
+    if (txt == null || txt === '') return null;
+    var parsed;
+    try {
+      parsed = JSON.parse(txt);
+    } catch (err) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    var bm = normalize(parsed);
+    if (!bm) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    return bm;
+  }
+
+  function write(bm) {
+    lastError = '';
+    var norm = normalize(bm);
+    if (!norm) {
+      lastError = 'invalid bookmark';
+      return false;
+    }
+    var store = getStore();
+    if (!store) {
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.setItem(KEY, JSON.stringify(norm));
+      storageAvailable = true;
+      announce('已标记到 ' + norm.date + ' 第 ' + norm.id.slice(2) + ' 条');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'write failed';
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function clear() {
+    lastError = '';
+    var store = getStore();
+    if (!store) {
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.removeItem(KEY);
+      storageAvailable = true;
+      announce('已清除标记');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'clear failed';
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function pageDate() {
+    var doc = root.document;
+    if (doc) {
+      var marked = doc.querySelector('[data-digest-date]');
+      if (marked) {
+        var d = marked.getAttribute('data-digest-date');
+        if (d && DATE_RE.test(d)) return d;
+      }
+    }
+    var path = (root.location && root.location.pathname) || '';
+    var m = path.match(/digest-(\d{4}-\d{2}-\d{2})\.html$/);
+    if (m) return m[1];
+    if (root.DIGEST_ARCHIVE && root.DIGEST_ARCHIVE.length && root.DIGEST_ARCHIVE[0].d) {
+      return root.DIGEST_ARCHIVE[0].d;
+    }
+    return '';
+  }
+
+  function entryNum(id) {
+    return id ? id.replace(/^e-/, '') : '';
+  }
+
+  function paintRail(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var lis = doc.querySelectorAll('.rail .a-list li');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].classList.remove('r-has-bookmark');
+      var old = lis[i].querySelector('.r-bookmark-slot');
+      if (old) old.parentNode.removeChild(old);
+    }
+    if (!bm) return;
+    var li = doc.querySelector('.rail .a-list li[data-date="' + bm.date + '"]');
+    if (!li) return;
+    li.classList.add('r-has-bookmark');
+    var slot = doc.createElement('span');
+    slot.className = 'r-bookmark-slot';
+    var link = doc.createElement('a');
+    link.className = 'r-last-read';
+    link.href = 'digest-' + bm.date + '.html#' + bm.id;
+    link.textContent = '上次读到';
+    link.setAttribute('aria-label', '上次读到 ' + bm.date + ' 第 ' + entryNum(bm.id) + ' 条');
+    var clr = doc.createElement('button');
+    clr.type = 'button';
+    clr.className = 'r-clear-mark';
+    clr.textContent = '清除';
+    clr.setAttribute('aria-label', '清除阅读书签');
+    slot.appendChild(link);
+    slot.appendChild(clr);
+    li.appendChild(slot);
+  }
+
+  function paintEntries(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var date = pageDate();
+    var entries = doc.querySelectorAll('article.r-entry[data-entry-id]');
+    for (var i = 0; i < entries.length; i++) {
+      var art = entries[i];
+      var id = art.getAttribute('data-entry-id');
+      var on = !!(bm && bm.date === date && bm.id === id);
+      art.classList.toggle('r-bookmarked', on);
+      var btn = art.querySelector('.r-mark-here');
+      if (!btn) continue;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on) {
+        btn.textContent = '清除标记';
+        btn.setAttribute('aria-label', '清除标记，第 ' + entryNum(id) + ' 条');
+      } else {
+        btn.textContent = '标记读到这里';
+        btn.setAttribute('aria-label', '标记读到这里，第 ' + entryNum(id) + ' 条');
+      }
+    }
+  }
+
+  function paint() {
+    var bm = read();
+    paintRail(bm);
+    paintEntries(bm);
+    return bm;
+  }
+
+  function onMarkClick(btn) {
+    var id = btn.getAttribute('data-entry-id');
+    var date = pageDate();
+    if (!id || !DATE_RE.test(date) || !ID_RE.test(id)) return;
+    var bm = read();
+    if (bm && bm.date === date && bm.id === id) clear();
+    else write({ date: date, id: id });
+    paint();
+  }
+
+  function onDocumentClick(ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var mark = t.closest('.r-mark-here');
+    if (mark) {
+      ev.preventDefault();
+      onMarkClick(mark);
+      return;
+    }
+    var clr = t.closest('.r-clear-mark');
+    if (clr) {
+      ev.preventDefault();
+      clear();
+      paint();
+    }
+  }
+
+  function bind() {
+    if (bound || !root.document) return;
+    root.document.addEventListener('click', onDocumentClick);
+    bound = true;
+  }
+
+  function init() {
+    bind();
+    paint();
+    /* Do not scroll, do not change location, do not write storage on load. */
+  }
+
+  var api = {
+    KEY: KEY,
+    read: read,
+    write: write,
+    clear: clear,
+    pageDate: pageDate,
+    paint: paint,
+    init: init,
+    bind: bind,
+    normalize: normalize,
+    get lastError() { return lastError; },
+    get storageAvailable() { return storageAvailable; },
+    get bound() { return bound; }
+  };
+
+  root.ReadingBookmark = api;
+  /* Script is inlined at the end of the page; required nodes already exist. Init now.
+     Do not wait for DOMContentLoaded — and never write storage or jump on init. */
+  if (root.document) init();
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
 </body>
 </html>

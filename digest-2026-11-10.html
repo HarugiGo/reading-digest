@@ -501,43 +501,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
   .wrap .entry.r-entry p.r-source{margin-left:14px!important}
   .wrap .entry.r-entry p.r-label{margin-top:36px!important}
 }
+
+/* ===== 手动书签：低干扰，不改变米白衬线版式 ===== */
+.wrap .entry.r-entry .r-entry-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;margin:0 0 22px;flex-wrap:wrap}
+.wrap .entry.r-entry .r-entry-head p.r-no{margin:0!important}
+.wrap .entry.r-entry button.r-mark-here,
+.rail button.r-clear-mark{
+  appearance:none;-webkit-appearance:none;
+  background:none!important;border:0!important;box-shadow:none!important;
+  padding:6px 0;margin:0;cursor:pointer;
+  font:400 12px/1.6 inherit!important;
+  color:#8a8478!important;letter-spacing:.06em!important;
+  text-decoration:none!important;white-space:nowrap
+}
+.wrap .entry.r-entry button.r-mark-here:hover,
+.rail button.r-clear-mark:hover{color:#23211d!important}
+.wrap .entry.r-entry.r-bookmarked button.r-mark-here{color:#6f695e!important}
+.wrap .entry.r-entry button.r-mark-here:focus-visible,
+.rail a.r-last-read:focus-visible,
+.rail button.r-clear-mark:focus-visible{
+  outline:1px solid #23211d;outline-offset:3px
+}
+.wrap .entry.r-entry.r-bookmarked{scroll-margin-top:24px}
+
+/* 往期日期右侧「上次读到」，落在左侧空隙里 */
+.rail .a-list li{
+  display:flex;align-items:center;gap:8px
+}
+.rail .a-list li > a:first-of-type{flex:1 1 auto;min-width:0}
+.rail .r-bookmark-slot{display:inline-flex;align-items:baseline;gap:6px;flex:0 0 auto;margin-left:2px}
+.rail a.r-last-read{
+  display:inline!important;flex-direction:unset!important;
+  padding:0!important;border:0!important;background:none!important;
+  color:#6f695e!important;font-size:11px!important;font-weight:400!important;
+  letter-spacing:.04em!important;text-decoration:none!important;
+  white-space:nowrap;line-height:1.4
+}
+.rail a.r-last-read:hover{color:#23211d!important;padding-left:0!important}
+.rail button.r-clear-mark{padding:0;letter-spacing:.04em!important;font-size:11px!important}
+
+.r-bookmark-status{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+@media (max-width:1179px){
+  .wrap .entry.r-entry{scroll-margin-top:72px}
+  .rail .a-list li.r-has-bookmark{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .rail a.r-last-read{
+    padding:0!important;border:0!important;border-radius:0!important;
+    background:none!important;white-space:nowrap
+  }
+  .rail a.r-last-read:hover{padding-left:0!important}
+}
+@media (max-width:640px){
+  .wrap .entry.r-entry .r-entry-head{margin-bottom:18px}
+  .wrap .entry.r-entry button.r-mark-here{padding:8px 0;font-size:12px!important}
+}
 </style><!-- /READING_CSS -->
 <!-- /FB_RAIL_CSS -->
 
 
 
 
-<aside class="rail" aria-label="往期归档">
+<aside class="rail" aria-label="往期归档" data-digest-date="2026-11-10">
   <div class="rail-inner">
     <div class="rail-head">
       <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
       <span class="rail-count">23 期</span>
     </div>
     <ul class="a-list">
-      <li><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
-      <li><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
-      <li><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
-      <li><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
-      <li><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
-      <li><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
-      <li><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
-      <li><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
-      <li><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
-      <li><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
-      <li><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
-      <li><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
-      <li><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
-      <li><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
-      <li><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
-      <li class="a-current"><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
-      <li><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
-      <li><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
-      <li><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
-      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
-      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
-      <li><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
-      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+      <li data-date="2026-11-25"><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
+      <li data-date="2026-11-24"><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
+      <li data-date="2026-11-23"><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
+      <li data-date="2026-11-22"><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
+      <li data-date="2026-11-21"><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
+      <li data-date="2026-11-20"><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
+      <li data-date="2026-11-19"><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
+      <li data-date="2026-11-18"><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
+      <li data-date="2026-11-17"><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
+      <li data-date="2026-11-16"><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
+      <li data-date="2026-11-15"><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
+      <li data-date="2026-11-14"><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
+      <li data-date="2026-11-13"><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
+      <li data-date="2026-11-12"><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
+      <li data-date="2026-11-11"><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
+      <li class="a-current" data-date="2026-11-10"><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
+      <li data-date="2026-11-09"><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
+      <li data-date="2026-11-08"><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
+      <li data-date="2026-11-07"><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li data-date="2026-11-06"><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li data-date="2026-11-05"><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li data-date="2026-11-04"><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li data-date="2026-11-03"><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
     </ul>
+    <p class="r-bookmark-status" role="status" aria-live="polite"></p>
   </div>
 </aside>
 <script src="archive.js"></script>
@@ -557,71 +615,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 
 <details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 敌我之间和人民内部这两类矛盾的性…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 凡属于思想性质的问题，凡属于人民…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 人民为了有效地进行生产、进行学习…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 资产阶级、小资产阶级，他们的思想…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 对于人民的缺点是需要批评的，………</a></li><li class="t-it"><a href="#e-6">第 6 条 · 矛盾和斗争是普遍的、绝对的，但是…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 在一般情况下，人民内部的矛盾不是…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 在我们国家里，工人阶级同民族资产…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 社会主义国家内部的反动派同帝国主…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 战争——从有私有财产和有阶级以来…</a></li></ul></li></ul></details>
 <div style="height:72px"></div>
-<article class="entry r-entry" id="e-1">
-  <p class="r-no">01<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-1" data-entry-id="e-1">
+  <div class="r-entry-head">
+    <p class="r-no">01<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-1" aria-pressed="false" aria-label="标记读到这里，第 1 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">敌我之间和人民内部这两类矛盾的性质不同，解决的方法也不同，简单地说起来，前者是分清敌我的问题，后者是分清是非的问题。当然，敌我问题也是一种是非问题。比如我们同帝国主义、封建主义、官僚资本主义这些内外反动派，究竟谁是谁非，也是是非问题，但是这是和人民内部问题性质不同的另一类是非问题。</p></div>
   <p class="r-source">《关于正确处理人民内部矛盾的问题》（1957年2月27日），人民出版社版第3页，《毛主席语录》第四章</p>
   <p class="r-label">官方解读</p><p class="r-official">人民网党史频道转载《学习时报》何忠国文章，在阐述“注意区分两类不同性质的矛盾”时写道：敌我之间和人民内部这两类矛盾的性质不同，前者是分清敌我的问题，后者是分清是非的问题。中央党史和文献研究院网站刊载的《中国共产党历史》第二卷相关章节进一步说明：前者需要用强制的、专政的方法去解决；后者只能用民主的、说服教育的方法去解决，决不能用解决敌我矛盾的方法去解决人民内部的矛盾。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2020/0930/c85037-31880604.html">善于运用唯物辩证法认识和解决社会矛盾——重温毛泽东《关于正确处理人民内部矛盾的问题》（人民网党史频道 / 《学习时报》，作者何忠国）</a><a href="https://www.dswxyjy.org.cn/n/2012/1120/c244520-19634773.html">《关于正确处理人民内部矛盾的问题》的发表（中央党史和文献研究院，稿出《中国共产党历史》第二卷）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这一条是对前面“两类矛盾性质不同”的进一步概括：性质不同，解决的方法也就不同。毛泽东用两个短语把区别说得很简明：敌我矛盾是<span class="mark">分清敌我</span>的问题，人民内部矛盾是<span class="mark">分清是非</span>的问题。前者要回答“站在哪一边”，后者要回答“谁对谁错”。</p><p class="r-explain">后半段又补了一句：敌我问题也是一种是非问题。同帝国主义、封建主义、官僚资本主义这些内外反动派之间，同样有谁是谁非，但那是与人民内部问题性质不同的另一类是非问题。这个补充避免了把两类问题机械割裂：区分的依据不是“有没有是非”，而是矛盾双方根本利益是否一致。后文关于民主方法、说服教育的论述，都以这一区分为前提。</p>
 </article>
-<article class="entry r-entry" id="e-2">
-  <p class="r-no">02<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-2" data-entry-id="e-2">
+  <div class="r-entry-head">
+    <p class="r-no">02<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-2" aria-pressed="false" aria-label="标记读到这里，第 2 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">凡属于思想性质的问题，凡属于人民内部的争论问题，只能用民主的方法去解决，只能用讨论的方法、批评的方法、说服教育的方法去解决，而不能用强制的、压服的方法去解决。</p></div>
   <p class="r-source">《关于正确处理人民内部矛盾的问题》（1957年2月27日），人民出版社版第6页，《毛主席语录》第四章</p>
   <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院网站刊载、原发于《求是》2007年第12期的张启华文章指出，敌我矛盾和人民内部矛盾性质截然不同，所以解决的方法也完全不同：用专政的方法解决敌我矛盾，对人民内部矛盾只能用讨论的方法、批评的方法、说服教育的方法去解决，而不能用强制的、压服的方法去解决。同站刊载的郑学选文章（原载《红旗文稿》）也概括说，对于人民内部的是非矛盾和思想矛盾，解决途径必须是讨论、批评和说服教育，不能用压制、强迫的方法去解决。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2019/0621/c423733-31173581.html">构建社会主义和谐社会的重要理论探索——纪念毛泽东《关于正确处理人民内部矛盾的问题》发表50周年（中央党史和文献研究院 / 《求是》，作者张启华）</a><a href="https://www.dswxyjy.org.cn/n1/2019/0228/c423718-30917311.html">人民内部矛盾理论的丰富和发展（中央党史和文献研究院 / 《红旗文稿》，作者郑学选）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这一条划出的是方法上的界限：凡属思想性质的问题、凡属人民内部的争论，只能用民主的方法，即讨论、批评、说服教育，而<span class="mark">不能用强制的、压服的方法</span>。原文接连用了三个“只能”和一个“不能”，语气非常确定。</p><p class="r-explain">道理在于，思想上的分歧靠命令是消除不了的，压服只能让人表面沉默，并不能让人真正改变看法。同年3月全国宣传工作会议上，毛泽东又说“要人服，就要说服，而不能压服”，意思一致。理解这一条，关键是先判断问题的性质：属于思想认识和是非争论的，就要走讨论和说理的路子；下一条会接着说明，维持社会秩序所需要的行政命令是另一回事。</p>
 </article>
-<article class="entry r-entry" id="e-3">
-  <p class="r-no">03<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-3" data-entry-id="e-3">
+  <div class="r-entry-head">
+    <p class="r-no">03<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-3" aria-pressed="false" aria-label="标记读到这里，第 3 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">人民为了有效地进行生产、进行学习和有秩序地过生活，要求自己的政府、生产的领导者、文化教育机关的领导者发布各种适当的带强制性的行政命令。没有这种行政命令，社会秩序就无法维持，这是人们的常识所了解的。这同用说服教育的方法去解决人民内部的矛盾，是相辅相成的两个方面。为着维持社会秩序的目的而发布的行政命令，也要伴之以说服教育，单靠行政命令，在许多情况下就行不通。</p></div>
   <p class="r-source">《关于正确处理人民内部矛盾的问题》（1957年2月27日），人民出版社版第6页，《毛主席语录》第四章</p>
   <p class="r-label">官方解读</p><p class="r-official">张启华文章在阐述两类矛盾的不同解决方法时指出：用说服教育的方法处理人民内部矛盾，“并不意味着在人民内部不需要法制、纪律和集中”；人民为了有效地生产、学习和有秩序地过生活，需要各种适当的带强制性的行政命令，否则社会秩序就无法维持，这同用说服教育的方法去解决人民内部的矛盾，是相辅相成的两个方面。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2019/0621/c423733-31173581.html">构建社会主义和谐社会的重要理论探索——纪念毛泽东《关于正确处理人民内部矛盾的问题》发表50周年（中央党史和文献研究院 / 《求是》，作者张启华）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">上一条强调人民内部的思想问题不能压服，这一条随即补上另一面：为了有效生产、学习和有秩序地生活，社会也需要政府和各类机构发布适当的、带强制性的行政命令。没有它，社会秩序就无法维持，这是常识。</p><p class="r-explain">毛泽东把行政命令和说服教育称为<span class="mark">相辅相成</span>的两个方面，并特别加了一句：为维持秩序而发布的命令，也要伴之以说服教育，单靠命令在许多情况下行不通。这样，“不能压服”就不被误解为不要规则；“需要命令”也不被误解为可以只靠命令。两条连起来读，才是完整的意思：规则保障秩序，说理使规则被理解和自觉遵守。</p>
 </article>
-<article class="entry r-entry" id="e-4">
-  <p class="r-no">04<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-4" data-entry-id="e-4">
+  <div class="r-entry-head">
+    <p class="r-no">04<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-4" aria-pressed="false" aria-label="标记读到这里，第 4 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">资产阶级、小资产阶级，他们的思想意识是一定要反映出来的。一定要在政治问题和思想问题上，用各种办法顽强地表现他们自己。要他们不反映不表现，是不可能的。我们不应当用压制的办法不让他们表现，而应当让他们表现，同时在他们表现的时候，和他们辩论，进行适当的批评。毫无疑问，我们应当批评各种各样的错误思想。不加批评，看着错误思想到处泛滥，任凭它们去占领市场，当然不行。有错误就得批判，有毒草就得进行斗争。但是这种批评不应当是教条主义的，不应当用形而上学方法，应当力求用辩证方法。要有科学的分析，要有充分的说服力。</p></div>
   <p class="r-source">《关于正确处理人民内部矛盾的问题》（1957年2月27日），人民出版社版第29页，《毛主席语录》第四章</p>
   <p class="r-label">官方解读</p><p class="r-official">何忠国文章在论述“团结—批评—团结”时写道：我们应当批评各种各样的错误思想，但是这种批评不应当是教条主义的，不应当用形而上学方法，应当力求用辩证方法，要有科学的分析，要有充分的说服力；只有这样，才能真正发展正确的意见，克服错误的意见，才能真正解决问题。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2020/0930/c85037-31880604.html">善于运用唯物辩证法认识和解决社会矛盾——重温毛泽东《关于正确处理人民内部矛盾的问题》（人民网党史频道 / 《学习时报》，作者何忠国）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这一段出自原文讨论“百花齐放、百家争鸣”的部分。毛泽东先承认一个事实：资产阶级、小资产阶级的思想意识一定会在政治和思想问题上表现出来，要它们不表现是不可能的。因此他主张不用压制的办法，而是让其表现，同时展开辩论和适当的批评。</p><p class="r-explain">但这并不等于放任。原文明确说，不加批评、任凭错误思想泛滥“当然不行”。关键在于怎样批评：不能是教条主义的、形而上学的，而要<span class="mark">用辩证方法</span>，有科学的分析和<span class="mark">充分的说服力</span>。也就是说，批评的力量不来自扣帽子，而来自讲清道理。这与前几条“只能用说服教育的方法”一脉相承。</p>
 </article>
-<article class="entry r-entry" id="e-5">
-  <p class="r-no">05<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-5" data-entry-id="e-5">
+  <div class="r-entry-head">
+    <p class="r-no">05<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-5" aria-pressed="false" aria-label="标记读到这里，第 5 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">对于人民的缺点是需要批评的，……但必须是真正站在人民的立场上，用保护人民、教育人民的满腔热情来说话。如果把同志当作敌人来对待，就是使自己站在敌人的立场上去了。</p></div>
   <p class="r-source">《在延安文艺座谈会上的讲话》（1942年5月），《毛泽东选集》第三卷第874页，《毛主席语录》第四章</p>
   <p class="r-label">官方解读</p><p class="r-official">张启华文章在概括毛泽东解决人民内部矛盾的主要办法时指出：对人民群众的缺点要耐心教育，而不应讥笑甚至敌视，必须是真正站在人民的立场上，用保护人民、教育人民的满腔热情来说话。清华大学新闻与传播学院胡钰教授的文章也引述此句，并指出《讲话》把对象分为敌人、同盟者和自己人，对人民的缺点要批评，但态度不同于对付敌人，“必须废除讽刺的乱用”。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2019/0621/c423733-31173581.html">构建社会主义和谐社会的重要理论探索——纪念毛泽东《关于正确处理人民内部矛盾的问题》发表50周年（中央党史和文献研究院 / 《求是》，作者张启华）</a><a href="https://qxcm.tsjc.tsinghua.edu.cn/pc/folder125/2022-07-01/JKvmo5PxcqW7csDw.html">马克思主义新闻观的立场、态度与能力——写在毛泽东《在延安文艺座谈会上的讲话》发表80周年之际（清华大学新闻与传播学院 / 《青年记者》，作者胡钰）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这一条出自1942年5月的延安文艺座谈会讲话，比《关于正确处理人民内部矛盾的问题》早了十五年，但讲的是同一个道理：对人民内部的缺点要不要批评、以什么态度批评。原文中的省略号是语录节录时略去的，原处只是一句“我们在前面已经说过了”，指讲话前文已谈到人民也有缺点、不应只看到片面就去讥笑甚至敌视。</p><p class="r-explain">毛泽东的回答是：缺点需要批评，但必须真正站在人民的立场上，用<span class="mark">保护人民、教育人民的满腔热情</span>来说话。批评的目的是帮助对方进步、增进团结，而不是贬低或打击。最后一句点出界限：如果把同志当作敌人来对待，就等于让自己站到了敌人的立场上。这正是“两类矛盾不能混淆”在态度层面上的体现。</p>
 </article>
-<article class="entry r-entry" id="e-6">
-  <p class="r-no">06<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-6" data-entry-id="e-6">
+  <div class="r-entry-head">
+    <p class="r-no">06<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-6" aria-pressed="false" aria-label="标记读到这里，第 6 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">矛盾和斗争是普遍的、绝对的，但是解决矛盾的方法，即斗争的形式，则因矛盾的性质不同而不相同。有些矛盾具有公开的对抗性，有些矛盾则不是这样。根据事物的具体发展，有些矛盾是由原来还非对抗性的，而发展成为对抗性的；也有些矛盾则由原来是对抗性的，而发展成为非对抗性的。</p></div>
   <p class="r-source">《矛盾论》（1937年8月），《毛泽东选集》第一卷第323页，《毛主席语录》第四章</p>
   <p class="r-label">官方解读</p><p class="r-official">湘潭大学毛泽东思想研究中心网站刊载的复旦大学杨德山、中国人民大学况子峻文章指出，在毛泽东的哲学认知中，激烈的对抗只是斗争的一种形式，在具体条件下，斗争可以表现为非对抗的形式；“对抗是矛盾斗争的一种形式，而不是矛盾斗争的一切形式”。文章还说明，社会主义制度确立以后，毛泽东对《矛盾论》中“斗争的形式因矛盾的性质不同而不相同”的观点作了进一步阐发，提出了正确处理人民内部矛盾的命题；矛盾在对抗性与非对抗性之间存在相互转化的可能。</p><p class="r-links"><a href="https://myzx.xtu.edu.cn/info/1011/3089.htm">论毛泽东的斗争观（湘潭大学毛泽东思想研究中心，作者杨德山、况子峻）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这一条出自《矛盾论》中“矛盾诸方面的同一性和斗争性”之后专门讨论“对抗在矛盾中的地位”的部分。它先肯定矛盾和斗争是普遍的、绝对的，紧接着指出：解决矛盾的方法、即斗争的形式，则<span class="mark">因矛盾的性质不同而不相同</span>。</p><p class="r-explain">有的矛盾具有公开的对抗性，有的则没有；而且对抗与非对抗并非一成不变，根据事物的具体发展，非对抗性的可以发展成对抗性的，对抗性的也可以发展成非对抗性的。这为二十年后区分两类社会矛盾提供了哲学依据，也提醒读者：不能把“斗争”一律理解为激烈冲突，更要注意<span class="mark">条件决定转化</span>，处理得当与否，会影响矛盾朝哪个方向发展。</p>
 </article>
-<article class="entry r-entry" id="e-7">
-  <p class="r-no">07<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-7" data-entry-id="e-7">
+  <div class="r-entry-head">
+    <p class="r-no">07<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-7" aria-pressed="false" aria-label="标记读到这里，第 7 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">在一般情况下，人民内部的矛盾不是对抗性的。但是如果处理得不适当，或者失去警觉，麻痹大意，也可能发生对抗。这种情况，在社会主义国家通常只是局部的暂时的现象。这是因为社会主义国家消灭了人剥削人的制度，人民的利益在根本上是一致的。</p></div>
   <p class="r-source">《关于正确处理人民内部矛盾的问题》（1957年2月27日），人民出版社版第8页，《毛主席语录》第四章</p>
   <p class="r-label">官方解读</p><p class="r-official">张启华文章在阐述两类矛盾在一定条件下会相互转化时写道：毛泽东认为，在一般情况下，人民内部的矛盾不是对抗性的，但是如果处理得不适当，或者失去警觉，麻痹大意，也可能发生对抗；他坚持认为，只要正确认识和处理两类不同矛盾，就一定能创造有利的主、客观条件，使矛盾向好的方面转化。何忠国文章也引述这段话，并指出处理人民内部矛盾的根本原则是要有利于调动各个方面的积极性。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2019/0621/c423733-31173581.html">构建社会主义和谐社会的重要理论探索——纪念毛泽东《关于正确处理人民内部矛盾的问题》发表50周年（中央党史和文献研究院 / 《求是》，作者张启华）</a><a href="http://dangshi.people.com.cn/n1/2020/0930/c85037-31880604.html">善于运用唯物辩证法认识和解决社会矛盾——重温毛泽东《关于正确处理人民内部矛盾的问题》（人民网党史频道 / 《学习时报》，作者何忠国）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这一段把上一条《矛盾论》的一般原理用到社会主义社会。一般情况下，人民内部矛盾不是对抗性的；但如果处理得不适当，或者失去警觉、麻痹大意，<span class="mark">也可能发生对抗</span>。这里同时指出了两种风险：一是处理方法不当，二是丧失警惕。</p><p class="r-explain">毛泽东又说明，这种对抗在社会主义国家通常只是局部的、暂时的现象，原因是人剥削人的制度已经消灭，人民的利益在<span class="mark">根本上是一致的</span>。讲这段话的背景，是1956年波兰、匈牙利事件和国内部分地方的罢工、罢课、退社风波。它的落脚点在于：矛盾的性质并不能保证结果，处理方式本身会影响矛盾的走向。</p>
 </article>
-<article class="entry r-entry" id="e-8">
-  <p class="r-no">08<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-8" data-entry-id="e-8">
+  <div class="r-entry-head">
+    <p class="r-no">08<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-8" aria-pressed="false" aria-label="标记读到这里，第 8 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">在我们国家里，工人阶级同民族资产阶级的矛盾属于人民内部的矛盾。工人阶级和民族资产阶级的阶级斗争一般地属于人民内部的阶级斗争，这是因为我国的民族资产阶级有两面性。在资产阶级民主革命时期，它有革命性的一面，又有妥协性的一面。在社会主义革命时期，它有剥削工人阶级取得利润的一面，又有拥护宪法、愿意接受社会主义改造的一面。民族资产阶级和帝国主义、地主阶级、官僚资产阶级不同。工人阶级和民族资产阶级之间存在着剥削和被剥削的矛盾，这本来是对抗性的矛盾。但是在我国的具体条件下，这两个阶级的对抗性的矛盾如果处理得当，可以转变为非对抗性的矛盾，可以用和平的方法解决这个矛盾。如果我们处理不当，不是对民族资产阶级采取团结、批评、教育的政策，或者民族资产阶级不接受我们的这个政策，那末工人阶级同民族资产阶级之间的矛盾就会变成敌我之间的矛盾。</p></div>
   <p class="r-source">《关于正确处理人民内部矛盾的问题》（1957年2月27日），人民出版社版第2—3页，《毛主席语录》第四章</p>
   <p class="r-label">官方解读</p><p class="r-official">求是网刊载、原发于《红旗文稿》的雷树虎文章指出，毛泽东把中国的资产阶级分为小资产阶级、民族资产阶级和官僚资产阶级，对民族资产阶级作了独特的处理，把工人阶级和民族资产阶级之间的矛盾作为人民内部矛盾来对待；二者之间存在剥削和被剥削的矛盾，本来是对抗性矛盾，但在我国的具体条件下如果处理得当，可以转化为非对抗性矛盾，用和平的方法解决。张启华文章补充说，如处理不当，不是对民族资产阶级采取团结、批评、教育的政策，或民族资产阶级不接受这一政策，就会变成敌我矛盾。</p><p class="r-links"><a href="https://www.qstheory.cn/dukan/hqwg/2017-03/08/m_1120591673.htm">社会主义国家治理的重要理论篇章（求是网 / 《红旗文稿》，作者雷树虎）</a><a href="https://www.dswxyjy.org.cn/n1/2019/0621/c423733-31173581.html">构建社会主义和谐社会的重要理论探索——纪念毛泽东《关于正确处理人民内部矛盾的问题》发表50周年（中央党史和文献研究院 / 《求是》，作者张启华）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这一段是“矛盾可以转化”最具体的例子。毛泽东判断，在中国，工人阶级同民族资产阶级的矛盾属于人民内部矛盾，理由是民族资产阶级有<span class="mark">两面性</span>：民主革命时期既有革命性又有妥协性；社会主义革命时期既有剥削取得利润的一面，又有拥护宪法、愿意接受社会主义改造的一面。</p><p class="r-explain">剥削与被剥削本来是对抗性的矛盾，但在中国的具体条件下，如果处理得当，可以转变为非对抗性的矛盾，<span class="mark">用和平的方法解决</span>；如果处理不当，或者对方不接受团结、批评、教育的政策，又会变成敌我矛盾。这一判断与当时对资本主义工商业实行和平赎买、公私合营的实践相对应。读这一条，要同时看到“分类”和“条件”：归类不是一劳永逸的，结果取决于双方怎样处理。</p>
 </article>
-<article class="entry r-entry" id="e-9">
-  <p class="r-no">09<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-9" data-entry-id="e-9">
+  <div class="r-entry-head">
+    <p class="r-no">09<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-9" aria-pressed="false" aria-label="标记读到这里，第 9 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">社会主义国家内部的反动派同帝国主义者互相勾结，利用人民内部的矛盾，挑拨离间，兴风作浪，企图实现他们的阴谋。匈牙利事件的这种教训，值得大家注意。</p></div>
   <p class="r-source">《关于正确处理人民内部矛盾的问题》（1957年2月27日），人民出版社版第8页，《毛主席语录》第四章</p>
   <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院网站刊载、原载《红旗文稿》2013年第23期的郑学选文章指出，毛泽东基于对震惊世界的波匈事件的研判，认为波匈事件的教训在于“社会主义国家内部的反动派同帝国主义者互相勾结，利用人民内部矛盾，挑拨离间，兴风作浪，企图实现他们的阴谋”；结合我国当时的客观现实，毛泽东提出要把正确处理人民内部矛盾作为“一个总题目”深入研究。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2019/0228/c423718-30917311.html">人民内部矛盾理论的丰富和发展（中央党史和文献研究院 / 《红旗文稿》，作者郑学选）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这一条直接点名1956年10月的匈牙利事件。毛泽东从中引出的教训是：社会主义国家内部的反动派会同帝国主义者互相勾结，<span class="mark">利用人民内部的矛盾</span>，挑拨离间，兴风作浪。</p><p class="r-explain">它与前两条相连：人民内部矛盾本身一般不是对抗性的，但如果处理不当、失去警觉，就可能被外部和内部的敌对力量利用而激化。这也是毛泽东把正确处理人民内部矛盾当作“总题目”的现实原因之一。理解这一条，重点在于两方面并重：一方面要及时、妥善地解决人民内部的实际问题，不给利用者留下空间；另一方面要保持<span class="mark">必要的警觉</span>，但又不能因此把人民内部的问题一律当作敌我问题来处理。</p>
 </article>
-<article class="entry r-entry" id="e-10">
-  <p class="r-no">10<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-10" data-entry-id="e-10">
+  <div class="r-entry-head">
+    <p class="r-no">10<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-10" aria-pressed="false" aria-label="标记读到这里，第 10 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">战争——从有私有财产和有阶级以来就开始了的、用以解决阶级和阶级、民族和民族、国家和国家、政治集团和政治集团之间、在一定发展阶段上的矛盾的一种最高的斗争形式。</p></div>
   <p class="r-source">《中国革命战争的战略问题》（1936年12月），《毛泽东选集》第一卷第164页，《毛主席语录》第五章</p>
   <p class="r-label">官方解读</p><p class="r-official">中华魂网刊载、原载《当代中国史研究》2004年第2期的中国社会科学院原副院长李慎明文章，逐字引述这一定义并指出：这一定义把战争作为人类社会发展到一定历史阶段的社会现象来考察，从根本上否定了战争是从人类一开始就有的观点；它既揭示了战争的起源和根源——私有财产和阶级的产生和存在，又指出了战争是用来解决社会矛盾的最高的斗争形式，还把进行战争的社会力量概括为阶级和阶级、民族和民族、国家和国家、政治集团和政治集团四种类型。南华大学国防教育教材也指出，这一定义对战争的根源、实质、形式作了精辟的概括。</p><p class="r-links"><a href="https://www.1921.org.cn/llyj/2023/07/03/detailed_2023070335531.html">毛泽东的战争与和平思想及其对我国和平发展道路的探索（中华魂网 / 原载《当代中国史研究》，作者李慎明）</a><a href="https://xgb.usc.edu.cn/info/1028/1121.htm">第二章 军事思想（3）（南华大学学生工作部·国防教育办公室）</a></p>
@@ -637,5 +725,258 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
 if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
 addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>
+/* Reading Digest manual bookmark.
+   Only click handlers write to localStorage. Scroll, load, hash, and history must never save or overwrite.
+   One bookmark per browser: { date: 'YYYY-MM-DD', id: 'e-N' }. No account, no cross-device, no auto-jump.
+*/
+(function (root) {
+  var KEY = 'readingDigest.bookmark';
+  var DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+  var ID_RE = /^e-\d+$/;
+  var bound = false;
+  var storageAvailable = true;
+  var lastError = '';
+
+  function announce(msg) {
+    var el = root.document && document.querySelector('.r-bookmark-status');
+    if (el) el.textContent = msg || '';
+  }
+
+  function getStore() {
+    try {
+      return root.localStorage;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'localStorage unavailable';
+      return null;
+    }
+  }
+
+  function normalize(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    var date = raw.date;
+    var id = raw.id;
+    if (typeof date !== 'string' || typeof id !== 'string') return null;
+    if (!DATE_RE.test(date) || !ID_RE.test(id)) return null;
+    return { date: date, id: id };
+  }
+
+  function read() {
+    lastError = '';
+    var store = getStore();
+    if (!store) return null;
+    var txt;
+    try {
+      txt = store.getItem(KEY);
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'read failed';
+      return null;
+    }
+    if (txt == null || txt === '') return null;
+    var parsed;
+    try {
+      parsed = JSON.parse(txt);
+    } catch (err) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    var bm = normalize(parsed);
+    if (!bm) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    return bm;
+  }
+
+  function write(bm) {
+    lastError = '';
+    var norm = normalize(bm);
+    if (!norm) {
+      lastError = 'invalid bookmark';
+      return false;
+    }
+    var store = getStore();
+    if (!store) {
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.setItem(KEY, JSON.stringify(norm));
+      storageAvailable = true;
+      announce('已标记到 ' + norm.date + ' 第 ' + norm.id.slice(2) + ' 条');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'write failed';
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function clear() {
+    lastError = '';
+    var store = getStore();
+    if (!store) {
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.removeItem(KEY);
+      storageAvailable = true;
+      announce('已清除标记');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'clear failed';
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function pageDate() {
+    var doc = root.document;
+    if (doc) {
+      var marked = doc.querySelector('[data-digest-date]');
+      if (marked) {
+        var d = marked.getAttribute('data-digest-date');
+        if (d && DATE_RE.test(d)) return d;
+      }
+    }
+    var path = (root.location && root.location.pathname) || '';
+    var m = path.match(/digest-(\d{4}-\d{2}-\d{2})\.html$/);
+    if (m) return m[1];
+    if (root.DIGEST_ARCHIVE && root.DIGEST_ARCHIVE.length && root.DIGEST_ARCHIVE[0].d) {
+      return root.DIGEST_ARCHIVE[0].d;
+    }
+    return '';
+  }
+
+  function entryNum(id) {
+    return id ? id.replace(/^e-/, '') : '';
+  }
+
+  function paintRail(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var lis = doc.querySelectorAll('.rail .a-list li');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].classList.remove('r-has-bookmark');
+      var old = lis[i].querySelector('.r-bookmark-slot');
+      if (old) old.parentNode.removeChild(old);
+    }
+    if (!bm) return;
+    var li = doc.querySelector('.rail .a-list li[data-date="' + bm.date + '"]');
+    if (!li) return;
+    li.classList.add('r-has-bookmark');
+    var slot = doc.createElement('span');
+    slot.className = 'r-bookmark-slot';
+    var link = doc.createElement('a');
+    link.className = 'r-last-read';
+    link.href = 'digest-' + bm.date + '.html#' + bm.id;
+    link.textContent = '上次读到';
+    link.setAttribute('aria-label', '上次读到 ' + bm.date + ' 第 ' + entryNum(bm.id) + ' 条');
+    var clr = doc.createElement('button');
+    clr.type = 'button';
+    clr.className = 'r-clear-mark';
+    clr.textContent = '清除';
+    clr.setAttribute('aria-label', '清除阅读书签');
+    slot.appendChild(link);
+    slot.appendChild(clr);
+    li.appendChild(slot);
+  }
+
+  function paintEntries(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var date = pageDate();
+    var entries = doc.querySelectorAll('article.r-entry[data-entry-id]');
+    for (var i = 0; i < entries.length; i++) {
+      var art = entries[i];
+      var id = art.getAttribute('data-entry-id');
+      var on = !!(bm && bm.date === date && bm.id === id);
+      art.classList.toggle('r-bookmarked', on);
+      var btn = art.querySelector('.r-mark-here');
+      if (!btn) continue;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on) {
+        btn.textContent = '清除标记';
+        btn.setAttribute('aria-label', '清除标记，第 ' + entryNum(id) + ' 条');
+      } else {
+        btn.textContent = '标记读到这里';
+        btn.setAttribute('aria-label', '标记读到这里，第 ' + entryNum(id) + ' 条');
+      }
+    }
+  }
+
+  function paint() {
+    var bm = read();
+    paintRail(bm);
+    paintEntries(bm);
+    return bm;
+  }
+
+  function onMarkClick(btn) {
+    var id = btn.getAttribute('data-entry-id');
+    var date = pageDate();
+    if (!id || !DATE_RE.test(date) || !ID_RE.test(id)) return;
+    var bm = read();
+    if (bm && bm.date === date && bm.id === id) clear();
+    else write({ date: date, id: id });
+    paint();
+  }
+
+  function onDocumentClick(ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var mark = t.closest('.r-mark-here');
+    if (mark) {
+      ev.preventDefault();
+      onMarkClick(mark);
+      return;
+    }
+    var clr = t.closest('.r-clear-mark');
+    if (clr) {
+      ev.preventDefault();
+      clear();
+      paint();
+    }
+  }
+
+  function bind() {
+    if (bound || !root.document) return;
+    root.document.addEventListener('click', onDocumentClick);
+    bound = true;
+  }
+
+  function init() {
+    bind();
+    paint();
+    /* Do not scroll, do not change location, do not write storage on load. */
+  }
+
+  var api = {
+    KEY: KEY,
+    read: read,
+    write: write,
+    clear: clear,
+    pageDate: pageDate,
+    paint: paint,
+    init: init,
+    bind: bind,
+    normalize: normalize,
+    get lastError() { return lastError; },
+    get storageAvailable() { return storageAvailable; },
+    get bound() { return bound; }
+  };
+
+  root.ReadingBookmark = api;
+  /* Script is inlined at the end of the page; required nodes already exist. Init now.
+     Do not wait for DOMContentLoaded — and never write storage or jump on init. */
+  if (root.document) init();
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
 </body>
 </html>

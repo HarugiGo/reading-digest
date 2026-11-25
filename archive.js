@@ -6,7 +6,7 @@ window.DIGEST_ARCHIVE = [{"d": "2026-11-25", "zh": "周三 · 2026年11月25日"
   var m = location.pathname.match(/digest-(\d{4}-\d\d-\d\d)\.html$/);
   var cur = m ? m[1] : list[0].d;
   ul.innerHTML = list.map(function (x) {
-    return '<li' + (x.d === cur ? ' class="a-current"' : '') + '><a href="digest-' + x.d + '.html"><span class="a-date">' + x.d + '</span><span class="a-zh">' + x.zh + '</span></a></li>';
+    return '<li' + (x.d === cur ? ' class="a-current"' : '') + ' data-date="' + x.d + '"><a href="digest-' + x.d + '.html"><span class="a-date">' + x.d + '</span><span class="a-zh">' + x.zh + '</span></a></li>';
   }).join('');
   var c = document.querySelector('.rail .rail-count'); if (c) c.textContent = list.length + ' 期';
 })();

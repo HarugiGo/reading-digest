@@ -501,43 +501,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
   .wrap .entry.r-entry p.r-source{margin-left:14px!important}
   .wrap .entry.r-entry p.r-label{margin-top:36px!important}
 }
+
+/* ===== 手动书签：低干扰，不改变米白衬线版式 ===== */
+.wrap .entry.r-entry .r-entry-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;margin:0 0 22px;flex-wrap:wrap}
+.wrap .entry.r-entry .r-entry-head p.r-no{margin:0!important}
+.wrap .entry.r-entry button.r-mark-here,
+.rail button.r-clear-mark{
+  appearance:none;-webkit-appearance:none;
+  background:none!important;border:0!important;box-shadow:none!important;
+  padding:6px 0;margin:0;cursor:pointer;
+  font:400 12px/1.6 inherit!important;
+  color:#8a8478!important;letter-spacing:.06em!important;
+  text-decoration:none!important;white-space:nowrap
+}
+.wrap .entry.r-entry button.r-mark-here:hover,
+.rail button.r-clear-mark:hover{color:#23211d!important}
+.wrap .entry.r-entry.r-bookmarked button.r-mark-here{color:#6f695e!important}
+.wrap .entry.r-entry button.r-mark-here:focus-visible,
+.rail a.r-last-read:focus-visible,
+.rail button.r-clear-mark:focus-visible{
+  outline:1px solid #23211d;outline-offset:3px
+}
+.wrap .entry.r-entry.r-bookmarked{scroll-margin-top:24px}
+
+/* 往期日期右侧「上次读到」，落在左侧空隙里 */
+.rail .a-list li{
+  display:flex;align-items:center;gap:8px
+}
+.rail .a-list li > a:first-of-type{flex:1 1 auto;min-width:0}
+.rail .r-bookmark-slot{display:inline-flex;align-items:baseline;gap:6px;flex:0 0 auto;margin-left:2px}
+.rail a.r-last-read{
+  display:inline!important;flex-direction:unset!important;
+  padding:0!important;border:0!important;background:none!important;
+  color:#6f695e!important;font-size:11px!important;font-weight:400!important;
+  letter-spacing:.04em!important;text-decoration:none!important;
+  white-space:nowrap;line-height:1.4
+}
+.rail a.r-last-read:hover{color:#23211d!important;padding-left:0!important}
+.rail button.r-clear-mark{padding:0;letter-spacing:.04em!important;font-size:11px!important}
+
+.r-bookmark-status{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+@media (max-width:1179px){
+  .wrap .entry.r-entry{scroll-margin-top:72px}
+  .rail .a-list li.r-has-bookmark{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .rail a.r-last-read{
+    padding:0!important;border:0!important;border-radius:0!important;
+    background:none!important;white-space:nowrap
+  }
+  .rail a.r-last-read:hover{padding-left:0!important}
+}
+@media (max-width:640px){
+  .wrap .entry.r-entry .r-entry-head{margin-bottom:18px}
+  .wrap .entry.r-entry button.r-mark-here{padding:8px 0;font-size:12px!important}
+}
 </style><!-- /READING_CSS -->
 <!-- /FB_RAIL_CSS -->
 
 
 
 
-<aside class="rail" aria-label="往期归档">
+<aside class="rail" aria-label="往期归档" data-digest-date="2026-11-12">
   <div class="rail-inner">
     <div class="rail-head">
       <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
       <span class="rail-count">23 期</span>
     </div>
     <ul class="a-list">
-      <li><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
-      <li><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
-      <li><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
-      <li><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
-      <li><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
-      <li><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
-      <li><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
-      <li><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
-      <li><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
-      <li><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
-      <li><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
-      <li><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
-      <li><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
-      <li class="a-current"><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
-      <li><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
-      <li><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
-      <li><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
-      <li><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
-      <li><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
-      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
-      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
-      <li><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
-      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+      <li data-date="2026-11-25"><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
+      <li data-date="2026-11-24"><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
+      <li data-date="2026-11-23"><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
+      <li data-date="2026-11-22"><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
+      <li data-date="2026-11-21"><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
+      <li data-date="2026-11-20"><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
+      <li data-date="2026-11-19"><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
+      <li data-date="2026-11-18"><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
+      <li data-date="2026-11-17"><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
+      <li data-date="2026-11-16"><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
+      <li data-date="2026-11-15"><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
+      <li data-date="2026-11-14"><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
+      <li data-date="2026-11-13"><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
+      <li class="a-current" data-date="2026-11-12"><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
+      <li data-date="2026-11-11"><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
+      <li data-date="2026-11-10"><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
+      <li data-date="2026-11-09"><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
+      <li data-date="2026-11-08"><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
+      <li data-date="2026-11-07"><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li data-date="2026-11-06"><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li data-date="2026-11-05"><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li data-date="2026-11-04"><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li data-date="2026-11-03"><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
     </ul>
+    <p class="r-bookmark-status" role="status" aria-live="polite"></p>
   </div>
 </aside>
 <script src="archive.js"></script>
@@ -557,71 +615,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 
 <details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 我国和各社会主义国家都需要和平，…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 为了争取世界的持久和平，我们必须…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 至于帝国主义国家，我们也要团结那…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 我们希望和平。但是如果帝国主义硬…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 现在世界各国的人们都在谈论着会不…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 捣乱，失败，再捣乱，再失败，直至…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 我们决不可因为胜利，而放松对于帝…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 帝国主义者及其走狗中国反动派对于…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 世界是在进步的，前途是光明的，这…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 人民解放军的全体指挥员、战斗员，…</a></li></ul></li></ul></details>
 <div style="height:72px"></div>
-<article class="entry r-entry" id="e-1">
-  <p class="r-no">01<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-1" data-entry-id="e-1">
+  <div class="r-entry-head">
+    <p class="r-no">01<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-1" aria-pressed="false" aria-label="标记读到这里，第 1 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我国和各社会主义国家都需要和平，世界各国的人民也都需要和平。渴望战争，不要和平的，仅仅是少数帝国主义国家中的某些依靠侵略发财的垄断资本集团。</p></div>
   <p class="r-source">《中国共产党第八次全国代表大会开幕词》（1956年9月15日），《中国共产党第八次全国代表大会文献》第8页，《毛主席语录》第五章</p>
   <p class="r-label">官方解读</p><p class="r-official">中华魂网2023年7月3日刊载、原载《当代中国史研究》2004年第2期的李慎明文章，在“关于热爱和平，不怕战争”一节中引述了这段八大开幕词，并在该节末尾概括：“热爱和平，不怕战争，这也是毛泽东的一贯思想。”中央党史和文献研究院网站刊载的李慎明另一篇文章，同样把这段话列入“关于热爱和平，不怕战争”一节，与毛泽东1954年、1960年、1964年关于和平的多次谈话放在一起阐述。</p><p class="r-links"><a href="https://www.1921.org.cn/llyj/2023/07/03/detailed_2023070335531.html">毛泽东的战争与和平思想及其对我国和平发展道路的探索（中华魂网，2023年7月3日，原载《当代中国史研究》2004年第2期，李慎明）</a><a href="https://www.dswxyjy.org.cn/n1/2019/0621/c428059-31174478.html">对新中国成立后毛泽东战争与和平思想及实践的几点辨析、概述和思考（中央党史和文献研究院，李慎明）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1956年9月15日中国共产党第八次全国代表大会的开幕词。当时朝鲜战争已经停战，经过日内瓦会议和万隆会议，国际局势趋向缓和；国内社会主义改造基本完成，国家正要转入大规模经济建设，因此特别需要一个和平的国际环境。</p><p class="r-explain">毛泽东在这里作了一个力量对比的判断：中国、各社会主义国家和<span class="mark">世界各国的人民也都需要和平</span>，渴望战争、不要和平的，仅仅是少数帝国主义国家中依靠侵略发财的垄断资本集团。把需要和平的多数和好战的少数区分开，是理解这一时期中国对外政策的出发点，也为下一条提出的具体方针作了铺垫。</p>
 </article>
-<article class="entry r-entry" id="e-2">
-  <p class="r-no">02<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-2" data-entry-id="e-2">
+  <div class="r-entry-head">
+    <p class="r-no">02<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-2" aria-pressed="false" aria-label="标记读到这里，第 2 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">为了争取世界的持久和平，我们必须进一步地发展同社会主义阵营中各个兄弟国家的友好合作，并且同一切爱好和平的国家加强团结。我们必须争取同一切愿意和我们和平相处的国家，在互相尊重领土主权和平等互利的基础上，建立正常的外交关系。亚洲、非洲和拉丁美洲各国的民族独立解放运动，以及世界上一切国家的和平运动和正义斗争，我们都必须给以积极的支持。</p></div>
   <p class="r-source">《中国共产党第八次全国代表大会开幕词》（1956年9月15日），《中国共产党第八次全国代表大会文献》第8页，《毛主席语录》第五章</p>
   <p class="r-label">官方解读</p><p class="r-official">上海国际问题研究院《国际展望》2021年第1期刊载的杨洁勉文章，在论述中国外交的战略主攻方向时引述了这段八大开幕词，前后写道：“新中国成立初期，中国主要是发展与社会主义国家的关系和应对以美国为首的西方国家的反华政策，从而逐步维护和巩固新生政权。”……“为此，中国在国际上坚持独立自主的和平外交政策与倡导和平共处五项原则，积极联合广大第三世界国家，在“中美苏大三角”战略思想指导下集中力量反对苏联的霸权主义。”</p><p class="r-links"><a href="https://www.siis.org.cn/updates/cms/old/UploadFiles/file/20210108/202101002%20%E6%9D%A8%E6%B4%81%E5%8B%89.pdf">中国共产党外交理论建设的百年探索和创新（上海国际问题研究院《国际展望》2021年第1期，杨洁勉）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这一段紧接上一条，同样出自八大开幕词，讲为争取世界持久和平要做的几件事：发展同社会主义阵营各兄弟国家的友好合作；同一切爱好和平的国家加强团结；同一切愿意和中国和平相处的国家，在<span class="mark">互相尊重领土主权和平等互利</span>的基础上建立正常的外交关系；对亚非拉的民族独立解放运动以及世界各国的和平运动和正义斗争给予积极支持。</p><p class="r-explain">这几条由近及远、层次分明。其中“互相尊重领土主权和平等互利”，与1954年中国同印度、缅甸共同倡导的和平共处五项原则一脉相承。开幕词在这段话之后，还表态支持埃及将苏伊士运河收归国有的行动，反对对埃及的武装干涉。</p>
 </article>
-<article class="entry r-entry" id="e-3">
-  <p class="r-no">03<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-3" data-entry-id="e-3">
+  <div class="r-entry-head">
+    <p class="r-no">03<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-3" aria-pressed="false" aria-label="标记读到这里，第 3 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">至于帝国主义国家，我们也要团结那里的人民，并且争取同那些国家和平共处，做些生意，制止可能发生的战争，但是决不可以对他们怀抱一些不切实际的想法。</p></div>
   <p class="r-source">《关于正确处理人民内部矛盾的问题》（1957年2月27日），人民出版社版第38页，《毛主席语录》第五章</p>
   <p class="r-label">官方解读</p><p class="r-official">中华魂网刊载、原载《当代中国史研究》的李慎明文章，在“关于提高警惕，准备打仗”一节中引述了毛泽东1957年绝不可以对帝国主义国家“怀抱一些不切实际的想法”的话，并概括：“对帝国主义绝不抱任何不切实际的幻想，这是毛泽东的一贯思想。”中央党史和文献研究院网站刊载的李慎明另一篇文章，同样把这句话列入“关于提高警惕，准备打仗”一节阐述。</p><p class="r-links"><a href="https://www.1921.org.cn/llyj/2023/07/03/detailed_2023070335531.html">毛泽东的战争与和平思想及其对我国和平发展道路的探索（中华魂网，2023年7月3日，原载《当代中国史研究》2004年第2期，李慎明）</a><a href="https://www.dswxyjy.org.cn/n1/2019/0621/c428059-31174478.html">对新中国成立后毛泽东战争与和平思想及实践的几点辨析、概述和思考（中央党史和文献研究院，李慎明）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这一句出自1957年2月27日的讲话《关于正确处理人民内部矛盾的问题》（同年6月经整理后公开发表），位于讲话谈外交方针的部分。前文说要同社会主义国家和一切爱好和平的国家、人民加强团结；“至于帝国主义国家”，也要团结那里的人民，争取同那些国家和平共处、做些生意、制止可能发生的战争。</p><p class="r-explain">句子的转折落在最后：<span class="mark">决不可以对他们怀抱一些不切实际的想法</span>。前半句讲可以争取的空间——人民可以团结，和平可以争取，贸易可以开展；后半句讲必须保持的清醒。两者并不矛盾：争取和平共处是政策，对对方的本性不抱幻想是前提。</p>
 </article>
-<article class="entry r-entry" id="e-4">
-  <p class="r-no">04<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-4" data-entry-id="e-4">
+  <div class="r-entry-head">
+    <p class="r-no">04<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-4" aria-pressed="false" aria-label="标记读到这里，第 4 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我们希望和平。但是如果帝国主义硬要打仗，我们也只好横下一条心，打了仗再建设。每天怕战争，战争来了你有什么办法呢？我先是说东风压倒西风，战争打不起来，现在再就如果发生了战争的情况，作了这些补充的说明，这样两种可能性都估计到了。</p></div>
   <p class="r-source">在各国共产党和工人党莫斯科会议上的讲话（1957年11月18日），1963年9月1日《人民日报》《中国政府发言人声明》中的引语，《毛主席语录》第五章</p>
   <p class="r-label">官方解读</p><p class="r-official">中华魂网刊载、原载《当代中国史研究》的李慎明文章，在“关于热爱和平，不怕战争”一节中引述了这段话（“我们希望和平……战争来了你有什么办法呢？”），并概括：“热爱和平，不怕战争，这也是毛泽东的一贯思想。”人民网党史频道2017年6月20日刊载的李珍文章，在“世界大战打不起来，真打起来也不怕”一节中写道：“毛泽东的所谓“不怕”，是建立在对“怕”作客观分析与充分准备的基础上的。”</p><p class="r-links"><a href="https://www.1921.org.cn/llyj/2023/07/03/detailed_2023070335531.html">毛泽东的战争与和平思想及其对我国和平发展道路的探索（中华魂网，2023年7月3日，原载《当代中国史研究》2004年第2期，李慎明）</a><a href="http://dangshi.people.com.cn/n1/2017/0620/c85037-29350064.html">毛泽东对待战争的基本态度：一是反对，二是不怕（人民网党史频道，2017年6月20日，李珍）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1957年11月18日毛泽东在莫斯科各国共产党和工人党代表会议上的讲话，著名的“东风压倒西风”的判断也是在这次讲话中提出的。语录所注出处，是1963年9月1日《人民日报》所载中国政府发言人声明中引用的这段话。</p><p class="r-explain">毛泽东在讲话中先判断战争打不起来，接着就“如果发生了战争的情况”作了补充：我们希望和平，但如果帝国主义硬要打仗，也只好横下一条心，<span class="mark">打了仗再建设</span>；每天怕战争是没有用的。这样，<span class="mark">两种可能性都估计到了</span>。这种既争取最好前途、又准备应付最坏情况的思路，在下一条“第一条，反对；第二条，不怕”中得到了更简明的概括。</p>
 </article>
-<article class="entry r-entry" id="e-5">
-  <p class="r-no">05<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-5" data-entry-id="e-5">
+  <div class="r-entry-head">
+    <p class="r-no">05<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-5" aria-pressed="false" aria-label="标记读到这里，第 5 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">现在世界各国的人们都在谈论着会不会打第三次世界大战。对于这个问题，我们也要有精神准备，也要有分析。我们是坚持和平反对战争的。但是，如果帝国主义一定要发动战争，我们也不要害怕。我们对待这个问题的态度，同对待一切“乱子”的态度一样，第一条，反对；第二条，不怕。第一次世界大战以后，出了一个苏联，两亿人口。第二次世界大战以后，出了一个社会主义阵营，一共九亿人口。如果帝国主义者一定要发动第三次世界大战，可以断定，其结果必定又要有多少亿人口转到社会主义方面，帝国主义剩下的地盘就不多了，也有可能整个帝国主义制度全部崩溃。</p></div>
   <p class="r-source">《关于正确处理人民内部矛盾的问题》（1957年2月27日），人民出版社版第35页，《毛主席语录》第五章</p>
   <p class="r-label">官方解读</p><p class="r-official">人民网党史频道2017年6月20日刊载的李珍文章，引述了毛泽东1955年“第一，我们不要战争；第二，如果有人来侵略我们，我们就予以坚决回击”的话，接着写道：“两年以后，他又表达了对待战争“第一条，反对；第二条，不怕”的明确态度。”……“新中国成立后，面对帝国主义的包围，他仍乐观地做出预计，帝国主义那套东西就怕打，打的结果，一定是社会主义阵营获胜。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2017/0620/c85037-29350064.html">毛泽东对待战争的基本态度：一是反对，二是不怕（人民网党史频道，2017年6月20日，李珍）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话同样出自《关于正确处理人民内部矛盾的问题》。1950年代，第三次世界大战会不会爆发、核武器会带来什么后果，是世界各国普遍关心的问题。毛泽东主张对这个问题既要有精神准备，也要有分析。</p><p class="r-explain">他的态度概括为两条：<span class="mark">第一条，反对；第二条，不怕</span>——坚持和平、反对战争，但如果帝国主义一定要发动战争，也不必害怕。原文说这同对待一切“乱子”的态度一样，可见这两条也是毛泽东对待各种突发事件的一般态度。接下来是对历史趋势的分析：第一次世界大战以后出了一个苏联，第二次世界大战以后出了一个社会主义阵营，如果再发动世界大战，帝国主义剩下的地盘只会更少。这里的“不怕”，建立在对历史经验和力量对比的判断之上，用意在于消除对战争的恐惧心理。</p>
 </article>
-<article class="entry r-entry" id="e-6">
-  <p class="r-no">06<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-6" data-entry-id="e-6">
+  <div class="r-entry-head">
+    <p class="r-no">06<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-6" aria-pressed="false" aria-label="标记读到这里，第 6 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">捣乱，失败，再捣乱，再失败，直至灭亡——这就是帝国主义和世界上一切反动派对待人民事业的逻辑，他们决不会违背这个逻辑的。这是一条马克思主义的定律。我们说“帝国主义是很凶恶的”，就是说它的本性是不能改变的，帝国主义分子决不肯放下屠刀，他们也决不能成佛，直至他们的灭亡。斗争，失败，再斗争，再失败，再斗争，直至胜利——这就是人民的逻辑，他们也是决不会违背这个逻辑的。这是马克思主义的又一条定律。俄国人民的革命曾经是依照了这条定律，中国人民的革命也是依照这条定律。</p></div>
   <p class="r-source">《丢掉幻想，准备斗争》（1949年8月14日），《毛泽东选集》第四卷第1490—1491页，《毛主席语录》第五章</p>
   <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院网站2020年11月5日刊载、原载《学习时报》的许宝健文章写道：“针对美帝国主义的不甘心和国内一些人的不坚定，毛泽东提出了著名的“两个逻辑””求是网2019年9月19日刊载、原载《党的文献》的郭红军、杨明伟文章写道：“在《丢掉幻想，准备斗争》这篇社论中，毛泽东揭露了美国对华政策的帝国主义本质，批评了国内一部分具有“民主个人主义思想”的人对美帝国主义的幻想”</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2020/1105/c219021-31919908.html">对美国对华政策侵略本质的深刻揭露（中央党史和文献研究院 /《学习时报》，2020年11月5日，许宝健）</a><a href="https://www.qstheory.cn/CPC/2019-09/19/c_1125016100.htm">1949年毛泽东回答的几个大问题（求是网 /《党的文献》2019年第4期，2019年9月19日，郭红军、杨明伟）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1949年8月14日毛泽东为新华社写的评论《丢掉幻想，准备斗争》。同年8月5日，美国国务院发表关于中美关系的白皮书和国务卿艾奇逊致杜鲁门总统的信，承认援助国民党政府失败，同时表示要“鼓励”中国的所谓“民主个人主义”者。毛泽东随后连续写了五篇评论回应，这是其中第一篇。</p><p class="r-explain">这一段提出两条对照的“逻辑”：帝国主义和一切反动派的逻辑是<span class="mark">捣乱，失败，再捣乱，再失败，直至灭亡</span>；人民的逻辑是<span class="mark">斗争，失败，再斗争，再失败，再斗争，直至胜利</span>。前一条针对的是一些人以为帝国主义会“放下屠刀，立地成佛”的幻想；后一条是对一百多年来中国人民反抗斗争的总结——失败是过程的一部分，关键在于失败以后继续斗争。文章标题“丢掉幻想，准备斗争”，正是这两条逻辑的结论。</p>
 </article>
-<article class="entry r-entry" id="e-7">
-  <p class="r-no">07<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-7" data-entry-id="e-7">
+  <div class="r-entry-head">
+    <p class="r-no">07<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-7" aria-pressed="false" aria-label="标记读到这里，第 7 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我们决不可因为胜利，而放松对于帝国主义分子及其走狗们的疯狂的报复阴谋的警惕性，谁要是放松这一项警惕性，谁就将在政治上解除武装，而使自己处于被动的地位。</p></div>
   <p class="r-source">《在新政治协商会议筹备会上的讲话》（1949年6月15日），《毛泽东选集》第四卷第1469页，《毛主席语录》第五章</p>
   <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院网站刊载、原载《人民日报》1991年7月1日的逄先知文章，在引述这句话前写道：“在全国快要胜利的时候，毛泽东又及时地向全党和全国人民提出，要提高对于敌人反对中国人民的警惕性。”</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2019/0621/c423733-31173579.html">光辉永在 真理长存：为《毛泽东选集》一至四卷第二版出版而作（中央党史和文献研究院，原载《人民日报》1991年7月1日，逄先知）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这句话出自1949年6月15日毛泽东在新政治协商会议筹备会第一次全体会议上的讲话。当时人民解放军已经渡过长江，南京、上海、武汉等大城市相继解放，新中国即将成立。</p><p class="r-explain">在胜利的时刻，毛泽东特别提醒：决不可因为胜利，而放松对帝国主义分子及其走狗们报复阴谋的警惕性。“<span class="mark">在政治上解除武装</span>”是一个比喻：枪还在手里，思想上的防备却先放下了，结果就是“使自己处于被动的地位”。在原文中，这句话紧接在下一条所列举的几种可能情况之后，是对它们的总结；它与本章最后一条一样，强调的都是<span class="mark">胜利面前不能麻痹</span>。</p>
 </article>
-<article class="entry r-entry" id="e-8">
-  <p class="r-no">08<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-8" data-entry-id="e-8">
+  <div class="r-entry-head">
+    <p class="r-no">08<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-8" aria-pressed="false" aria-label="标记读到这里，第 8 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">帝国主义者及其走狗中国反动派对于他们在中国这块土地上的失败，是不会甘心的。他们还会要互相勾结在一起，用各种可能的方法，反对中国人民。例如，派谴他们的走狗钻进中国内部来进行分化工作和捣乱工作。这是必然的，他们决不会忘记这一项工作。例如，唆使中国反动派甚至加上他们自己的力量，封锁中国的海港。只要还有可能，他们就会这样做，再则，假如他们还想冒险的话，派出一部分兵力侵扰中国的边境，也不是不可能的。所有这些，我们都必须充分地估计到。</p></div>
   <p class="r-source">《在新政治协商会议筹备会上的讲话》（1949年6月15日），《毛泽东选集》第四卷第1469页，《毛主席语录》第五章</p>
   <p class="r-label">官方解读</p><p class="r-official">中共北京市委党史研究室网站2022年8月29日刊载的《老一辈革命家在香山》选篇写道：“在6月15日召开的新政协会议筹备会第一次全体会议上，他再次提醒大家，要警惕帝国主义“唆使中国反动派，甚至加上他们自己的力量，封锁中国的海港”，甚至侵扰中国的边境。局势发展很快印证了党中央、毛泽东的预料。”</p><p class="r-links"><a href="https://www.bjdsdfz.cn/dsrwhj/105100.jhtml">《老一辈革命家在香山》—打破帝国主义封锁之道（中共北京市委党史研究室，2022年8月29日）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话同样出自《在新政治协商会议筹备会上的讲话》，在原文中位于上一条之前。毛泽东具体估计了帝国主义者及其走狗中国反动派可能采取的手段：派人钻进中国内部进行分化和捣乱；唆使中国反动派甚至加上他们自己的力量，封锁中国的海港；冒险派出一部分兵力侵扰中国的边境。他要求对这些情况“<span class="mark">都必须充分地估计到</span>”。</p><p class="r-explain">这些估计很快被事实印证：讲话后不久，从1949年6月下旬起，国民党海军在长江口布雷、派军舰封锁上海；此后西方国家又对新中国实行封锁禁运；1950年朝鲜战争爆发后，中国边境安全受到直接威胁。这一条体现的是一种具体的预见：不是笼统地说“要警惕”，而是逐项列出可能发生的情况，以便提前准备对策。</p>
 </article>
-<article class="entry r-entry" id="e-9">
-  <p class="r-no">09<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-9" data-entry-id="e-9">
+  <div class="r-entry-head">
+    <p class="r-no">09<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-9" aria-pressed="false" aria-label="标记读到这里，第 9 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">世界是在进步的，前途是光明的，这个历史的总趋势任何人也改变不了。我们应当把世界进步的情况和光明的前途，常常向人民宣传，使人民建立起胜利的信心。</p></div>
   <p class="r-source">《关于重庆谈判》（1945年10月17日），《毛泽东选集》第四卷第1162页，《毛主席语录》第五章</p>
   <p class="r-label">官方解读</p><p class="r-official">《光明日报》2016年3月1日刊发的李洪峰文章，在“必须掌握战胜困难的科学世界观、方法论”一节开头写道：“我们党战胜困难的伟大实践告诉我们：世界是在进步的，前途是光明的，这个历史的总趋势任何人也改变不了。”中央党史和文献研究院曲青山的文章引述了同一段落的后半部分（“前途是光明的，道路是曲折的”），随后写道：“历史表明，胜利是靠斗争取得的，团结是靠斗争得到和巩固的。”</p><p class="r-links"><a href="https://epaper.gmw.cn/gmrb/html/2016-03/01/nw.D110000gmrb_20160301_8-01.htm">我们党战胜困难的历史经验（光明网 /《光明日报》2016年3月1日，李洪峰）</a><a href="http://dangshi.people.com.cn/n1/2019/0416/c85037-31032313.html">坚持底线思维 防范化解重大风险——以党的历史上的重庆谈判为例（人民网党史频道 /《光明日报》，2019年4月16日，曲青山）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1945年10月17日毛泽东在延安干部会上所作的报告《关于重庆谈判》。抗日战争刚刚胜利，国共两党在重庆谈判43天，签订了《双十协定》，但国民党军队仍在进攻解放区，内战的危险依然存在。</p><p class="r-explain">在这样的形势下，毛泽东先讲大趋势：第一次世界大战以后产生了苏联，第二次世界大战以后全世界的进步力量更加团结，中国发展的总趋势也必定要变好，所以<span class="mark">世界是在进步的，前途是光明的</span>。他要求把这种前景常常向人民宣传，使人民建立起胜利的信心。原文紧接着说“同时，我们还要告诉人民，告诉同志们，道路是曲折的”，并概括为“<span class="mark">前途是光明的，道路是曲折的</span>”。因此这一条要和下文连起来读：信心建立在对总趋势的判断上，同时并不回避困难。</p>
 </article>
-<article class="entry r-entry" id="e-10">
-  <p class="r-no">10<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-10" data-entry-id="e-10">
+  <div class="r-entry-head">
+    <p class="r-no">10<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-10" aria-pressed="false" aria-label="标记读到这里，第 10 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">人民解放军的全体指挥员、战斗员，绝对不可以稍微松懈自己的战斗意志，任何松懈战斗意志的思想和轻敌的思想，都是错误的。</p></div>
   <p class="r-source">《在中国共产党第七届中央委员会第二次全体会议上的报告》（1949年3月5日），《毛泽东选集》第四卷第1425页，《毛主席语录》第五章</p>
   <p class="r-label">官方解读</p><p class="r-official">人民网党史频道2019年2月26日刊载、原载《中国纪检监察报》的毛胜文章写道：“越是取得胜利的时候，越要增强忧患意识，防范重大风险。”……“尽管部分国民党军队有和平方式解决的可能，但军事斗争是必须注意和必须准备的。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2019/0226/c85037-30901843.html">未雨绸缪：七届二中全会决策中的警省意识（人民网党史频道 /《中国纪检监察报》，2019年2月26日，毛胜）</a></p>
@@ -637,5 +725,258 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
 if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
 addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>
+/* Reading Digest manual bookmark.
+   Only click handlers write to localStorage. Scroll, load, hash, and history must never save or overwrite.
+   One bookmark per browser: { date: 'YYYY-MM-DD', id: 'e-N' }. No account, no cross-device, no auto-jump.
+*/
+(function (root) {
+  var KEY = 'readingDigest.bookmark';
+  var DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+  var ID_RE = /^e-\d+$/;
+  var bound = false;
+  var storageAvailable = true;
+  var lastError = '';
+
+  function announce(msg) {
+    var el = root.document && document.querySelector('.r-bookmark-status');
+    if (el) el.textContent = msg || '';
+  }
+
+  function getStore() {
+    try {
+      return root.localStorage;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'localStorage unavailable';
+      return null;
+    }
+  }
+
+  function normalize(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    var date = raw.date;
+    var id = raw.id;
+    if (typeof date !== 'string' || typeof id !== 'string') return null;
+    if (!DATE_RE.test(date) || !ID_RE.test(id)) return null;
+    return { date: date, id: id };
+  }
+
+  function read() {
+    lastError = '';
+    var store = getStore();
+    if (!store) return null;
+    var txt;
+    try {
+      txt = store.getItem(KEY);
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'read failed';
+      return null;
+    }
+    if (txt == null || txt === '') return null;
+    var parsed;
+    try {
+      parsed = JSON.parse(txt);
+    } catch (err) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    var bm = normalize(parsed);
+    if (!bm) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    return bm;
+  }
+
+  function write(bm) {
+    lastError = '';
+    var norm = normalize(bm);
+    if (!norm) {
+      lastError = 'invalid bookmark';
+      return false;
+    }
+    var store = getStore();
+    if (!store) {
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.setItem(KEY, JSON.stringify(norm));
+      storageAvailable = true;
+      announce('已标记到 ' + norm.date + ' 第 ' + norm.id.slice(2) + ' 条');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'write failed';
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function clear() {
+    lastError = '';
+    var store = getStore();
+    if (!store) {
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.removeItem(KEY);
+      storageAvailable = true;
+      announce('已清除标记');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'clear failed';
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function pageDate() {
+    var doc = root.document;
+    if (doc) {
+      var marked = doc.querySelector('[data-digest-date]');
+      if (marked) {
+        var d = marked.getAttribute('data-digest-date');
+        if (d && DATE_RE.test(d)) return d;
+      }
+    }
+    var path = (root.location && root.location.pathname) || '';
+    var m = path.match(/digest-(\d{4}-\d{2}-\d{2})\.html$/);
+    if (m) return m[1];
+    if (root.DIGEST_ARCHIVE && root.DIGEST_ARCHIVE.length && root.DIGEST_ARCHIVE[0].d) {
+      return root.DIGEST_ARCHIVE[0].d;
+    }
+    return '';
+  }
+
+  function entryNum(id) {
+    return id ? id.replace(/^e-/, '') : '';
+  }
+
+  function paintRail(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var lis = doc.querySelectorAll('.rail .a-list li');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].classList.remove('r-has-bookmark');
+      var old = lis[i].querySelector('.r-bookmark-slot');
+      if (old) old.parentNode.removeChild(old);
+    }
+    if (!bm) return;
+    var li = doc.querySelector('.rail .a-list li[data-date="' + bm.date + '"]');
+    if (!li) return;
+    li.classList.add('r-has-bookmark');
+    var slot = doc.createElement('span');
+    slot.className = 'r-bookmark-slot';
+    var link = doc.createElement('a');
+    link.className = 'r-last-read';
+    link.href = 'digest-' + bm.date + '.html#' + bm.id;
+    link.textContent = '上次读到';
+    link.setAttribute('aria-label', '上次读到 ' + bm.date + ' 第 ' + entryNum(bm.id) + ' 条');
+    var clr = doc.createElement('button');
+    clr.type = 'button';
+    clr.className = 'r-clear-mark';
+    clr.textContent = '清除';
+    clr.setAttribute('aria-label', '清除阅读书签');
+    slot.appendChild(link);
+    slot.appendChild(clr);
+    li.appendChild(slot);
+  }
+
+  function paintEntries(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var date = pageDate();
+    var entries = doc.querySelectorAll('article.r-entry[data-entry-id]');
+    for (var i = 0; i < entries.length; i++) {
+      var art = entries[i];
+      var id = art.getAttribute('data-entry-id');
+      var on = !!(bm && bm.date === date && bm.id === id);
+      art.classList.toggle('r-bookmarked', on);
+      var btn = art.querySelector('.r-mark-here');
+      if (!btn) continue;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on) {
+        btn.textContent = '清除标记';
+        btn.setAttribute('aria-label', '清除标记，第 ' + entryNum(id) + ' 条');
+      } else {
+        btn.textContent = '标记读到这里';
+        btn.setAttribute('aria-label', '标记读到这里，第 ' + entryNum(id) + ' 条');
+      }
+    }
+  }
+
+  function paint() {
+    var bm = read();
+    paintRail(bm);
+    paintEntries(bm);
+    return bm;
+  }
+
+  function onMarkClick(btn) {
+    var id = btn.getAttribute('data-entry-id');
+    var date = pageDate();
+    if (!id || !DATE_RE.test(date) || !ID_RE.test(id)) return;
+    var bm = read();
+    if (bm && bm.date === date && bm.id === id) clear();
+    else write({ date: date, id: id });
+    paint();
+  }
+
+  function onDocumentClick(ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var mark = t.closest('.r-mark-here');
+    if (mark) {
+      ev.preventDefault();
+      onMarkClick(mark);
+      return;
+    }
+    var clr = t.closest('.r-clear-mark');
+    if (clr) {
+      ev.preventDefault();
+      clear();
+      paint();
+    }
+  }
+
+  function bind() {
+    if (bound || !root.document) return;
+    root.document.addEventListener('click', onDocumentClick);
+    bound = true;
+  }
+
+  function init() {
+    bind();
+    paint();
+    /* Do not scroll, do not change location, do not write storage on load. */
+  }
+
+  var api = {
+    KEY: KEY,
+    read: read,
+    write: write,
+    clear: clear,
+    pageDate: pageDate,
+    paint: paint,
+    init: init,
+    bind: bind,
+    normalize: normalize,
+    get lastError() { return lastError; },
+    get storageAvailable() { return storageAvailable; },
+    get bound() { return bound; }
+  };
+
+  root.ReadingBookmark = api;
+  /* Script is inlined at the end of the page; required nodes already exist. Init now.
+     Do not wait for DOMContentLoaded — and never write storage or jump on init. */
+  if (root.document) init();
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
 </body>
 </html>

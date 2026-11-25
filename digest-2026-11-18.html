@@ -501,43 +501,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
   .wrap .entry.r-entry p.r-source{margin-left:14px!important}
   .wrap .entry.r-entry p.r-label{margin-top:36px!important}
 }
+
+/* ===== 手动书签：低干扰，不改变米白衬线版式 ===== */
+.wrap .entry.r-entry .r-entry-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;margin:0 0 22px;flex-wrap:wrap}
+.wrap .entry.r-entry .r-entry-head p.r-no{margin:0!important}
+.wrap .entry.r-entry button.r-mark-here,
+.rail button.r-clear-mark{
+  appearance:none;-webkit-appearance:none;
+  background:none!important;border:0!important;box-shadow:none!important;
+  padding:6px 0;margin:0;cursor:pointer;
+  font:400 12px/1.6 inherit!important;
+  color:#8a8478!important;letter-spacing:.06em!important;
+  text-decoration:none!important;white-space:nowrap
+}
+.wrap .entry.r-entry button.r-mark-here:hover,
+.rail button.r-clear-mark:hover{color:#23211d!important}
+.wrap .entry.r-entry.r-bookmarked button.r-mark-here{color:#6f695e!important}
+.wrap .entry.r-entry button.r-mark-here:focus-visible,
+.rail a.r-last-read:focus-visible,
+.rail button.r-clear-mark:focus-visible{
+  outline:1px solid #23211d;outline-offset:3px
+}
+.wrap .entry.r-entry.r-bookmarked{scroll-margin-top:24px}
+
+/* 往期日期右侧「上次读到」，落在左侧空隙里 */
+.rail .a-list li{
+  display:flex;align-items:center;gap:8px
+}
+.rail .a-list li > a:first-of-type{flex:1 1 auto;min-width:0}
+.rail .r-bookmark-slot{display:inline-flex;align-items:baseline;gap:6px;flex:0 0 auto;margin-left:2px}
+.rail a.r-last-read{
+  display:inline!important;flex-direction:unset!important;
+  padding:0!important;border:0!important;background:none!important;
+  color:#6f695e!important;font-size:11px!important;font-weight:400!important;
+  letter-spacing:.04em!important;text-decoration:none!important;
+  white-space:nowrap;line-height:1.4
+}
+.rail a.r-last-read:hover{color:#23211d!important;padding-left:0!important}
+.rail button.r-clear-mark{padding:0;letter-spacing:.04em!important;font-size:11px!important}
+
+.r-bookmark-status{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+@media (max-width:1179px){
+  .wrap .entry.r-entry{scroll-margin-top:72px}
+  .rail .a-list li.r-has-bookmark{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .rail a.r-last-read{
+    padding:0!important;border:0!important;border-radius:0!important;
+    background:none!important;white-space:nowrap
+  }
+  .rail a.r-last-read:hover{padding-left:0!important}
+}
+@media (max-width:640px){
+  .wrap .entry.r-entry .r-entry-head{margin-bottom:18px}
+  .wrap .entry.r-entry button.r-mark-here{padding:8px 0;font-size:12px!important}
+}
 </style><!-- /READING_CSS -->
 <!-- /FB_RAIL_CSS -->
 
 
 
 
-<aside class="rail" aria-label="往期归档">
+<aside class="rail" aria-label="往期归档" data-digest-date="2026-11-18">
   <div class="rail-inner">
     <div class="rail-head">
       <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
       <span class="rail-count">23 期</span>
     </div>
     <ul class="a-list">
-      <li><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
-      <li><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
-      <li><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
-      <li><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
-      <li><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
-      <li><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
-      <li><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
-      <li class="a-current"><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
-      <li><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
-      <li><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
-      <li><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
-      <li><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
-      <li><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
-      <li><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
-      <li><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
-      <li><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
-      <li><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
-      <li><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
-      <li><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
-      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
-      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
-      <li><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
-      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+      <li data-date="2026-11-25"><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
+      <li data-date="2026-11-24"><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
+      <li data-date="2026-11-23"><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
+      <li data-date="2026-11-22"><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
+      <li data-date="2026-11-21"><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
+      <li data-date="2026-11-20"><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
+      <li data-date="2026-11-19"><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
+      <li class="a-current" data-date="2026-11-18"><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
+      <li data-date="2026-11-17"><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
+      <li data-date="2026-11-16"><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
+      <li data-date="2026-11-15"><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
+      <li data-date="2026-11-14"><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
+      <li data-date="2026-11-13"><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
+      <li data-date="2026-11-12"><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
+      <li data-date="2026-11-11"><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
+      <li data-date="2026-11-10"><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
+      <li data-date="2026-11-09"><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
+      <li data-date="2026-11-08"><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
+      <li data-date="2026-11-07"><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li data-date="2026-11-06"><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li data-date="2026-11-05"><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li data-date="2026-11-04"><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li data-date="2026-11-03"><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
     </ul>
+    <p class="r-bookmark-status" role="status" aria-live="polite"></p>
   </div>
 </aside>
 <script src="archive.js"></script>
@@ -557,71 +615,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 
 <details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 划清两种界限。首先，是革命还是反…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 在组织上，厉行集中指导下的民主生…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 人民、只有人民，才是创造世界历史…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 群众是真正的英雄，而我们自己则往…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 人民群众有无限的创造力。他们可以…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 目前农民运动的兴起是一个极大的问…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 目前农村中合作化的社会改革的高潮…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 群众中蕴藏了一种极大的社会主义的…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 我党二十几年来，天天做群众工作，…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 二十四年的经验告诉我们，凡属正确…</a></li></ul></li></ul></details>
 <div style="height:72px"></div>
-<article class="entry r-entry" id="e-1">
-  <p class="r-no">01<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-1" data-entry-id="e-1">
+  <div class="r-entry-head">
+    <p class="r-no">01<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-1" aria-pressed="false" aria-label="标记读到这里，第 1 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">划清两种界限。首先，是革命还是反革命？是延安还是西安？有些人不懂得要划清这种界限。例如，他们反对官僚主义，就把延安说得好似“一无是处”，而没有把延安的官僚主义同西安的官僚主义比较一下，区别一下。这就从根本上犯了错误。其次，在革命的队伍中，要划清正确和错误、成绩和缺点的界限，还要弄清它们中间什么是主要的，什么是次要的。例如，成绩究竟是三分还是七分？说少了不行，说多了也不行。一个人的工作，究竟是三分成绩七分错误，还是七分成绩三分错误，必须有个根本的估计。如果是七分成绩，那末就应该对他的工作基本上加以肯定。把成绩为主说成错误为主，那就完全错了。我们看问题一定不要忘记划清这两种界限：革命和反革命的界限，成绩和缺点的界限。记着这两条界限，事情就好办，否则就会把问题的性质弄混淆了。自然，要把界限划好，必须经过细致的研究和分析。我们对于每一个人和每一件事，都应该采取分析研究的态度。</p></div>
   <p class="r-source">《党委会的工作方法》（1949年3月13日），《毛泽东选集》第四卷第1444—1445页，《毛主席语录》第十章</p>
   <p class="r-label">官方解读</p><p class="r-official">学习时报倪德刚文章写道：“四是准确判断，即第十二条‘划清界限’。实行正确集体领导的一个基本前提就是对事物要做出准确判断，即毛泽东当时提出要划清正确与错误、成绩和缺点的界限，对这两个界限要进行具体分析。哪些是正确和错误；哪些是成绩和缺点，要清楚掌握比例。既不能过高估计，也不能估计过低。否则集体决策就会犯错误。”</p><p class="r-links"><a href="http://cpc.people.com.cn/n1/2016/0328/c64387-28232635.html">毛泽东立下的开会规矩（人民网，2016年3月28日，来源《学习时报》，倪德刚）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话是《党委会的工作方法》十二条中的第十二条，也是全文的收束之一。</p><p class="r-explain">首先要划清的，是革命还是反革命，是延安还是西安。反对官僚主义，如果把延安说成“一无是处”，却不把延安的官僚主义同西安的官僚主义比较、区别，就从根本上犯了错误。其次，在革命的队伍中，还要划清正确和错误、成绩和缺点的界限，并且分清什么是主要的、什么是次要的。一个人的工作，究竟是三分成绩七分错误，还是七分成绩三分错误，<span class="mark">必须有个根本的估计</span>；如果是七分成绩，就应该基本上加以肯定，把成绩为主说成错误为主，那就完全错了。</p><p class="r-explain">两条界限要记着：<span class="mark">划清两种界限</span>，事情就好办；否则就会把问题的性质弄混淆。要把界限划好，必须经过细致的研究和分析，对每一个人和每一件事都采取分析研究的态度。</p>
 </article>
-<article class="entry r-entry" id="e-2">
-  <p class="r-no">02<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-2" data-entry-id="e-2">
+  <div class="r-entry-head">
+    <p class="r-no">02<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-2" aria-pressed="false" aria-label="标记读到这里，第 2 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">在组织上，厉行集中指导下的民主生活。其路线是：1 党的领导机关要有正确的指导路线，遇事要拿出办法，以建立领导的中枢。2 上级机关要明了下级机关的情况和群众生活的情况，成为正确指导的客观基础。3 党的各级机关解决问题，不要太随便。一成决议，就须坚决执行。4 上级机关的决议，凡属重要一点的，必须迅速地传达到下级机关和党员群众中去。……5 党的下级机关和党员群众对于上级机关的指示，要经过详尽的讨论，以求彻底地了解指示的意义，并决定对它的执行方法。</p></div>
   <p class="r-source">《关于纠正党内的错误思想》（1929年12月），《毛泽东选集》第一卷第91页，《毛主席语录》第十章</p>
   <p class="r-label">官方解读</p><p class="r-official">学习时报沈传亮文章在讲解纠正极端民主化的方法时写道：“二是在组织上厉行集中指导下的民主生活。毛泽东的思路是：党的领导机关要有正确的指导路线，遇事要拿出办法，以建立领导中枢。上级机关要明了下级机关和群众生活的情况，成为正确指导的基础。党的各级机关解决问题，不要太随便。一旦形成决议，就须坚决执行。上级机关的决议，凡属重要一点的，必须迅速地传达到下级机关和党员群众中去。”文章并指出，这种分析“对今天我们严肃党内生活、加强组织纪律性都很有启发”。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2019/0228/c423718-30941207.html">首次提出党内生活政治化科学化的重要文献——重读毛泽东的《关于纠正党内的错误思想》（中央党史和文献研究院网站，2016年11月24日，来源《学习时报》，沈传亮）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1929年12月古田会议决议《关于纠正党内的错误思想》，是纠正极端民主化的组织办法，也是第十章的最后一条。原书用1至5标出五条具体路线，第四条中的省略号是原书摘录时作的删节。</p><p class="r-explain"><span class="mark">集中指导下的民主生活</span>，不是不要民主，而是把“有办法的集中指导”和“认真的民主讨论”连在一起：指导机关要有正确的路线，遇事拿出办法，以建立中枢；上级要明了下级和群众生活的情况，作为正确指导的客观基础；各级机关解决问题不要太随便，<span class="mark">一成决议，就须坚决执行</span>；重要决议必须迅速传达到下级和党员群众中去；下级和党员群众对上级指示要经过详尽讨论，以求彻底了解意义，并决定执行方法。这五条是一套，缺了前头会没有方向，缺了后头会无法落实。</p>
 </article>
-<article class="entry r-entry" id="e-3">
-  <p class="r-no">03<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-3" data-entry-id="e-3">
+  <div class="r-entry-head">
+    <p class="r-no">03<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-3" aria-pressed="false" aria-label="标记读到这里，第 3 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">人民、只有人民，才是创造世界历史的动力。</p></div>
   <p class="r-source">《论联合政府》（1945年4月24日），《毛泽东选集》第三卷第1031页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院网站毛胜、唐洲雁文章在引述《论联合政府》中“人民，只有人民，才是创造世界历史的动力”后写道：要让全党同志深刻认识到，“只要我们依靠人民，坚决地相信人民群众的创造力是无穷无尽的，因而信任人民，和人民打成一片，那就任何困难也能克服，任何敌人也不能压倒我们，而只会被我们所压倒。”</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2020/1015/c423725-31893110.html">“人民群众有无限的创造力”——学习毛泽东关于尊重和发挥群众首创精神的重要论述（中央党史和文献研究院网站，2020年10月15日，毛胜、唐洲雁）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这句话出自1945年4月24日毛泽东在中共七大上所作的政治报告《论联合政府》，收在“国际形势和国内形势”这一部分。当时抗日战争即将胜利，国内外都在讨论战后中国向何处去，报告把历史前进的动力首先说清楚。</p><p class="r-explain">句子很短，但是层次清楚。它不只是说人民参加了历史，而且用“<span class="mark">只有人民</span>”把动力的归属收窄：创造世界历史的，不是少数人物，也不是某种外在力量，而是人民。把这一条作为第十一章「群众路线」的起句，后面各条关于调查、组织、自愿、从群众中来到群众中去的论述，都建立在这个判断上：<span class="mark">创造世界历史的动力</span>在人民一边。</p>
 </article>
-<article class="entry r-entry" id="e-4">
-  <p class="r-no">04<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-4" data-entry-id="e-4">
+  <div class="r-entry-head">
+    <p class="r-no">04<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-4" aria-pressed="false" aria-label="标记读到这里，第 4 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">群众是真正的英雄，而我们自己则往往是幼稚可笑的，不了解这一点，就不能得到起码的知识。</p></div>
   <p class="r-source">《“农村调查”的序言和跋》（1941年3、4月），《毛泽东选集》第三卷第790页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">《学习时报》刊发的中国共产党历史展览馆供稿文章，在讲述毛泽东1941年春为《农村调查》一书写序时写道：他在序言中特别强调，“对于中国各个社会阶级的实际情况，没有真正具体的了解，真正好的领导是不会有的。”“要了解情况，唯一的方法是向社会作调查，调查社会各阶级的生动情况。”“必须明白：群众是真正的英雄，而我们自己则往往是幼稚可笑的”。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2021/1126/c436975-32292441.html">调查研究的光辉典范（人民网党史学习教育官方网站，2021年11月26日，来源《学习时报》，中国共产党历史展览馆供稿）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这句话出自1941年3、4月毛泽东为《农村调查》一书写的序言。当时延安整风尚未全面展开，党内仍有人不作调查、靠想当然下判断。他把多年农村调查的材料汇印成书，是要给同志们一个研究问题的方法。</p><p class="r-explain">这一条把态度说在知识前面：必须先明白<span class="mark">群众是真正的英雄</span>，而调查的人自己则往往是幼稚可笑的；不了解这一点，就不能得到<span class="mark">起码的知识</span>。它不是一句客套，而是调查的起点：真正具体的了解，只能从群众的实践里来，不能从自己的想当然里来。</p>
 </article>
-<article class="entry r-entry" id="e-5">
-  <p class="r-no">05<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-5" data-entry-id="e-5">
+  <div class="r-entry-head">
+    <p class="r-no">05<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-5" aria-pressed="false" aria-label="标记读到这里，第 5 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">人民群众有无限的创造力。他们可以组织起来，向一切可以发挥自己力量的地方和部门进军，向生产的深度和广度进军，替自己创造日益增多的福利事业。</p></div>
   <p class="r-source">《多余劳动力找到了出路》一文的按语（1955年），《中国农村的社会主义高潮》中册第578页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">求是网杨胜群文章（原中共中央文献研究室常务副主任）在论述依靠人民时写道：“在社会主义建设时期，他用诗句描述‘六亿神州尽舜尧’，并提出要依靠人民群众向一切可以发挥自己力量的地方和部门进军，向生产的深度和广度进军。”</p><p class="r-links"><a href="https://www.qstheory.cn/dukan/qs/2018-05/31/c_1122897915.htm">依靠人民创造历史伟业（求是网，2018年5月31日，杨胜群）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话是1955年毛泽东为《中国农村的社会主义高潮》一书中《多余劳动力找到了出路》一文所写的按语。当时农业合作化正在推进，一些地方出现了劳动力“多余”的议论。按语要回答的是：组织起来之后，力量往哪里使。</p><p class="r-explain">它先下一个判断：人民群众有<span class="mark">无限的创造力</span>。接着讲这条创造力怎样落实：组织起来，向一切可以发挥自己力量的地方和部门进军，<span class="mark">向生产的深度和广度进军</span>，替自己创造日益增多的福利事业。创造力在这里不是一句空话，而是组织起来之后把生产做深、做宽，把福利做出来。</p>
 </article>
-<article class="entry r-entry" id="e-6">
-  <p class="r-no">06<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-6" data-entry-id="e-6">
+  <div class="r-entry-head">
+    <p class="r-no">06<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-6" aria-pressed="false" aria-label="标记读到这里，第 6 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">目前农民运动的兴起是一个极大的问题。很短的时间内，将有几万万农民从中国中部、南部和北部各省起来，其势如暴风骤雨，迅猛异常，无论什么大的力量都将压抑不住。他们将冲决一切束缚他们的罗网，朝着解放的路上迅跑。一切帝国主义、军阀、贪官污吏、土豪劣绅，都将被他们葬入坟墓。一切革命的党派、革命的同志，都将在他们面前受他们的检验而决定弃取。站在他们的前头领导他们呢？还是站在他们的后头指手画脚地批评他们呢？还是站在他们的对面反对他们呢？每个中国人对于这三项都有选择的自由，不过时局将强迫你迅速地选择罢了。</p></div>
   <p class="r-source">《湖南农民运动考察报告》（1927年3月），《毛泽东选集》第一卷第13—14页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">中央党校（国家行政学院）高中华、国家行政管理出版社韩丽文章写道：第一次国内革命战争时期，农民运动蓬勃兴起，“掀起了以湖南为中心的农村革命大风暴，从根本上动摇了帝国主义在中国的统治，打击了几千年来封建势力的统治基础。”文章并指出，《湖南农民运动考察报告》“称‘农民的眼睛，全然没有错的’，讴歌农民的‘奇勋’，提倡相信群众和支持群众的革命首创精神”。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2021/0125/c85037-32010449.html">“中国的革命者个个都应该读一读”（中国共产党新闻网，2021年1月25日，来源《北京日报》，高中华、韩丽）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1927年3月的《湖南农民运动考察报告》。当时北伐战争推进，湖南等地农民运动迅猛兴起，党内外都有人指责农运“糟得很”“过火”。毛泽东于1927年1月至2月考察湘潭、湘乡、衡山、醴陵、长沙五县后写下这篇报告，起笔就先把运动的规模和性质说清楚。</p><p class="r-explain">他用“<span class="mark">其势如暴风骤雨</span>，迅猛异常”写出这场运动压抑不住、将冲决旧罗网的趋势，并指出一切革命的党派和同志都将在农民面前受检验。选择只有三项：<span class="mark">站在他们的前头</span>领导他们，站在后头指手画脚地批评他们，或站在对面反对他们。时局将强迫人们迅速作出选择。这一条不是要人去赞美一切自发行动，而是要求面对已经起来的群众运动，先决定自己站在哪一边。</p>
 </article>
-<article class="entry r-entry" id="e-7">
-  <p class="r-no">07<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-7" data-entry-id="e-7">
+  <div class="r-entry-head">
+    <p class="r-no">07<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-7" aria-pressed="false" aria-label="标记读到这里，第 7 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">目前农村中合作化的社会改革的高潮，有些地方已经到来，全国也即将到来。这是五亿多农村人口的大规模的社会主义的革命运动，带有极其伟大的世界意义。我们应当积极地热情地有计划地去领导这个运动，而不是用各种办法去拉它向后退。运动中免不了要出些偏差，这是可以理解的，也是不难纠正的。干部中和农民中存在的缺点或错误，只要我们积极地去帮助他们，就会克服或纠正。</p></div>
   <p class="r-source">《关于农业合作化问题》（1955年7月30日），人民出版社版第1—第2页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">中共中央党史研究室《中国共产党历史（第二卷）》在讲述1955年7月31日毛泽东作《关于农业合作化问题》的报告时写道：报告强调在全国农村中，新的社会主义群众运动的高潮即将到来，“我们应当积极地热情地有计划地去领导这个运动，而不是用各种办法去拉它向后退”。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2017/0623/c244520-29358859-2.html">对农村形势估量的变化和加快农业合作化的指导方针（中央党史和文献研究院网站，2017年6月23日，来源中共中央党史研究室《中国共产党历史（第二卷）》）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话是1955年7月30日毛泽东《关于农业合作化问题》报告的开头部分。当时农村合作化在一些地方已经形成高潮，全国范围内的高潮也即将到来；党内对速度和步骤仍有不同意见。原书出处作“人民出版社 版第1—第2页”，在“人民出版社”与“版”之间空出一格，未印年份，这里照录原书。</p><p class="r-explain">这一条先判断形势：这是五亿多农村人口的大规模社会主义革命运动。接着规定态度：应当<span class="mark">积极地热情地有计划地</span>去领导这个运动，而不是用各种办法去<span class="mark">拉它向后退</span>。同时承认运动中免不了要出些偏差，这可以理解，也不难纠正；干部和农民中的缺点或错误，只要积极地去帮助，就会克服或纠正。它反对的是看到高潮就往后拉，也不是把偏差当成可以不管。</p>
 </article>
-<article class="entry r-entry" id="e-8">
-  <p class="r-no">08<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-8" data-entry-id="e-8">
+  <div class="r-entry-head">
+    <p class="r-no">08<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-8" aria-pressed="false" aria-label="标记读到这里，第 8 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">群众中蕴藏了一种极大的社会主义的积极性。那些在革命时期还只会按照常规走路的人们，对于这种积极性一概看不见。他们是瞎子，在他们面前出现的只是一片黑暗。他们有时简直要闹到颠倒是非、混淆黑白的程度。这种人难道我们遇见得还少吗？这些只会循着常规走路的人们，老是对于人民的积极性估计过低。一种新事物出现，他们总是不赞成，首先反对一气。随后就是认输，做一点自我批评。第二种新事物出现，他们又按照这两种态度循环一遍。以后各种新事物出现，都按照这个格式处理。这种人老是被动，在紧要的关头老是止步不前，老是需要别人在他的背上击一猛掌，才肯向前跨进一步。</p></div>
   <p class="r-source">《这个乡两年就合作化了》一文的按语（1955年），《中国农村的社会主义高潮》中册第587—588页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official r-none">未查询到</p>
   <p class="r-label">讲解</p><p class="r-explain">这段话是1955年毛泽东为《中国农村的社会主义高潮》中《这个乡两年就合作化了》一文所写的按语。它针对的，是当时一些人看不见群众中已经存在的社会主义积极性，总是把局面看成一片黑暗。</p><p class="r-explain">按语把这种态度写得很具体：一种新事物出现，先不赞成、先反对一气，随后认输，做一点自我批评；第二种新事物出现，又按这两种态度循环一遍。这种人老是被动，在紧要关头老是止步不前，老是需要别人在他背上<span class="mark">击一猛掌</span>，才肯向前跨进一步。它要人看见群众中已经<span class="mark">蕴藏</span>着的积极性，而不是按常规走路，把新事物先压住，等事实逼过来了再认输。</p>
 </article>
-<article class="entry r-entry" id="e-9">
-  <p class="r-no">09<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-9" data-entry-id="e-9">
+  <div class="r-entry-head">
+    <p class="r-no">09<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-9" aria-pressed="false" aria-label="标记读到这里，第 9 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我党二十几年来，天天做群众工作，近十几年来，天天讲群众路线。我们历来主张革命要依靠人民群众，大家动手，反对只依靠少数人发号施令。但是在有些同志的工作中间，群众路线仍然不能贯彻，他们还是只靠少数人冷冷清清地做工作。其原因之一，就是他们做一件事情，总不愿意向被领导的人讲清楚，不懂得发挥被领导者的积极性和创造力。他们主观上也要大家动手动脚去做，但是不让大家知道要做的是怎么一回事，应当怎样做法，这样，大家怎么能动起来，事情怎么能够办好？要解决这个问题，根本上当然要从思想上进行群众路线的教育，同时也要教给同志们许多具体办法。</p></div>
   <p class="r-source">《对晋绥日报编辑人员的谈话》（1948年4月2日），《毛泽东选集》第四卷第1317—1318页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">学习时报储峰文章写道：毛泽东认为，共产党自成立以来，天天做群众工作，天天讲群众路线，主张革命要依靠人民群众，反对只靠少数人发号施令，但实际上，有些同志不懂得发挥群众的积极性和创造性，以至于“群众路线仍然不能贯彻”，“只靠少数人冷冷清清地做工作”。他反问道：“不让大家知道要做的是怎么一回事，应当怎样做法，这样，大家怎么能动起来，事情怎么能够办好？”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2018/0808/c85037-30216689.html">重温毛泽东《对晋绥日报编辑人员的谈话》（人民网党史频道，2018年8月8日，来源《学习时报》，储峰）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1948年4月2日毛泽东《对晋绥日报编辑人员的谈话》。当时晋绥边区土改中出现过政策不为群众所知、工作只在少数人圈子里转的问题，谈话围绕如何通过报纸加强和群众的联系展开。</p><p class="r-explain">他指出：天天做群众工作、天天讲群众路线，却仍有人只靠少数人<span class="mark">冷冷清清地做工作</span>。原因之一，是做一件事总不愿意向大家讲清楚，不懂得发挥大家的积极性和创造力；主观上也要大家动手，却不让大家知道要做的是怎么一回事、应当怎样做法。要解决这个问题，根本上要从思想上教育，同时也要教给许多具体办法。这一条把群众路线从口号落到办法上：要<span class="mark">大家动手</span>，先得把事情讲明白。</p>
 </article>
-<article class="entry r-entry" id="e-10">
-  <p class="r-no">10<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-10" data-entry-id="e-10">
+  <div class="r-entry-head">
+    <p class="r-no">10<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-10" aria-pressed="false" aria-label="标记读到这里，第 10 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">二十四年的经验告诉我们，凡属正确的任务、政策和工作作风，都是和当时当地的群众要求相适合，都是联系群众的；凡属错误的任务、政策和工作作风，都是和当时当地的群众要求不相适合，都是脱离群众的。教条主义、经验主义、命令主义、尾巴主义、宗派主义、官僚主义、骄傲自大的工作态度等项弊病之所以一定不好，一定要不得，如果什么人有了这类弊病一定要改正，就是因为它们脱离群众。</p></div>
   <p class="r-source">《论联合政府》（1945年4月24日），《毛泽东选集》第三卷第1096页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">王欢、王晓东文章在引述“二十四年的经验告诉我们，凡属正确的任务、政策和工作作风，都是和当时当地的群众要求相适合，都是联系群众的；凡属错误的任务、政策和工作作风，都是和当时当地的群众要求不相适合，都是脱离群众的”之前写道：毛泽东明确要求党的各级组织和党员干部向人民负责，向人民负责必须把是否对人民有利作为衡量党的一切工作和党员的一切行动的最高标准。</p><p class="r-links"><a href="http://theory.people.com.cn/n/2013/1226/c148980-23952409.html">重温毛泽东关于密切联系群众的经典论述（人民网理论频道，2013年12月26日，王欢、王晓东）</a></p>
@@ -637,5 +725,258 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
 if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
 addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>
+/* Reading Digest manual bookmark.
+   Only click handlers write to localStorage. Scroll, load, hash, and history must never save or overwrite.
+   One bookmark per browser: { date: 'YYYY-MM-DD', id: 'e-N' }. No account, no cross-device, no auto-jump.
+*/
+(function (root) {
+  var KEY = 'readingDigest.bookmark';
+  var DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+  var ID_RE = /^e-\d+$/;
+  var bound = false;
+  var storageAvailable = true;
+  var lastError = '';
+
+  function announce(msg) {
+    var el = root.document && document.querySelector('.r-bookmark-status');
+    if (el) el.textContent = msg || '';
+  }
+
+  function getStore() {
+    try {
+      return root.localStorage;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'localStorage unavailable';
+      return null;
+    }
+  }
+
+  function normalize(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    var date = raw.date;
+    var id = raw.id;
+    if (typeof date !== 'string' || typeof id !== 'string') return null;
+    if (!DATE_RE.test(date) || !ID_RE.test(id)) return null;
+    return { date: date, id: id };
+  }
+
+  function read() {
+    lastError = '';
+    var store = getStore();
+    if (!store) return null;
+    var txt;
+    try {
+      txt = store.getItem(KEY);
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'read failed';
+      return null;
+    }
+    if (txt == null || txt === '') return null;
+    var parsed;
+    try {
+      parsed = JSON.parse(txt);
+    } catch (err) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    var bm = normalize(parsed);
+    if (!bm) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    return bm;
+  }
+
+  function write(bm) {
+    lastError = '';
+    var norm = normalize(bm);
+    if (!norm) {
+      lastError = 'invalid bookmark';
+      return false;
+    }
+    var store = getStore();
+    if (!store) {
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.setItem(KEY, JSON.stringify(norm));
+      storageAvailable = true;
+      announce('已标记到 ' + norm.date + ' 第 ' + norm.id.slice(2) + ' 条');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'write failed';
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function clear() {
+    lastError = '';
+    var store = getStore();
+    if (!store) {
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.removeItem(KEY);
+      storageAvailable = true;
+      announce('已清除标记');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'clear failed';
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function pageDate() {
+    var doc = root.document;
+    if (doc) {
+      var marked = doc.querySelector('[data-digest-date]');
+      if (marked) {
+        var d = marked.getAttribute('data-digest-date');
+        if (d && DATE_RE.test(d)) return d;
+      }
+    }
+    var path = (root.location && root.location.pathname) || '';
+    var m = path.match(/digest-(\d{4}-\d{2}-\d{2})\.html$/);
+    if (m) return m[1];
+    if (root.DIGEST_ARCHIVE && root.DIGEST_ARCHIVE.length && root.DIGEST_ARCHIVE[0].d) {
+      return root.DIGEST_ARCHIVE[0].d;
+    }
+    return '';
+  }
+
+  function entryNum(id) {
+    return id ? id.replace(/^e-/, '') : '';
+  }
+
+  function paintRail(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var lis = doc.querySelectorAll('.rail .a-list li');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].classList.remove('r-has-bookmark');
+      var old = lis[i].querySelector('.r-bookmark-slot');
+      if (old) old.parentNode.removeChild(old);
+    }
+    if (!bm) return;
+    var li = doc.querySelector('.rail .a-list li[data-date="' + bm.date + '"]');
+    if (!li) return;
+    li.classList.add('r-has-bookmark');
+    var slot = doc.createElement('span');
+    slot.className = 'r-bookmark-slot';
+    var link = doc.createElement('a');
+    link.className = 'r-last-read';
+    link.href = 'digest-' + bm.date + '.html#' + bm.id;
+    link.textContent = '上次读到';
+    link.setAttribute('aria-label', '上次读到 ' + bm.date + ' 第 ' + entryNum(bm.id) + ' 条');
+    var clr = doc.createElement('button');
+    clr.type = 'button';
+    clr.className = 'r-clear-mark';
+    clr.textContent = '清除';
+    clr.setAttribute('aria-label', '清除阅读书签');
+    slot.appendChild(link);
+    slot.appendChild(clr);
+    li.appendChild(slot);
+  }
+
+  function paintEntries(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var date = pageDate();
+    var entries = doc.querySelectorAll('article.r-entry[data-entry-id]');
+    for (var i = 0; i < entries.length; i++) {
+      var art = entries[i];
+      var id = art.getAttribute('data-entry-id');
+      var on = !!(bm && bm.date === date && bm.id === id);
+      art.classList.toggle('r-bookmarked', on);
+      var btn = art.querySelector('.r-mark-here');
+      if (!btn) continue;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on) {
+        btn.textContent = '清除标记';
+        btn.setAttribute('aria-label', '清除标记，第 ' + entryNum(id) + ' 条');
+      } else {
+        btn.textContent = '标记读到这里';
+        btn.setAttribute('aria-label', '标记读到这里，第 ' + entryNum(id) + ' 条');
+      }
+    }
+  }
+
+  function paint() {
+    var bm = read();
+    paintRail(bm);
+    paintEntries(bm);
+    return bm;
+  }
+
+  function onMarkClick(btn) {
+    var id = btn.getAttribute('data-entry-id');
+    var date = pageDate();
+    if (!id || !DATE_RE.test(date) || !ID_RE.test(id)) return;
+    var bm = read();
+    if (bm && bm.date === date && bm.id === id) clear();
+    else write({ date: date, id: id });
+    paint();
+  }
+
+  function onDocumentClick(ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var mark = t.closest('.r-mark-here');
+    if (mark) {
+      ev.preventDefault();
+      onMarkClick(mark);
+      return;
+    }
+    var clr = t.closest('.r-clear-mark');
+    if (clr) {
+      ev.preventDefault();
+      clear();
+      paint();
+    }
+  }
+
+  function bind() {
+    if (bound || !root.document) return;
+    root.document.addEventListener('click', onDocumentClick);
+    bound = true;
+  }
+
+  function init() {
+    bind();
+    paint();
+    /* Do not scroll, do not change location, do not write storage on load. */
+  }
+
+  var api = {
+    KEY: KEY,
+    read: read,
+    write: write,
+    clear: clear,
+    pageDate: pageDate,
+    paint: paint,
+    init: init,
+    bind: bind,
+    normalize: normalize,
+    get lastError() { return lastError; },
+    get storageAvailable() { return storageAvailable; },
+    get bound() { return bound; }
+  };
+
+  root.ReadingBookmark = api;
+  /* Script is inlined at the end of the page; required nodes already exist. Init now.
+     Do not wait for DOMContentLoaded — and never write storage or jump on init. */
+  if (root.document) init();
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
 </body>
 </html>

@@ -501,43 +501,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
   .wrap .entry.r-entry p.r-source{margin-left:14px!important}
   .wrap .entry.r-entry p.r-label{margin-top:36px!important}
 }
+
+/* ===== 手动书签：低干扰，不改变米白衬线版式 ===== */
+.wrap .entry.r-entry .r-entry-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;margin:0 0 22px;flex-wrap:wrap}
+.wrap .entry.r-entry .r-entry-head p.r-no{margin:0!important}
+.wrap .entry.r-entry button.r-mark-here,
+.rail button.r-clear-mark{
+  appearance:none;-webkit-appearance:none;
+  background:none!important;border:0!important;box-shadow:none!important;
+  padding:6px 0;margin:0;cursor:pointer;
+  font:400 12px/1.6 inherit!important;
+  color:#8a8478!important;letter-spacing:.06em!important;
+  text-decoration:none!important;white-space:nowrap
+}
+.wrap .entry.r-entry button.r-mark-here:hover,
+.rail button.r-clear-mark:hover{color:#23211d!important}
+.wrap .entry.r-entry.r-bookmarked button.r-mark-here{color:#6f695e!important}
+.wrap .entry.r-entry button.r-mark-here:focus-visible,
+.rail a.r-last-read:focus-visible,
+.rail button.r-clear-mark:focus-visible{
+  outline:1px solid #23211d;outline-offset:3px
+}
+.wrap .entry.r-entry.r-bookmarked{scroll-margin-top:24px}
+
+/* 往期日期右侧「上次读到」，落在左侧空隙里 */
+.rail .a-list li{
+  display:flex;align-items:center;gap:8px
+}
+.rail .a-list li > a:first-of-type{flex:1 1 auto;min-width:0}
+.rail .r-bookmark-slot{display:inline-flex;align-items:baseline;gap:6px;flex:0 0 auto;margin-left:2px}
+.rail a.r-last-read{
+  display:inline!important;flex-direction:unset!important;
+  padding:0!important;border:0!important;background:none!important;
+  color:#6f695e!important;font-size:11px!important;font-weight:400!important;
+  letter-spacing:.04em!important;text-decoration:none!important;
+  white-space:nowrap;line-height:1.4
+}
+.rail a.r-last-read:hover{color:#23211d!important;padding-left:0!important}
+.rail button.r-clear-mark{padding:0;letter-spacing:.04em!important;font-size:11px!important}
+
+.r-bookmark-status{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+@media (max-width:1179px){
+  .wrap .entry.r-entry{scroll-margin-top:72px}
+  .rail .a-list li.r-has-bookmark{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .rail a.r-last-read{
+    padding:0!important;border:0!important;border-radius:0!important;
+    background:none!important;white-space:nowrap
+  }
+  .rail a.r-last-read:hover{padding-left:0!important}
+}
+@media (max-width:640px){
+  .wrap .entry.r-entry .r-entry-head{margin-bottom:18px}
+  .wrap .entry.r-entry button.r-mark-here{padding:8px 0;font-size:12px!important}
+}
 </style><!-- /READING_CSS -->
 <!-- /FB_RAIL_CSS -->
 
 
 
 
-<aside class="rail" aria-label="往期归档">
+<aside class="rail" aria-label="往期归档" data-digest-date="2026-11-16">
   <div class="rail-inner">
     <div class="rail-head">
       <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
       <span class="rail-count">23 期</span>
     </div>
     <ul class="a-list">
-      <li><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
-      <li><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
-      <li><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
-      <li><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
-      <li><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
-      <li><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
-      <li><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
-      <li><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
-      <li><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
-      <li class="a-current"><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
-      <li><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
-      <li><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
-      <li><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
-      <li><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
-      <li><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
-      <li><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
-      <li><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
-      <li><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
-      <li><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
-      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
-      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
-      <li><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
-      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+      <li data-date="2026-11-25"><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
+      <li data-date="2026-11-24"><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
+      <li data-date="2026-11-23"><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
+      <li data-date="2026-11-22"><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
+      <li data-date="2026-11-21"><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
+      <li data-date="2026-11-20"><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
+      <li data-date="2026-11-19"><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
+      <li data-date="2026-11-18"><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
+      <li data-date="2026-11-17"><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
+      <li class="a-current" data-date="2026-11-16"><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
+      <li data-date="2026-11-15"><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
+      <li data-date="2026-11-14"><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
+      <li data-date="2026-11-13"><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
+      <li data-date="2026-11-12"><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
+      <li data-date="2026-11-11"><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
+      <li data-date="2026-11-10"><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
+      <li data-date="2026-11-09"><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
+      <li data-date="2026-11-08"><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
+      <li data-date="2026-11-07"><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li data-date="2026-11-06"><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li data-date="2026-11-05"><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li data-date="2026-11-04"><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li data-date="2026-11-03"><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
     </ul>
+    <p class="r-bookmark-status" role="status" aria-live="polite"></p>
   </div>
 </aside>
 <script src="archive.js"></script>
@@ -557,71 +615,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 
 <details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 没有一个人民的军队，便没有人民的…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 这个军队之所以有力量，是因为所有…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 中国红军是一个执行革命的政治任务…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 人民解放军永远是一个战斗队。就是…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 我们有打仗的军队，又有劳动的军队…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 我们的国防将获得巩固，不允许任何…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 我们的原则是党指挥枪，而决不容许…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 我全军将士必须时刻牢记，我们是伟…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 党委制是保证集体领导、防止个人包…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 党委书记要善于当“班长”。党的委…</a></li></ul></li></ul></details>
 <div style="height:72px"></div>
-<article class="entry r-entry" id="e-1">
-  <p class="r-no">01<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-1" data-entry-id="e-1">
+  <div class="r-entry-head">
+    <p class="r-no">01<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-1" aria-pressed="false" aria-label="标记读到这里，第 1 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">没有一个人民的军队，便没有人民的一切。</p></div>
   <p class="r-source">《论联合政府》（1945年4月24日），《毛泽东选集》第三卷第1074页，《毛主席语录》第九章</p>
   <p class="r-label">官方解读</p><p class="r-official">《求是》刊发、人民网党史频道转载的刘成军、孙思敬文章写道：“‘没有一个人民的军队，便没有人民的一切’，这是毛泽东同志总结中国革命的宝贵经验和沉痛教训得出的基本结论。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n/2013/1216/c85037-23849588.html">建设强大人民军队是我们党的不懈追求（人民网党史频道，2013年12月16日，来源《求是》，刘成军、孙思敬）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这句话出自1945年4月24日毛泽东在中共第七次全国代表大会上所作的政治报告《论联合政府》，位于“我们的具体纲领”第五部分“人民的军队”的末尾。当时国民党当局一再要求共产党交出解放区军队，以此换取所谓“合法地位”，报告反驳了“你交出军队，我给你自由”的说法，指出1924年至1927年间共产党只有很少一点军队，结果“自由也光了”。这是第九章「人民军队」的第一条。</p><p class="r-explain">这一条用一句话概括人民和军队的关系：人民要自由、要统一、要建设新中国，没有一支<span class="mark">站在人民立场上的军队</span>就办不到。这里强调的不是一般地拥有军队，而是军队属于谁、为谁服务。报告引用孙中山“使武力与国民相结合”“使武力为国民之武力”的主张，说明八路军、新四军正因为成了“国民之武力”才能打胜仗。紧接这句话，原文还说：“对于这个问题，切不可只发空论。”</p>
 </article>
-<article class="entry r-entry" id="e-2">
-  <p class="r-no">02<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-2" data-entry-id="e-2">
+  <div class="r-entry-head">
+    <p class="r-no">02<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-2" aria-pressed="false" aria-label="标记读到这里，第 2 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">这个军队之所以有力量，是因为所有参加这个军队的人，都具有自觉的纪律；他们不是为着少数人的或狭隘集团的私利，而是为着广大人民群众的利益，为着全民族的利益，而结合，而战斗的。紧紧地和中国人民站在一起，全心全意地为中国人民服务，就是这个军队的唯一的宗旨。</p></div>
   <p class="r-source">《论联合政府》（1945年4月20日），《毛泽东选集》第三卷第1039页，《毛主席语录》第九章</p>
   <p class="r-label">官方解读</p><p class="r-official">戚义明文章在引用这段话后写道：“毛泽东清晰地告诉人们，全心全意为人民服务，这是人民军队的唯一宗旨。这一根本宗旨和立场，是人民军队能够有力量能够发展壮大的深厚源泉和不竭动力。”关于“自觉的纪律”，文章写道：“确实，旧军队也都有一定的纪律，但是一切旧军队的纪律对士兵来说都是一种外在强制，而只有我们人民军队的纪律能够为广大官兵所自觉遵守。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2017/0913/c85037-29532496.html">毛泽东为人民军队确定的唯一宗旨：全心全意为人民服务（人民网-中国共产党新闻网，2017年9月13日，戚义明）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话也出自《论联合政府》，在报告回顾解放区战场的部分。报告说，抗日战争开始时，八路军、新四军只剩几万人，有人因此看不起这支军队；到作报告时，这支军队已发展到九十一万人，并有二百二十万以上的民兵。原书本条出处标作4月20日，与上一条所标日期不同，这里照录原书。</p><p class="r-explain">这一条回答“这个军队为什么有力量”。第一层是<span class="mark">自觉的纪律</span>：纪律不是单靠外力强加的，而是来自每个人对自己为什么而战的认识。第二层是目的：不为少数人或狭隘集团的私利，而为人民群众和全民族的利益。第三层是宗旨：紧紧和人民站在一起，全心全意为人民服务，这是“唯一的宗旨”。报告接着用一连串“在这个宗旨下面”展开，说明一往无前的精神、内外团结、宽待俘虏、灵活的战略战术、政治工作和生产自给，都由这个宗旨派生出来。</p>
 </article>
-<article class="entry r-entry" id="e-3">
-  <p class="r-no">03<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-3" data-entry-id="e-3">
+  <div class="r-entry-head">
+    <p class="r-no">03<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-3" aria-pressed="false" aria-label="标记读到这里，第 3 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">中国红军是一个执行革命的政治任务的武装集团。特别是现在，红军决不是单纯地打仗的，它除了打仗消灭敌人军事力量之外，还要负担宣传群众、组织群众、武装群众、帮助群众建立革命政权以至于建立共产党的组织等项重大的任务。红军的打仗，不是单纯地为了打仗而打仗，而是为了宣传群众、组织群众、武装群众，并帮助群众建设革命政权才去打仗的，离了对群众的宣传、组织、武装和建设革命政权等项目标，就是失去了打仗的意义，也就是失去了红军存在的意义。</p></div>
   <p class="r-source">《关于纠正党内的错误思想》（1929年12月），《毛泽东选集》第一卷第88页，《毛主席语录》第九章</p>
   <p class="r-label">官方解读</p><p class="r-official">《光明日报》刊发、人民网党史频道转载的军事科学院军队政治工作研究中心王幸生、徐云兰、王正东文章写道：“‘离了对群众的宣传、组织、武装和建设革命政权等项目标，就失去了打仗的意义，也就是失去了红军存在的意义’这一精辟论断，科学地阐明了红军的性质和使命任务，指明了人民军队建设的根本方向。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n/2014/1003/c85037-25774859.html">《古田会议决议》的历史意义和时代价值（人民网党史频道，2014年10月3日，来源《光明日报》，王幸生、徐云兰、王正东）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1929年12月毛泽东为红四军第九次党代表大会（即古田会议）起草的决议的第一部分《关于纠正党内的错误思想》。当时红四军党内存在单纯军事观点、极端民主化、流寇思想等错误倾向，决议逐条分析了它们的表现、来源和纠正方法。这一段是对单纯军事观点第二种表现的批驳：有人以为红军的任务和白军差不多，只是单纯地打仗。</p><p class="r-explain">这一条讲军事和政治的关系。红军是<span class="mark">执行革命的政治任务的武装集团</span>，打仗是手段，宣传群众、组织群众、武装群众、帮助群众建立革命政权才是目的；离开这些目标，打仗就失去了意义，红军也就失去了存在的意义。决议由此划清了红军和旧式军队的界限，并在组织上反对把政治工作机关隶属于军事工作机关，以免走上脱离群众、以军队控制政权的军阀主义道路。</p>
 </article>
-<article class="entry r-entry" id="e-4">
-  <p class="r-no">04<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-4" data-entry-id="e-4">
+  <div class="r-entry-head">
+    <p class="r-no">04<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-4" aria-pressed="false" aria-label="标记读到这里，第 4 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">人民解放军永远是一个战斗队。就是在全国胜利以后，在国内没有消灭阶级和世界上存在着帝国主义制度的历史时期内，我们的军队还是一个战斗队。对于这一点不能有任何的误解和动摇。</p></div>
   <p class="r-source">《在中国共产党第七届中央委员会第二次全体会议上的报告》（1949年3月5日），《毛泽东选集》第四卷第1427页，《毛主席语录》第九章</p>
   <p class="r-label">官方解读</p><p class="r-official">中共湖南省委党史研究院网站刊载的《湘潮》文章写道：“‘人民解放军永远是一个战斗队。’这是1949 年3 月5 日毛泽东《在中国共产党第七届中央委员会第二次全体会议上的报告》中，用简练通俗的语言对我军根本职能的概括。”</p><p class="r-links"><a href="http://www.hndsyjy.cn/content/2017/10/11/8824982.html">毛泽东：“人民解放军永远是一个战斗队”（中共湖南省委党史研究院网站，2017年10月11日，来源《湘潮》2017年第9期）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1949年3月5日毛泽东在河北平山县西柏坡召开的中共七届二中全会上的报告。当时辽沈、淮海、平津三大战役已经结束，国民党军队主力已被消灭，报告讨论了今后用天津、北平、绥远三种方式解决残余国民党军队的问题，并提出党的工作重心由乡村移到城市。</p><p class="r-explain">这一条在胜利前夕强调军队的根本职能。全国胜利以后，只要国内阶级还没有消灭、世界上还存在帝国主义制度，军队就仍然是一个<span class="mark">战斗队</span>，这一点不能有误解和动摇。紧接这段话，报告说人民解放军“又是一个工作队”，随着战斗逐步减少，工作队的作用就会增加，甚至要把二百一十万野战军看成一个巨大的干部学校。“战斗队”和“工作队”并不矛盾：前者是根本，后者是新形势下的扩展。</p>
 </article>
-<article class="entry r-entry" id="e-5">
-  <p class="r-no">05<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-5" data-entry-id="e-5">
+  <div class="r-entry-head">
+    <p class="r-no">05<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-5" aria-pressed="false" aria-label="标记读到这里，第 5 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我们有打仗的军队，又有劳动的军队。打仗的军队，我们有八路军新四军；这支军队也要当两支用，一方面打仗，一方面生产。我们有了这两支军队，我们的军队有了这两套本领，再加上做群众工作一项本领，那末，我们就可以克服困难，把日本帝国主义打垮。</p></div>
   <p class="r-source">《组织起来》（1943年11月29日），《毛泽东选集》第三卷第931页，《毛主席语录》第九章</p>
   <p class="r-label">官方解读</p><p class="r-official">马克思主义研究网（中国社会科学院）刊载的扬州大学朱益飞文章在介绍《组织起来》时写道：“通过组织起来，可以形成两支军队：“打仗的军队”和“劳动的军队”。”文章还写道：“毛泽东指出，部队官兵共同劳动，改善了官兵关系；开展生产自给，减轻了人民和政府的负担，改善了军民关系、军政关系；在生产中执行劳动纪律，还增强了战斗纪律和生活纪律。”</p><p class="r-links"><a href="http://marxism.cass.cn/zgjxdsjbwt/202311/t20231108_5695506.shtml">全面抗战时期毛泽东对大生产运动的战略谋划和指导（马克思主义研究网，2023年11月8日，来源《党的文献》2023年第4期，朱益飞）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1943年11月29日毛泽东在中共中央招待陕甘宁边区劳动英雄大会上的讲话《组织起来》。1941年至1942年，日军的“扫荡”和国民党当局的封锁使各抗日根据地陷入严重的物质困难，边区军民响应“自己动手，丰衣足食”的号召，开展了大生产运动，三五九旅在南泥湾开荒屯田是其中的典型。</p><p class="r-explain">这一条讲军队的三种本领。“打仗的军队”和“劳动的军队”其实是同一支军队：八路军、新四军“当两支用”，一方面打仗，一方面生产，再加上做群众工作，就有了三套本领。军队参加生产，既能解决给养困难，又能减轻人民负担，还能密切官兵关系和军民关系。这里的着眼点仍然是<span class="mark">克服困难</span>、打败侵略者，生产服务于战争，而不是取代战争。</p>
 </article>
-<article class="entry r-entry" id="e-6">
-  <p class="r-no">06<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-6" data-entry-id="e-6">
+  <div class="r-entry-head">
+    <p class="r-no">06<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-6" aria-pressed="false" aria-label="标记读到这里，第 6 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我们的国防将获得巩固，不允许任何帝国主义者再来侵略我们的国土。在英勇的经过了考验的人民解放军的基础上，我们的人民武装力量必须保存和发展起来。我们将不但有一个强大的陆军，而且有一个强大的空军和一个强大的海军。</p></div>
   <p class="r-source">在中国人民政治协商会议第一届全体会议上的开幕词（1949年9月21日），1949年9月22日《人民日报》，《毛主席语录》第九章</p>
   <p class="r-label">官方解读</p><p class="r-official">姜廷玉文章在论述新中国筹建海军、空军时引用了这段话，接着写道：“1950年9月，毛泽东进一步强调说：“中国必须建立强大的国防军”，并把建立强大的国防军与建立强大的经济力量，作为摆在中国人民面前的两件大事的重要地位。”文章总结说，人民解放军“逐步实现了由单一步兵向诸军兵种合成军队的转变”。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2017/0731/c85037-29437923.html">姜廷玉：毛泽东与新中国人民军队建设（人民网-中国共产党新闻网，2017年7月31日）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1949年9月21日毛泽东在中国人民政治协商会议第一届全体会议上的开幕词，这篇开幕词后来以《中国人民站起来了》为题收入毛泽东著作集。开幕词宣告“占人类总数四分之一的中国人从此站立起来了”，并展望了新中国的政治、国防、经济和文化建设。</p><p class="r-explain">这一条讲新中国的国防建设。前一句讲目标：巩固国防，不允许帝国主义再来侵略中国的国土。后一句讲基础：人民武装力量要在经过考验的人民解放军的基础上<span class="mark">保存和发展</span>起来。最后一句讲方向：解放战争时期的人民解放军以陆军为主，新中国要建设强大的陆军，也要建设强大的空军和海军。新中国成立前后，海军、空军相继组建，人民解放军逐步走向诸军兵种合成。</p>
 </article>
-<article class="entry r-entry" id="e-7">
-  <p class="r-no">07<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-7" data-entry-id="e-7">
+  <div class="r-entry-head">
+    <p class="r-no">07<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-7" aria-pressed="false" aria-label="标记读到这里，第 7 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我们的原则是党指挥枪，而决不容许枪指挥党。</p></div>
   <p class="r-source">《战争和战略问题》（1938年11月6日），《毛泽东选集》第二卷第535页，《毛主席语录》第九章</p>
   <p class="r-label">官方解读</p><p class="r-official">求是网“是说新语”文章写道：“此后，张国焘自恃枪多势众，企图用枪指挥党，公然向党争权。党中央与张国焘进行了坚决的斗争，进一步明确了党指挥枪的原则。”又写道：“在总结同张国焘斗争历史的经验教训时，毛泽东同志指出：“共产党员不争个人的兵权（决不能争，再也不要学张国焘），但要争党的兵权，要争人民的兵权。””</p><p class="r-links"><a href="https://www.qstheory.cn/laigao/ycjx/2021-09/24/c_1127896148.htm">“我们的原则是党指挥枪，而决不容许枪指挥党。”（求是网，2021年9月24日，是说新语）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1938年11月6日毛泽东在中共扩大的六届六中全会上所作结论的一部分《战争和战略问题》。此前，张国焘曾自恃兵多，企图向中央争权，最终失败；抗战开始后，红军主力改编为八路军、新四军，如何在统一战线中保持党对军队的独立自主的指挥，是全党面临的重要问题。</p><p class="r-explain">这一条确立了军队与党的关系：<span class="mark">党指挥枪</span>，而决不容许枪指挥党。原文接着说，共产党员不争个人的兵权，但要争党的兵权、人民的兵权；又说“枪杆子里面出政权”，有了枪确实又可以造党。两层意思合起来看：武装力量极其重要，但它必须服从党的政治方向，而不能凌驾于党之上，更不能成为个人争权的工具。</p>
 </article>
-<article class="entry r-entry" id="e-8">
-  <p class="r-no">08<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-8" data-entry-id="e-8">
+  <div class="r-entry-head">
+    <p class="r-no">08<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-8" aria-pressed="false" aria-label="标记读到这里，第 8 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我全军将士必须时刻牢记，我们是伟大的人民解放军，是伟大的中国共产党领导的队伍。只要我们时刻遵守党的指示，我们就一定胜利。</p></div>
   <p class="r-source">《中国人民解放军宣言》（1947年10月），《毛泽东选集》第四卷第1239页，《毛主席语录》第九章</p>
   <p class="r-label">官方解读</p><p class="r-official">中共中央党史和文献研究院副研究馆员曾珺在《人民周刊》发表的文章，在讲述1947年10月10日重行颁布三大纪律八项注意的训令和同日发布的这篇宣言时引用了这段话，并写道：“纪律是军队的命脉。在人民军队发展的过程中，毛泽东深知纪律建设对军队建设的重要作用。”</p><p class="r-links"><a href="https://paper.people.com.cn/rmzk/html/2024-06/17/content_26064720.htm">不允许任何破坏纪律的现象存在（人民周刊，2024年6月17日第3版，曾珺）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1947年10月毛泽东为中国人民解放军总部起草的《中国人民解放军宣言》，同月10日发布。当时人民解放军已由战略防御转入战略进攻，刘邓大军挺进大别山。宣言提出“打倒蒋介石，解放全中国”的口号，并宣布了八项基本政策；同一天，总部还重行颁布了三大纪律八项注意。这是第九章「人民军队」的最后一条。</p><p class="r-explain">这段话是宣言的结尾。在此之前，宣言号召全军提高纪律性，坚决执行命令、执行政策、执行三大纪律八项注意，做到军民一致、军政一致、官兵一致、全军一致。结尾两句点明两件事：一是记住<span class="mark">自己是谁</span>，即人民解放军是共产党指挥的人民军队；二是胜利的条件，即时刻遵守党的指示。这与本章第7条“党指挥枪”前后呼应。</p>
 </article>
-<article class="entry r-entry" id="e-9">
-  <p class="r-no">09<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-9" data-entry-id="e-9">
+  <div class="r-entry-head">
+    <p class="r-no">09<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-9" aria-pressed="false" aria-label="标记读到这里，第 9 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">党委制是保证集体领导、防止个人包办的党的重要制度。近查有些（当然不是一切）领导机关，个人包办和个人解决重要问题的习气甚为浓厚。重要问题的解决，不是由党委会议做决定，而是由个人做决定，党委委员等于虚设。委员间意见分歧的事亦无由解决，并且听任这些分歧长期地不加解决。党委委员间所保持的只是形式上的一致，而不是实质上的一致。此种情形必须加以改变。今后从中央局至地委，从前委至旅委以及军区（军分会或领导小组）、政府党组、民众团体党组、通讯社和报社党组，都必须建立健全的党委会议制度，一切重要问题（当然不是无关重要的小问题或者已经会议讨论解决只待执行的问题）均须交委员会讨论，由到会委员充分发表意见，做出明确决定，然后分别执行。……委员会又须分别为常委会和全体会两种，不可混在一起。此外，还须注意，集体领导和个人负责，二者不可偏废。军队在作战时和情况需要时，首长有临机处置之权。</p></div>
   <p class="r-source">《关于健全党委制》（1948年9月20日），《毛泽东选集》第四卷第1343—1344页，《毛主席语录》第十章</p>
   <p class="r-label">官方解读</p><p class="r-official">《中国组织人事报》刊发、人民网党史频道转载的徐巧月、石学峰文章在引用本段首句后写道：“这是因为，党委制下，书记和委员的地位和权利平等，党委研究决策重大问题，书记和委员一样只有一票的权利，并按少数服从多数的原则做出最终决定。”又写道：“唯如此，才能做到事事有人管，人人有专责，避免遇事相互推诿、相互扯皮，才能将集体做出的决议有效地得到贯彻落实，最终保证党委制的真正落实。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2016/0112/c85037-28043330.html">毛泽东为何要健全党委制（人民网党史频道，2016年1月12日，来源《中国组织人事报》，徐巧月、石学峰）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1948年9月20日毛泽东为中共中央起草的决定《关于健全党委制》。同月，中共中央政治局在西柏坡召开会议（即九月会议），要求恢复和健全党委制。当时许多党委成员由上级指定，又长期处在分散的战争环境中，个人决定重大问题的习惯相当普遍。这是第十章的第一条。原文中的省略号处，讲的是会前要通知议题、对有分歧的问题事先个别商谈、会议不可太长太频繁等具体要求。</p><p class="r-explain">这一条讲的是<span class="mark">集体决策</span>的制度。前半部分指出问题：重要问题由个人决定，委员“等于虚设”，分歧长期不解决，只有形式上的一致。后半部分提出办法：一切重要问题交委员会讨论，委员充分发表意见，做出明确决定，然后分别执行；常委会和全体会要分开。最后两句防止另一种偏向：集体讨论和个人负责“二者不可偏废”，作战等紧急情况下，首长有临机处置之权。</p>
 </article>
-<article class="entry r-entry" id="e-10">
-  <p class="r-no">10<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-10" data-entry-id="e-10">
+  <div class="r-entry-head">
+    <p class="r-no">10<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-10" aria-pressed="false" aria-label="标记读到这里，第 10 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">党委书记要善于当“班长”。党的委员会有一二十个人，像军队的一个班，书记好比是“班长”。要把这个班带好，的确不容易。目前各中央局、分局都领导很大的地区，担负很繁重的任务。领导工作不仅要决定方针政策，还要制定正确的工作方法。有了正确的方针政策，如果在工作方法上疏忽了，还是要发生问题。党委要完成自己的领导任务，就必须依靠党委这“一班人”，充分发挥他们的作用。书记要当好“班长”，就应该很好地学习和研究。书记、副书记如果不注意向自己的“一班人”作宣传工作和组织工作，不善于研究怎样把会议开好，就很难把这“一班人”指挥好。如果这“一班人”动作不整齐，就休想带领千百万人去作战，去建设。当然，书记和委员之间的关系是少数服从多数，这同班长和战士之间的关系是不一样的。这里不过是一个比方。</p></div>
   <p class="r-source">《党委会的工作方法》（1949年3月13日），《毛泽东选集》第四卷第1441页，《毛主席语录》第十章</p>
   <p class="r-label">官方解读</p><p class="r-official">复旦大学党校网站刊载的梁柱文章写道：“他特别强调，把党委书记比作“班长”，这不过是一个比方，这同军队中班长和战士之间的关系是不一样的。这就是说，书记和委员之间的关系是少数服从多数，在讨论问题时是平等的关系，在决定问题票决时都同样只有一票，决不是一个人说了算。”</p><p class="r-links"><a href="https://dangxiao.fudan.edu.cn/92/f1/c11873a103153/page.htm">【学习《党委会的工作方法》】要把党内民主原则贯穿于党的工作方法之中——重读毛泽东《党委会的工作方法》（复旦大学党校网站，梁柱）</a></p>
@@ -637,5 +725,258 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
 if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
 addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>
+/* Reading Digest manual bookmark.
+   Only click handlers write to localStorage. Scroll, load, hash, and history must never save or overwrite.
+   One bookmark per browser: { date: 'YYYY-MM-DD', id: 'e-N' }. No account, no cross-device, no auto-jump.
+*/
+(function (root) {
+  var KEY = 'readingDigest.bookmark';
+  var DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+  var ID_RE = /^e-\d+$/;
+  var bound = false;
+  var storageAvailable = true;
+  var lastError = '';
+
+  function announce(msg) {
+    var el = root.document && document.querySelector('.r-bookmark-status');
+    if (el) el.textContent = msg || '';
+  }
+
+  function getStore() {
+    try {
+      return root.localStorage;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'localStorage unavailable';
+      return null;
+    }
+  }
+
+  function normalize(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    var date = raw.date;
+    var id = raw.id;
+    if (typeof date !== 'string' || typeof id !== 'string') return null;
+    if (!DATE_RE.test(date) || !ID_RE.test(id)) return null;
+    return { date: date, id: id };
+  }
+
+  function read() {
+    lastError = '';
+    var store = getStore();
+    if (!store) return null;
+    var txt;
+    try {
+      txt = store.getItem(KEY);
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'read failed';
+      return null;
+    }
+    if (txt == null || txt === '') return null;
+    var parsed;
+    try {
+      parsed = JSON.parse(txt);
+    } catch (err) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    var bm = normalize(parsed);
+    if (!bm) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    return bm;
+  }
+
+  function write(bm) {
+    lastError = '';
+    var norm = normalize(bm);
+    if (!norm) {
+      lastError = 'invalid bookmark';
+      return false;
+    }
+    var store = getStore();
+    if (!store) {
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.setItem(KEY, JSON.stringify(norm));
+      storageAvailable = true;
+      announce('已标记到 ' + norm.date + ' 第 ' + norm.id.slice(2) + ' 条');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'write failed';
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function clear() {
+    lastError = '';
+    var store = getStore();
+    if (!store) {
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.removeItem(KEY);
+      storageAvailable = true;
+      announce('已清除标记');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'clear failed';
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function pageDate() {
+    var doc = root.document;
+    if (doc) {
+      var marked = doc.querySelector('[data-digest-date]');
+      if (marked) {
+        var d = marked.getAttribute('data-digest-date');
+        if (d && DATE_RE.test(d)) return d;
+      }
+    }
+    var path = (root.location && root.location.pathname) || '';
+    var m = path.match(/digest-(\d{4}-\d{2}-\d{2})\.html$/);
+    if (m) return m[1];
+    if (root.DIGEST_ARCHIVE && root.DIGEST_ARCHIVE.length && root.DIGEST_ARCHIVE[0].d) {
+      return root.DIGEST_ARCHIVE[0].d;
+    }
+    return '';
+  }
+
+  function entryNum(id) {
+    return id ? id.replace(/^e-/, '') : '';
+  }
+
+  function paintRail(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var lis = doc.querySelectorAll('.rail .a-list li');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].classList.remove('r-has-bookmark');
+      var old = lis[i].querySelector('.r-bookmark-slot');
+      if (old) old.parentNode.removeChild(old);
+    }
+    if (!bm) return;
+    var li = doc.querySelector('.rail .a-list li[data-date="' + bm.date + '"]');
+    if (!li) return;
+    li.classList.add('r-has-bookmark');
+    var slot = doc.createElement('span');
+    slot.className = 'r-bookmark-slot';
+    var link = doc.createElement('a');
+    link.className = 'r-last-read';
+    link.href = 'digest-' + bm.date + '.html#' + bm.id;
+    link.textContent = '上次读到';
+    link.setAttribute('aria-label', '上次读到 ' + bm.date + ' 第 ' + entryNum(bm.id) + ' 条');
+    var clr = doc.createElement('button');
+    clr.type = 'button';
+    clr.className = 'r-clear-mark';
+    clr.textContent = '清除';
+    clr.setAttribute('aria-label', '清除阅读书签');
+    slot.appendChild(link);
+    slot.appendChild(clr);
+    li.appendChild(slot);
+  }
+
+  function paintEntries(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var date = pageDate();
+    var entries = doc.querySelectorAll('article.r-entry[data-entry-id]');
+    for (var i = 0; i < entries.length; i++) {
+      var art = entries[i];
+      var id = art.getAttribute('data-entry-id');
+      var on = !!(bm && bm.date === date && bm.id === id);
+      art.classList.toggle('r-bookmarked', on);
+      var btn = art.querySelector('.r-mark-here');
+      if (!btn) continue;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on) {
+        btn.textContent = '清除标记';
+        btn.setAttribute('aria-label', '清除标记，第 ' + entryNum(id) + ' 条');
+      } else {
+        btn.textContent = '标记读到这里';
+        btn.setAttribute('aria-label', '标记读到这里，第 ' + entryNum(id) + ' 条');
+      }
+    }
+  }
+
+  function paint() {
+    var bm = read();
+    paintRail(bm);
+    paintEntries(bm);
+    return bm;
+  }
+
+  function onMarkClick(btn) {
+    var id = btn.getAttribute('data-entry-id');
+    var date = pageDate();
+    if (!id || !DATE_RE.test(date) || !ID_RE.test(id)) return;
+    var bm = read();
+    if (bm && bm.date === date && bm.id === id) clear();
+    else write({ date: date, id: id });
+    paint();
+  }
+
+  function onDocumentClick(ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var mark = t.closest('.r-mark-here');
+    if (mark) {
+      ev.preventDefault();
+      onMarkClick(mark);
+      return;
+    }
+    var clr = t.closest('.r-clear-mark');
+    if (clr) {
+      ev.preventDefault();
+      clear();
+      paint();
+    }
+  }
+
+  function bind() {
+    if (bound || !root.document) return;
+    root.document.addEventListener('click', onDocumentClick);
+    bound = true;
+  }
+
+  function init() {
+    bind();
+    paint();
+    /* Do not scroll, do not change location, do not write storage on load. */
+  }
+
+  var api = {
+    KEY: KEY,
+    read: read,
+    write: write,
+    clear: clear,
+    pageDate: pageDate,
+    paint: paint,
+    init: init,
+    bind: bind,
+    normalize: normalize,
+    get lastError() { return lastError; },
+    get storageAvailable() { return storageAvailable; },
+    get bound() { return bound; }
+  };
+
+  root.ReadingBookmark = api;
+  /* Script is inlined at the end of the page; required nodes already exist. Init now.
+     Do not wait for DOMContentLoaded — and never write storage or jump on init. */
+  if (root.document) init();
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
 </body>
 </html>

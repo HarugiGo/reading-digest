@@ -501,43 +501,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
   .wrap .entry.r-entry p.r-source{margin-left:14px!important}
   .wrap .entry.r-entry p.r-label{margin-top:36px!important}
 }
+
+/* ===== 手动书签：低干扰，不改变米白衬线版式 ===== */
+.wrap .entry.r-entry .r-entry-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;margin:0 0 22px;flex-wrap:wrap}
+.wrap .entry.r-entry .r-entry-head p.r-no{margin:0!important}
+.wrap .entry.r-entry button.r-mark-here,
+.rail button.r-clear-mark{
+  appearance:none;-webkit-appearance:none;
+  background:none!important;border:0!important;box-shadow:none!important;
+  padding:6px 0;margin:0;cursor:pointer;
+  font:400 12px/1.6 inherit!important;
+  color:#8a8478!important;letter-spacing:.06em!important;
+  text-decoration:none!important;white-space:nowrap
+}
+.wrap .entry.r-entry button.r-mark-here:hover,
+.rail button.r-clear-mark:hover{color:#23211d!important}
+.wrap .entry.r-entry.r-bookmarked button.r-mark-here{color:#6f695e!important}
+.wrap .entry.r-entry button.r-mark-here:focus-visible,
+.rail a.r-last-read:focus-visible,
+.rail button.r-clear-mark:focus-visible{
+  outline:1px solid #23211d;outline-offset:3px
+}
+.wrap .entry.r-entry.r-bookmarked{scroll-margin-top:24px}
+
+/* 往期日期右侧「上次读到」，落在左侧空隙里 */
+.rail .a-list li{
+  display:flex;align-items:center;gap:8px
+}
+.rail .a-list li > a:first-of-type{flex:1 1 auto;min-width:0}
+.rail .r-bookmark-slot{display:inline-flex;align-items:baseline;gap:6px;flex:0 0 auto;margin-left:2px}
+.rail a.r-last-read{
+  display:inline!important;flex-direction:unset!important;
+  padding:0!important;border:0!important;background:none!important;
+  color:#6f695e!important;font-size:11px!important;font-weight:400!important;
+  letter-spacing:.04em!important;text-decoration:none!important;
+  white-space:nowrap;line-height:1.4
+}
+.rail a.r-last-read:hover{color:#23211d!important;padding-left:0!important}
+.rail button.r-clear-mark{padding:0;letter-spacing:.04em!important;font-size:11px!important}
+
+.r-bookmark-status{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+@media (max-width:1179px){
+  .wrap .entry.r-entry{scroll-margin-top:72px}
+  .rail .a-list li.r-has-bookmark{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .rail a.r-last-read{
+    padding:0!important;border:0!important;border-radius:0!important;
+    background:none!important;white-space:nowrap
+  }
+  .rail a.r-last-read:hover{padding-left:0!important}
+}
+@media (max-width:640px){
+  .wrap .entry.r-entry .r-entry-head{margin-bottom:18px}
+  .wrap .entry.r-entry button.r-mark-here{padding:8px 0;font-size:12px!important}
+}
 </style><!-- /READING_CSS -->
 <!-- /FB_RAIL_CSS -->
 
 
 
 
-<aside class="rail" aria-label="往期归档">
+<aside class="rail" aria-label="往期归档" data-digest-date="2026-11-07">
   <div class="rail-inner">
     <div class="rail-head">
       <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
       <span class="rail-count">23 期</span>
     </div>
     <ul class="a-list">
-      <li><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
-      <li><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
-      <li><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
-      <li><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
-      <li><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
-      <li><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
-      <li><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
-      <li><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
-      <li><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
-      <li><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
-      <li><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
-      <li><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
-      <li><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
-      <li><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
-      <li><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
-      <li><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
-      <li><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
-      <li><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
-      <li class="a-current"><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
-      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
-      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
-      <li><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
-      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+      <li data-date="2026-11-25"><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
+      <li data-date="2026-11-24"><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
+      <li data-date="2026-11-23"><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
+      <li data-date="2026-11-22"><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
+      <li data-date="2026-11-21"><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
+      <li data-date="2026-11-20"><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
+      <li data-date="2026-11-19"><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
+      <li data-date="2026-11-18"><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
+      <li data-date="2026-11-17"><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
+      <li data-date="2026-11-16"><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
+      <li data-date="2026-11-15"><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
+      <li data-date="2026-11-14"><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
+      <li data-date="2026-11-13"><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
+      <li data-date="2026-11-12"><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
+      <li data-date="2026-11-11"><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
+      <li data-date="2026-11-10"><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
+      <li data-date="2026-11-09"><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
+      <li data-date="2026-11-08"><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
+      <li class="a-current" data-date="2026-11-07"><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li data-date="2026-11-06"><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li data-date="2026-11-05"><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li data-date="2026-11-04"><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li data-date="2026-11-03"><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
     </ul>
+    <p class="r-bookmark-status" role="status" aria-live="polite"></p>
   </div>
 </aside>
 <script src="archive.js"></script>
@@ -557,71 +615,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 
 <details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 我们现在不但正在进行关于社会制度…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 新的社会制度还刚刚建立，还需要有…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 在我国，巩固社会主义制度的斗争，…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 对于我们的国家抱着敌对情绪的知识…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 严重的问题是教育农民。农民的经济…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 我们必须相信：（1）广大农民是愿…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 合作社的领导机关必须建立现有贫农…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 中农是必须团结的，不团结中农是错…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 富裕农民中的资本主义倾向是严重的…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 农业合作化运动，从一开始，就是一…</a></li></ul></li></ul></details>
 <div style="height:72px"></div>
-<article class="entry r-entry" id="e-1">
-  <p class="r-no">01<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-1" data-entry-id="e-1">
+  <div class="r-entry-head">
+    <p class="r-no">01<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-1" aria-pressed="false" aria-label="标记读到这里，第 1 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我们现在不但正在进行关于社会制度方面的由私有制到公有制的革命，而且正在进行技术方面的由手工业生产到大规模现代化机器生产的革命，而这两种革命是结合在一起的。在农业方面，在我国的条件下（资本主义国家内是使农业资本主义化），则必须先有合作化，然后才能使用大机器。由此可见，我们对于工业和农业、社会主义的工业化和社会主义的农业改造这样两件事，决不可以分割起来和互相孤立起来去看，决不可以只强调一方面，减弱另一方面。</p></div>
   <p class="r-source">《关于农业合作化问题》（1955年7月31日），《毛主席语录》第三章</p>
   <p class="r-label">官方解读</p><p class="r-official">人民网党史频道戚义明《略论毛泽东的农业现代化思想及实践》指出，新中国成立初期工业基础薄弱、农业机械化水平低，而工业化又要求农业相应发展，因此毛泽东提出先搞合作化、再搞机械化，并强调社会主义工业化不能离开农业合作化孤立进行。文章同时指出，合作化过程中，特别是1955年下半年以后，出现了过急过快的毛病。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n/2014/0504/c384616-24971647-2.html">略论毛泽东的农业现代化思想及实践（人民网党史频道）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这篇报告作于1955年农业合作化发展速度争论之中。这里把变革分成两层：一层改变生产资料的所有制和经营组织，另一层改变生产技术和劳动方式。在当时工业基础薄弱的条件下，毛泽东主张先通过合作化扩大经营规模，再为机器的使用创造条件。</p><p class="r-explain">关键在于<span class="mark">制度变革与技术进步的联系</span>，而不是把两者看成可以互相替代。工业提供机器、肥料和能源，农业提供粮食、原料与市场，二者必须相互支撑。“先有合作化”是当时具体道路的判断，不能脱离时代条件理解成适用于一切农业发展的固定次序。</p>
 </article>
-<article class="entry r-entry" id="e-2">
-  <p class="r-no">02<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-2" data-entry-id="e-2">
+  <div class="r-entry-head">
+    <p class="r-no">02<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-2" aria-pressed="false" aria-label="标记读到这里，第 2 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">新的社会制度还刚刚建立，还需要有一个巩固的时间。不能认为新制度一旦建立起来就完全巩固了，那是不可能的。需要逐步地巩固。要使它最后巩固起来，必须实现国家的社会主义工业化，坚持经济战线上的社会主义革命，还必须在政治战线和思想战线上，进行经常的、艰苦的社会主义革命斗争和社会主义教育。除了这些以外，还要有各种国际条件的配合。</p></div>
   <p class="r-source">《在中国共产党全国宣传工作会议上的讲话》（1957年3月12日），《毛主席语录》第三章</p>
   <p class="r-label">官方解读</p><p class="r-official">《人民日报海外版》“望海楼”文章在讨论国家制度建设时，援引毛泽东1957年关于社会主义制度刚刚建立、尚未完全巩固的判断，说明制度优势需要通过具体制度体制来实现，制度的成熟稳定需要长期艰苦的探索。</p><p class="r-links"><a href="http://opinion.people.com.cn/n1/2019/1029/c1003-31425052.html">为国家长治久安 为民族万世太平（人民日报海外版）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">讲话发表于1956年社会主义改造基本完成之后。毛泽东把“建立”与“巩固”分开，认为所有制发生变化，并不意味着物质基础、政治生活和思想观念都已经相应成熟，国际环境也会影响新制度的稳定。</p><p class="r-explain">这一条的中心是<span class="mark">建立不等于巩固</span>。阅读时既要看到它强调长期建设的一面，也要注意其中“社会主义革命斗争”的时代用语；不能把制度完善中的一切问题，都简单归入阶级斗争。</p>
 </article>
-<article class="entry r-entry" id="e-3">
-  <p class="r-no">03<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-3" data-entry-id="e-3">
+  <div class="r-entry-head">
+    <p class="r-no">03<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-3" aria-pressed="false" aria-label="标记读到这里，第 3 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">在我国，巩固社会主义制度的斗争，社会主义和资本主义谁战胜谁的斗争，还要经过一个很长的历史时期。但是，我们大家都应该看到，这个社会主义的新制度是一定会巩固起来的。我们一定会建设一个具有现代工业、现代农业和现代科学文化的社会主义国家。</p></div>
   <p class="r-source">《在中国共产党全国宣传工作会议上的讲话》（1957年3月12日），《毛主席语录》第三章</p>
   <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院网站所载《中国共产党历史》相关章节指出，毛泽东1957年在《关于正确处理人民内部矛盾的问题》和全国宣传工作会议讲话中，两次提及建设具有现代工业、现代农业和现代科学文化的社会主义国家。这把“现代科学文化”纳入了中国现代化的整体构想，后来逐步形成完整的“四个现代化”目标。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n/2012/1218/c244520-19931043.html">实现“四个现代化”历史任务的提出（中央党史和文献研究院）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这一条紧接上一条，把长期过程与建设目标放在一起：巩固新制度需要较长时间，但讲话并没有只停留在斗争的描述上，而是落到了工业、农业和科学文化的现代化。</p><p class="r-explain">这里的<span class="mark">现代化建设目标</span>值得特别注意。它说明，制度的巩固在这一论述中不仅是政治判断，也要有生产能力、农业发展和科学文化进步作为支撑。“一定会建设”表达的是历史信心，并不意味着建设过程可以省去具体条件和艰苦探索。</p>
 </article>
-<article class="entry r-entry" id="e-4">
-  <p class="r-no">04<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-4" data-entry-id="e-4">
+  <div class="r-entry-head">
+    <p class="r-no">04<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-4" aria-pressed="false" aria-label="标记读到这里，第 4 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">对于我们的国家抱着敌对情绪的知识分子，是极少数。这种人不喜欢我们这个无产阶级专政的国家，他们留恋旧社会。一遇机会，他们就会兴风作浪，想要推翻共产党，恢复旧中国。这是在无产阶级和资产阶级两条路线、社会主义和资本主义两条路线中间，顽固地要走后一条路线的人。这后一条路线，在实际上是不能实现的，所以他们实际上是准备投降帝国主义、封建主义和官僚资本主义的人。这种人在政治界、工商界、文化教育界、科学技术界、宗教界里都有，这是一些极端反动的人。</p></div>
   <p class="r-source">《在中国共产党全国宣传工作会议上的讲话》（1957年3月12日），《毛主席语录》第三章</p>
   <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院网站所载《中国共产党历史》相关章节，在介绍1957年全国宣传工作会议讲话时指出，这篇讲话是《关于正确处理人民内部矛盾的问题》精神在宣传和思想方面的进一步展开；毛泽东主张用说服而不是压服解决思想问题，采取“放”的方针，让人们敢于讲话、批评和争论。该文解读的是讲话的整体方针，并非对本条每句话的逐句注释。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n/2012/1120/c244520-19634773.html">《关于正确处理人民内部矛盾的问题》的发表（中央党史和文献研究院）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话属于1957年讲话对知识分子政治态度的分类，谈的是被认定为对国家抱敌意的极少数人，不是对知识分子整体的评价。讲话的相邻段落明确指出，绝大多数知识分子是爱国的，并强调没有知识分子，许多事情就不能做好，应当团结他们。</p><p class="r-explain">因此，这一条必须连同全文关于<span class="mark">区分不同性质的思想和政治问题</span>的论述一起读。怀疑、学术分歧和一般批评，不能仅凭这一段就被等同为敌对行为；把极少数的判断扩大到整个群体，会丢掉讲话本来的分类前提。</p>
 </article>
-<article class="entry r-entry" id="e-5">
-  <p class="r-no">05<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-5" data-entry-id="e-5">
+  <div class="r-entry-head">
+    <p class="r-no">05<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-5" aria-pressed="false" aria-label="标记读到这里，第 5 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">严重的问题是教育农民。农民的经济是分散的，根据苏联的经验，需要很长的时间和细心的工作，才能做到农业社会化。没有农业社会化，就没有全部的巩固的社会主义。</p></div>
   <p class="r-source">《论人民民主专政》（1949年6月30日），《毛主席语录》第三章</p>
   <p class="r-label">官方解读</p><p class="r-official">广东省政府公报收录的1953年11月9日《人民日报》社论直接引述“严重的问题是教育农民”等句，强调向农民说明工业化与农业社会主义改造的关系，依照自愿原则逐步组织互助合作；同时批评宣传中的形式主义、强迫命令以及脱离农民切身利益和实际经验的空泛说教。这是当时对该段论述的宣传阐释。</p><p class="r-links"><a href="https://www.gd.gov.cn/zwgk/gongbao/1953/26/content/post_3353287.html">必须大张旗鼓地向农民宣传过渡时期的总路线（广东省人民政府公报）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">《论人民民主专政》写于新中国成立前夕，在论述国家政权的同时，也思考由农业国向工业国过渡的条件。这段话面对的是分散的农民经济：经济组织方式的转变，不可能只凭一个政令就完成，还涉及长期形成的生产习惯和生活经验。</p><p class="r-explain">句中的<span class="mark">很长的时间和细心的工作</span>不能略去。它表明农业社会化被理解为长期过程，而不是立即完成的任务。原文随后还谈到农业社会化与工业发展的配合，说明教育、组织与物质条件之间存在联系。</p>
 </article>
-<article class="entry r-entry" id="e-6">
-  <p class="r-no">06<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-6" data-entry-id="e-6">
+  <div class="r-entry-head">
+    <p class="r-no">06<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-6" aria-pressed="false" aria-label="标记读到这里，第 6 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我们必须相信：（1）广大农民是愿意在党的领导下逐步地走上社会主义道路的；（2）党是能够领导农民走上社会主义道路的。这两点是事物的本质和主流。</p></div>
   <p class="r-source">《关于农业合作化问题》（1955年7月31日），《毛主席语录》第三章</p>
   <p class="r-label">官方解读</p><p class="r-official">中国科学院自然科学史研究所农业史研究网站刊载武力《略论合作化期间党对“三农”问题的几点认识》，分析毛泽东《关于农业合作化问题》关于农民积极性的判断：土地不足、生产资料缺乏、生活困难和抵御灾害的需要，使贫农和非富裕农民产生互助合作的愿望。文章同时指出，合作化应以农民自愿互利和生产需要为原则，不能急于求成。</p><p class="r-links"><a href="http://agri-history.ihns.ac.cn/scholars/wuli/wuli3.htm">略论合作化期间党对“三农”问题的几点认识（中国科学院自然科学史研究所农业史研究网站）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">1955年的报告针对合作社能否发展、能否巩固的疑虑，提出这两点判断。它一方面把农民摆脱贫困、通过互助合作改善生产的愿望作为依据，另一方面把党在长期革命中形成的组织经验视为推进改造的条件。</p><p class="r-explain">这里的<span class="mark">本质和主流</span>，不是说运动中没有问题，而是在辨别总体方向与局部困难。报告同时要求整顿已有合作社、注重质量、坚持自愿互利。若只取相信的一面，而忽略这些条件，就会把有根据的信心变成不顾实际的急进。</p>
 </article>
-<article class="entry r-entry" id="e-7">
-  <p class="r-no">07<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-7" data-entry-id="e-7">
+  <div class="r-entry-head">
+    <p class="r-no">07<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-7" aria-pressed="false" aria-label="标记读到这里，第 7 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">合作社的领导机关必须建立现有贫农和新下中农在领导机关中的优势，而以老下中农和新老两部分上中农作为辅助力量，才能按照党的政策实现贫农和中农的团结，巩固合作社，发展生产，正确地完成整个农村的社会主义改造。没有这个条件，中农和贫农就不能团结，合作社就不能巩固，生产就不能发展，整个农村的社会主义改造就不能实现。</p></div>
   <p class="r-source">《长沙县高山乡武塘农业生产合作社是怎样从中农占优势转变为贫农占优势的》一文的按语（1955年），《毛主席语录》第三章</p>
   <p class="r-label">官方解读</p><p class="r-official">人民网党史频道相关史料记述，1955年6月毛泽东在长沙听取湖南农业合作化情况汇报时，周小舟等以武塘农业合作社经过整顿、树立贫农优势为例，说明当地合作化的进展。毛泽东要求迅速整理材料寄给他研究。该文提供了这篇按语所据案例进入毛泽东视野的历史背景。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n/2013/1230/c85037-23974885-8.html">第三章 提出过渡时期总路线后十四次离京（人民网党史频道）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这篇按语讨论的是合作社内部由哪些农民担任骨干的问题。“新下中农”主要指土地改革后由贫农上升而来的、经济尚不富裕的中农；“老下中农”则指原来即属中农而经济水平较低的一部分人。这些称谓要放在当时农村阶层变化中理解。</p><p class="r-explain">毛泽东把<span class="mark">骨干构成、贫中农关系与生产发展</span>联系起来，希望由积极支持合作化的贫农和新下中农掌握主要地位，同时吸收其他中农参与。全文又强调互利、不损害任何人的利益，并反对为了取得耕牛农具而强迫入社，不能把这一条简化成只看出身、不看政策和实际能力。</p>
 </article>
-<article class="entry r-entry" id="e-8">
-  <p class="r-no">08<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-8" data-entry-id="e-8">
+  <div class="r-entry-head">
+    <p class="r-no">08<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-8" aria-pressed="false" aria-label="标记读到这里，第 8 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">中农是必须团结的，不团结中农是错误的。但是工人阶级和共产党，在农村中，依靠什么人去团结中农，实现整个农村的社会主义改造呢？当然只有贫农。在过去向地主作斗争、实行土地改革的时候是这样，在现在向富农和其他资本主义因素作斗争实行农业的社会主义改造的时候，也是这样。在两个革命时期，中农在开始阶段都是动摇的。等到看清了大势，革命将要胜利的时候，中农才会参加到革命方面来。贫农必须向中农做工作，把中农团结到自己方面来，使革命一天一天地扩大，直到取得最后的胜利。</p></div>
   <p class="r-source">《福安县发生“中农社”和“贫农社”的教训》一文的按语（1955年），《毛主席语录》第三章</p>
   <p class="r-label">官方解读</p><p class="r-official">中国科学院自然科学史研究所农业史研究网站刊载的《中国农村的社会主义高潮》按语选，其注释说明：原文《“中农社”和“贫农社”的教训》由福建省福安县楼下乡工作组撰写，发表于1955年8月16日《福建日报》，介绍以贫农和以中农为骨干的两个合作社的发展变化；编入书中时，毛泽东改为现题。这一编注交代了按语的具体案例背景。</p><p class="r-links"><a href="http://agri-history.ihns.ac.cn/history/selecdoc/mao2.htm">《中国农村的社会主义高潮》按语选及注释（中国科学院自然科学史研究所农业史研究网站）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这篇按语以福建福安两个合作社的经验为依据，集中讨论“依靠谁”与“团结谁”的关系。开头已经明确：中农必须团结。后面的阶层分析，是当时解释不同农民对合作化态度差异的框架，而不是取消团结中农这一前提。</p><p class="r-explain">把握这条，需要同时看到<span class="mark">依靠力量与团结范围</span>。它设想通过贫农的积极参与带动中农，并不是把所有中农排除在外。对于其中关于中农态度的概括，也应作为特定运动中的历史判断来理解，不能拿来替代对具体个人和具体地区的调查。</p>
 </article>
-<article class="entry r-entry" id="e-9">
-  <p class="r-no">09<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-9" data-entry-id="e-9">
+  <div class="r-entry-head">
+    <p class="r-no">09<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-9" aria-pressed="false" aria-label="标记读到这里，第 9 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">富裕农民中的资本主义倾向是严重的。只要我们在合作化运动中，乃至以后一个很长的时期内，稍微放松了对于农民的政治工作，资本主义倾向就会泛滥起来。</p></div>
   <p class="r-source">《必须对资本主义倾向作坚决的斗争》一文按语（1955年），《毛主席语录》第三章</p>
   <p class="r-label">官方解读</p><p class="r-official">中国科学院自然科学史研究所农业史研究网站刊载的武力文章直接引述本条，并把它放在合作化时期党对农村“两种倾向”的认识变化中分析：当时越来越多地把个体经济积极性解释为资本主义自发倾向，把互助合作积极性视为社会主义方向。文章也指出，不能过分夸大农村分化，合作化应尊重自愿互利和生产需要。</p><p class="r-links"><a href="http://agri-history.ihns.ac.cn/scholars/wuli/wuli3.htm">略论合作化期间党对“三农”问题的几点认识（中国科学院自然科学史研究所农业史研究网站）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段按语反映了1955年合作化高潮中对农村发展方向的担忧：土地改革结束后，农户经济条件和利益诉求仍有差异，毛泽东认为这些差异会使一部分较富裕农民倾向个体经营和资本积累，因此强调持续开展政治教育。</p><p class="r-explain">阅读时要辨明<span class="mark">当时的政策语境</span>。“资本主义倾向”在这里属于合作化时期的政治经济分类，不能不加区分地套用于今天一切增收、经营和改善生活的活动。理解历史概念，既要说明它当时所指，也要避免把它无限扩大。</p>
 </article>
-<article class="entry r-entry" id="e-10">
-  <p class="r-no">10<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-10" data-entry-id="e-10">
+  <div class="r-entry-head">
+    <p class="r-no">10<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-10" aria-pressed="false" aria-label="标记读到这里，第 10 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">农业合作化运动，从一开始，就是一种严重的思想的和政治的斗争。每一个合作社，不经过这样的一场斗争，就不能创立。一个崭新的社会制度要从旧制度的基地上建立起来，它就必须清除这个基地。反映旧制度的旧思想的残余，总是长期地留在人们的头脑里，不愿意轻易地退走的。合作社建立以后，还必须经过许多的斗争，才能使自己巩固起来。巩固了以后，只要一松劲，又可能垮台。</p></div>
   <p class="r-source">《严重的教训》一文的按语（1955年），《毛主席语录》第三章</p>
   <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院孙迪的文章，在梳理思想政治工作的历史逻辑时，明确指出毛泽东1955年12月在《严重的教训》按语中提出“政治工作是一切经济工作的生命线”，并将其置于新中国成立后通过思想政治工作凝聚共同建设新中国意志的历史进程中。文章讨论的是该按语的思想政治工作主题。</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2026/0511/c427152-40717576.html">深刻把握新时代思想政治工作的历史逻辑、政治逻辑与实践逻辑（中央党史和文献研究院）</a></p>
@@ -637,5 +725,258 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
 if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
 addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>
+/* Reading Digest manual bookmark.
+   Only click handlers write to localStorage. Scroll, load, hash, and history must never save or overwrite.
+   One bookmark per browser: { date: 'YYYY-MM-DD', id: 'e-N' }. No account, no cross-device, no auto-jump.
+*/
+(function (root) {
+  var KEY = 'readingDigest.bookmark';
+  var DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+  var ID_RE = /^e-\d+$/;
+  var bound = false;
+  var storageAvailable = true;
+  var lastError = '';
+
+  function announce(msg) {
+    var el = root.document && document.querySelector('.r-bookmark-status');
+    if (el) el.textContent = msg || '';
+  }
+
+  function getStore() {
+    try {
+      return root.localStorage;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'localStorage unavailable';
+      return null;
+    }
+  }
+
+  function normalize(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    var date = raw.date;
+    var id = raw.id;
+    if (typeof date !== 'string' || typeof id !== 'string') return null;
+    if (!DATE_RE.test(date) || !ID_RE.test(id)) return null;
+    return { date: date, id: id };
+  }
+
+  function read() {
+    lastError = '';
+    var store = getStore();
+    if (!store) return null;
+    var txt;
+    try {
+      txt = store.getItem(KEY);
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'read failed';
+      return null;
+    }
+    if (txt == null || txt === '') return null;
+    var parsed;
+    try {
+      parsed = JSON.parse(txt);
+    } catch (err) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    var bm = normalize(parsed);
+    if (!bm) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    return bm;
+  }
+
+  function write(bm) {
+    lastError = '';
+    var norm = normalize(bm);
+    if (!norm) {
+      lastError = 'invalid bookmark';
+      return false;
+    }
+    var store = getStore();
+    if (!store) {
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.setItem(KEY, JSON.stringify(norm));
+      storageAvailable = true;
+      announce('已标记到 ' + norm.date + ' 第 ' + norm.id.slice(2) + ' 条');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'write failed';
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function clear() {
+    lastError = '';
+    var store = getStore();
+    if (!store) {
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.removeItem(KEY);
+      storageAvailable = true;
+      announce('已清除标记');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'clear failed';
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function pageDate() {
+    var doc = root.document;
+    if (doc) {
+      var marked = doc.querySelector('[data-digest-date]');
+      if (marked) {
+        var d = marked.getAttribute('data-digest-date');
+        if (d && DATE_RE.test(d)) return d;
+      }
+    }
+    var path = (root.location && root.location.pathname) || '';
+    var m = path.match(/digest-(\d{4}-\d{2}-\d{2})\.html$/);
+    if (m) return m[1];
+    if (root.DIGEST_ARCHIVE && root.DIGEST_ARCHIVE.length && root.DIGEST_ARCHIVE[0].d) {
+      return root.DIGEST_ARCHIVE[0].d;
+    }
+    return '';
+  }
+
+  function entryNum(id) {
+    return id ? id.replace(/^e-/, '') : '';
+  }
+
+  function paintRail(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var lis = doc.querySelectorAll('.rail .a-list li');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].classList.remove('r-has-bookmark');
+      var old = lis[i].querySelector('.r-bookmark-slot');
+      if (old) old.parentNode.removeChild(old);
+    }
+    if (!bm) return;
+    var li = doc.querySelector('.rail .a-list li[data-date="' + bm.date + '"]');
+    if (!li) return;
+    li.classList.add('r-has-bookmark');
+    var slot = doc.createElement('span');
+    slot.className = 'r-bookmark-slot';
+    var link = doc.createElement('a');
+    link.className = 'r-last-read';
+    link.href = 'digest-' + bm.date + '.html#' + bm.id;
+    link.textContent = '上次读到';
+    link.setAttribute('aria-label', '上次读到 ' + bm.date + ' 第 ' + entryNum(bm.id) + ' 条');
+    var clr = doc.createElement('button');
+    clr.type = 'button';
+    clr.className = 'r-clear-mark';
+    clr.textContent = '清除';
+    clr.setAttribute('aria-label', '清除阅读书签');
+    slot.appendChild(link);
+    slot.appendChild(clr);
+    li.appendChild(slot);
+  }
+
+  function paintEntries(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var date = pageDate();
+    var entries = doc.querySelectorAll('article.r-entry[data-entry-id]');
+    for (var i = 0; i < entries.length; i++) {
+      var art = entries[i];
+      var id = art.getAttribute('data-entry-id');
+      var on = !!(bm && bm.date === date && bm.id === id);
+      art.classList.toggle('r-bookmarked', on);
+      var btn = art.querySelector('.r-mark-here');
+      if (!btn) continue;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on) {
+        btn.textContent = '清除标记';
+        btn.setAttribute('aria-label', '清除标记，第 ' + entryNum(id) + ' 条');
+      } else {
+        btn.textContent = '标记读到这里';
+        btn.setAttribute('aria-label', '标记读到这里，第 ' + entryNum(id) + ' 条');
+      }
+    }
+  }
+
+  function paint() {
+    var bm = read();
+    paintRail(bm);
+    paintEntries(bm);
+    return bm;
+  }
+
+  function onMarkClick(btn) {
+    var id = btn.getAttribute('data-entry-id');
+    var date = pageDate();
+    if (!id || !DATE_RE.test(date) || !ID_RE.test(id)) return;
+    var bm = read();
+    if (bm && bm.date === date && bm.id === id) clear();
+    else write({ date: date, id: id });
+    paint();
+  }
+
+  function onDocumentClick(ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var mark = t.closest('.r-mark-here');
+    if (mark) {
+      ev.preventDefault();
+      onMarkClick(mark);
+      return;
+    }
+    var clr = t.closest('.r-clear-mark');
+    if (clr) {
+      ev.preventDefault();
+      clear();
+      paint();
+    }
+  }
+
+  function bind() {
+    if (bound || !root.document) return;
+    root.document.addEventListener('click', onDocumentClick);
+    bound = true;
+  }
+
+  function init() {
+    bind();
+    paint();
+    /* Do not scroll, do not change location, do not write storage on load. */
+  }
+
+  var api = {
+    KEY: KEY,
+    read: read,
+    write: write,
+    clear: clear,
+    pageDate: pageDate,
+    paint: paint,
+    init: init,
+    bind: bind,
+    normalize: normalize,
+    get lastError() { return lastError; },
+    get storageAvailable() { return storageAvailable; },
+    get bound() { return bound; }
+  };
+
+  root.ReadingBookmark = api;
+  /* Script is inlined at the end of the page; required nodes already exist. Init now.
+     Do not wait for DOMContentLoaded — and never write storage or jump on init. */
+  if (root.document) init();
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
 </body>
 </html>

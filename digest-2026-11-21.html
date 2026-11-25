@@ -501,43 +501,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
   .wrap .entry.r-entry p.r-source{margin-left:14px!important}
   .wrap .entry.r-entry p.r-label{margin-top:36px!important}
 }
+
+/* ===== 手动书签：低干扰，不改变米白衬线版式 ===== */
+.wrap .entry.r-entry .r-entry-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;margin:0 0 22px;flex-wrap:wrap}
+.wrap .entry.r-entry .r-entry-head p.r-no{margin:0!important}
+.wrap .entry.r-entry button.r-mark-here,
+.rail button.r-clear-mark{
+  appearance:none;-webkit-appearance:none;
+  background:none!important;border:0!important;box-shadow:none!important;
+  padding:6px 0;margin:0;cursor:pointer;
+  font:400 12px/1.6 inherit!important;
+  color:#8a8478!important;letter-spacing:.06em!important;
+  text-decoration:none!important;white-space:nowrap
+}
+.wrap .entry.r-entry button.r-mark-here:hover,
+.rail button.r-clear-mark:hover{color:#23211d!important}
+.wrap .entry.r-entry.r-bookmarked button.r-mark-here{color:#6f695e!important}
+.wrap .entry.r-entry button.r-mark-here:focus-visible,
+.rail a.r-last-read:focus-visible,
+.rail button.r-clear-mark:focus-visible{
+  outline:1px solid #23211d;outline-offset:3px
+}
+.wrap .entry.r-entry.r-bookmarked{scroll-margin-top:24px}
+
+/* 往期日期右侧「上次读到」，落在左侧空隙里 */
+.rail .a-list li{
+  display:flex;align-items:center;gap:8px
+}
+.rail .a-list li > a:first-of-type{flex:1 1 auto;min-width:0}
+.rail .r-bookmark-slot{display:inline-flex;align-items:baseline;gap:6px;flex:0 0 auto;margin-left:2px}
+.rail a.r-last-read{
+  display:inline!important;flex-direction:unset!important;
+  padding:0!important;border:0!important;background:none!important;
+  color:#6f695e!important;font-size:11px!important;font-weight:400!important;
+  letter-spacing:.04em!important;text-decoration:none!important;
+  white-space:nowrap;line-height:1.4
+}
+.rail a.r-last-read:hover{color:#23211d!important;padding-left:0!important}
+.rail button.r-clear-mark{padding:0;letter-spacing:.04em!important;font-size:11px!important}
+
+.r-bookmark-status{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+@media (max-width:1179px){
+  .wrap .entry.r-entry{scroll-margin-top:72px}
+  .rail .a-list li.r-has-bookmark{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .rail a.r-last-read{
+    padding:0!important;border:0!important;border-radius:0!important;
+    background:none!important;white-space:nowrap
+  }
+  .rail a.r-last-read:hover{padding-left:0!important}
+}
+@media (max-width:640px){
+  .wrap .entry.r-entry .r-entry-head{margin-bottom:18px}
+  .wrap .entry.r-entry button.r-mark-here{padding:8px 0;font-size:12px!important}
+}
 </style><!-- /READING_CSS -->
 <!-- /FB_RAIL_CSS -->
 
 
 
 
-<aside class="rail" aria-label="往期归档">
+<aside class="rail" aria-label="往期归档" data-digest-date="2026-11-21">
   <div class="rail-inner">
     <div class="rail-head">
       <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
       <span class="rail-count">23 期</span>
     </div>
     <ul class="a-list">
-      <li><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
-      <li><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
-      <li><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
-      <li><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
-      <li class="a-current"><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
-      <li><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
-      <li><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
-      <li><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
-      <li><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
-      <li><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
-      <li><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
-      <li><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
-      <li><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
-      <li><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
-      <li><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
-      <li><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
-      <li><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
-      <li><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
-      <li><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
-      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
-      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
-      <li><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
-      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+      <li data-date="2026-11-25"><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
+      <li data-date="2026-11-24"><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
+      <li data-date="2026-11-23"><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
+      <li data-date="2026-11-22"><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
+      <li class="a-current" data-date="2026-11-21"><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
+      <li data-date="2026-11-20"><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
+      <li data-date="2026-11-19"><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
+      <li data-date="2026-11-18"><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
+      <li data-date="2026-11-17"><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
+      <li data-date="2026-11-16"><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
+      <li data-date="2026-11-15"><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
+      <li data-date="2026-11-14"><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
+      <li data-date="2026-11-13"><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
+      <li data-date="2026-11-12"><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
+      <li data-date="2026-11-11"><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
+      <li data-date="2026-11-10"><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
+      <li data-date="2026-11-09"><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
+      <li data-date="2026-11-08"><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
+      <li data-date="2026-11-07"><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li data-date="2026-11-06"><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li data-date="2026-11-05"><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li data-date="2026-11-04"><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li data-date="2026-11-03"><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
     </ul>
+    <p class="r-bookmark-status" role="status" aria-live="polite"></p>
   </div>
 </aside>
 <script src="archive.js"></script>
@@ -557,71 +615,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 
 <details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 我们的军队必须在军民关系上、军政…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 对敌军、伪军、反共军的俘虏，除为…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 武器是战争的重要的因素，但不是决…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 原子弹是美国反动派用来吓人的一只…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 军队的基础在士兵，没有进步的政治…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 单纯军事观点在红军一部分同志中非…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 掌握思想教育，是团结全党进行伟大…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 在知识分子和青年学生中间，最近一…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 经过政治教育，红军士兵都有了阶级…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 由于诉苦（诉旧社会和反动派所给予…</a></li></ul></li></ul></details>
 <div style="height:72px"></div>
-<article class="entry r-entry" id="e-1">
-  <p class="r-no">01<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-1" data-entry-id="e-1">
+  <div class="r-entry-head">
+    <p class="r-no">01<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-1" aria-pressed="false" aria-label="标记读到这里，第 1 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我们的军队必须在军民关系上、军政关系上、军党关系上、官兵关系上、军事工作和政治工作关系上、干部相互关系上，遵守正确的原则，决不可犯军阀主义的毛病。官长必须爱护士兵，不能漠不关心，不能采取肉刑；军队必须爱护人民，不能损害人民利益；军队必须尊重政府，尊重党，不能闹独立性。</p></div>
   <p class="r-source">《组织起来》（1943年11月29日），《毛泽东选集》第三卷第937页，《毛主席语录》第十二章</p>
   <p class="r-label">官方解读</p><p class="r-official">中国共产党新闻网转载的《中国组织人事报》文章，以“决不可犯军阀主义的毛病”为题，指出这是1943年11月29日毛泽东在中共中央招待陕甘宁边区劳动英雄大会上作《组织起来》的讲话时所强调的，并写道：“为此，军队就要打掉骄气，克服军阀主义作风和官僚习气。官长必须爱护士兵，军队必须爱护人民，尊重政府尊重党，不能闹独立性。事实证明这样做了，人民军队的战斗力就得到明显增强。”</p><p class="r-links"><a href="https://cpc.people.com.cn/n1/2022/1129/c443712-32576518.html">延安时期毛泽东为军队立规矩（中国共产党新闻网，2022年11月29日，来源《中国组织人事报》）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1943年11月29日《组织起来》。当时陕甘宁边区经过一年大生产，中共中央招待劳动英雄，毛泽东在讲话里把“组织起来”作为主题，并专门谈到军队应当遵守的原则。</p><p class="r-explain">军队必须在军民、军政、军党、官兵、军事工作和政治工作、干部相互等关系上，遵守正确的原则，决不可犯<span class="mark">军阀主义</span>的毛病。官长必须爱护士兵，不能漠不关心，不能采取肉刑；军队必须爱护人民，不能损害人民利益；军队必须尊重政府，尊重党，不能闹独立性。这里要约束的，是把武力变成对内对外都可以任意行事的习气；关系摆正了，力量才能用在该用的地方。</p>
 </article>
-<article class="entry r-entry" id="e-2">
-  <p class="r-no">02<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-2" data-entry-id="e-2">
+  <div class="r-entry-head">
+    <p class="r-no">02<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-2" aria-pressed="false" aria-label="标记读到这里，第 2 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">对敌军、伪军、反共军的俘虏，除为群众所痛恶、非杀不可而又经过上级批准的人以外，应一律采取释放的政策。其中被迫参加、多少带有革命性的分子，应大批地争取为我军服务，其他则一律释放；如其再来，则再捉再放；不加侮辱，不搜财物，不要自首，一律以诚恳和气的态度对待之。不论他们如何反动，均取这种政策。这对于孤立反动营垒，是非常有效的。</p></div>
   <p class="r-source">《论政策》（1940年12月25日），《毛泽东选集》第二卷第764——765页，《毛主席语录》第十二章</p>
   <p class="r-label">官方解读</p><p class="r-official r-none">未查询到</p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1940年12月25日《论政策》。当时抗日根据地既要对付日本侵略军，又要处理同伪军、反共军的复杂关系，毛泽东把俘虏政策写进各项政策的规定里。</p><p class="r-explain">对敌军、伪军、反共军的俘虏，除为群众所痛恶、非杀不可而又经过上级批准的人以外，应一律采取释放的政策。被迫参加、多少带有革命性的分子，应大批争取服务；其他则一律释放；如其再来，则<span class="mark">再捉再放</span>；不加侮辱，不搜财物，不要自首，一律以诚恳和气的态度对待。不论他们如何反动，均取这种政策。目的很明确：用这种办法<span class="mark">孤立反动营垒</span>，而不是用侮辱和报复去把更多的人推到对立面去。</p>
 </article>
-<article class="entry r-entry" id="e-3">
-  <p class="r-no">03<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-3" data-entry-id="e-3">
+  <div class="r-entry-head">
+    <p class="r-no">03<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-3" aria-pressed="false" aria-label="标记读到这里，第 3 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">武器是战争的重要的因素，但不是决定的因素，决定的因素是人不是物。力量对比不但是军力和经济力的对比，而且是人力和人心的对比。军力和经济力是要人去掌握的。</p></div>
   <p class="r-source">《论持久战》（1938年5月），《毛泽东选集》第二卷第459页，《毛主席语录》第十二章</p>
   <p class="r-label">官方解读</p><p class="r-official">中央党史和文献研究院研究员曹前发在文章中指出，针对当时流行的“唯武器论”及相关观点，毛泽东认为这是战争问题中的机械论，是主观地和片面地看问题。“我们不但要看到武器，而且要看到人力。”文章随即引述：“武器是战争的重要的因素，但不是决定的因素，决定的因素是人不是物。”力量对比不但是军力和经济力的对比，而且是人力和人心的对比。“战争中真正的铜墙铁壁是群众，是被动员了的广大群众。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2021/0118/c85037-32002486.html">兵民是胜利之本（人民网党史频道，2021年1月18日，来源《北京日报》，曹前发）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1938年5月《论持久战》。全面抗战开始后，有人看见中国武器不如人，便得出“战必败”的结论。毛泽东把这种看法称作战争问题上的“唯武器论”，并在这里把武器和人的位置说清楚。</p><p class="r-explain"><span class="mark">武器是战争的重要的因素，但不是决定的因素，决定的因素是人不是物。</span> 力量对比不但是军力和经济力的对比，而且是人力和人心的对比。军力和经济力是要人去掌握的。承认武器重要，是为了不空谈；指出人是决定的因素，是为了防止把胜败写成器物的对比，而把使用器物的人和人心排除在外。</p>
 </article>
-<article class="entry r-entry" id="e-4">
-  <p class="r-no">04<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-4" data-entry-id="e-4">
+  <div class="r-entry-head">
+    <p class="r-no">04<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-4" aria-pressed="false" aria-label="标记读到这里，第 4 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">原子弹是美国反动派用来吓人的一只纸老虎，看样子可怕，实际上并不可怕。当然，原子弹是一种大规模屠杀的武器，但是决定战争胜败的是人民，而不是一两件新式武器。</p></div>
   <p class="r-source">《和美国记者安娜•路易斯•斯特朗的谈话》（1946年8月），《毛泽东选集》第四卷第1192页，《毛主席语录》第十二章</p>
   <p class="r-label">官方解读</p><p class="r-official">杨鲁在《解放军报》文章中记述：1946年8月6日，毛泽东在延安杨家岭会见美国记者安娜•路易斯•斯特朗。当对方问到“如果美国使用原子炸弹呢”，毛泽东回答：“原子弹是美国反动派用来吓人的一只纸老虎，看样子可怕，实际上并不可怕。”文章接着引述他的进一步解释：“一切反动派都是纸老虎。看起来，反动派的样子是可怕的，但是实际上并没有什么了不起的力量。从长远的观点看问题，真正强大的力量不是属于反动派，而是属于人民。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n/2013/1218/c85037-23871440.html">毛泽东纵论“纸老虎”（人民网党史频道，2013年12月18日，来源《解放军报》，杨鲁）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1946年8月毛泽东和美国记者安娜•路易斯•斯特朗的谈话。当时全面内战已经爆发，美国拥有原子弹，有人把它看得决定一切。斯特朗问到如果使用原子炸弹会怎样，毛泽东用“纸老虎”作了回答。</p><p class="r-explain">原子弹是用来吓人的一只<span class="mark">纸老虎</span>，看样子可怕，实际上并不可怕。它当然是一种大规模屠杀的武器，但是<span class="mark">决定战争胜败的是人民</span>，而不是一两件新式武器。这里并没有否认原子弹的破坏力，而是把“吓人的样子”和“真正决定胜败的力量”分开：新式武器可以被拿来威慑，却不能代替人民这一决定的因素。</p>
 </article>
-<article class="entry r-entry" id="e-5">
-  <p class="r-no">05<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-5" data-entry-id="e-5">
+  <div class="r-entry-head">
+    <p class="r-no">05<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-5" aria-pressed="false" aria-label="标记读到这里，第 5 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">军队的基础在士兵，没有进步的政治精神贯注于军队之中，没有进步的政治工作去执行这种贯注，就不能达到真正的官长和士兵的一致，就不能激发官兵最大限度的抗战热忱，一切技术和战术就不能得着最好的基础去发挥它们应有的效力。</p></div>
   <p class="r-source">《论持久战》（1938年5月），《毛泽东选集》第二卷第500页，《毛主席语录》第十二章</p>
   <p class="r-label">官方解读</p><p class="r-official">曹应旺在《党的文献》文章中，把这段话放在“政治上进步的军队是尊重士兵的官兵一致的军队”这一说明之下，并完整引述：“军队的基础在士兵，没有进步的政治精神贯注于军队之中，没有进步的政治工作去执行这种贯注，就不能达到真正的官长和士兵的一致，就不能激发官兵最大限度的抗战热忱，一切技术和战术就不能得着最好的基础去发挥它们应有的效力。”</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2022/0812/c219000-32501284.html">毛泽东《论持久战》蕴含的时代观（中央党史和文献研究院，2022年8月12日，来源《党的文献》，曹应旺）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话同样出自1938年5月《论持久战》，在讨论“兵民是胜利之本”时，把军队内部的基础说清楚。</p><p class="r-explain"><span class="mark">军队的基础在士兵。</span> 没有进步的政治精神贯注于军队之中，没有进步的政治工作去执行这种贯注，就不能达到真正的官长和士兵的一致，就不能激发官兵最大限度的抗战热忱，一切技术和战术就不能得着最好的基础去发挥它们应有的效力。技术和战术再好，也要落在人身上才发生作用；而人要齐心、要有热忱，不能只靠条令和器具，还要把进步的政治精神真正贯注进去。</p>
 </article>
-<article class="entry r-entry" id="e-6">
-  <p class="r-no">06<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-6" data-entry-id="e-6">
+  <div class="r-entry-head">
+    <p class="r-no">06<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-6" aria-pressed="false" aria-label="标记读到这里，第 6 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">单纯军事观点在红军一部分同志中非常发展。其表现如：（一）认为军事政治二者是对立的，不承认军事只是完成政治任务的工具之一。甚至还有说“军事好，政治自然会好，军事不好，政治也不会好”的，则更进一步认为军事领导政治了。……</p></div>
   <p class="r-source">《关于纠正党内的错误思想》（1929年12月），《毛泽东选集》第一卷第87——88页，《毛主席语录》第十二章</p>
   <p class="r-label">官方解读</p><p class="r-official">汪建新在重温《古田会议决议》的文章中写道：决议“明确了军事和政治的关系，指出‘军事只是完成政治任务的工具之一’，批判了‘军事好，政治自然会好’等单纯军事观点。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2021/0202/c85037-32019731.html">蕴含我党我军红色基因的思想宝库——重温《古田会议决议》（人民网党史频道，2021年2月2日，来源《中国纪检监察报》，汪建新）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1929年12月《关于纠正党内的错误思想》，即古田会议决议的第一部分。当时红四军党内对军队要不要做政治工作、军事和政治谁服从谁，争论很激烈。原书用省略号略去了后面几种表现，这里照原书保留。</p><p class="r-explain"><span class="mark">单纯军事观点</span>的一种表现，是把军事和政治看成对立的，不承认军事只是完成政治任务的工具之一；甚至说“军事好，政治自然会好”，则更进一步认为军事领导政治了。它要纠正的，不是重视打仗本身，而是一种颠倒：把打仗看成全部，以为军事上的成绩会自动带来政治上的正确，结果使军事离开它本来要完成的政治任务。</p>
 </article>
-<article class="entry r-entry" id="e-7">
-  <p class="r-no">07<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-7" data-entry-id="e-7">
+  <div class="r-entry-head">
+    <p class="r-no">07<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-7" aria-pressed="false" aria-label="标记读到这里，第 7 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">掌握思想教育，是团结全党进行伟大政治斗争的中心环节。如果这个任务不解决，党的一切政治任务是不能完成的。</p></div>
   <p class="r-source">《论联合政府》（1945年4月24日），《毛泽东选集》第三卷第1095页，《毛主席语录》第十二章</p>
   <p class="r-label">官方解读</p><p class="r-official">孙迪在《学习时报》文章中写道：1945年4月，在党的七大上毛泽东深刻指出：“掌握思想教育，是团结全党进行伟大政治斗争的中心环节。”文章随后说明：“中国共产党之所以能够历经艰难困苦而不断发展壮大，很重要的一个原因就是我们党始终重视思想建党、理论强党，使全党始终保持统一的思想、坚定的意志、协调的行动、强大的战斗力。”</p><p class="r-links"><a href="https://cpc.people.com.cn/n1/2024/0109/c443712-40155273.html">毛泽东与党的建设（中国共产党新闻网，2024年1月9日，来源《学习时报》，孙迪）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1945年4月24日《论联合政府》。这是毛泽东在中国共产党第七次全国代表大会上的书面政治报告。在谈到党的作风和党内思想教育时，他把思想教育的位置提到了“中心环节”上。</p><p class="r-explain"><span class="mark">掌握思想教育，是团结全党进行伟大政治斗争的中心环节。</span> 如果这个任务不解决，党的一切政治任务是不能完成的。就是说，要把人团结起来去做一件大的政治任务，先要把思想上的道理讲通、把认识上的分歧理清；这个环节不抓住，后面的任务即使写得很完备，也落不到共同的行动上。</p>
 </article>
-<article class="entry r-entry" id="e-8">
-  <p class="r-no">08<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-8" data-entry-id="e-8">
+  <div class="r-entry-head">
+    <p class="r-no">08<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-8" aria-pressed="false" aria-label="标记读到这里，第 8 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">在知识分子和青年学生中间，最近一个时期，思想政治工作减弱了，出现了一些偏向。在一些人的眼中，好像什么政治，什么祖国的前途，人类的理想，都没有关心的必要。好像马克思主义行时了一阵，现在就不那么行时了。针对着这种情况，现在需要加强思想政治工作。不论是知识分子，还是青年学生，都应该努力学习。除了学习专业之外，在思想上要有所进步，政治上也要有所进步，这就需要学习马克思主义，学习时事政治。没有正确的政治观点，就等于没有灵魂。……思想政治工作，各个部门都要负责任。共产党应该管，青年团应该管，政府主管部门应该管，学校的校长教师更应该管。</p></div>
   <p class="r-source">《关于正确处理人民内部矛盾的问题》（1957年2月27日），《毛主席语录》第十二章</p>
   <p class="r-label">官方解读</p><p class="r-official">怀进鹏在《中共党史研究》文章中谈到新中国成立后毛泽东对社会主义教育政治方向的强调，并引述：“不论是知识分子，还是青年学生，都应该努力学习。除了学习专业之外，在思想上要有所进步，政治上也要有所进步，这就需要学习马克思主义，学习时事政治。没有正确的政治观点，就等于没有灵魂。”</p><p class="r-links"><a href="https://www.dswxyjy.org.cn/n1/2024/0129/c423725-40168806.html">学习继承发扬毛泽东教育思想（中央党史和文献研究院，2024年1月12日，来源《中共党史研究》，怀进鹏）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1957年2月27日《关于正确处理人民内部矛盾的问题》。原书把写作时间排作「一九二八年十一月二十五日」，并把出处写成《毛泽东选集》第一卷第66页；这与同页下一条《井冈山的斗争》的时间和页码相同，显系排印错误。这篇讲话的日期是1957年2月27日，这里按该篇通行日期写出。原文中的省略号是语录摘录时的删节，照原书保留。</p><p class="r-explain">针对当时在知识分子和青年学生中间思想政治工作减弱、有人以为不必关心政治和理想的情况，毛泽东提出：除了学习专业之外，在思想上、政治上也要有所进步。<span class="mark">没有正确的政治观点，就等于没有灵魂。</span> 思想政治工作，各个部门都要负责任。专业学习不能代替思想上的方向；方向不清楚，专业本身也会失去它应当服务的目标。</p>
 </article>
-<article class="entry r-entry" id="e-9">
-  <p class="r-no">09<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-9" data-entry-id="e-9">
+  <div class="r-entry-head">
+    <p class="r-no">09<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-9" aria-pressed="false" aria-label="标记读到这里，第 9 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">经过政治教育，红军士兵都有了阶级觉悟，都有了分配土地、建立政权和武装工农等项常识，都知道是为了自己和工农阶级而作战。因此，他们能在艰苦的斗争中不出怨言。连、营、团都有了士兵会，代表士兵利益，并做政治工作和民众工作。</p></div>
   <p class="r-source">《井冈山的斗争》（1928年11月25日），《毛泽东选集》第一卷第66页，《毛主席语录》第十二章</p>
   <p class="r-label">官方解读</p><p class="r-official">祝志伟文章在谈到红军政治工作的重要性时，完整引述了这段话，并写道：“通过政治工作而树立起‘为工农作战’‘为人民打仗’信念的红军，具有大无畏的革命精神。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2017/0811/c85037-29464489.html">毛泽东：“政治工作是革命军队的生命线”（人民网党史频道，2017年8月11日，祝志伟）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1928年11月25日《井冈山的斗争》。毛泽东向中共中央报告井冈山根据地的情形，其中专门写到红军士兵在政治教育之后的变化。</p><p class="r-explain">经过政治教育，士兵都有了阶级觉悟，都有了分配土地、建立政权和武装工农等项常识，都知道是为了自己和工农阶级而作战。因此，他们能在艰苦的斗争中<span class="mark">不出怨言</span>。连、营、团都有了士兵会，代表士兵利益，并做政治工作和民众工作。政治教育在这里不是空口劝人忍耐，而是让人明白自己为什么而战、战成什么样子；明白了，艰苦才撑得住，组织上的士兵会也才有了实际内容。</p>
 </article>
-<article class="entry r-entry" id="e-10">
-  <p class="r-no">10<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-10" data-entry-id="e-10">
+  <div class="r-entry-head">
+    <p class="r-no">10<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-10" aria-pressed="false" aria-label="标记读到这里，第 10 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">由于诉苦（诉旧社会和反动派所给予劳动人民之苦）和三查（查阶级、查工作、查斗志）运动的正确进行，大大提高了全军指战员为解放被剥削的劳动大众，为全国的土地改革，为消灭人民公敌蒋介石匪帮而战的觉悟性；同时就大大加强了全体指战员在共产党领导之下的坚强的团结。在这个基础上，部队的纯洁性提高了，纪律整顿了，群众性的练兵运动开展了，完全有领导地有秩序地在部队中进行的政治、经济、军事三方面的民主发扬了。这样就使部队万众一心，大家想办法，大家出力量，不怕牺牲，克服物质条件的困难，群威群胆，英勇杀敌。这样的军队，将是无敌于天下的。</p></div>
   <p class="r-source">《评西北大捷兼论解放军的新式整军运动》（1948年3月7日），《毛泽东选集》第四卷第1292页，《毛主席语录》第十二章</p>
   <p class="r-label">官方解读</p><p class="r-official">何立波文章记述：1948年3月7日，毛泽东以中国人民解放军总部发言人的名义，撰写了《评西北大捷兼论解放军的新式整军运动》，“专门评述用诉苦‘三查’方法进行的新式整军运动对我军战斗力的巨大作用”，着重指出“西北野战军的战斗力，比之去年是空前地提高了”，并强调此次战役胜利“最值得注意的，是在冬季两个多月中用诉苦和三查方法进行了新式的整军运动”。文章说明，正是在这里，正式提出了“新式整军运动”。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2018/0821/c85037-30240907.html">毛泽东与练兵整训运动（人民网党史频道，2018年8月21日，何立波）</a></p>
@@ -637,5 +725,258 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
 if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
 addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>
+/* Reading Digest manual bookmark.
+   Only click handlers write to localStorage. Scroll, load, hash, and history must never save or overwrite.
+   One bookmark per browser: { date: 'YYYY-MM-DD', id: 'e-N' }. No account, no cross-device, no auto-jump.
+*/
+(function (root) {
+  var KEY = 'readingDigest.bookmark';
+  var DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+  var ID_RE = /^e-\d+$/;
+  var bound = false;
+  var storageAvailable = true;
+  var lastError = '';
+
+  function announce(msg) {
+    var el = root.document && document.querySelector('.r-bookmark-status');
+    if (el) el.textContent = msg || '';
+  }
+
+  function getStore() {
+    try {
+      return root.localStorage;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'localStorage unavailable';
+      return null;
+    }
+  }
+
+  function normalize(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    var date = raw.date;
+    var id = raw.id;
+    if (typeof date !== 'string' || typeof id !== 'string') return null;
+    if (!DATE_RE.test(date) || !ID_RE.test(id)) return null;
+    return { date: date, id: id };
+  }
+
+  function read() {
+    lastError = '';
+    var store = getStore();
+    if (!store) return null;
+    var txt;
+    try {
+      txt = store.getItem(KEY);
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'read failed';
+      return null;
+    }
+    if (txt == null || txt === '') return null;
+    var parsed;
+    try {
+      parsed = JSON.parse(txt);
+    } catch (err) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    var bm = normalize(parsed);
+    if (!bm) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    return bm;
+  }
+
+  function write(bm) {
+    lastError = '';
+    var norm = normalize(bm);
+    if (!norm) {
+      lastError = 'invalid bookmark';
+      return false;
+    }
+    var store = getStore();
+    if (!store) {
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.setItem(KEY, JSON.stringify(norm));
+      storageAvailable = true;
+      announce('已标记到 ' + norm.date + ' 第 ' + norm.id.slice(2) + ' 条');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'write failed';
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function clear() {
+    lastError = '';
+    var store = getStore();
+    if (!store) {
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.removeItem(KEY);
+      storageAvailable = true;
+      announce('已清除标记');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'clear failed';
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function pageDate() {
+    var doc = root.document;
+    if (doc) {
+      var marked = doc.querySelector('[data-digest-date]');
+      if (marked) {
+        var d = marked.getAttribute('data-digest-date');
+        if (d && DATE_RE.test(d)) return d;
+      }
+    }
+    var path = (root.location && root.location.pathname) || '';
+    var m = path.match(/digest-(\d{4}-\d{2}-\d{2})\.html$/);
+    if (m) return m[1];
+    if (root.DIGEST_ARCHIVE && root.DIGEST_ARCHIVE.length && root.DIGEST_ARCHIVE[0].d) {
+      return root.DIGEST_ARCHIVE[0].d;
+    }
+    return '';
+  }
+
+  function entryNum(id) {
+    return id ? id.replace(/^e-/, '') : '';
+  }
+
+  function paintRail(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var lis = doc.querySelectorAll('.rail .a-list li');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].classList.remove('r-has-bookmark');
+      var old = lis[i].querySelector('.r-bookmark-slot');
+      if (old) old.parentNode.removeChild(old);
+    }
+    if (!bm) return;
+    var li = doc.querySelector('.rail .a-list li[data-date="' + bm.date + '"]');
+    if (!li) return;
+    li.classList.add('r-has-bookmark');
+    var slot = doc.createElement('span');
+    slot.className = 'r-bookmark-slot';
+    var link = doc.createElement('a');
+    link.className = 'r-last-read';
+    link.href = 'digest-' + bm.date + '.html#' + bm.id;
+    link.textContent = '上次读到';
+    link.setAttribute('aria-label', '上次读到 ' + bm.date + ' 第 ' + entryNum(bm.id) + ' 条');
+    var clr = doc.createElement('button');
+    clr.type = 'button';
+    clr.className = 'r-clear-mark';
+    clr.textContent = '清除';
+    clr.setAttribute('aria-label', '清除阅读书签');
+    slot.appendChild(link);
+    slot.appendChild(clr);
+    li.appendChild(slot);
+  }
+
+  function paintEntries(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var date = pageDate();
+    var entries = doc.querySelectorAll('article.r-entry[data-entry-id]');
+    for (var i = 0; i < entries.length; i++) {
+      var art = entries[i];
+      var id = art.getAttribute('data-entry-id');
+      var on = !!(bm && bm.date === date && bm.id === id);
+      art.classList.toggle('r-bookmarked', on);
+      var btn = art.querySelector('.r-mark-here');
+      if (!btn) continue;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on) {
+        btn.textContent = '清除标记';
+        btn.setAttribute('aria-label', '清除标记，第 ' + entryNum(id) + ' 条');
+      } else {
+        btn.textContent = '标记读到这里';
+        btn.setAttribute('aria-label', '标记读到这里，第 ' + entryNum(id) + ' 条');
+      }
+    }
+  }
+
+  function paint() {
+    var bm = read();
+    paintRail(bm);
+    paintEntries(bm);
+    return bm;
+  }
+
+  function onMarkClick(btn) {
+    var id = btn.getAttribute('data-entry-id');
+    var date = pageDate();
+    if (!id || !DATE_RE.test(date) || !ID_RE.test(id)) return;
+    var bm = read();
+    if (bm && bm.date === date && bm.id === id) clear();
+    else write({ date: date, id: id });
+    paint();
+  }
+
+  function onDocumentClick(ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var mark = t.closest('.r-mark-here');
+    if (mark) {
+      ev.preventDefault();
+      onMarkClick(mark);
+      return;
+    }
+    var clr = t.closest('.r-clear-mark');
+    if (clr) {
+      ev.preventDefault();
+      clear();
+      paint();
+    }
+  }
+
+  function bind() {
+    if (bound || !root.document) return;
+    root.document.addEventListener('click', onDocumentClick);
+    bound = true;
+  }
+
+  function init() {
+    bind();
+    paint();
+    /* Do not scroll, do not change location, do not write storage on load. */
+  }
+
+  var api = {
+    KEY: KEY,
+    read: read,
+    write: write,
+    clear: clear,
+    pageDate: pageDate,
+    paint: paint,
+    init: init,
+    bind: bind,
+    normalize: normalize,
+    get lastError() { return lastError; },
+    get storageAvailable() { return storageAvailable; },
+    get bound() { return bound; }
+  };
+
+  root.ReadingBookmark = api;
+  /* Script is inlined at the end of the page; required nodes already exist. Init now.
+     Do not wait for DOMContentLoaded — and never write storage or jump on init. */
+  if (root.document) init();
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
 </body>
 </html>

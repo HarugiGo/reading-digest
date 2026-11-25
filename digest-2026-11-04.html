@@ -501,43 +501,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
   .wrap .entry.r-entry p.r-source{margin-left:14px!important}
   .wrap .entry.r-entry p.r-label{margin-top:36px!important}
 }
+
+/* ===== 手动书签：低干扰，不改变米白衬线版式 ===== */
+.wrap .entry.r-entry .r-entry-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;margin:0 0 22px;flex-wrap:wrap}
+.wrap .entry.r-entry .r-entry-head p.r-no{margin:0!important}
+.wrap .entry.r-entry button.r-mark-here,
+.rail button.r-clear-mark{
+  appearance:none;-webkit-appearance:none;
+  background:none!important;border:0!important;box-shadow:none!important;
+  padding:6px 0;margin:0;cursor:pointer;
+  font:400 12px/1.6 inherit!important;
+  color:#8a8478!important;letter-spacing:.06em!important;
+  text-decoration:none!important;white-space:nowrap
+}
+.wrap .entry.r-entry button.r-mark-here:hover,
+.rail button.r-clear-mark:hover{color:#23211d!important}
+.wrap .entry.r-entry.r-bookmarked button.r-mark-here{color:#6f695e!important}
+.wrap .entry.r-entry button.r-mark-here:focus-visible,
+.rail a.r-last-read:focus-visible,
+.rail button.r-clear-mark:focus-visible{
+  outline:1px solid #23211d;outline-offset:3px
+}
+.wrap .entry.r-entry.r-bookmarked{scroll-margin-top:24px}
+
+/* 往期日期右侧「上次读到」，落在左侧空隙里 */
+.rail .a-list li{
+  display:flex;align-items:center;gap:8px
+}
+.rail .a-list li > a:first-of-type{flex:1 1 auto;min-width:0}
+.rail .r-bookmark-slot{display:inline-flex;align-items:baseline;gap:6px;flex:0 0 auto;margin-left:2px}
+.rail a.r-last-read{
+  display:inline!important;flex-direction:unset!important;
+  padding:0!important;border:0!important;background:none!important;
+  color:#6f695e!important;font-size:11px!important;font-weight:400!important;
+  letter-spacing:.04em!important;text-decoration:none!important;
+  white-space:nowrap;line-height:1.4
+}
+.rail a.r-last-read:hover{color:#23211d!important;padding-left:0!important}
+.rail button.r-clear-mark{padding:0;letter-spacing:.04em!important;font-size:11px!important}
+
+.r-bookmark-status{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+@media (max-width:1179px){
+  .wrap .entry.r-entry{scroll-margin-top:72px}
+  .rail .a-list li.r-has-bookmark{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .rail a.r-last-read{
+    padding:0!important;border:0!important;border-radius:0!important;
+    background:none!important;white-space:nowrap
+  }
+  .rail a.r-last-read:hover{padding-left:0!important}
+}
+@media (max-width:640px){
+  .wrap .entry.r-entry .r-entry-head{margin-bottom:18px}
+  .wrap .entry.r-entry button.r-mark-here{padding:8px 0;font-size:12px!important}
+}
 </style><!-- /READING_CSS -->
 <!-- /FB_RAIL_CSS -->
 
 
 
 
-<aside class="rail" aria-label="往期归档">
+<aside class="rail" aria-label="往期归档" data-digest-date="2026-11-04">
   <div class="rail-inner">
     <div class="rail-head">
       <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
       <span class="rail-count">23 期</span>
     </div>
     <ul class="a-list">
-      <li><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
-      <li><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
-      <li><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
-      <li><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
-      <li><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
-      <li><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
-      <li><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
-      <li><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
-      <li><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
-      <li><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
-      <li><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
-      <li><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
-      <li><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
-      <li><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
-      <li><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
-      <li><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
-      <li><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
-      <li><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
-      <li><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
-      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
-      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
-      <li class="a-current"><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
-      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+      <li data-date="2026-11-25"><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
+      <li data-date="2026-11-24"><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
+      <li data-date="2026-11-23"><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
+      <li data-date="2026-11-22"><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
+      <li data-date="2026-11-21"><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
+      <li data-date="2026-11-20"><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
+      <li data-date="2026-11-19"><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
+      <li data-date="2026-11-18"><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
+      <li data-date="2026-11-17"><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
+      <li data-date="2026-11-16"><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
+      <li data-date="2026-11-15"><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
+      <li data-date="2026-11-14"><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
+      <li data-date="2026-11-13"><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
+      <li data-date="2026-11-12"><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
+      <li data-date="2026-11-11"><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
+      <li data-date="2026-11-10"><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
+      <li data-date="2026-11-09"><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
+      <li data-date="2026-11-08"><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
+      <li data-date="2026-11-07"><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li data-date="2026-11-06"><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li data-date="2026-11-05"><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li class="a-current" data-date="2026-11-04"><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li data-date="2026-11-03"><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
     </ul>
+    <p class="r-bookmark-status" role="status" aria-live="polite"></p>
   </div>
 </aside>
 <script src="archive.js"></script>
@@ -557,71 +615,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 
 <details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 政策是革命政党一切实际行动的出发…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 我党规定了中国革命的总路线和总政…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 政策和策略是党的生命，各级领导同…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 阶级斗争，一些阶级胜利了，一些阶…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 在阶级社会中，每一个人都在一定的…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 社会的变化，主要地是由于社会内部…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 地主阶级对于农民的残酷的经济剥削…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 民族斗争，说到底，是一个阶级斗争…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 人民靠我们去组织。中国的反动分子…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 敌人是不会自行消灭的。无论是中国…</a></li></ul></li></ul></details>
 <div style="height:72px"></div>
-<article class="entry r-entry" id="e-1">
-  <p class="r-no">01<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-1" data-entry-id="e-1">
+  <div class="r-entry-head">
+    <p class="r-no">01<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-1" aria-pressed="false" aria-label="标记读到这里，第 1 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">政策是革命政党一切实际行动的出发点，并且表现于行动的过程和归宿。一个革命政党的任何行动都是实行政策。不是实行正确的政策，就是实行错误的政策；不是自觉地，就是盲目地实行某种政策。所谓经验，就是实行政策的过程和归宿。政策必须在人民实践中，也就是经验中，才能证明其正确与否，才能确定其正确和错误的程度。但是，人们的实践，特别是革命政党和革命群众的实践，没有不同这种或那种政策相联系的。因此，在每一行动之前，必须向党员和群众讲明我们按情况规定的政策。否则，党员和群众就会脱离我们政策的领导而盲目行动，执行错误的政策。</p></div>
   <p class="r-source">《关于工商业政策》（1948年），《毛主席语录》第一章</p>
   <p class="r-label">官方解读</p><p class="r-official">湘潭大学毛泽东思想研究中心主任李佑新在《“政策和策略是党的生命”——历史经验的深刻总结与新时代的实践要求》中全文引用这段话，并指出：政策和策略是党一切实际行动的出发点和归宿；党的任何实践活动都同一定的政策相联系，正确的政策取得成功，错误的政策导致失败。中共中央党史和文献研究院吕臻的专文也引用“在每一行动之前，必须向党员和群众讲明我们按情况规定的政策”，说明1948年前后纠偏工作把政策教育放在突出位置。</p><p class="r-links"><a href="https://www.theorychina.org.cn/c/2023-12-20/1489596.shtml">李佑新：“政策和策略是党的生命”（理论中国网）</a><a href="https://www.dswxyjy.org.cn/n1/2021/0208/c219021-32025894.html">吕臻：“政策和策略是党的生命”（党的文献网）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这是1948年2月27日为中共中央起草的党内指示中的一段话。当时解放战争转入战略进攻，土改和城市工作中出现破坏工商业等偏向，中央强调要把农村斗争地主的办法与保护城市工商业严格区别开来。</p><p class="r-explain">这段话把政策提到很高的位置：任何行动都是在实行某种政策，不是正确的就是错误的，不是自觉的就是盲目的。<span class="mark">经验</span>被定义为实行政策的过程和结果；政策是否正确，只能在人民实践中得到检验。最后一句落到操作：行动之前必须把政策向党员和群众讲清楚，否则就会脱离领导、盲目行动。</p>
 </article>
-<article class="entry r-entry" id="e-2">
-  <p class="r-no">02<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-2" data-entry-id="e-2">
+  <div class="r-entry-head">
+    <p class="r-no">02<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-2" aria-pressed="false" aria-label="标记读到这里，第 2 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我党规定了中国革命的总路线和总政策，又规定了各项具体的工作路线和各项具体的政策。但是，许多同志往往记住了我党的具体的个别的工作路线和政策，忘记了我党的总路线和总政策。而如果真正忘记了我党的总路线和总政策，我们就将是一个盲目的不完全的不清醒的革命者，在我们执行具体工作路线和具体政策的时候，就会迷失方向，就会左右摇摆，就会贻误我们的工作。</p></div>
   <p class="r-source">《在晋绥干部会议上的讲话》（1948年），《毛主席语录》第一章</p>
   <p class="r-label">官方解读</p><p class="r-official">中共中央党史和文献研究院《党史百年·天天读》记载：1948年4月1日毛泽东在晋绥干部会议上讲话，着重强调全党必须紧紧掌握党的总路线，并指出如果真正忘记总路线和总政策，就会成为盲目的不完全的不清醒的革命者，执行具体政策时就会迷失方向、左右摇摆、贻误工作。讲话同时完整概括了新民主主义革命的总路线和土地改革工作的总路线。</p><p class="r-links"><a href="https://www.12371.cn/2021/03/29/ARTI1616979910322347.shtml">【党史百年·天天读】4月1日（共产党员网）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">《在晋绥干部会议上的讲话》作于1948年4月1日，地点在山西兴县蔡家崖。此时中央刚离开陕北不久，土改纠“左”仍在进行。</p><p class="r-explain">这段话区分了两层：<span class="mark">总路线和总政策</span>，与各项具体工作路线和具体政策。作者担心的是只记得细节、忘掉全局——那样执行具体政策时就会左右摇摆。同一讲话里给出的总路线是：无产阶级领导的，人民大众的，反对帝国主义、封建主义和官僚资本主义的革命；土改的总路线是：依靠贫农，团结中农，有步骤地、有分别地消灭封建剥削制度，发展农业生产。</p>
 </article>
-<article class="entry r-entry" id="e-3">
-  <p class="r-no">03<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-3" data-entry-id="e-3">
+  <div class="r-entry-head">
+    <p class="r-no">03<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-3" aria-pressed="false" aria-label="标记读到这里，第 3 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">政策和策略是党的生命，各级领导同志务必充分注意，万万不可粗心大意。</p></div>
   <p class="r-source">《关于情况的通报》（1948年），《毛主席语录》第一章</p>
   <p class="r-label">官方解读</p><p class="r-official">求是网评论员文章指出，这是毛泽东1948年3月20日在为中共中央起草的《关于情况的通报》中提出的论断；背景是解放战争转入战略进攻后，各解放区土改等工作中出现偏离党的政策和策略的情况。中共中央党史和文献研究院吕臻的专文梳理了这一论断的提出过程：它是1948年前后纠“左”、反右并完善土改与工商业等具体政策之后，对全党作出的集中概括——只有政策和策略全部走上正轨，中国革命才有胜利的可能。</p><p class="r-links"><a href="https://www.qstheory.cn/wp/2021-09/18/c_1127879415.htm">求是网评论员：政策和策略是党的生命</a><a href="https://www.dswxyjy.org.cn/n1/2021/0208/c219021-32025894.html">吕臻：“政策和策略是党的生命”（党的文献网）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这句话写于1948年3月20日，是毛泽东离开陕北杨家沟前为中央起草的情况通报中的点睛之笔。通报回顾了几个月来在土改、工商业、统一战线、整党、新区工作等方面纠偏的经过，然后落到这句判断。</p><p class="r-explain">把政策和策略称作 <span class="mark">党的生命</span>，用的是极强的比喻：生命一旦出问题，机体就危险。后半句“务必充分注意，万万不可粗心大意”，对象是各级领导同志，强调的是执行层面的谨慎，而不是仅仅停留在口号上。</p>
 </article>
-<article class="entry r-entry" id="e-4">
-  <p class="r-no">04<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-4" data-entry-id="e-4">
+  <div class="r-entry-head">
+    <p class="r-no">04<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-4" aria-pressed="false" aria-label="标记读到这里，第 4 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">阶级斗争，一些阶级胜利了，一些阶级消灭了。这就是历史，这就是几千年的文明史。拿这个观点解释历史的就叫做历史的唯物主义，站在这个观点的反面的是历史的唯心主义。</p></div>
   <p class="r-source">《丢掉幻想，准备斗争》（1949年），《毛主席语录》第二章</p>
   <p class="r-label">官方解读</p><p class="r-official">共产党员网转载中央党史和文献研究院《党史百年·天天读》记载：1949年8月14日至9月16日，针对美国国务院《美国与中国的关系》白皮书及艾奇逊信件，毛泽东为新华社连续撰写《丢掉幻想，准备斗争》等五篇评论，揭露美国对华政策的侵略本质，批评一部分人中存在的对美国帝国主义的幻想，并从理论上说明中国近代革命发生和胜利的原因；文中明确以历史唯物主义反对历史唯心主义。</p><p class="r-links"><a href="https://www.12371.cn/2021/08/13/ARTI1628834636576668.shtml">【党史百年·天天读】8月14日（共产党员网）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">《丢掉幻想，准备斗争》写于1949年8月14日，是评论美国白皮书的五篇文章中的第一篇。当时新中国即将成立，美国发表白皮书解释“丢失中国”的原因，并寄希望于中国的“民主个人主义者”。</p><p class="r-explain">这段话用极简的句子界定 <span class="mark">历史唯物主义</span>：用阶级的胜利与消灭来解释历史。它在原文中的作用，是为后面的判断铺路——不能指望帝国主义和反动派自行改悔，只能组织力量去斗争；对仍抱幻想的人，要用这种历史观去教育争取。</p>
 </article>
-<article class="entry r-entry" id="e-5">
-  <p class="r-no">05<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-5" data-entry-id="e-5">
+  <div class="r-entry-head">
+    <p class="r-no">05<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-5" aria-pressed="false" aria-label="标记读到这里，第 5 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">在阶级社会中，每一个人都在一定的阶级地位中生活，各种思想无不打上阶级的烙印。</p></div>
   <p class="r-source">《实践论》（1937年），《毛主席语录》第二章</p>
   <p class="r-label">官方解读</p><p class="r-official">共产党员网刊载的《〈实践论〉〈矛盾论〉导读》（刘敬东、张玲玲编著，中央马克思主义理论研究和建设工程相关课题组专家参与的经典导读丛书）指出：《实践论》系统阐发了实践是认识的来源、动力、标准和目的；人的认识除生产活动外，还从政治生活、文化生活中获得，其中各种形式的阶级斗争给人的认识发展以深刻影响。这段话正是在论述认识对社会实践、对阶级关系的依赖时提出的。</p><p class="r-links"><a href="https://fuwu.12371.cn/2012/08/27/ARTI1346050084856146_all.shtml">《实践论》《矛盾论》导读（共产党员网）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">《实践论》写于1937年7月，是为反对党内教条主义和经验主义而作的认识论著作，曾在抗日军政大学讲演。</p><p class="r-explain">这句话出现在讨论认识来源的段落里：人的认识不只来自生产，也来自阶级斗争、政治生活等；在阶级社会里，每个人都处在一定的阶级地位中，因此思想会带上相应的印记。需要注意的是，它说的是 <span class="mark">阶级社会中</span> 的情形，并不是把一切时代、一切思想都简单归结为阶级标签；读的时候要连同《实践论》前后文关于实践、关于感性到理性的论述一起看。</p>
 </article>
-<article class="entry r-entry" id="e-6">
-  <p class="r-no">06<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-6" data-entry-id="e-6">
+  <div class="r-entry-head">
+    <p class="r-no">06<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-6" aria-pressed="false" aria-label="标记读到这里，第 6 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">社会的变化，主要地是由于社会内部矛盾的发展，即生产力和生产关系的矛盾，阶级之间的矛盾，新旧之间的矛盾，由于这些矛盾的发展，推动了社会的前进，推动了新旧社会的代谢。</p></div>
   <p class="r-source">《矛盾论》（1937年），《毛主席语录》第二章</p>
   <p class="r-label">官方解读</p><p class="r-official">《学习时报》刊发、新华网转载的文章《把握好运用好矛盾法则》在重读《矛盾论》时指出：唯物辩证法主张从事物内部、从一事物对他事物的关系去研究发展；在相似的地理和气候条件下，社会的变化却很巨大，这是由于社会内部矛盾发展的结果，也就是生产力和生产关系矛盾发展的结果；外因是变化的条件，内因是变化的根据，外因通过内因起作用。</p><p class="r-links"><a href="https://www.xinhuanet.com/politics/2020-07/09/c_1126215750.htm">把握好运用好矛盾法则（新华网，原载《学习时报》）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">《矛盾论》写于1937年8月，与《实践论》同一时期，目的同样是从哲学上清理主观主义，尤其是教条主义。</p><p class="r-explain">这段话回答的是：社会为什么会变？答案落在 <span class="mark">内部矛盾</span>：生产力与生产关系、阶级之间、新旧之间。把“主要地”三个字读出来很重要——它并不否认外部影响，但把根据放在内部。后面《矛盾论》还展开了主要矛盾、矛盾主要方面等概念，这段话可以看作整篇的一个入口。</p>
 </article>
-<article class="entry r-entry" id="e-7">
-  <p class="r-no">07<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-7" data-entry-id="e-7">
+  <div class="r-entry-head">
+    <p class="r-no">07<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-7" aria-pressed="false" aria-label="标记读到这里，第 7 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">地主阶级对于农民的残酷的经济剥削和政治压迫，迫使农民多次地举行起义，以反抗地主阶级的统治。……在中国封建社会里，只有这种农民的阶级斗争、农民的起义和农民的战争，才是历史发展的真正动力。</p></div>
   <p class="r-source">《中国革命和中国共产党》（1939年），《毛主席语录》第二章</p>
   <p class="r-label">官方解读</p><p class="r-official r-none">未查询到</p>
   <p class="r-label">讲解</p><p class="r-explain">《中国革命和中国共产党》写于1939年12月，是抗日战争时期阐述中国社会和中国革命基本问题的教材性著作。原文用省略号删去了中间举例部分，语录只保留了首尾两句。</p><p class="r-explain">前一句讲原因：剥削和压迫迫使农民起义；后一句在 <span class="mark">中国封建社会</span> 这一限定下，把农民的阶级斗争、起义和战争称作历史发展的真正动力。同一著作后文也指出，旧式农民战争因为没有新的生产力和先进阶级的领导，往往失败，或成为改朝换代的工具。读的时候要把“封建社会”这个范围和后文的限定一并考虑。</p>
 </article>
-<article class="entry r-entry" id="e-8">
-  <p class="r-no">08<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-8" data-entry-id="e-8">
+  <div class="r-entry-head">
+    <p class="r-no">08<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-8" aria-pressed="false" aria-label="标记读到这里，第 8 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">民族斗争，说到底，是一个阶级斗争问题。在美国压迫黑人的，只是白色人种中的反动统治集团。他们绝不能代表白色人种中占绝大多数的工人、农民、革命的知识分子和其他开明人士。</p></div>
   <p class="r-source">《支持美国黑人反对美帝国主义种族歧视的正义斗争的声明》（1963年），《毛主席语录》第二章</p>
   <p class="r-label">官方解读</p><p class="r-official">1980年4月7日《中共中央关于转发〈西藏工作座谈会纪要〉的通知》对这句话作了专门说明：毛主席在支持美国黑人斗争时所说“民族斗争，说到底，是一个阶级斗争问题”，是指美国广大黑人同美国垄断集团和反动派之间的矛盾是阶级矛盾，广大黑人同白人劳动者联合起来，才能实现自己的解放；这一论断完全不能适用于我国解放后的民族关系。中央统战部原部长李维汉秘书黄铸的访谈文章引述并阐释了这一通知。</p><p class="r-links"><a href="https://dangshi.people.com.cn/n/2014/0826/c85037-25541846-2.html">访中央统战部原部长李维汉秘书黄铸（人民网·中国共产党新闻网）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这份声明发表于1963年8月8日，声援当时美国黑人反对种族歧视的斗争。原文后半段把压迫者限定为白色人种中的反动统治集团，并明确他们不能代表大多数白人劳动者。</p><p class="r-explain">读这句话，关键是看 <span class="mark">适用对象和范围</span>。1980年的中央通知正是强调：它针对的是美国当时那种由垄断集团推行的种族压迫，不能拿来解释中国社会主义改造完成后各民族之间基本上是劳动人民之间的关系。把具体历史语境和后来的官方澄清放在一起读，可以避免把口号化的概括误用到不同条件上。</p>
 </article>
-<article class="entry r-entry" id="e-9">
-  <p class="r-no">09<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-9" data-entry-id="e-9">
+  <div class="r-entry-head">
+    <p class="r-no">09<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-9" aria-pressed="false" aria-label="标记读到这里，第 9 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">人民靠我们去组织。中国的反动分子，靠我们组织起人民去把他打倒。凡是反动的东西，你不打，他就不倒。这也和扫地一样，扫帚不到，灰尘照例不会自己跑掉。</p></div>
   <p class="r-source">《抗日战争胜利后的时局和我们的方针》（1945年），《毛主席语录》第二章</p>
   <p class="r-label">官方解读</p><p class="r-official">人民网·中国共产党新闻网刊载的评论文章引述了这段话，说明其出自1945年8月13日《抗日战争胜利后的时局和我们的方针》，原意是：反动的东西不会自行倒下，必须组织人民去斗争；“扫帚不到，灰尘照例不会自己跑掉”是对这一道理的形象说法。</p><p class="r-links"><a href="https://cpc.people.com.cn/n/2013/1205/c241220-23755809.html">有感于毛泽东“扫帚不到，灰尘照例不会自己跑掉”（人民网·中国共产党新闻网）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这篇报告作于1945年8月13日日本宣布投降前夕，讨论抗战胜利后时局和方针。核心判断是：蒋介石要抢夺胜利果实，党内一部分人则存在和平幻想。</p><p class="r-explain">“扫帚”的比喻把抽象的政治判断变成日常经验：<span class="mark">不打，就不倒</span>；不扫，灰尘自己不会跑。前面两句还点出“组织”二字——人民要靠组织起来才形成力量，反动势力也要靠组织起来的人民去打倒。它和同一时期“针锋相对、寸土必争”的方针是一个思路。</p>
 </article>
-<article class="entry r-entry" id="e-10">
-  <p class="r-no">10<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-10" data-entry-id="e-10">
+  <div class="r-entry-head">
+    <p class="r-no">10<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-10" aria-pressed="false" aria-label="标记读到这里，第 10 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">敌人是不会自行消灭的。无论是中国的反动派，或是美国帝国主义在中国的侵略势力，都不会自行退出历史舞台。</p></div>
   <p class="r-source">《将革命进行到底》（1948年），《毛主席语录》第二章</p>
   <p class="r-label">官方解读</p><p class="r-official">共产党员网“党史知识”栏目据中央党史和文献研究院资料介绍：1948年12月30日新华社发表毛泽东撰写的1949年新年献词《将革命进行到底》。文章指出，敌人是不会自行消灭的，不会自行退出历史舞台；必须用革命的方法，坚决彻底干净全部地消灭一切反动势力，在全国范围内推翻国民党反动统治，建立人民民主专政的共和国。文章同时揭露了当时的“和平”阴谋和“中间路线”。</p><p class="r-links"><a href="https://www.12371.cn/2021/12/29/ARTI1640758446255777.shtml">党史知识｜毛泽东1949年新年献词：将革命进行到底（共产党员网）</a></p>
@@ -637,5 +725,258 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
 if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
 addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>
+/* Reading Digest manual bookmark.
+   Only click handlers write to localStorage. Scroll, load, hash, and history must never save or overwrite.
+   One bookmark per browser: { date: 'YYYY-MM-DD', id: 'e-N' }. No account, no cross-device, no auto-jump.
+*/
+(function (root) {
+  var KEY = 'readingDigest.bookmark';
+  var DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+  var ID_RE = /^e-\d+$/;
+  var bound = false;
+  var storageAvailable = true;
+  var lastError = '';
+
+  function announce(msg) {
+    var el = root.document && document.querySelector('.r-bookmark-status');
+    if (el) el.textContent = msg || '';
+  }
+
+  function getStore() {
+    try {
+      return root.localStorage;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'localStorage unavailable';
+      return null;
+    }
+  }
+
+  function normalize(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    var date = raw.date;
+    var id = raw.id;
+    if (typeof date !== 'string' || typeof id !== 'string') return null;
+    if (!DATE_RE.test(date) || !ID_RE.test(id)) return null;
+    return { date: date, id: id };
+  }
+
+  function read() {
+    lastError = '';
+    var store = getStore();
+    if (!store) return null;
+    var txt;
+    try {
+      txt = store.getItem(KEY);
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'read failed';
+      return null;
+    }
+    if (txt == null || txt === '') return null;
+    var parsed;
+    try {
+      parsed = JSON.parse(txt);
+    } catch (err) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    var bm = normalize(parsed);
+    if (!bm) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    return bm;
+  }
+
+  function write(bm) {
+    lastError = '';
+    var norm = normalize(bm);
+    if (!norm) {
+      lastError = 'invalid bookmark';
+      return false;
+    }
+    var store = getStore();
+    if (!store) {
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.setItem(KEY, JSON.stringify(norm));
+      storageAvailable = true;
+      announce('已标记到 ' + norm.date + ' 第 ' + norm.id.slice(2) + ' 条');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'write failed';
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function clear() {
+    lastError = '';
+    var store = getStore();
+    if (!store) {
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.removeItem(KEY);
+      storageAvailable = true;
+      announce('已清除标记');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'clear failed';
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function pageDate() {
+    var doc = root.document;
+    if (doc) {
+      var marked = doc.querySelector('[data-digest-date]');
+      if (marked) {
+        var d = marked.getAttribute('data-digest-date');
+        if (d && DATE_RE.test(d)) return d;
+      }
+    }
+    var path = (root.location && root.location.pathname) || '';
+    var m = path.match(/digest-(\d{4}-\d{2}-\d{2})\.html$/);
+    if (m) return m[1];
+    if (root.DIGEST_ARCHIVE && root.DIGEST_ARCHIVE.length && root.DIGEST_ARCHIVE[0].d) {
+      return root.DIGEST_ARCHIVE[0].d;
+    }
+    return '';
+  }
+
+  function entryNum(id) {
+    return id ? id.replace(/^e-/, '') : '';
+  }
+
+  function paintRail(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var lis = doc.querySelectorAll('.rail .a-list li');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].classList.remove('r-has-bookmark');
+      var old = lis[i].querySelector('.r-bookmark-slot');
+      if (old) old.parentNode.removeChild(old);
+    }
+    if (!bm) return;
+    var li = doc.querySelector('.rail .a-list li[data-date="' + bm.date + '"]');
+    if (!li) return;
+    li.classList.add('r-has-bookmark');
+    var slot = doc.createElement('span');
+    slot.className = 'r-bookmark-slot';
+    var link = doc.createElement('a');
+    link.className = 'r-last-read';
+    link.href = 'digest-' + bm.date + '.html#' + bm.id;
+    link.textContent = '上次读到';
+    link.setAttribute('aria-label', '上次读到 ' + bm.date + ' 第 ' + entryNum(bm.id) + ' 条');
+    var clr = doc.createElement('button');
+    clr.type = 'button';
+    clr.className = 'r-clear-mark';
+    clr.textContent = '清除';
+    clr.setAttribute('aria-label', '清除阅读书签');
+    slot.appendChild(link);
+    slot.appendChild(clr);
+    li.appendChild(slot);
+  }
+
+  function paintEntries(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var date = pageDate();
+    var entries = doc.querySelectorAll('article.r-entry[data-entry-id]');
+    for (var i = 0; i < entries.length; i++) {
+      var art = entries[i];
+      var id = art.getAttribute('data-entry-id');
+      var on = !!(bm && bm.date === date && bm.id === id);
+      art.classList.toggle('r-bookmarked', on);
+      var btn = art.querySelector('.r-mark-here');
+      if (!btn) continue;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on) {
+        btn.textContent = '清除标记';
+        btn.setAttribute('aria-label', '清除标记，第 ' + entryNum(id) + ' 条');
+      } else {
+        btn.textContent = '标记读到这里';
+        btn.setAttribute('aria-label', '标记读到这里，第 ' + entryNum(id) + ' 条');
+      }
+    }
+  }
+
+  function paint() {
+    var bm = read();
+    paintRail(bm);
+    paintEntries(bm);
+    return bm;
+  }
+
+  function onMarkClick(btn) {
+    var id = btn.getAttribute('data-entry-id');
+    var date = pageDate();
+    if (!id || !DATE_RE.test(date) || !ID_RE.test(id)) return;
+    var bm = read();
+    if (bm && bm.date === date && bm.id === id) clear();
+    else write({ date: date, id: id });
+    paint();
+  }
+
+  function onDocumentClick(ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var mark = t.closest('.r-mark-here');
+    if (mark) {
+      ev.preventDefault();
+      onMarkClick(mark);
+      return;
+    }
+    var clr = t.closest('.r-clear-mark');
+    if (clr) {
+      ev.preventDefault();
+      clear();
+      paint();
+    }
+  }
+
+  function bind() {
+    if (bound || !root.document) return;
+    root.document.addEventListener('click', onDocumentClick);
+    bound = true;
+  }
+
+  function init() {
+    bind();
+    paint();
+    /* Do not scroll, do not change location, do not write storage on load. */
+  }
+
+  var api = {
+    KEY: KEY,
+    read: read,
+    write: write,
+    clear: clear,
+    pageDate: pageDate,
+    paint: paint,
+    init: init,
+    bind: bind,
+    normalize: normalize,
+    get lastError() { return lastError; },
+    get storageAvailable() { return storageAvailable; },
+    get bound() { return bound; }
+  };
+
+  root.ReadingBookmark = api;
+  /* Script is inlined at the end of the page; required nodes already exist. Init now.
+     Do not wait for DOMContentLoaded — and never write storage or jump on init. */
+  if (root.document) init();
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
 </body>
 </html>

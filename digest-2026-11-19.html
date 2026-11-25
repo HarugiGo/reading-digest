@@ -501,43 +501,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
   .wrap .entry.r-entry p.r-source{margin-left:14px!important}
   .wrap .entry.r-entry p.r-label{margin-top:36px!important}
 }
+
+/* ===== 手动书签：低干扰，不改变米白衬线版式 ===== */
+.wrap .entry.r-entry .r-entry-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px 16px;margin:0 0 22px;flex-wrap:wrap}
+.wrap .entry.r-entry .r-entry-head p.r-no{margin:0!important}
+.wrap .entry.r-entry button.r-mark-here,
+.rail button.r-clear-mark{
+  appearance:none;-webkit-appearance:none;
+  background:none!important;border:0!important;box-shadow:none!important;
+  padding:6px 0;margin:0;cursor:pointer;
+  font:400 12px/1.6 inherit!important;
+  color:#8a8478!important;letter-spacing:.06em!important;
+  text-decoration:none!important;white-space:nowrap
+}
+.wrap .entry.r-entry button.r-mark-here:hover,
+.rail button.r-clear-mark:hover{color:#23211d!important}
+.wrap .entry.r-entry.r-bookmarked button.r-mark-here{color:#6f695e!important}
+.wrap .entry.r-entry button.r-mark-here:focus-visible,
+.rail a.r-last-read:focus-visible,
+.rail button.r-clear-mark:focus-visible{
+  outline:1px solid #23211d;outline-offset:3px
+}
+.wrap .entry.r-entry.r-bookmarked{scroll-margin-top:24px}
+
+/* 往期日期右侧「上次读到」，落在左侧空隙里 */
+.rail .a-list li{
+  display:flex;align-items:center;gap:8px
+}
+.rail .a-list li > a:first-of-type{flex:1 1 auto;min-width:0}
+.rail .r-bookmark-slot{display:inline-flex;align-items:baseline;gap:6px;flex:0 0 auto;margin-left:2px}
+.rail a.r-last-read{
+  display:inline!important;flex-direction:unset!important;
+  padding:0!important;border:0!important;background:none!important;
+  color:#6f695e!important;font-size:11px!important;font-weight:400!important;
+  letter-spacing:.04em!important;text-decoration:none!important;
+  white-space:nowrap;line-height:1.4
+}
+.rail a.r-last-read:hover{color:#23211d!important;padding-left:0!important}
+.rail button.r-clear-mark{padding:0;letter-spacing:.04em!important;font-size:11px!important}
+
+.r-bookmark-status{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+
+@media (max-width:1179px){
+  .wrap .entry.r-entry{scroll-margin-top:72px}
+  .rail .a-list li.r-has-bookmark{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .rail a.r-last-read{
+    padding:0!important;border:0!important;border-radius:0!important;
+    background:none!important;white-space:nowrap
+  }
+  .rail a.r-last-read:hover{padding-left:0!important}
+}
+@media (max-width:640px){
+  .wrap .entry.r-entry .r-entry-head{margin-bottom:18px}
+  .wrap .entry.r-entry button.r-mark-here{padding:8px 0;font-size:12px!important}
+}
 </style><!-- /READING_CSS -->
 <!-- /FB_RAIL_CSS -->
 
 
 
 
-<aside class="rail" aria-label="往期归档">
+<aside class="rail" aria-label="往期归档" data-digest-date="2026-11-19">
   <div class="rail-inner">
     <div class="rail-head">
       <span class="rail-lbl"><span class="rail-zh">往期</span>Archive</span>
       <span class="rail-count">23 期</span>
     </div>
     <ul class="a-list">
-      <li><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
-      <li><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
-      <li><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
-      <li><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
-      <li><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
-      <li><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
-      <li class="a-current"><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
-      <li><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
-      <li><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
-      <li><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
-      <li><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
-      <li><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
-      <li><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
-      <li><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
-      <li><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
-      <li><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
-      <li><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
-      <li><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
-      <li><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
-      <li><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
-      <li><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
-      <li><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
-      <li><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
+      <li data-date="2026-11-25"><a href="digest-2026-11-25.html"><span class="a-date">2026-11-25</span><span class="a-zh">周三 · 2026年11月25日</span></a></li>
+      <li data-date="2026-11-24"><a href="digest-2026-11-24.html"><span class="a-date">2026-11-24</span><span class="a-zh">周二 · 2026年11月24日</span></a></li>
+      <li data-date="2026-11-23"><a href="digest-2026-11-23.html"><span class="a-date">2026-11-23</span><span class="a-zh">周一 · 2026年11月23日</span></a></li>
+      <li data-date="2026-11-22"><a href="digest-2026-11-22.html"><span class="a-date">2026-11-22</span><span class="a-zh">周日 · 2026年11月22日</span></a></li>
+      <li data-date="2026-11-21"><a href="digest-2026-11-21.html"><span class="a-date">2026-11-21</span><span class="a-zh">周六 · 2026年11月21日</span></a></li>
+      <li data-date="2026-11-20"><a href="digest-2026-11-20.html"><span class="a-date">2026-11-20</span><span class="a-zh">周五 · 2026年11月20日</span></a></li>
+      <li class="a-current" data-date="2026-11-19"><a href="digest-2026-11-19.html"><span class="a-date">2026-11-19</span><span class="a-zh">周四 · 2026年11月19日</span></a></li>
+      <li data-date="2026-11-18"><a href="digest-2026-11-18.html"><span class="a-date">2026-11-18</span><span class="a-zh">周三 · 2026年11月18日</span></a></li>
+      <li data-date="2026-11-17"><a href="digest-2026-11-17.html"><span class="a-date">2026-11-17</span><span class="a-zh">周二 · 2026年11月17日</span></a></li>
+      <li data-date="2026-11-16"><a href="digest-2026-11-16.html"><span class="a-date">2026-11-16</span><span class="a-zh">周一 · 2026年11月16日</span></a></li>
+      <li data-date="2026-11-15"><a href="digest-2026-11-15.html"><span class="a-date">2026-11-15</span><span class="a-zh">周日 · 2026年11月15日</span></a></li>
+      <li data-date="2026-11-14"><a href="digest-2026-11-14.html"><span class="a-date">2026-11-14</span><span class="a-zh">周六 · 2026年11月14日</span></a></li>
+      <li data-date="2026-11-13"><a href="digest-2026-11-13.html"><span class="a-date">2026-11-13</span><span class="a-zh">周五 · 2026年11月13日</span></a></li>
+      <li data-date="2026-11-12"><a href="digest-2026-11-12.html"><span class="a-date">2026-11-12</span><span class="a-zh">周四 · 2026年11月12日</span></a></li>
+      <li data-date="2026-11-11"><a href="digest-2026-11-11.html"><span class="a-date">2026-11-11</span><span class="a-zh">周三 · 2026年11月11日</span></a></li>
+      <li data-date="2026-11-10"><a href="digest-2026-11-10.html"><span class="a-date">2026-11-10</span><span class="a-zh">周二 · 2026年11月10日</span></a></li>
+      <li data-date="2026-11-09"><a href="digest-2026-11-09.html"><span class="a-date">2026-11-09</span><span class="a-zh">周一 · 2026年11月9日</span></a></li>
+      <li data-date="2026-11-08"><a href="digest-2026-11-08.html"><span class="a-date">2026-11-08</span><span class="a-zh">周日 · 2026年11月8日</span></a></li>
+      <li data-date="2026-11-07"><a href="digest-2026-11-07.html"><span class="a-date">2026-11-07</span><span class="a-zh">周六 · 2026年11月7日</span></a></li>
+      <li data-date="2026-11-06"><a href="digest-2026-11-06.html"><span class="a-date">2026-11-06</span><span class="a-zh">周五 · 2026年11月6日</span></a></li>
+      <li data-date="2026-11-05"><a href="digest-2026-11-05.html"><span class="a-date">2026-11-05</span><span class="a-zh">周四 · 2026年11月5日</span></a></li>
+      <li data-date="2026-11-04"><a href="digest-2026-11-04.html"><span class="a-date">2026-11-04</span><span class="a-zh">周三 · 2026年11月4日</span></a></li>
+      <li data-date="2026-11-03"><a href="digest-2026-11-03.html"><span class="a-date">2026-11-03</span><span class="a-zh">周二 · 2026年11月3日</span></a></li>
     </ul>
+    <p class="r-bookmark-status" role="status" aria-live="polite"></p>
   </div>
 </aside>
 <script src="archive.js"></script>
@@ -557,71 +615,101 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 
 <details class="toc-m"><summary>本期目录</summary><ul><li class="t-sec"><a href="#e-1">本期<span class="n">10</span></a><ul><li class="t-it"><a href="#e-1">第 1 条 · 要联系群众，就要按照群众的需要和…</a></li><li class="t-it"><a href="#e-2">第 2 条 · 我们的代表大会应该号召全党提起警…</a></li><li class="t-it"><a href="#e-3">第 3 条 · 当着群众还不觉悟的时候，我们要进…</a></li><li class="t-it"><a href="#e-4">第 4 条 · 在一切工作中，命令主义是错误的，…</a></li><li class="t-it"><a href="#e-5">第 5 条 · 从群众中集中起来又到群众中坚持下…</a></li><li class="t-it"><a href="#e-6">第 6 条 · 在我党的一切实际工作中，凡属正确…</a></li><li class="t-it"><a href="#e-7">第 7 条 · 我们应该走到群众中间去，向群众学…</a></li><li class="t-it"><a href="#e-8">第 8 条 · 在我们一些地方的领导机关中，有的…</a></li><li class="t-it"><a href="#e-9">第 9 条 · 在任何群众运动中，群众积极拥护的…</a></li><li class="t-it"><a href="#e-10">第 10 条 · 任何有群众的地方，大致都有比较积…</a></li></ul></li></ul></details>
 <div style="height:72px"></div>
-<article class="entry r-entry" id="e-1">
-  <p class="r-no">01<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-1" data-entry-id="e-1">
+  <div class="r-entry-head">
+    <p class="r-no">01<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-1" aria-pressed="false" aria-label="标记读到这里，第 1 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">要联系群众，就要按照群众的需要和自愿。一切为群众的工作都要从群众的需要出发，而不是从任何良好的个人愿望出发。有许多时候，群众在客观上虽然有了某种改革的需要，但在他们的主观上还没有这种觉悟，群众还没有决心，还不愿实行改革，我们就要耐心地等待；直到经过我们的工作，群众的多数有了觉悟，有了决心，自愿实行改革，才去实行这种改革，否则就会脱离群众。凡是需要群众参加的工作，如果没有群众的自觉和自愿，就会流于徒有形式而失败。……这里是两条原则：一条是群众的实际上的需要，而不是我们脑子里头幻想出来的需要；一条是群众的自愿，由群众自己下决心，而不是由我们代替群众下决心。</p></div>
   <p class="r-source">《文化工作中的统一战线》（1944年10月30日），《毛泽东选集》第三卷第1010—1011页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">王欢、王晓东文章写道：“毛泽东特别强调尊重群众的自觉和自愿，不能自以为是。”随后完整引述了从“一切为群众的工作都要从群众的需要出发”到“两条原则”的论述。</p><p class="r-links"><a href="http://theory.people.com.cn/n/2013/1226/c148980-23952409.html">重温毛泽东关于密切联系群众的经典论述（人民网理论频道，2013年12月26日，王欢、王晓东）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1944年10月30日《文化工作中的统一战线》。当时陕甘宁边区要推进文化教育，扫除文盲、迷信和不卫生的习惯，但不能只凭工作人员自己的愿望去改。原书中的省略号是摘录时的删节，这里照原书保留。</p><p class="r-explain">要联系群众，就要按照群众的<span class="mark">需要和自愿</span>。工作要从群众的需要出发，而不是从任何良好的个人愿望出发。客观上虽然有了某种改革的需要，主观上还没有觉悟、还不愿实行时，就要耐心地等待，先做工作，等到多数人有了觉悟、有了决心、自愿实行，才去实行；否则就会脱离群众，流于徒有形式而失败。这里是两条原则：一条是群众实际上的需要，而不是脑子里幻想出来的需要；一条是群众的自愿，由群众自己下决心，而不是由别人<span class="mark">代替群众下决心</span>。</p>
 </article>
-<article class="entry r-entry" id="e-2">
-  <p class="r-no">02<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-2" data-entry-id="e-2">
+  <div class="r-entry-head">
+    <p class="r-no">02<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-2" aria-pressed="false" aria-label="标记读到这里，第 2 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我们的代表大会应该号召全党提起警觉，注意每一个工作环节上的每一个同志，不要让他脱离群众。教育每一个同志热爱人民群众，细心地倾听群众的呼声；每到一地，就和那里的群众打成一片，不是高踞于群众之上，而是深入于群众之中；根据群众的觉悟程度，去启发和提高群众的觉悟，在群众出于内心自愿的原则之下，帮助群众逐步地组织起来，逐步地展开为当时当地内外环境所许可的一切必要的斗争。</p></div>
   <p class="r-source">《论联合政府》（1945年4月24日），《毛泽东选集》第三卷第1096页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">洪向华、赵培尧文章在论述必须将群众观点和群众路线内化于心、外化于行，始终同人民站在一起、想在一起、干在一起时，引述了毛泽东“教育每一个同志热爱人民群众，细心地倾听群众的呼声；每到一地，就和那里的群众打成一片，不是高踞于群众之上，而是深入于群众之中”的要求，并写道：“新时代的领导干部特别是年轻干部要怀着崇敬之心，坚定公仆意识和为民情怀，积极参加党内集中教育，增进对人民的感情，始终与人民心连心、同呼吸、共命运。”</p><p class="r-links"><a href="http://dangjian.people.com.cn/n1/2022/1227/c117092-32594273.html">用好群众路线传家宝（中国共产党新闻网，2022年12月27日，来源中央纪委国家监委网站，洪向华、赵培尧）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1945年4月24日《论联合政府》，紧接在关于正确与错误的检验标准之后。它把“不脱离群众”从一句原则，说成可以检查的做法。</p><p class="r-explain">要注意每一个工作环节上的每一个同志，不要让他脱离群众。具体的要求是：细心地<span class="mark">倾听群众的呼声</span>；每到一地，就和那里的人打成一片，不是高踞于群众之上，而是<span class="mark">深入于群众之中</span>；根据已有的觉悟程度去启发和提高，并在内心自愿的原则之下，帮助人们逐步地组织起来，展开当时当地条件所许可的工作。它既反对浮在上面不下去，也反对不顾条件和意愿、一步想跨到位。</p>
 </article>
-<article class="entry r-entry" id="e-3">
-  <p class="r-no">03<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-3" data-entry-id="e-3">
+  <div class="r-entry-head">
+    <p class="r-no">03<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-3" aria-pressed="false" aria-label="标记读到这里，第 3 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">当着群众还不觉悟的时候，我们要进攻，那是冒险主义。群众不愿干的事，我们硬要领导他们去干，其结果必然失败。当着群众要求前进的时候，我们不前进，那是右倾机会主义。</p></div>
   <p class="r-source">《对晋绥日报编辑人员的谈话》（1948年4月2日），《毛泽东选集》第四卷第1319页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">学习时报储峰文章在讲解“善于使我们的每一个运动，每一个斗争，不但领导干部懂得，而且广大的群众都能懂得，都能掌握”时写道：毛泽东认为这也是党的工作犯不犯错误的根本界限。他指出，当群众还不觉悟的时候，我们要进攻，那就会犯冒险主义的错误；而当群众要求前进的时候，我们不前进，那就会犯右倾机会主义的错误，其结果必然失败。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2018/0808/c85037-30216689.html">重温毛泽东《对晋绥日报编辑人员的谈话》（人民网党史频道，2018年8月8日，来源《学习时报》，储峰）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1948年4月2日《对晋绥日报编辑人员的谈话》，说的是工作犯不犯错误的一条界限。</p><p class="r-explain">两头都要防：群众还不觉悟的时候就要进攻，那是<span class="mark">冒险主义</span>；群众不愿干的事，硬要他们去干，结果必然失败。反过来，群众已经要求前进的时候，自己却不前进，那是<span class="mark">右倾机会主义</span>。它不是要人永远等着，也不是要人永远往前冲，而是把节奏对准人们现在所处的位置：未觉醒时先做工作，已经要求前进时就不要停住。</p>
 </article>
-<article class="entry r-entry" id="e-4">
-  <p class="r-no">04<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-4" data-entry-id="e-4">
+  <div class="r-entry-head">
+    <p class="r-no">04<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-4" aria-pressed="false" aria-label="标记读到这里，第 4 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">在一切工作中，命令主义是错误的，因为它超过群众的觉悟程度，违反了群众的自愿原则，害了急性病。我们的同志不要以为自己了解了的东西，广大群众也和自己一样都了解了。群众是否已经了解并且是否愿意行动起来，要到群众中去考察才会知道。如果我们这样做，就可以避免命令主义。在一切工作中，尾巴主义也是错误的，因为它落后于群众的觉悟程度，违反了领导群众前进一步的原则，害了慢性病。我们的同志不要以为自己还不了解的东西，群众也一概不了解。许多时候，广大群众跑到我们的前头去了，迫切地需要前进一步了，我们的同志不能做广大群众的领导者，却反映了一部分落后分子的意见，并且将这种落后分子的意见误认为广大群众的意见，做了落后分子的尾巴。</p></div>
   <p class="r-source">《论联合政府》（1945年4月24日），《毛泽东选集》第三卷第1096—1097页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">解放军报唐明文文章在引述命令主义“害了急性病”、尾巴主义“害了慢性病”后写道：这两种主义“都是不顾群众觉悟程度、违背群众自愿原则的表现”。文章指出，要克服这些错误，就要像毛泽东指出的那样，既“当人民群众的学生”，又“当人民群众的老师”。</p><p class="r-links"><a href="http://qzlx.people.com.cn/n/2014/0124/c364565-24216003.html">解放军报：反对命令主义和尾巴主义（人民网群众路线网，2014年1月24日，来源《解放军报》，唐明文）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1945年4月24日《论联合政府》，把上一句里的“冒险”和“不前进”进一步说成两种病：命令主义害了急性病，尾巴主义害了慢性病。</p><p class="r-explain"><span class="mark">命令主义</span>是错误的，因为它超过群众的觉悟程度，违反了自愿原则。不要以为自己了解了的东西，广大群众也和自己一样都了解了；是否已经了解、是否愿意行动，要到群众中去考察才会知道。<span class="mark">尾巴主义</span>也是错误的，因为它落后于群众的觉悟程度，违反了领导群众前进一步的原则。不要以为自己还不了解的东西，群众也一概不了解。许多时候群众已经跑到前头、迫切地需要前进一步了，有的人却把一部分落后意见误当成广大群众的意见，做了落后分子的尾巴。避免这两种错误的办法是同一个：到群众中去看清楚，再决定是慢一点讲明白，还是快一步跟上。</p>
 </article>
-<article class="entry r-entry" id="e-5">
-  <p class="r-no">05<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-5" data-entry-id="e-5">
+  <div class="r-entry-head">
+    <p class="r-no">05<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-5" aria-pressed="false" aria-label="标记读到这里，第 5 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">从群众中集中起来又到群众中坚持下去，以形成正确的领导意见，这是基本的领导方法。</p></div>
   <p class="r-source">《关于领导方法的若干问题》（1943年6月1日），《毛泽东选集》第三卷第902页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">学习时报张太原文章在讲解《关于领导方法的若干问题》时写道：领导和群众相结合，“作为领导者，要先做群众的学生，再做群众的先生。就是从群众中来，到群众中去。从群众中来，领导者是群众的学生，说的是制定政策的过程；到群众中去，领导者是群众的先生，说的是贯彻执行的过程。”</p><p class="r-links"><a href="http://theory.people.com.cn/n1/2016/0908/c376186-28700366.html">《关于领导方法的若干问题》导读（人民网理论频道，2016年9月8日，来源《学习时报》，张太原）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1943年6月1日毛泽东为中共中央起草的决定《关于领导方法的若干问题》。当时延安整风已经开展，这篇决定把群众路线概括成可以实行的方法。</p><p class="r-explain">句子很短，说的却是基本方法：<span class="mark">从群众中集中起来</span>，又到群众中<span class="mark">坚持下去</span>，以形成正确的领导意见。集中，是把分散的意见收拢、研究；坚持下去，是回到群众中去实行、检验。没有前一步，意见没有来处；没有后一步，意见落不到行动上。它把正确的意见放在这个来回里形成，而不是关起门来一次定完。</p>
 </article>
-<article class="entry r-entry" id="e-6">
-  <p class="r-no">06<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-6" data-entry-id="e-6">
+  <div class="r-entry-head">
+    <p class="r-no">06<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-6" aria-pressed="false" aria-label="标记读到这里，第 6 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">在我党的一切实际工作中，凡属正确的领导，必须是从群众中来，到群众中去。这就是说，将群众的意见（分散的无系统的意见）集中起来（经过研究，化为集中的系统的意见），又到群众中去作宣传解释，化为群众的意见，使群众坚持下去，见之于行动，并在群众行动中考验这些意见是否正确。然后再从群众中集中起来，再到群众中坚持下去。如此无限循环，一次比一次的更正确、更生动、更丰富。这就是马克思主义的认识论。</p></div>
   <p class="r-source">《关于领导方法的若干问题》（1943年6月1日），《毛泽东选集》第三卷第901页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">王欢、王晓东文章写道：1943年6月，毛泽东在《关于领导方法若干问题》一文中，“科学地阐述了群众路线的基本内容，分析了‘从群众中来，到群众中去’的全过程及各个环节，提出了‘一般和个别相结合’、‘领导和群众相结合’、‘有中心而又有秩序’等领导方法和工作方法的重要原则，把群众路线的领导方法和工作方法系统化、条理化。”随后完整引述了“凡属正确的领导，必须是从群众中来，到群众中去”至“这就是马克思主义的认识论”一段。</p><p class="r-links"><a href="http://theory.people.com.cn/n/2013/1226/c148980-23952409-2.html">重温毛泽东关于密切联系群众的经典论述（人民网理论频道，2013年12月26日，王欢、王晓东）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话与上一条同出《关于领导方法的若干问题》，把“从群众中来，到群众中去”展开成一个完整过程，并把它说成马克思主义的认识论。</p><p class="r-explain">具体步骤是：将群众分散的、无系统的意见集中起来，经过研究，化为集中的、系统的意见；再回到群众中作宣传解释，化为群众的意见，使群众坚持下去，见之于行动，并在行动中考验这些意见是否正确；然后再从群众中集中起来，再到群众中坚持下去。如此无限循环，一次比一次更正确、更生动、更丰富。<span class="mark">从群众中来，到群众中去</span>，不是走一遍就结束，而是靠<span class="mark">循环</span>把认识一次次提高。</p>
 </article>
-<article class="entry r-entry" id="e-7">
-  <p class="r-no">07<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-7" data-entry-id="e-7">
+  <div class="r-entry-head">
+    <p class="r-no">07<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-7" aria-pressed="false" aria-label="标记读到这里，第 7 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">我们应该走到群众中间去，向群众学习，把他们的经验综合起来，成为更好的有条理的道理和办法，然后再告诉群众（宣传），并号召群众实行起来，解决群众的问题，使群众得到解放和幸福。</p></div>
   <p class="r-source">《组织起来》（1943年11月29日），《毛泽东选集》第三卷第936页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">学习时报赵园园文章在讲解《组织起来》时写道：同群众相结合还要总结群众经验，为群众谋幸福。“他认为要把群众的经验综合起来，形成更有条理的道理和方法，通过宣传、动员，让群众行动起来，从而使群众得到解放和幸福。”文章并指出，同群众相结合首先要深入群众生活，向群众学习。</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2019/0517/c85037-31089495.html">组织起来就会“无敌于天下”——重温毛泽东《组织起来》的讲话（人民网党史频道，2019年5月17日，来源《学习时报》，赵园园）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1943年11月29日毛泽东在中共中央招待陕甘宁边区劳动英雄大会上的讲话《组织起来》。当时根据地正开展大生产运动，讲话要回答的是：怎样把群众的力量真正组织起来。</p><p class="r-explain">办法说得很清楚：走到群众中间去，<span class="mark">向群众学习</span>，把他们的经验综合起来，成为更好的有条理的道理和办法，然后再告诉群众（宣传），并号召群众实行起来，解决群众的问题，使群众得到解放和幸福。先当学生，把经验综合好，再作宣传、号召实行。组织起来，不是把现成的一套吩咐下去，而是从群众的经验里做成办法，再回到群众中去做。</p>
 </article>
-<article class="entry r-entry" id="e-8">
-  <p class="r-no">08<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-8" data-entry-id="e-8">
+  <div class="r-entry-head">
+    <p class="r-no">08<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-8" aria-pressed="false" aria-label="标记读到这里，第 8 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">在我们一些地方的领导机关中，有的人认为，党的政策只要领导人知道就行，不需要让群众知道。这是我们的有些工作不能做好的基本原因之一。</p></div>
   <p class="r-source">《对晋绥日报编辑人员的谈话》（1948年4月2日），《毛泽东选集》第四卷第1317页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">学习时报储峰文章写道：“然而，并非所有的党员干部都认识到了通过报纸让群众了解党的政策的重要性，比如有的党员干部就认为党的政策只要党的领导人知道就行，不需要让群众知道。毛泽东批评了这一错误认识，他严肃指出这‘是我们的有些工作不能做好的基本原因之一’。”</p><p class="r-links"><a href="http://dangshi.people.com.cn/n1/2018/0808/c85037-30216689.html">重温毛泽东《对晋绥日报编辑人员的谈话》（人民网党史频道，2018年8月8日，来源《学习时报》，储峰）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话出自1948年4月2日《对晋绥日报编辑人员的谈话》。它指出一种常见的错误看法：政策只要少数人知道就行，不需要让群众知道。</p><p class="r-explain">毛泽东把这种看法说成有些工作不能做好的<span class="mark">基本原因之一</span>。政策只停在少数人那里，下面的人不知道要做什么、应当怎样做，就无法齐心去实行。这一条和前面“要向大家讲清楚”是同一件事：要让相关的人<span class="mark">知道政策</span>，工作才做得好。</p>
 </article>
-<article class="entry r-entry" id="e-9">
-  <p class="r-no">09<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-9" data-entry-id="e-9">
+  <div class="r-entry-head">
+    <p class="r-no">09<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-9" aria-pressed="false" aria-label="标记读到这里，第 9 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">在任何群众运动中，群众积极拥护的有多少，反对的有多少，处于中间状态的有多少，这些都必须有个基本的调查，基本的分析，不可无根据地、主观地决定问题。</p></div>
   <p class="r-source">《党委会的工作方法》（1949年3月13日），《毛泽东选集》第四卷第1444页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">吕臻刊于《党的文献》的文章，在讲述土地改革必须做好基础调查统计和分析测算时写道：要做好这一政策性、策略性要求都很高的工作，“就必须从各方面细致准确掌握，搞好基础调查统计和分析测算，据此制定正确的政策和策略。”文章随后引述：“在任何群众运动中，群众积极拥护的有多少，反对的有多少，处于中间状态的有多少，这些都必须有个基本的调查，基本的分析，不可无根据地、主观地决定问题”。</p><p class="r-links"><a href="https://www.ccphistory.org.cn/shds/shhm/content/c63a927f-f689-4478-b3e2-feec1764bdf2.html">毛泽东胸中有“数”的工作方法（上海党史网，2024年10月24日，来源《党的文献》，吕臻）</a></p>
   <p class="r-label">讲解</p><p class="r-explain">这段话是《党委会的工作方法》十二条中“胸中有‘数’”的具体要求之一，写于1949年3月13日。</p><p class="r-explain">在任何群众运动中，都要弄清：积极拥护的有多少，反对的有多少，处于中间状态的有多少。这些都必须有个<span class="mark">基本的调查，基本的分析</span>，不可无根据地、<span class="mark">主观地决定问题</span>。它把判断建立在三类人各占多少的数量分析上，而不是凭印象说“大家都赞成”或“大家都反对”。</p>
 </article>
-<article class="entry r-entry" id="e-10">
-  <p class="r-no">10<span class="r-of"> / 10</span></p>
+<article class="entry r-entry" id="e-10" data-entry-id="e-10">
+  <div class="r-entry-head">
+    <p class="r-no">10<span class="r-of"> / 10</span></p>
+    <button type="button" class="r-mark-here" data-entry-id="e-10" aria-pressed="false" aria-label="标记读到这里，第 10 条">标记读到这里</button>
+  </div>
   <div class="r-quote-block"><p class="r-quote">任何有群众的地方，大致都有比较积极的、中间状态的和比较落后的三部分人。故领导者必须善于团结少数积极分子作为领导的骨干，并凭借这批骨干去提高中间分子，争取落后分子。</p></div>
   <p class="r-source">《关于领导方法的若干问题》（1943年6月1日），《毛泽东选集》第三卷第900页，《毛主席语录》第十一章</p>
   <p class="r-label">官方解读</p><p class="r-official">中央党校教授祝灵君文章写道：“凡是有群众的地方，大致有三种人：比较积极的、中间状态和比较后进的。在三种人中，比较积极的和后进的只是少数，大部分人是中间状态。做人的工作，需要发动积极分子去带动中间分子，调动中间分子去影响后进分子，最终带动集体去实现组织目标。这种工作办法被称之为‘抓两头，带中间’，是我们党做群众工作的基本方法之一。”</p><p class="r-links"><a href="http://news.12371.cn/2014/03/03/ARTI1393839574782746.shtml">抓两头 带中间（共产党员网，2014年3月3日，祝灵君）</a></p>
@@ -637,5 +725,258 @@ p.disclaimer{margin:24px 0 0!important;font-size:13px!important;line-height:1.7!
 function f(){var k=-1;for(var j=0;j<ts.length;j++){if(ts[j]&&ts[j].getBoundingClientRect().top<120)k=j;}ls.forEach(function(a,j){a.classList.toggle('on',j===k);});
 if(k>=0){var a=ls[k],t=a.closest('.toc');var r=a.getBoundingClientRect(),q=t.getBoundingClientRect();if(r.top<q.top||r.bottom>q.bottom)t.scrollTop+=r.top-q.top-q.height/2;}}
 addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>
+/* Reading Digest manual bookmark.
+   Only click handlers write to localStorage. Scroll, load, hash, and history must never save or overwrite.
+   One bookmark per browser: { date: 'YYYY-MM-DD', id: 'e-N' }. No account, no cross-device, no auto-jump.
+*/
+(function (root) {
+  var KEY = 'readingDigest.bookmark';
+  var DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+  var ID_RE = /^e-\d+$/;
+  var bound = false;
+  var storageAvailable = true;
+  var lastError = '';
+
+  function announce(msg) {
+    var el = root.document && document.querySelector('.r-bookmark-status');
+    if (el) el.textContent = msg || '';
+  }
+
+  function getStore() {
+    try {
+      return root.localStorage;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'localStorage unavailable';
+      return null;
+    }
+  }
+
+  function normalize(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    var date = raw.date;
+    var id = raw.id;
+    if (typeof date !== 'string' || typeof id !== 'string') return null;
+    if (!DATE_RE.test(date) || !ID_RE.test(id)) return null;
+    return { date: date, id: id };
+  }
+
+  function read() {
+    lastError = '';
+    var store = getStore();
+    if (!store) return null;
+    var txt;
+    try {
+      txt = store.getItem(KEY);
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'read failed';
+      return null;
+    }
+    if (txt == null || txt === '') return null;
+    var parsed;
+    try {
+      parsed = JSON.parse(txt);
+    } catch (err) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    var bm = normalize(parsed);
+    if (!bm) {
+      try { store.removeItem(KEY); } catch (e2) {}
+      return null;
+    }
+    return bm;
+  }
+
+  function write(bm) {
+    lastError = '';
+    var norm = normalize(bm);
+    if (!norm) {
+      lastError = 'invalid bookmark';
+      return false;
+    }
+    var store = getStore();
+    if (!store) {
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.setItem(KEY, JSON.stringify(norm));
+      storageAvailable = true;
+      announce('已标记到 ' + norm.date + ' 第 ' + norm.id.slice(2) + ' 条');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'write failed';
+      announce('无法保存书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function clear() {
+    lastError = '';
+    var store = getStore();
+    if (!store) {
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+    try {
+      store.removeItem(KEY);
+      storageAvailable = true;
+      announce('已清除标记');
+      return true;
+    } catch (err) {
+      storageAvailable = false;
+      lastError = 'clear failed';
+      announce('无法清除书签，浏览器可能禁用了本地存储');
+      return false;
+    }
+  }
+
+  function pageDate() {
+    var doc = root.document;
+    if (doc) {
+      var marked = doc.querySelector('[data-digest-date]');
+      if (marked) {
+        var d = marked.getAttribute('data-digest-date');
+        if (d && DATE_RE.test(d)) return d;
+      }
+    }
+    var path = (root.location && root.location.pathname) || '';
+    var m = path.match(/digest-(\d{4}-\d{2}-\d{2})\.html$/);
+    if (m) return m[1];
+    if (root.DIGEST_ARCHIVE && root.DIGEST_ARCHIVE.length && root.DIGEST_ARCHIVE[0].d) {
+      return root.DIGEST_ARCHIVE[0].d;
+    }
+    return '';
+  }
+
+  function entryNum(id) {
+    return id ? id.replace(/^e-/, '') : '';
+  }
+
+  function paintRail(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var lis = doc.querySelectorAll('.rail .a-list li');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].classList.remove('r-has-bookmark');
+      var old = lis[i].querySelector('.r-bookmark-slot');
+      if (old) old.parentNode.removeChild(old);
+    }
+    if (!bm) return;
+    var li = doc.querySelector('.rail .a-list li[data-date="' + bm.date + '"]');
+    if (!li) return;
+    li.classList.add('r-has-bookmark');
+    var slot = doc.createElement('span');
+    slot.className = 'r-bookmark-slot';
+    var link = doc.createElement('a');
+    link.className = 'r-last-read';
+    link.href = 'digest-' + bm.date + '.html#' + bm.id;
+    link.textContent = '上次读到';
+    link.setAttribute('aria-label', '上次读到 ' + bm.date + ' 第 ' + entryNum(bm.id) + ' 条');
+    var clr = doc.createElement('button');
+    clr.type = 'button';
+    clr.className = 'r-clear-mark';
+    clr.textContent = '清除';
+    clr.setAttribute('aria-label', '清除阅读书签');
+    slot.appendChild(link);
+    slot.appendChild(clr);
+    li.appendChild(slot);
+  }
+
+  function paintEntries(bm) {
+    var doc = root.document;
+    if (!doc) return;
+    var date = pageDate();
+    var entries = doc.querySelectorAll('article.r-entry[data-entry-id]');
+    for (var i = 0; i < entries.length; i++) {
+      var art = entries[i];
+      var id = art.getAttribute('data-entry-id');
+      var on = !!(bm && bm.date === date && bm.id === id);
+      art.classList.toggle('r-bookmarked', on);
+      var btn = art.querySelector('.r-mark-here');
+      if (!btn) continue;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      if (on) {
+        btn.textContent = '清除标记';
+        btn.setAttribute('aria-label', '清除标记，第 ' + entryNum(id) + ' 条');
+      } else {
+        btn.textContent = '标记读到这里';
+        btn.setAttribute('aria-label', '标记读到这里，第 ' + entryNum(id) + ' 条');
+      }
+    }
+  }
+
+  function paint() {
+    var bm = read();
+    paintRail(bm);
+    paintEntries(bm);
+    return bm;
+  }
+
+  function onMarkClick(btn) {
+    var id = btn.getAttribute('data-entry-id');
+    var date = pageDate();
+    if (!id || !DATE_RE.test(date) || !ID_RE.test(id)) return;
+    var bm = read();
+    if (bm && bm.date === date && bm.id === id) clear();
+    else write({ date: date, id: id });
+    paint();
+  }
+
+  function onDocumentClick(ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var mark = t.closest('.r-mark-here');
+    if (mark) {
+      ev.preventDefault();
+      onMarkClick(mark);
+      return;
+    }
+    var clr = t.closest('.r-clear-mark');
+    if (clr) {
+      ev.preventDefault();
+      clear();
+      paint();
+    }
+  }
+
+  function bind() {
+    if (bound || !root.document) return;
+    root.document.addEventListener('click', onDocumentClick);
+    bound = true;
+  }
+
+  function init() {
+    bind();
+    paint();
+    /* Do not scroll, do not change location, do not write storage on load. */
+  }
+
+  var api = {
+    KEY: KEY,
+    read: read,
+    write: write,
+    clear: clear,
+    pageDate: pageDate,
+    paint: paint,
+    init: init,
+    bind: bind,
+    normalize: normalize,
+    get lastError() { return lastError; },
+    get storageAvailable() { return storageAvailable; },
+    get bound() { return bound; }
+  };
+
+  root.ReadingBookmark = api;
+  /* Script is inlined at the end of the page; required nodes already exist. Init now.
+     Do not wait for DOMContentLoaded — and never write storage or jump on init. */
+  if (root.document) init();
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
 </body>
 </html>
